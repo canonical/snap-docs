@@ -10,6 +10,7 @@ For details on using _snapctl_ to add user options to a snap, see [Adding snap c
 From within a snap, _snapctl_ can do the following:
 
 * **[Configure options](#heading--configuration-options)**: retrieve, remove and set options
+* **[Access confdb](#heading--confdb)**: access and modify confdb data
 * **[Components](#heading--components)**: install and remove snap components
 * **[Health state](#heading--health-state)**: define the operational state of the snap
 * **[Interface connections](#heading--interface-connections)**: query a connection state
@@ -62,6 +63,26 @@ $ snapctl get ports
 To see this in action, look at the [NextCloud snap](https://github.com/nextcloud/nextcloud-snap). It uses `snapctl` within its [various hooks](https://github.com/nextcloud/nextcloud-snap/blob/master/src/hooks/utilities/configuration-utilities) to set configuration options such as `snapctl get private.mode` and `snapctl set private.mode="$1"`.
 
 For more information, see [Adding snap configuration](/) and [The `configure` hook](/t/supported-snap-hooks/3795#heading--the-configure-hook).
+
+<h2 id='heading--confdb'>Confdb</h2>
+
+The `snapctl get`, `snapctl set` and `snapctl unset` commands can also be used to access and modify [confdb configurations](/explanation/how-snaps-work/confdb-configuration-mechanism.md). To use `snapctl` to access confdb, you can include the `--view` flag as well as the name of the snap's [interface plug](/explanation/how-snaps-work/confdb-configuration-mechanism/#interface-plugs) that refers to the [confdb view](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/) being accessed, prefixed with a colon.
+
+```sh
+$ snapctl get --view :setup-wifi ssid
+foo
+```
+
+When using `snapctl get` in [confdb hooks](/explanation/how-snaps-work/confdb-configuration-mechanism.md#hooks), the data returned will reflect the changes being committed as part of the ongoing transaction that resulted in the hooks being invoked. To read the state of the confdb without the uncommitted changes, you can use the `--previous` flag.
+
+```sh
+$ snapctl get --view --previous :setup-wifi ssid
+bar
+```
+
+You can also use the `--default` flag to provide a default value to be returned if no data is stored under the requested configuration path.
+
+For further information on confdb, see [Configure snaps with confdb](/how-to-guides/manage-snaps/configure-snaps-with-confdb.md) and [Confdb configuration mechanism](/explanation/how-snaps-work/confdb-configuration-mechanism.md).
 
 <h2 id='heading--components'>Components</h2>
 
