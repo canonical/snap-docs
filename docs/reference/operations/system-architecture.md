@@ -14,7 +14,7 @@ These components inter-communicate and operate together to create a secure and c
 
 The snap daemon, **snapd**,  handles **snap management** to configure and maintain each snap. 
 
-The snap damon also maintains the **security configuration** that creates the **sandbox** for both snap executables and data. This is implemented using various **security modules** of the **Linux kernel**, including Seccomp, AppAmor and Cgroups.
+The snap damon also maintains the **security configuration** that creates the **sandbox** for both snap executables and data. This is implemented using various **security modules** of the **Linux kernel**, including Seccomp, AppArmor and Cgroups.
 
 Snaps have the least possible privileges by default. Additional system resources are permitted through the **[interfaces](t/35928)** mechanism which changes the security profile for each snap.
 
