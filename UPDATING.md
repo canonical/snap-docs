@@ -13,10 +13,10 @@ The local build process should be triggered using `make run` in the `docs`
 project directory. The Makefile orchestrates the build process, serves the
 webpage, and provides checks for many different compliance metrics. To view a
 list of supported compliance checks run `make` without arguments.
-- [conf.py] - Used by the Sphinx document generator to configure the build
-    process. Configures the context for the HTML page. This has not been
-    configured yet.
-- [pre-build-job.sh] - Used with Sphinx to create a standard set of actions that
+- `conf.py` - Used by the Sphinx document generator to configure the build
+    process. Configures the context for the HTML page. The metadata for this
+    project has not been configured yet.
+- `pre-build-job.sh` - Used with Sphinx to create a standard set of actions that
     are run before every build. For the Snap project, this script gets the
     latest build artifacts from
     [snapd-rest-openapi](https://github.com/canonical/snapd-rest-openapi) and
@@ -27,7 +27,7 @@ list of supported compliance checks run `make` without arguments.
 Since the RTD build process uses a hosted environment, configuration is done via
 files located in the GitHub repository. The following file is used for exclusive
 modifications to the RTD build process:
-- [.readthedocs.yaml] - Used by RTD to control the build process. This file
+- `.readthedocs.yaml` - Used by RTD to control the build process. This file
     contains information necessary for environment setup, and allows for
     configuring the build jobs that sphinx uses.
 
@@ -43,8 +43,8 @@ The hosted build process is handled remotely by RTD, with little intervention
 allowed outside the GitHub repository, according to the following workflow:
 1. Upon a pull request being merged to the main repo, RTD detects changes have
     been made and checks out the latest commit.
-2. The build process begins and a console output is available via the [RTD
-    Webpage](https://app.readthedocs.com/projects/canonical-snap/). The build
-    takes approximately 20 minutes.
+2. The build process begins and a console output is available via the
+    [RTD Webpage](https://app.readthedocs.com/projects/canonical-snap/).
+    The build takes approximately 20 minutes.
 3. If the build process is successful, the generated documentation will be
     hosted [here](https://canonical-snap.readthedocs-hosted.com/).
