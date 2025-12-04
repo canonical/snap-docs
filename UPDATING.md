@@ -3,12 +3,12 @@
     SPDX-License-Identifier: GPL-3.0-only
 -->
 
-# Updating ReadTheDocs Project
-In order to update the ReadTheDocs (RTD) project, there are a series of steps
+# Updating Read The Docs integration
+In order to update the Read The Docs (RTD) project, there are a series of steps
 that must be performed to ensure the changes are present and consistent between
 the hosted and local builds of the project.
 
-## Local Build Process
+## Local build process
 The local build process should be triggered using `make run` in the `docs`
 project directory. The Makefile orchestrates the build process, serves the
 webpage, and provides checks for many different compliance metrics. To view a
@@ -23,24 +23,24 @@ list of supported compliance checks run `make` without arguments.
     places them in a directory that Sphinx has been configured to include in the
     build process.
 
-## ReadTheDocs Build Process
+## Read The Docs Build Process
 Since the RTD build process uses a hosted environment, configuration is done via
-files located in the github repository. The following file is used for exclusive
+files located in the GitHub repository. The following file is used for exclusive
 modifications to the RTD build process:
 - [.readthedocs.yaml] - Used by RTD to control the build process. This file
-    contains information nessecary for environment setup, and allows for
+    contains information necessary for environment setup, and allows for
     configuring the build jobs that sphinx uses.
 
 For the Snap documentation use case, we are interacting with actions in other
-Github repositories, requiring the use of the `gh` command line tool. To prevent
+GitHub repositories, requiring the use of the `gh` command line tool. To prevent
 any issues with rate limiting on the RTD build servers, a token is configured in
 the RTD project settings, which is only accessible by organization admins. The
 token is assigned to an environment variable prior to launching the
 pre-build-job, and upon running `gh` will read this token and use it to
-authenticate with Github.
+authenticate with GitHub.
 
 The hosted build process is handled remotely by RTD, with little intervention
-allowed outside the GitHub repo, and follows the workflow:
+allowed outside the GitHub repository, according to the following workflow:
 1. Upon a pull request being merged to the main repo, RTD detects changes have
     been made and checks out the latest commit.
 2. The build process begins and a console output is available via the [RTD
