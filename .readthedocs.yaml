@@ -35,7 +35,7 @@ build:
       # 5. Run the script with the PATH and TOKEN set specifically for this command
       #    We add $HOME/bin to PATH so the script can just say 'gh' instead of full path
       #    We map RTD_TOKEN to GITHUB_TOKEN so gh finds it automatically
-      - PATH=$HOME/bin:$PATH GITHUB_TOKEN=$RTD_TOKEN SOURCEDIR=docs  bash docs/jobs/pre-build-job.sh
+      - PATH=$HOME/bin:$PATH GITHUB_TOKEN=$RTD_TOKEN SOURCEDIR=docs bash docs/jobs/pre-build-job.sh
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:

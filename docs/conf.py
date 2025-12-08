@@ -286,11 +286,12 @@ exclude_patterns = [
 
 # html_css_files = []
 
+# Used for copying OpenAPI HTML file
 html_extra_path = ["_html_extra"]
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
-html_js_files = ['js/theme-sync.js']
+# html_js_files = ['']
 
 # Specifies a reST snippet to be appended to each .rst file
 

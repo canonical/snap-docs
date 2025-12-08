@@ -18,7 +18,7 @@ list of supported compliance checks run `make` without arguments.
     project has not been configured yet.
 - `pre-build-job.sh` - Used with Sphinx to create a standard set of actions that
     are run before every build. For the Snap project, this script gets the
-    latest build artifacts from
+    latest build artifact from
     [snapd-rest-openapi](https://github.com/canonical/snapd-rest-openapi) and
     places them in a directory that Sphinx has been configured to include in the
     build process.
