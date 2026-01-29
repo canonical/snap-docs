@@ -19,8 +19,9 @@ LATEST_RUN_ID=$(gh run list \
   -R "${REPO}" \
   --workflow "${WORKFLOW}" \
   --limit 20 \
+  --status success \
   --json databaseId,headBranch,conclusion \
-  -q '.[] | select(.headBranch == "master" and .conclusion == "success") | .databaseId' \
+  -q '.[] | select(.headBranch == "master") | .databaseId' \
   | head -n 1)
 
 if [ -z "$LATEST_RUN_ID" ]; then
