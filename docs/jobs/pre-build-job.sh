@@ -18,7 +18,6 @@ echo "Fetching latest successful Run ID from ${REPO} (branch: master)..."
 LATEST_RUN_ID=$(gh run list \
   -R "${REPO}" \
   --workflow "${WORKFLOW}" \
-  --limit 20 \
   --status success \
   --json databaseId,headBranch,conclusion \
   -q '.[] | select(.headBranch == "master") | .databaseId' \
