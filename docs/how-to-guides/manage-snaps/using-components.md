@@ -53,7 +53,6 @@ other-snap-with-comps+two    installed  standard
 other-snap-with-comps+three  available  standard
 ```
 
-
 A snap name can be optionally provided to filters the list of reported components to those only associated with the provided snap:
 
 ```bash
@@ -63,6 +62,49 @@ snap-with-comps+one      	installed  standard
 snap-with-comps+two      	installed  standard
 snap-with-comps+three    	available  standard
 Note that there are some plans for a "snap component" subcommand, but that is not yet implemented and there are talks of changing its design.
+```
+
+Using the `snap-info` command displays a summary of the ratio of installed components to components available from the store. If both installed and available components are zero, the summary will be omitted
+
+```bash
+snap info qwen-vl 
+name:      qwen-vl
+summary:   Qwen VL inference snap
+...
+installed:          2.5            (248) 332MB -
+components: 4/14
+```
+
+## Introspecting components
+
+In order to view information regarding an installed/available component(s), the `snap component` command may be used.
+
+```bash
+snap component qwen-vl+llamacpp
+component: qwen-vl+llamacpp
+type: standard
+summary: llama.cpp Engine using default CPU instruction sets
+description: |
+  LLM inference in C/C++
+installed: b5794 (240) 30MB
+```
+
+The last line, `installed:` is only printed if a component is installed.
+
+```bash
+snap component qwen-vl+llamacpp+model-qwen2-5-vl-3b-instruct-q4-k-m
+component: qwen-vl+llamacpp
+type: standard
+summary: llama.cpp Engine using default CPU instruction sets
+description: |
+  LLM inference in C/C++
+installed: b5794 (247) 31MB
+---
+component: qwen-vl+model-qwen2-5-vl-3b-instruct-q4-k-m
+type: standard
+summary: Qwen 2.5 VL 3B Q4
+description: |
+  Quantized model with 3B parameters in gguf format with Q4_K_M weight encoding
 ```
 
 ## Removing components
