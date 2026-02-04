@@ -16,4 +16,3 @@ Enforced validation sets prevent listed snaps and components from being removed 
 """bash
 error: cannot remove component "mysnap+mycomp" as it is required by an enforcing validation set
 """
-
