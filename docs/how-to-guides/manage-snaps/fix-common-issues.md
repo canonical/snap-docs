@@ -107,7 +107,7 @@ sudo sysctl kernel.unprivileged_userns_clone=1
 
 After installing the snap daemon, _snapd_, it can take a short amount of time to initialise its environment.
 
-During this initialisation period, if certain instructions are attempted either from the `snap` command or the [REST API](reference/api/redoc-static), the following error may be generated:
+During this initialisation period, if certain instructions are attempted either from the `snap` command or the [REST API](/reference/api/redoc-static), the following error may be generated:
 
 `error: too early for operation, device not yet seeded or device model not acknowledged`
 

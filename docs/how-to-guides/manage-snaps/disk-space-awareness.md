@@ -25,7 +25,7 @@ $ snap remove foo
 error: cannot remove "foo" due to low disk space, use --purge to avoid creating a snapshot
 ```
 
-The [REST API](reference/api/redoc-static) will also return an `insufficient-disk-space` [error response](/reference/development/error-responses) object when disk space awareness is enabled and an error is encountered.
+The [REST API](/how-to-guides/snap-development/use-the-rest-api) will also return an `insufficient-disk-space` [error response](/reference/development/error-responses) object when disk space awareness is enabled and an error is encountered.
 
 ## Enable disk space awareness
 

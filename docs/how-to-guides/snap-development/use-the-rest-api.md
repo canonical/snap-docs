@@ -3,7 +3,7 @@
 
 The REST API provides access to snapd's state and many of its key functions.
 
-See below for details on accessing the API,  authentication, JSON elements and error types, and see the [API reference](reference/api/redoc-static) for which actions can be performed and which elements can be requested.
+See below for details on accessing the API,  authentication, JSON elements and error types, and see the [API reference](/reference/api/redoc-static) for which actions can be performed and which elements can be requested.
 
 ## Accessing the API
 
