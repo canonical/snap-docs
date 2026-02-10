@@ -64,7 +64,7 @@ snap-with-comps+three    	available  standard
 Note that there are some plans for a "snap component" subcommand, but that is not yet implemented and there are talks of changing its design.
 ```
 
-Using the `snap-info` command displays a summary of the ratio of installed components to components available from the store. If both installed and available components are zero, the summary will be omitted
+Using the `snap info` command displays a summary of the ratio of installed components to components available from the store. If both installed and available components are zero, the summary will be omitted
 
 ```bash
 snap info qwen-vl 
