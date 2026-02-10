@@ -44,4 +44,5 @@ Release notes <release-notes>
 System architecture <system-architecture>
 Interfaces <interfaces/index>
 Administration <administration/index>
+API <api/index>
 Snap development <development/index>

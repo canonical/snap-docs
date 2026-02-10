@@ -7,5 +7,5 @@
 :maxdepth: 2
 :glob:
 
-*
-*/index
+SnapD REST API <snapd-api>
+
