@@ -31,7 +31,7 @@ The snap daemon uses privilege isolation mechanisms rooted in the Linux kernel t
 | **Cgroups** Limit the amount of resources and which devices the process confined to a snap can consume (CPU, memory, network bandwidth, and so on). | **Namespaces** Make sure processes in a snap see their own personal view of the system (files, processes, network interfaces, hostname, and so on). 
 |**AppArmor** Allows system administrators to restrict snap capabilities with default security profiles that can be extended. |**Seccomp** Isolates processes running in a snap by limiting the system calls they are allowed to make. |
 
-The state of snapd, and many of its key functions, can be accessed through its [REST API](api/redoc-static.html), enabling remote device configuration, updates and orchestration. 
+The state of snapd, and many of its key functions, can be accessed through its [REST API](reference/api/redoc-static), enabling remote device configuration, updates and orchestration. 
 
 ## System process
 
