@@ -67,7 +67,7 @@ Note that there are some plans for a "snap component" subcommand, but that is no
 Using the `snap info` command displays a summary of the ratio of installed components to components available from the store. If both installed and available components are zero, the summary will be omitted
 
 ```bash
-snap info qwen-vl 
+$ snap info qwen-vl 
 name:      qwen-vl
 summary:   Qwen VL inference snap
 ...
@@ -80,7 +80,7 @@ components: 4/14
 In order to view information regarding an installed/available component(s), the `snap component` command may be used.
 
 ```bash
-snap component qwen-vl+llamacpp
+$ snap component qwen-vl+llamacpp
 component: qwen-vl+llamacpp
 type: standard
 summary: llama.cpp Engine using default CPU instruction sets
@@ -92,7 +92,7 @@ installed: b5794 (240) 30MB
 The last line, `installed:` is only printed if a component is installed.
 
 ```bash
-snap component qwen-vl+llamacpp+model-qwen2-5-vl-3b-instruct-q4-k-m
+$ snap component qwen-vl+llamacpp+model-qwen2-5-vl-3b-instruct-q4-k-m
 component: qwen-vl+llamacpp
 type: standard
 summary: llama.cpp Engine using default CPU instruction sets
