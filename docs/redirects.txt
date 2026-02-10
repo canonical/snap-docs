@@ -62,7 +62,7 @@ distro-support/ reference/administration/distribution-support
 supported-snap-hooks/ reference/development/supported-snap-hooks
 services-and-daemons/ how-to-guides/manage-snaps/control-services
 environment-variables/ reference/development/environment-variables
-snapd-rest-api/ reference/api/
+snapd-rest-api/ reference/api
 snapd-error-codes/ reference/development/error-responses
 the-snap-format/ reference/development/yaml-schemas/the-snap-format
 the-gadget-snap/ reference/development/yaml-schemas/the-gadget-snap
