@@ -211,6 +211,7 @@ The following column names are used:
 | [timezone-control](timezone-control-interface) | change the time zone | Time | no |
 | [tpm](tpm-interface) | allows access to the Trusted Platform Module device | Kernel, Security | no |
 | [u2f-devices](u2f-devices-interfacet/the-u2f-devices-interface/9722/) | use any U2F devices | Security, Hardware, Developer | no |
+| [ubuntu-pro-control](ubuntu-pro-control-interface) | control the Ubuntu Pro desktop daemon | Super privileged, System | no |
 | [ubuntu-download-manager](ubuntu-download-manager-interface) | use the Ubuntu Download Manager | System, Developer, Manage software | yes |
 | [udisks2](udisks2-interface) | access the UDisks2 service | Storage | no |
 | [uhid](uhid-interface) | create kernel UID devices from user-space | Hardware, Kernel, System | no |
