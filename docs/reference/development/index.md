@@ -4,7 +4,6 @@
 Extend snap functionality with API access and customised environments for your applications and devices.
 
 * [Environment variables](/reference/development/environment-variables): Internal values accessible to snapped applications.
-* <a id="openapi-link" href="api/redoc-static.html">Snapd REST API</a>: Interactive OpenAPI documentation for the Snapd REST API.
 * [REST API error codes](/reference/development/error-responses): The types of errors returned by the API.
 
 ## YAML schemas
