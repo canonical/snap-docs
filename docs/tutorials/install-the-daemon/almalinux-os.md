@@ -13,7 +13,7 @@ sudo dnf upgrade
 
 If you use a root user rather than _sudo_ to handle security privileges, run `su` first and remove _sudo_ from subsequent commands.
 
-### Installing snapd
+## Installing snapd
 
 With the EPEL repository added to your AlmaLinux OS installation, simply install the *snapd* package (as root/or with _sudo_):
 

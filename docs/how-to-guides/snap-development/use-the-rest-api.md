@@ -86,19 +86,19 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 * `type`: One of `sync`, `async` or `error`
 * `status-code`: HTTP status code matching the HTTP status line
 * `status`: HTTP reason phrase matching the HTTP status line
 * `maintenance`: JSON object containing maintenance information (_optional_)
 
-#### Maintenance Fields
+### Maintenance Fields
 
 * `kind`: Kind of maintenance restart, one of `system-restart` or `daemon-restart`
 * `message`: Text to show to user
 
-### Synchronous response
+## Synchronous response
 
 For a standard synchronous operation, the following JSON object is returned:
 
@@ -112,13 +112,13 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 In addition to the standard response fields, the following can also be present:
 
 * `result`: Result from the request. This can be any JSON structure and is commonly either an object or an array.
 
-### Asynchronous Response
+## Asynchronous Response
 
 When a request takes time to complete, an asynchronous response is returned.
 
@@ -134,7 +134,7 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 In addition to the standard response fields the following can be present:
 
@@ -158,13 +158,13 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 In addition to the standard response fields the following can be present:
 
 * `result`: Error information
 
-#### Result Fields
+### Result Fields
 
 * `message`: Description of the error, suitable for displaying to a user
 * `kind`: Unique code for the error, to enable a snapd client to display appropriate behaviour (_optional_)

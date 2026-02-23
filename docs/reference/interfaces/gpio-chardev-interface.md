@@ -18,9 +18,7 @@ slots:
 [...]
 ```
 
----
-
-<h2 id='heading-dev-details'>Developer details </h2>
+## Developer details 
 
 **Auto-connect**: no</br>
 **Attributes**:
@@ -37,8 +35,7 @@ When the interface is connected:
 
 Once connected, the consuming snap can use the device via `/dev/snap/gpio-chardev/<plug-snap>/<plug-name>`.
 
-[note status="Important notes"]
-
+Important considerations:
 - Slot definitions are only allowed for gadget snaps.
 - This interface cannot be used if there is an active connection to the older [`gpio`](/reference/interfaces/gpio-interface) interface.
 - `source-chip` being a list enables sharing of a gadget snap between a number of devices, for which the same lines are exposed by differently labeled GPIO controllers.
@@ -47,9 +44,8 @@ Once connected, the consuming snap can use the device via `/dev/snap/gpio-charde
 - Any given line can only be exported by one slot.
 - `gpio-aggregator` kernel module with configfs support is required (i.e. UC24+).
 - `gpio` interface will not work on UC26+ due to missing kernel support.
-```
 
-<h3 id='heading-migration'>Migration from gpio to gpio-chardev</h3>
+### Migration from gpio to gpio-chardev
 
 Since `gpio` and `gpio-chardev` interfaces cannot be connected at the same time, all existing `gpio` interface connections must be disconnected first before connecting to `gpio-chardev`.  
 
@@ -57,7 +53,7 @@ This is only required if the gadget snap has both `gpio` and `gpio-chardev` slot
 
 It is recommended to only have only one slot type on the gadget, either `gpio` or `gpio-chardev`.
 
-<h3 id='heading-code'>Code examples</h3>
+### Code examples
 
 The test code can be found in the *snapd* repository: 
 <https://github.com/canonical/snapd/blob/master/interfaces/builtin/gpio_chardev_test.go>

@@ -10,9 +10,7 @@
 
 See [How to configure snaps with confdb](/how-to-guides/manage-snaps/configure-snaps-with-confdb) for instructions on using confdb with your own snaps, and read on for specific implementation details.
 
-```{info}
-Confdb is currently considered an [Experimental feature](https://forum.snapcraft.io/t/experimental-features/41241) and implementation details may change as development progresses.
-```
+Confdb is currently considered an [Experimental feature](/reference/development/experimental-features) and implementation details may change as development progresses.
 
 ## Confdb views
 

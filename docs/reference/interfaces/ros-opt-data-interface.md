@@ -14,15 +14,12 @@ apps:
     plugs: [ros-opt-data]   #this is the new interface plug name
 ```
 
-### Mount location
+## Mount location
 
 This interface uses the standard snap location for mounted directories:
 `/var/lib/snapd/hostfs/`.
 
 For example, if this interface is used to access `/opt/ros/noetic/robot-urdf/models` on the host machine, it will be found within the snap at `/var/lib/snapd/hostfs/opt/ros/noetic/robot-urdf/models`.
-
-
----
 
 ## Developer details
 

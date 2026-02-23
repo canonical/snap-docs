@@ -28,7 +28,7 @@ The `homedirs` value can be cleared and restored to only `/home` with the `snap 
 sudo snap unset system homedirs
 ```
 
-### Bind mount home directories
+## Bind mount home directories
 
 While the _homedirs_ system option should work for the majority users, it's also possible to _bind mount_ an alternative $HOME location to `/home` to allow other locations to be found by snapd. This process is outlined below.
 
@@ -54,6 +54,4 @@ There are two steps to bind mount a home directory to a different location:
     $ sudo cp passwd.new /etc/passwd
     ```
 
-
 Log out and back in again, and snap will work from the freshly mounted home location. If you run into difficulties, copy the backup passwd file to `/etc/passwd`.
-

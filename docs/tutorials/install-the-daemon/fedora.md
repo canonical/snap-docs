@@ -26,9 +26,9 @@ Hello World!
 ```
 Snap is now installed and ready to go.
 
-### Troubleshooting
+## Troubleshooting
 
-#### system does not fully support snapd: cannot mount squashfs image using "squashfs"
+### system does not fully support snapd: cannot mount squashfs image using "squashfs"
 
 Installing your first snap on a cloud image of Fedora may produce an error similar to the following:
 
@@ -41,7 +41,7 @@ If using a container, install the _fuse_ and _squashfuse_ packages (`sudo dnf in
 
 Otherwise install _kernel-modules_ package (`sudo dnf install kernel-modules`).
 
-#### Fedora Silverblue prevents symbolic links
+### Fedora Silverblue prevents symbolic links
 
 [Fedora Silverblue](https://silverblue.fedoraproject.org/) implements a read-only root filesystem and, consequently, cannot allow symbolic links to be created. See the following associated GitHub issue for further details: [Make it easier to link in or bind folders to the root directory?](https://github.com/projectatomic/rpm-ostree/issues/1711)
 

@@ -16,7 +16,7 @@ If you use a root user rather than _sudo_ to handle security privileges, run `su
 
  > ⓘ  If you're interested in understanding how these packages are built, see  [Building a snap RPM for Red Hat Enterprise Linux (RHEL) 8](/).
 
-### Installing snapd
+## Installing snapd
 
 With the EPEL repository added to your Rocky Linux installation, simply install the *snapd* package (as root/or with _sudo_):
 

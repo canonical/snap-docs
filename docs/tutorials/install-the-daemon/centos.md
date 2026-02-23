@@ -11,7 +11,7 @@ If you need to know which version of CentOS you're running, type `cat /etc/cento
 
 If you don't already have the EPEL repository added to your distribution, it can be added as follows:
 
-### CentOS 8/9 Stream
+## CentOS 8/9 Stream
 
 The EPEL repository can be added to a CentOS 8/9 Stream system with the following command:
 
@@ -20,7 +20,7 @@ sudo dnf install epel-release
 sudo dnf upgrade
 ```
 
-### CentOS 7 Stream
+## CentOS 7 Stream
 
 The EPEL repository can be added to a CentOS 7 system with the following command:
 
@@ -28,7 +28,7 @@ The EPEL repository can be added to a CentOS 7 system with the following command
 sudo yum install epel-release
 ```
 
-### Missing packages with EPEL
+## Missing packages with EPEL
 
 Packages in the EPEL repository are built against dependencies from the current RHEL release, and these packages are regularly imported from RHEL by the CentOS project.
 

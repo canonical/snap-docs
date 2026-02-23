@@ -11,26 +11,7 @@ sudo snap set system experimental.parallel-instances=true
 
 We recommend rebooting the system after toggling the _experimental.parallel-instances_  flag state to avoid potential namespace problems with snap applications that have already been run.
 
-- [Installing multiple instances](#heading--install)
-  - [Instance key naming](#heading--naming)
-- [Instance management](#heading--management)
-  - [Interfaces](#heading--interfaces)
-  - [Services](#heading--services)
-- [Application names and aliases](#heading--aliases)
-- [Snap environment, data and namespace](#heading--environment)
-- [Current limitations](#heading--limitations)
-  - [User data and runtime locations](#heading--locations)
-  - [Ports, DBus names, shared memory and socket activation](#heading--locations)
-
-```{caution}
-
-snapd version 2.36 or later is required to use parallel installs with strictly confined snaps. Version 2.43 or later is required for snaps using classic confinement. See [Snap confinement](/) for more details.
-```
-
----
-   
-<h2 id='heading--install'>Installing multiple instances</h2>
-
+## Installing multiple instances
 
 The process for installing multiple instances of a snap is identical to installing a single snap except you *must* provide a unique identifier, called an *instance key*, separated by an underscore (`_`) from the target snap name.
 
@@ -55,7 +36,7 @@ When installing from snap file, the instance key is set by passing `--name=<snap
 sudo snap install --name hello-world_foo hello-world_27.snap
 ```
 
-<h3 id='heading--naming'>Instance key naming</h3>
+### Instance key naming
 
 The instance key needs to be manually appended to the snap name, and takes the following format: `<snap>_<instance-key>`
 
@@ -69,7 +50,7 @@ Only lowercase letters or digits are valid, and the instance name can be up to 1
 
 > ⓘ  The instance key **must** match the following regular expression: `^[a-z0-9]{1,10}$`.
 
-<h2 id='heading--management'>Instance management</h2>
+## Instance management
 
 When working with instances, the vast majority of snap commands function just as they would with a single snap. To remove an instance, for example, use *remove*: 
 
@@ -78,7 +59,7 @@ $ snap remove hello-world_foo
 hello-world_foo removed
 ```
 
-<h3 id='heading--interfaces'>Interfaces</h3>
+### Interfaces
 
 [Interfaces](/) work across multiple snap instances just as they do from any one snap to another. For example, *xkcd-webserver* includes a *network* plug, as will all of its instances, any of which can be connected to the system's *:network* slot:
 
@@ -103,7 +84,7 @@ network       xkcd-webserver_foo:network       :network       manual
 network-bind  xkcd-webserver_foo:network-bind  :network-bind  -
 ```
 
-<h3 id='heading--services'>Services</h3>
+### Services
 
 As with Interfaces, [Services](/) function the same with multiple instances of a snap as they do from any one snap to another.
 
@@ -138,7 +119,7 @@ xkcd-webserver.xkcd-webserver      enabled  inactive
 xkcd-webserver_foo.xkcd-webserver  enabled  active
 ```
 
-<h2 id='heading--aliases'>Application names and aliases</h2>
+## Application names and aliases
 
 Snap application names for multiple instances are adjusted according to the following pattern:
 
@@ -188,7 +169,7 @@ When aliases trigger a conflict during snap installation, try passing `--unalias
 $ sudo snap install snap-with-conflicting-alias_foo --unaliased
 ```
 
-<h2 id='heading--environment'>Snap environment, data and namespace</h2>
+## Snap environment, data and namespace
 
 When a snap application is run, its environment is populated with a number of `SNAP*` environment variables. 
 
@@ -239,11 +220,11 @@ However, due to security concerns, user data locations are *not* similarly adjus
 | HOME             | /home/<usr>/snap/hello-world/27     | /home/<usr>/snap/hello-world_foo/27     |
 | XDG_RUNTIME_DIR  | /run/user/<uid>/snap.hello-world    | /run/user/<uid>/snap.hello-world_foo   |
 
-<h2 id='heading--limitations'>Current limitations</h2>
+## Current limitations
 
 There are a few limitations with parallel installs that will be addressed in subsequent `snapd` releases.
 
-<h3 id='heading--locations'>User data and runtime locations</h3>
+### User data and runtime locations
 
 As described in [Snap environment, data and namespace](#environment), the user data locations are kept separate across multiple instances. Applications that hard code paths to either user data directories or the XDG runtime directory may not function correctly as the AppArmor profile has been updated to allow accessing instance specific paths only.
 
@@ -251,7 +232,7 @@ Applications need to use `SNAP_USER_DATA`, `SNAP_USER_COMMON` or fallback to usi
 
 Applications built using most popular frameworks, such as Gtk/glib or Qt, and that are already capable of observing both `HOME` and `XDG_RUNTIME_DIR`, should continue to work.
 
-<h3 id='heading--names'>Ports, DBus names, shared memory and socket activation</h3>
+### Ports, DBus names, shared memory and socket activation
 
 Snaps may provide APIs consumed by other snaps or the host system at some well known locations or addresses, such as DBus service names, /dev/shm objects or semaphores, abstract socket addresses. While the default AppArmor template has been updated to allow only instance specific access, connecting interfaces may allow a wider access capabilities that can lead to conflicts between instances of the same snap.
 

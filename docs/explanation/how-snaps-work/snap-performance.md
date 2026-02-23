@@ -48,7 +48,6 @@ The following charts were produced from the `Doing` column output of  `snap debu
 
 
 ```{dropdown} Debug timing data for cached install of Chromium snap
-:closed:
 
 ```pre
 ID      Status        Doing      Undoing  Label                          Summary
@@ -116,7 +115,6 @@ ID      Status        Doing      Undoing  Label                          Summary
 ![Chromium snap cold install timing data](https://assets.ubuntu.com/v1/49e70e0e-chromium-cold-install-pie.png)
 
 ```{dropdown} Debug timing data for cold install of Chromium snap
-:closed:
 
 ```pre
 ID      Status        Doing      Undoing  Label                          Summary

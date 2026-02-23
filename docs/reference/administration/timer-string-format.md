@@ -3,7 +3,8 @@
 
 Timer strings are used in both `refresh.timer` stetting and timer services as the `timer: ..` app property. See https://forum.snapcraft.io/t/refresh-scheduling-on-specific-days-of-the-month/1239/6 for details on how the syntax conceived and evolved over time.
 
-#### Syntax
+## Syntax
+
 ```
 eventlist = eventset *( ",," eventset )
 eventset = wdaylist / timelist / wdaylist "," timelist
@@ -23,7 +24,7 @@ count = n*DIGIT
 ```
 Clock times are always specified in 24H format.
 
-#### Examples
+## Examples
 
 * `00:00-24:00/24`</br>
    Every hour on the hour
@@ -66,7 +67,7 @@ More specific timer examples:
 * `fri5,23:00-01:00`</br>
   Last Friday of the month, from 23:00 to 1:00 the next day. Even in months with 4 Fridays, this schedule will still trigger on the last Friday.
 
-####  Semantics
+##  Semantics
 
 A timer string is composed of one or more event sets, which are combined by using commas (`,,`) as separators.
 
@@ -152,6 +153,3 @@ Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
 ```
 
 In the above context, `mon1-fri` corresponds describes a span from 5th of August to the 9th of August, while `mon-fri1` covers 29th of July until 2nd of August.
-
-> ⓘ   Before snapd _2.42_, week spans for a specific week within a month could be ambiguous. Consequently, from snapd 2.43, week spans using syntax `mon1-fri2` are deprecated and are automatically translated to `mon1-fri`.
-
