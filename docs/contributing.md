@@ -1,478 +1,102 @@
 (contribute-to-our-docs)=
 # Contribute to our docs
 
-Our documentation is a community effort, published on [snapcraft.io/docs](https://snapcraft.io/docs) via the [Discourse](https://www.discourse.org/) forum hosted at [forum.snapcraft.io](https://forum.snapcraft.io).
+Our documentation is a community effort, published on [snapcraft.io/docs](https://snapcraft.io/docs).
 
 **We warmly welcome community contributions, suggestions, fixes and constructive feedback.**
 
-If you feel something is unclear, wrong, or broken, please don't hesitate to leave a comment on the forum. You can also find us in the [#snappy IRC channel](https://kiwiirc.com/nextclient/irc.libera.chat/?chan=#snappy) on Libera.Chat. We always try to respond as quickly as we can.
+Contributing to documentation can be a fantastic way to get started as a contributor to open source projects, no matter your level of experience!
 
-Every documentation page is published from an equivalent [`doc` category](https://forum.snapcraft.io/c/doc/15) forum post. Each forum post can be accessed from the [Help improve this document in the forum](https://forum.snapcraft.io/c/doc/15) link at the bottom of every page of our documentation.
+The documentation for _snap_ is
+[hosted in GitHub](https://github.com/canonical/snap-docs) and
+rendered, via [Read the Docs](https://about.readthedocs.com/), to [https://snapcraft.io/docs/](https://snapcraft.io/docs/). We hope to make it as easy as possible to contribute. If you need help at all
+with the contribution process, please let us know!
 
-Feel free to modify any [documentation topic](https://forum.snapcraft.io/c/doc) with updated or more insightful information. If you [already participate](#heading--new-users) in the snap community, you won't need additional permissions; pages are freely editable within the forum itself. Just click on the _Edit_ button at the bottom of the documentation article forum post:
+## The Open Documentation Academy
 
-![Discourse edit button](https://assets.ubuntu.com/v1/4106d751-discourse-edit.png)
+The SnapD project is a proud member of the
+[Canonical Open Documentation Academy](https://github.com/canonical/open-documentation-academy)
+(CODA). If you are new to making open source contributions, or new to technical
+writing and want to boost your skills -- or both! -- we will be glad to help.
 
-The navigational structure, style, and content of our documentation follows the [Diátaxis](https://diataxis.fr/) systematic framework for technical documentation authoring. This splits documentation pages into tutorials, how-to guides, reference material and explanatory text.
+## Contributions we accept
 
-Our [Documentation roadmap](/) outlines both our short-term and long-term goals for Snap-related documentation.
+We especially value contributions that improve the documentation's clarity,
+accuracy, and usefulness. If you spot a problem, you can report it to us using
+the "Give feedback" button at the top of every documentation page. Please give
+us as much information as you can to help us address the problem.
 
-Documentation consistency is vital, which is why we're listing some guidelines below, but don't let this formality put you off  - just start writing and editing. If something is inconsistent, we'll fix it.
+If the issue is one of the following very small issues, and you want to fix it
+yourself, you can submit a pull request (PR) with your changes directly in the
+[GitHub web interface](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files):
 
-As [Voltaire](https://en.wikipedia.org/wiki/Voltaire) wrote, "_Perfect is the enemy of good_," and we'd rather have documentation we can fix than non-existent documentation we can't.
+- Typo corrections
+- Minor technical corrections
+- Broken link fixes
+- Small clarifications
 
-## Open Documentation Academy
+For changes larger than those, we require contributor PRs to be tied to an issue.
+Examples of changes that require an issue are things like:
 
-The [Open Documentation Academy](https://discourse.ubuntu.com/t/about-the-open-documentation-academy/39615/)  is an initiative led by the documentation team at Canonical to provide help, advice, mentorship, and dozens of different tasks to get started on, within a friendly and encouraging environment. 
+- Adding new sections or pages
+- Restructuring existing pages
+- Extensive rewording
+- Significant technical corrections or updates
+- Feature additions or enhancements
 
-A key aim of this initiative is to help lower the barrier into successful open-source software contribution, by making documentation into the gateway, and it's a great way to make your first open source documentation contributions to Ubuntu Core, snap and Snapcraft.
+For the full description of the contribution workflow, see {ref}`local-development`.
 
-But even if you're an expert, we want the Academy to be place to  share knowledge, a place to get involved with new developments, and somewhere you can ask for help on your own projects.
+## Contributions we don't accept
 
-The best way to get started is with our [task list](https://github.com/canonical/open-documentation-academy/issues) . Take a look, bookmark it, and see our [Getting started](https://discourse.ubuntu.com/t/getting-started/42769) guide for next steps.
+We reserve the right to reject any contribution at our own discretion where:
 
-Stay in touch either through the task list, or through one of the following locations:
-- Our [discussion forum](https://discourse.ubuntu.com/c/open-documentation-academy) on the Ubuntu Community Hub.
-- On [Matrix](https://matrix.to/#/#documentation:ubuntu.com) group for interactive chat.
-- And [follow us on Fosstodon](https://fosstodon.org/@CanonicalDocumentation) for the latest updates and events.
+**The outline of proposed work has not already been agreed by a maintainer.**
+: To protect maintainers' limited time, we do not accept unsolicited contributions. A PR must be tied to a valid and agreed issue unless it only makes a small change. Submitting an issue after a PR doesn't *guarantee* that we will then accept the PR. To save yourself time, effort, and frustration, please {ref}`follow the outlined procedures <local-development>`.
 
-If you’d like to ask us questions outside of our public forums, feel free to email us at [docsacademy@canonical.com](mailto:docsacademy@canonical.com).
+**The pull request far exceeds the scope of what was agreed.**
+: "Scope creep" makes it much harder to review and accept changes. If a pull request becomes too large, we may ask you to break it into multiple smaller PRs. Stick to the scope of the original issue as much as you can -- if you discover more changes need to be made, discuss them in the PR or the original issue. A new PR can be submitted with the extra fixes.
 
-In addition to the above, we have a weekly **Open Documentation Hour** starting at 16:00 UTC every Friday. Everyone is welcome, and links and comments can be found on the [forum post](https://discourse.ubuntu.com/t/documentation-office-hours/42771).
+**The contribution makes changes without value.**
+: To have value, changes must be a *specific and concrete improvement* over what already exists. We don't accept generic "polishing" (e.g. substituting synonyms, rewording without adding clarity). If your contribution contains *some* of these, we will ask you to undo them -- but will gladly accept the remaining parts of your pull request that are real improvements. If your contribution *only* contains low-value changes, it will be rejected.
 
-Finally, subscribe to our [Documentation event calendar](https://calendar.google.com/calendar/u/0?cid=Y19mYTY4YzE5YWEwY2Y4YWE1ZWNkNzMyNjZmNmM0ZDllOTRhNTIwNTNjODc1ZjM2ZmQ3Y2MwNTQ0MzliOTIzZjMzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20). We’ll expand our Documentation Office Hours schedule and add other events throughout the year.
+**We deem the contribution to be AI generated.**
+: We don't want any part of our documentation to look or feel like it was produced by AI. Therefore, if what you submitted cannot be easily distinguished from AI output, it does not meet our contribution requirements.
 
-### Agreements
+**The issue the pull request is addressing was assigned to someone else.**
+: We want to make this a safe place for contributors to work on issues in their own time and without pressure. Please treat others as you'd want to be treated. If you like an issue someone else is working on, let us know and we'll create a similar one for you.
 
-Everyone involved with CODA needs to follow the words and spirit of the [Ubuntu Code of Conduct v2.0](https://ubuntu.com/community/ethos/code-of-conduct).
+## AI policy
 
-Most of the projects that participate in CODA require that a contributor has signed a Contributor licence agreement, or CLA. Such an agreement will typically grant permission for the project to use a contribution while the contributor retains the copyright and the rights to modify their own work, or use it in other projects.
+The SnapD documentation has been created by humans, for humans. The occasional "jagged edges" you might find (typos, slightly unconventional wording, humour) represent the very human voices of the people who collaborated
+to create it. We don't want to average those away by passing the documentation through LLMs.
 
-The [Canonical contributor licence agreement](https://ubuntu.com/legal/contributors) is one such CLA. This needs to be signed before a contribution can be considered for inclusion within one of Canonical's projects. Many GitHub repositories for Canonical projects will automatically check whether a contributor has signed the CLA when a contribution is made.
+This policy exists to protect our readers, our community of contributors, and the project maintainers.
+As AI continues to evolve, we will update these guidelines accordingly.
 
-The cla issue label is used to help identify which tasks require a contributor to have signed a CLA.
+(acceptable-use-of-ai)=
+### Acceptable use of AI
 
-### Identifying tasks
+We don't ban our contributors from using AI. However, we do expect anyone contributing to this project to use it responsibly, as a helper, and not as something that replaces them. Some examples of acceptable usage include:
 
-There is no guarantee a task will be worked on, or that a contributor will complete a task within a specified time. Consequently, you should choose tasks outside the scope of your current cycle, or create tasks from long-standing documentation issues that have yet to be addressed.
+- Using AI as a spellchecker or grammar helper
+- Using it to help with translation into English
+- Using it to help outline and organize a draft
+- Using it adversarially, to point out missing sections
+- Ensuring formatting adheres to our style guide
 
-To best reflect the entire range of work that documentation requires, we want our task list to be as broad and as diverse as possible, from composition, structure and maintenance, to the tools and frameworks used to generate and publish the final output.
+We want to be open and transparent with our users about the way in which AI is or is not used in the our documentation. We (the maintainers) have been experimenting with the ways in which AI can be used to improve the experience for our readers, and we don't object to contributors doing the same -- with the following caveats:
 
-Small tasks, such as replacing outdated terminology, checking for broken links, and ensuring adherence to the [Canonical Documentation Style Guide](https://docs.ubuntu.com/styleguide/en) are an ideal place to start. Moderately sized  tasks might include converting documentation from one format to another, or migrating the contents of a blog post into the official documentation. But more ambitious tasks are also welcome, such as adding a new *How-to* guide, restructuring a group of documents, developing new tests and automations.
+1. **Agreement**: Any such work you do *must* be tied to an issue, and be agreed as valid and necessary with the maintainers *before* you start. Only maintainers are exempt from this rule, since they are most familiar with the project and its scope.
 
-### Creating a task
+2. **Honesty**: If you use an "AI assist" when making a contribution, you *must* disclose that you used it, and how you used it in the pull request description.
 
-Tasks are created as new issues on the CODA repository:
+3. **Accessibility**: Issues marked as "good first issues" and "Open Documentation Academy" are *specifically* created and intended for people new to Open Source to get started in a safe place. These issues are easy to complete, well-described, and self-contained for new contributors to learn from. These issues are not for AI.
 
-[https://github.com/canonical/open-documentation-academy/issues/new](https://github.com/canonical/open-documentation-academy/issues/new)
+4. **Responsibility**: Make sure that even if you use AI, you are still adding value based on your own personal skills and competency. You must understand what you're submitting, even if you used an LLM to help you.
 
-* The title of the task starts with the name of the associated project, such as Snapcraft: or LXD:, followed by a short sentence describing the task.
+## Thank you!
 
-* The description of the task should expand upon the title of the task, provide additional context and expectations, and give some indication of the amount of effort required.
-
-* Include links to any current documentation that may help a contributor research a task and understand a solution.
-
-* List any prerequisites for completing a task, such as understanding how a certain tool works. Make it clear if a task requires specific domain experience, and also if it's suitable for anyone without specific experience.
-
-* Add appropriate [labels](https://github.com/canonical/open-documentation-academy#user-content-issue-labels) for size estimations and the type of work required. 
-
-### Task suggestions
-
-The following are starting suggestions for potential tasks requiring either a small, medium or large amount of work.
-
-#### Small
-
-**Convert a table from using two columns to three columns**
-
-A contributor needs only a high level understanding of the project, and of the formatting syntax, to complete this task, and can use what already exists as a template.
-
-Example: [Public Cloud: Change table format](https://github.com/canonical/open-documentation-academy/issues/51)
-
-#### Medium
-
-**Improve the way a concept is explained**
-
-This requires the potential contributor to learn and understand the concept with enough depth that they can improve the way it's already documented.
-
-Example: [Snap: improve interface management documentation](https://github.com/canonical/open-documentation-academy/issues/8)
-
-#### Large
-
-**Update an example to use more modern tooling**
-
-A contributor will need a good understanding of why an example has become stale, and technically how it might be updated and improved. They will also need to be prepared to change the documentation in unpredictable ways, such as new sections on new tools, and to potentially document the migration from one version of a tool to another.
-
-Example: [Snapcraft: Update Java example to use core22](https://github.com/canonical/open-documentation-academy/issues/5)
-
-### Completing and closing tasks
-
-When a task has been completed to your satisfaction, we'll ask the contributor whether they would prefer to merge their work into your project themselves, or leave this to the project.
-
-### Recognition
-
-After a task has been successfully completed, we'll give credit to the contributor and share their success in our forum here, on the pages themselves, and in our news updates and release notes.
-
-##  New Discourse users
-
-Anyone can edit and contribute to our documentation, but you need to spend a little time with our Discourse forum first.
-
-New Discourse users are temporarily limited in their capabilities (called their *Trust Level*) until they’ve read and participated a little in the forum. New users start at Trust Level 0, but at Trust Level 1, they can create and edit documentation freely.
-
-Trust Level 1 is attained by:
-
-* Entering at least 5 topics
-* Reading at least 30 posts
-* Spending a total of 10 minutes reading posts
-
-Users at Trust Level 1 can:
-
-* Edit wiki posts
-* Use all core Discourse functions; all new user restrictions are removed
-* Send private messages
-* Upload images and attachments
-* Flag posts to alert moderators
-* Mute other users
-
-## Style and language
-
-One of our biggest challenges is accommodating an audience with a huge variation in experience, from beginners exploring the *snap* command, through snap creators experimenting with _snapcraft.yaml_, to experts harnessing the API and deploying snaps across thousands of IoT devices.
-
-Consequently, we try to:
-- pitch the writing and editing appropriately for the subject
-- write inclusively and assume very little prior knowledge of the reader 
-- link or explain phrases, acronyms and concepts that may be unfamiliar, and if unsure, err on the side of caution
-
-Some general tips:
-- use a spell checker
-- resist being overly formal
-- resist being overly verbose
-- verify links and examples
-
-We (mostly) adhere to the [Ubuntu style guide](https://docs.ubuntu.com/styleguide/en). In particular:
-- we use British English (en-GB), for example:
-  -   the _ise_ suffix in preference to _ize_ (_capitalise_ rather than _capitalize_)
-  - _our_ instead of _or_ (as in _colour_ and _color_)
-  - license as a verb, licence as a noun
-  - catalogue rather than catalog
-- dates take the format _1 January 2013_, _1-2 January 2013_ and _1 January - 2 February 2013_
-
-## Diátaxis
-
-Our navigational structure, style, and the content of our documentation follows the [Diátaxis](https://diataxis.fr/) systematic framework for technical documentation authoring. This splits documentation pages into tutorials, how-to guides, reference material and explanatory text:
-
-- **Tutorials** are lessons that accomplish specific tasks through _doing_. They help with familiarity and place users in the safe hands of an instructor.
-- **How-to guides** are recipes, showing users how to achieve something, helping them get something done. A _How-to_ has no obligation to teach.
-- **Reference** material is descriptive, providing facts about functionality that is isolated from what needs to be done.
-- **Explanation** is discussion, helping users gain a deeper or better understanding of Snap and Snapcraft, along with how and why they function as they do.
-
-For further details on our Diátaxis strategy, see [Diátaxis, a new foundation for Canonical documentation](https://ubuntu.com/blog/diataxis-a-new-foundation-for-canonical-documentation).
-
-Improving our documentation and applying the principles of Diátaxis are on-going tasks. There's a lot to do, and we don't want to deter anyone from contributing to our docs. If you don't know whether something should be a tutorial, how-to, reference doc or explanatory text, either ask on the forum or publish what you're thinking. Changes are easy to make, and every contribution helps.
-
-## Navigation menu
-
-The navigation menu on the published docs site ([https://snapcraft.io/docs](https://snapcraft.io/docs)) is generated automatically from a table in that page's forum post ([https://forum.snapcraft.io/t/snap-documentation/11127](https://forum.snapcraft.io/t/snap-documentation/11127)).
-
-Unlike every other page in our documentation, the page hosting the navigation menu cannot be edited. This is because we need to retain some gateway control over which pages are published and where. A small error in the navigation table can completely break the final output and the redirects it contains could break the rendering of other pages too.
-
-If you think something should be added to our navigation, either leave a comment under that page's respective forum post, or the navigation page itself.
-
-The code that creates the navigation and publishes our documentation from Discourse can be found here:
-[canonicalwebteam.discourse](https://github.com/canonical/canonicalwebteam.discourse).
-
-## Discourse Markdown
-
-Documentation is written in the [Markdown](https://daringfireball.net/projects/markdown/syntax) format [supported by Discourse](https://meta.discourse.org/t/post-format-reference-documentation/19197/2).
-
-Mostly, you don't need to worry about the syntax. You can simply use the style toolbar in the Discourse topic editing window to mark the elements you need.
-
-### Headings and titles
-
-```markdown
-## Subheading within a document
-### Subheading of a subheading
-```
-On `snapcraft.io/docs`, we don't use the top-level heading (`# Heading`) because the topic title in Discourse serves this purpose.
-
-Headings and subheadings need to use _sentence case_, which means the first letter is typically the only one capitalised, unless the title includes names, product names or acronyms.
-
-### Lists
-
-For a bullet list, use the following syntax:
-
-```markdown
-We (mostly) adhere to the Ubuntu style guide, for example:
-- we use British English (en-GB):
-  - the _ise_ suffix in preference to _ize_ 
-```
-And for a numbered list, precede each item with `1.` (the numbering then becomes automatic, and it's easier to insert new items):
-
-```markdown
-1. This is the first item
-1. This is the second
-1. This is the third
-   1. This is a sublist 
-```
-
-Unless a list item is particularly long (which should be avoided) and includes punctuation, don't end the item with a full stop. If one item needs a full stop, add the full stop to other items too.
-
-### Code blocks
-
-Enclose a code block with three backticks and include the *type* of code:
-
-    ```yaml
-    name: gimp
-    version: '2.10.8'
-    summary: GNU Image Manipulation Program
-    ```
-
-The most common code types are: `bash`, `yaml`, `json`, and `no-highlight`. The last is like a miscellaneous type. It is often used to display command output.
-
-Also, a little contentiously as it goes against the [style guide](https://docs.ubuntu.com/styleguide/en), we use a command line dollar prompt (`$`) to demarcate input and output in the same code block:
-
-```bash
-$ snap version
-snap    2.36.1
-snapd   2.36.1
-series  16
-ubuntu  18.04
-kernel  4.15.0-39-generic
-```
-
-In sympathy with the command line, we replace _$_ with _#_ when running commands from root.
-
-### Inline code
-
-Use a backtick to mark inline commands and other literals. For instance, to create `$SNAP_DATA`:
-
-```markdown
-For instance, to create `$SNAP_DATA`:
-```
-
-### Angle brackets and variable names
-
-Angle brackets, `<>`, are typically used to show variables in example commands:
-
-`schema://<user name>:<password>@<address>:<port>/<name>`
-
-Example variable names are acceptable if you judge that the context makes it clear enough:
-
-```bash
-# set the working directory
-WORKDIR /app
-# copy the repository files to it
-COPY . /app
-```
-
-In tutorials, provide the exact values that you want the user to use:
-
-`docker-compose run web django-admin startproject myapp .`
-
-### Hyperlinks
-
-For links to internal files or external URLs, use the following format:
-
-```markdown
-[visible text](url)
-```
-
-The `visible text` is what will appear in the documentation. The `url` is either the full URL of a link outside of the documentation, or the topic reference without the domain name for a page within the documentation. 
-
-To link to `https://forum.snapcraft.io/t/snapcraft-overview/8940`, for example, you would use the following:
-
-```markdown
-For more details, see [Snapcraft overview](/).
-```
-The Discourse topic identifier, _8940_ in the above example, is optional and can be omitted.
-
-### Anchors
-
-Discourse Markdown does not support anchor links to a position *within* the same page or another document.
-
-However, you can use standard HTML within Markdown, which means we can manually add HTML anchor elements that can be linked to.
-
-The [recommended way](https://meta.discourse.org/t/deep-linking-to-headings-anchors/47552) to create anchors is using heading elements with an ID. The ID needs to have `heading--` as a prefix:
-
-```html
-### Link to me
-```
-
-To create an anchor called `base-snap`, for example, enter the following into your document:
-
-```html
-### Base snaps
-```
-
-This can now be linked to with the following:
-
-```markdown
-/t/snapcraft-overview#base-snap
-```
-
-Use HTML sparingly as it can make the raw text difficult to read.
-
-<!--
-
-### Notes and admonishments
-
-Admonishments in Discourse use BBtext markup syntax. Using ````{note}` ... ````` draws a box around the contained text. 
-
-```markdown
-[note type="important" status="Info"]
-
-An informative note. This box is dark blue.
-```
-```
-
-This produces:
-
-[note type="important" status="Info"]
-
-An informative note.
-```
-
-You can omit the status header.
-
-```plain
-[note type="important"]
-
-A note without a title.
-```
-```
-
-And its output:
-
-[note type="important"]
-
-A note without a title.
-```
-
-The `type` parameter is optional, but recommended:
-
-```plain
-```{note}
-
-A note that only uses default settings.
-```
-```
-
-And its output:
-
-```{note}
-
-A note that only uses default settings.
-```
-
-
-#### Types of ````{note}`
-
-Changing the `type` parameter changes how it is presented to the reader:
-
-- `important` (default)
-- `caution`
-- `positive`
-- `negative`
-
-The below examples are produced using type and status combinations of 'caution/Warning', 'positive/High score', and 'negative/Game over', respectively:
-
-#### Caution
-
-```
-```{caution}
-Here be dragons.
-
-Uses `caution` type.
-```
-```
-
-```{caution}
-Here be dragons.
-
-Uses `caution` type.
-```
-
-#### Positive
-
-```
-```{tip}
-Great work.
-
-Uses `positive` type.
-```
-```
-
-```{tip}
-Great work.
-
-Uses `positive` type.
-```
-
-#### Negative
-
-```
-```{warning}
-Please try again.
-
-Uses `negative` type.
-```
-```
-
-```{warning}
-Please try again.
-
-Uses `negative` type.
-```
-
-Hyperlinks cannot be word-wrapped within admonishments. Doing so will not format the links.
-
-### Comments
-
-Sometimes it's useful to provide information to documentation editors. For that, add the comment inside a block quote that includes the :construction: icon. These will be excluded from the dedicated documentation web site, but will be visible in the forum when editing. It may look similar to this:
-
-```markdown
-[quote]
-:construction: **NOTE TO EDITORS** :construction:
-
-This note is not visible in the dedicated documentation site.
-[/quote]
-```
--->
-### Foldouts
-
-When a page contains a lot of extraneous information such as walkthroughs or reference tables, a *foldout* can be used. This will create a collapsed header which, when clicked, will expand to display all the content below it.
-
-Foldout syntax in Discourse uses two sets of square brackets with an open and close details tag that acts as the title in the opening brackets:
-
-```markdown
-[details=Manually create a network on a 10.x.x.x subnet]
-
-If you try to run `lxd init` on a system that is connected to a network with a `10.x.x.x` subnet,
-then the final step of the Iinit* may fail with the following error:
-
-[/details]
-```
-The above will appear as follows:
-
-[details=Manually create a network on a 10.x.x.x subnet]
-
-If you try to run `lxd init` on a system that is connected to a network with a
-`10.x.x.x` subnet, then the final step of the Iinit* may fail with the following error:
-
-[/details]
-
-### Images
-
-Most of our documentation covers command line tools, editing and developing. However, if relevant, we highly encourage the use of images. An image should be easier to understand than text, reinforce concepts being discussed in the topic, and break the monotony of words following words.
-
-When making images:
-- do not crop your images too closely to allow context
-- use a resolution high enough to make text legible and work with high-DPI displays
-- a wide aspect ratio fits better with the width of the rendered documentation
-- save with lossless compression, such as PNG for screenshots (JPG is acceptable for photos)
-
-Images can be simply dragged and dropped into the topic you're editing, or uploaded via the toolbar icon. It can also be helpful to edit the description field of an image link after uploading:
-
-```markdown
-![description of image](url)
-```
+Lastly, we would like to thank you for spending your time to help make the
+SnapD documentation better. Every step in the right direction is a step
+worth taking, no matter how large or small.
 
