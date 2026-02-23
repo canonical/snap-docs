@@ -83,7 +83,7 @@ installed:          3.0.19                                 (3721) 336MB -
 
 Type `snap install` followed by the name of the snap to install the snap:
 
-```bash
+```
 sudo snap install vlc
 ```
 
@@ -91,13 +91,13 @@ When _install_ is run for the first time, one or more dependencies may be automa
 
 A channel can also be optionally specified with the `channel` option:
 
-```bash
+```
 sudo snap install --channel=edge vlc
 ```
 
 After installation, the channel being monitored for updates can be changed with:
 
-```bash
+```
 sudo snap switch --channel=stable vlc
 ```
 
@@ -107,7 +107,7 @@ The vast majority of snap-installed applications will run as you expect, from ei
 
 If executing a command directly doesn't work, use the `snap run` command:
 
-```bash
+```
 snap run vlc
 ```
 
@@ -117,7 +117,7 @@ Links to snapped applications are located in `/snap/bin` which is added to the s
 
 Snaps are updated automatically. However, to manually check for updates, use the following command:
 
-```bash
+```
 sudo snap refresh vlc
 ```
 
@@ -125,7 +125,7 @@ The above will check the channel being tracked by the snap. If a newer version o
 
 Changing the channel being tracked and refreshing the snap can be accomplished with a single command:
 
-```bash
+```
 sudo snap refresh --channel=beta vlc
 ```
 
@@ -133,7 +133,7 @@ Updates are automatically installed within 6 hours of a revision being made to a
 
 To check which channel a snap is tracking use the following command:
 
-```bash
+```
 snap refresh --tracking vlc
 ```
 
@@ -141,13 +141,13 @@ snap refresh --tracking vlc
 
 The `snap refresh --hold` command holds, or postpones, snap updates for individual snaps, or for all snaps on the system, either indefinitely or for a specified period of time.
 
-```bash
+```
 snap refresh --hold=<duration> <snap1> <snap2>...
 ```
 
 Time duration units can be seconds (s), minutes (m) or hours (h), or a combination of these.  To postpone updates indefinitely, a value of `forever` is also valid.
 
-```bash
+```
 $ snap refresh --hold=24h firefox
 General refreshes of "firefox" held until 2023-10-26T14:10:53+01:00
 ```
@@ -160,14 +160,14 @@ Refer to [Managing updates](/how-to-guides/work-with-snaps/manage-updates) for m
 
 A snap may be reverted to an earlier revision with the `snap revert` command. By default, it will attempt to revert to the previous revision:
 
-```bash
+```
 $ sudo snap revert vlc
 vlc reverted to 3.0.5-1
 ```
 
 The optional `--revision` argument can be specified to request a specific revision:
 
-```bash
+```
 snap revert vlc --revision 500
 ```
 
@@ -179,7 +179,7 @@ A snap won't automatically update to a version previously reverted from, and the
 
 However, explicitly adding the snap name to `snap refresh` *will* update the snap, regardless of whether the latest revision was previously reverted from or not:
 
-```bash
+```
 $ snap list --all vlc
 Name  Version  Rev  Tracking  Publisher  Notes
 vlc   3.0.5-1  768  stable    videolan✓  -
@@ -200,7 +200,7 @@ Which interfaces a snap requires, and *provides*, depends on the type of snap an
 
 To see which interfaces a snap is using, and which interfaces it could use but isn't, type `snap connections <snapname>`:
 
-```bash
+```
 $ snap connections vlc
 Interface       Plug                   Slot                 Notes
 audio-playback  vlc:audio-playback     :audio-playback      -
@@ -215,7 +215,7 @@ The slot is the provider of the resource while the plug is the consumer, and a s
 
 To allow a camera to be accessible to VLC, the interface can be connected with the `snap connect` command:
 
-```bash
+```
 snap connect vlc:camera
 ```
 <!--
@@ -238,7 +238,7 @@ Most snaps use strict confinement. This isolates both their execution environmen
 
 You can see whether the _home_ interface is being used in the output to `snap connections <snap name>`:
 
-```bash
+```
 $ snap connections nethack
 Interface  Plug          Slot   Notes
 home       nethack:home  :home  -
@@ -260,7 +260,7 @@ Snapshots are generated **manually** with the `snap save` command and **automati
 
 The `snap save` command creates a snapshot for all installed snaps, or if declared individually, specific snaps:
 
-```bash
+```
 $ sudo snap save
 Set  Snap         Age    Version               Rev   Size   Notes
 30   core         1.00s  16-2.37~pre1          6229   250B  -
@@ -286,7 +286,7 @@ See [Snapshots](/how-to-guides/manage-snaps/create-data-snapshots) for further d
 
 To remove a snap from your system, along with its internal user, system and configuration data, use the *remove* command:
 
-```bash
+```
 $ sudo snap remove vlc
 vlc removed
 ```
@@ -299,7 +299,7 @@ Prior to removal (except on [Ubuntu Core](https://www.ubuntu.com/core) systems),
 
 To  remove a snap without generating a snapshot, use the additional `--purge` argument:
 
-```bash
+```
 $ sudo snap remove vlc --purge
 vlc removed
 ```

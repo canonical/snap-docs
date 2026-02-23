@@ -9,19 +9,19 @@ An optional dependency is *bash completion support*, which we recommend leaving 
 
 Alternatively, *snapd* can be installed from the command line:
 
-```bash
+```
 sudo pacman -S snapd
 ```
 
 Once installed, the *systemd* unit that manages the main snap communication socket needs to be enabled:
 
-```bash
+```
 sudo systemctl enable --now snapd.socket
 ```
 
 To enable *classic* snap support, enter the following to create a symbolic link between `/var/lib/snapd/snap` and `/snap`:
 
-```bash
+```
 sudo ln -s /var/lib/snapd/snap /snap
 ```
 
@@ -29,7 +29,7 @@ Restart your system to ensure snap’s paths and AppArmor are initialised and up
 
 To test your system, install the [hello-world](https://snapcraft.io/hello-world) snap and make sure it runs correctly:
 
-```bash
+```
 $ sudo snap install hello-world
 hello-world 6.3 from Canonical✓ installed
 $ hello-world

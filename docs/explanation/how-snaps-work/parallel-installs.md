@@ -5,7 +5,7 @@ Parallel installs enable you to run multiple instances of the same snap on the s
 
 This feature is currently considered experimental. In particular, *snap install* will fail if the same snap is already installed. See below for a workaround and see [Current limitations](#limitations) for more details. As a result, to experiment with parallel installs, an *experimental feature-flag* must first be enabled:
 
-```bash
+```
 sudo snap set system experimental.parallel-instances=true
 ```
 
@@ -17,7 +17,7 @@ The process for installing multiple instances of a snap is identical to installi
 
 For example, the following command will install two instances of the [hello-world](https://snapcraft.io/hello-world) snap with the second given an instance key of `foo`:
 
-```bash
+```
 sudo snap install hello-world hello-world_foo
 ```
 
@@ -32,7 +32,7 @@ sudo snap install --channel 3.0/stable juju_30 --classic
 
 When installing from snap file, the instance key is set by passing `--name=<snap>_<instance>` explicitly:
 
-```bash
+```
 sudo snap install --name hello-world_foo hello-world_27.snap
 ```
 
@@ -54,7 +54,7 @@ Only lowercase letters or digits are valid, and the instance name can be up to 1
 
 When working with instances, the vast majority of snap commands function just as they would with a single snap. To remove an instance, for example, use *remove*: 
 
-```bash
+```
 $ snap remove hello-world_foo
 hello-world_foo removed
 ```
@@ -63,7 +63,7 @@ hello-world_foo removed
 
 [Interfaces](/) work across multiple snap instances just as they do from any one snap to another. For example, *xkcd-webserver* includes a *network* plug, as will all of its instances, any of which can be connected to the system's *:network* slot:
 
-```bash
+```
 $ snap connections xkcd-webserver_foo
 Interface     Plug                             Slot           Notes
 network       xkcd-webserver_foo:network       :network       -
@@ -90,7 +90,7 @@ As with Interfaces, [Services](/) function the same with multiple instances of a
 
 However, with multiple instances, you're more likely to run into port allocation issues, such as two web servers needing access to port 80. In such cases, only the service from one instance will be active.
 
-```bash
+```
 $ snap services
 Service                            Startup  Current
 xkcd-webserver.xkcd-webserver      enabled  active
@@ -99,14 +99,14 @@ xkcd-webserver_foo.xkcd-webserver  enabled  inactive
 
 You can see why *xkcd-webserver_foo.xkcd-webserver* is inactive by looking at its logs:
 
-```bash
+```
 $ sudo snap logs xkcd-webserver_foo.xkcd-webserver
 2018-10-03T12:31:59Z xkcd-webserver_foo.xkcd-webserver[1760]: OSError: [Errno 98] Address already in use
 (...)
 ```
 As with single snap service collisions, the solution is to stop the service on one instance and start the service on the other: 
 
-```bash
+```
 $ sudo snap stop xkcd-webserver.xkcd-webserver
 Stopped.
 
@@ -130,7 +130,7 @@ instance name.
 
 For example, with *hello-world* and *hello-world_foo* installed, *hello-world.env* has an alias of *hello-world_foo.env* in the *_foo* instance:
 
-```bash
+```
 $ hello-world.env  |grep SNAP_INSTANCE_NAME
 SNAP_INSTANCE_NAME=hello-world
 $ hello-world_foo.env  |grep SNAP_INSTANCE_NAME
@@ -139,7 +139,7 @@ SNAP_INSTANCE_NAME=hello-world_foo
 
 As with regular snaps, aliases can be added separately:
 
-```bash
+```
 $ sudo snap alias hello-world_bar bar_env
 Added:
   - hello-world_bar as bar_env
@@ -156,7 +156,7 @@ hello-world_foo  foo_env  manual
 
 Aliases from instances generate conflict errors, just as they would with distinct snaps:
 
-```bash
+```
 $ sudo snap alias hello-world_foo bar_env
 error: cannot perform the following tasks:
 - Setup manual alias "bar_env" => "hello-world" for snap "hello-world_foo"
@@ -165,7 +165,7 @@ error: cannot perform the following tasks:
 
 When aliases trigger a conflict during snap installation, try passing `--unaliased` with the command to disable automatic aliase generation:
 
-```bash
+```
 $ sudo snap install snap-with-conflicting-alias_foo --unaliased
 ```
 

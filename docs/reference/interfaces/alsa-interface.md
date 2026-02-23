@@ -13,7 +13,7 @@ The musical notation and composition application, [MuseScore](https://snapcraft.
 
 To connect a snap to the ALSA interface, run the following command:
 
-```bash
+```
 $ sudo snap connect <snap name>:alsa
 ```
 

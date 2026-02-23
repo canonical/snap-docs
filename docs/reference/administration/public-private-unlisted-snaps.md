@@ -23,7 +23,7 @@ Access to a private snap can be shared by adding individual email addresses to t
 
 With [Snapcraft](/) installed and logged-in to a developer account, the _snapcraft names_ command can be used to check the visibility status of snaps associated with the developer account:
 
-```bash
+```
 $ snapcraft names
 Name             Since                 Visibility    Notes
 cameractrls      2022-11-28T18:15:44Z  public        -

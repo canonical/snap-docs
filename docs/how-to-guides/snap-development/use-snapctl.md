@@ -13,7 +13,7 @@ A snap's configuration options can be queried and altered with the `snapctl get`
 
 The `snapctl` command uses the same get, set and unset syntax as the snap command:
 
-```bash
+```
 snapctl get <configuration option>
 ```
 
@@ -37,7 +37,7 @@ snapctl set ports.http=80 ports.https!
 
 By using a dot in the key of an option, you create a nested configuration. You can retrieve multiple nested options by specifying their common key:
 
-```bash
+```
 $ snapctl get ports
 {
 "http": "80",
@@ -102,7 +102,7 @@ Snap developers can use `snapctl set-health` to provide feedback on the operatio
 
 It uses the following syntax:
 
-```bash
+```
 snapctl set-health [--code=<error code>] <status> [<message>]
 ```
 
@@ -115,7 +115,7 @@ snapctl set-health [--code=<error code>] <status> [<message>]
 
 Outside the snap, health status in included as a note in the output to `snap list`, and as a category in `snap info` for a specific snap:
 
-```bash
+```
 $ snap info nextcloud
 name:    nextcloud
 summary: Nextcloud Server - A safe home for all your data
@@ -133,7 +133,7 @@ For more comprehensive information on using `snapctl set-health`, see [Health ch
 
 The state of a specific snap interface can be probed with the `snapctl is-connected` sub-command by supplying either a slot or plug name as an argument:
 
-```bash
+```
 snapctl is-connected <plug|slot>
 ```
 
@@ -143,14 +143,14 @@ If the given plug or slot is connected, the command returns the standard exit co
 
 For example, the following indicates the camera interface **is not** connected:
 
-```bash
+```
 $ snapctl is-connected camera; echo $?
 1
 ```
 
 This behaviour can be easily used within a hook, for example:
 
-```bash
+```
 if snapctl is-connected camera; then
   # exit status=0. logic when connected
   echo "connected"
@@ -215,7 +215,7 @@ The raw assertion can also be requested with the `--assertion` flag.
 
 When the [mount-control interface](/) is connected, a snapped application or service can use the _mount_ command to mount transient (non-persistent) and persistent filesystem mount points:
 
-```bash
+```
 snapctl mount -o <options> -t <fstype> </path/to/device> </target/mount/point>
 ```
 
@@ -227,7 +227,7 @@ $ snapctl mount --persistent -o bind,rw /usr/share /media/mount
 
 A corresponding _umount_ command can be used to remove a mount point:
 
-```bash
+```
 snapctl umount </path/to/mount/point>
 ```
 
@@ -295,7 +295,7 @@ As with configuration options (see above), snapctl sub-commands for managing ser
 
 To query the startup and running state of a service, for example, use `snapctl services <service-name>`:
 
-```bash
+```
 $ snapctl services nextcloud.mysql
 Service          Startup  Current  Notes
 nextcloud.mysql  enabled  active   -
@@ -303,7 +303,7 @@ nextcloud.mysql  enabled  active   -
 
 The `start`, `stop` and `restart` snapctl commands can be used to start, stop and restart services:
 
-```bash
+```
 $ snapctl stop nextcloud.mysql
 $ snapctl services nextcloud.mysql
 Service          Startup  Current   Notes
@@ -312,7 +312,7 @@ nextcloud.mysql  enabled  inactive  -
 
 Services can be enabled and disabled by adding the `--enable` argument to _snapctl start_ and `--disable` to _snapctl stop_ respectively:
 
-```bash
+```
 $ snapctl start nextcloud.myql --enable
 $ snapctl stop nextcloud.mysql --disable
 ```
@@ -323,7 +323,7 @@ Snaps can only query their own services.
 
 The `snapctl system-mode` command returns YAML-formatted details about specific system states:
 
-```bash
+```
 $ snapctl system-mode
 system-mode: install
 seed-loaded: true

@@ -17,7 +17,7 @@ Hotplug is currently an experimental feature that needs to be enabled. First ens
 
 Then enable hotplug support with the following command:
 
-```bash
+```
 sudo snap set system experimental.hotplug=true
 ```
 
@@ -29,7 +29,7 @@ The name of a hotplug slot is typically derived from a device’s udev attribute
 
 For example, a USB serial adapter from Future Technology Devices International (FTDI) with a model name of *FT232R_USB_UART*, will create the following slot for the system snap when connected:
 
-```bash
+```
 $ snap interface serial-port
 name:    serial-port
 summary: allows accessing a specific serial port

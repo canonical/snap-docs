@@ -13,7 +13,7 @@ If you don't already have the EPEL repository added to your distribution, it can
 
 The EPEL repository can be added to a RHEL 9 system with the following command:
 
-```bash
+```
 sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 sudo dnf upgrade
 ```
@@ -22,7 +22,7 @@ sudo dnf upgrade
 
 The EPEL repository can be added to a RHEL 8 system with the following command:
 
-```bash
+```
 sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 sudo dnf upgrade
 ```
@@ -31,12 +31,12 @@ sudo dnf upgrade
 
 The EPEL repository can be added to a  RHEL 7 system with the following command:
 
-```bash
+```
 sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
 Adding the *optional* and *extras* repositories is also recommended:
 
-```bash
+```
 sudo subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
 sudo yum update
 ```
@@ -46,19 +46,19 @@ If you're interested in understanding how these packages are built, see  [Buildi
 
 With the EPEL repository added to your RHEL installation, the next step is to install the *snapd* package:
 
-```bash
+```
 sudo yum install snapd
 ```
 
 Once installed, the *systemd* unit that manages the main snap communication socket needs to be enabled:
 
-```bash
+```
 sudo systemctl enable --now snapd.socket
 ```
 
 To enable *classic* snap support, enter the following to create a symbolic link between `/var/lib/snapd/snap` and `/snap`:
 
-```bash
+```
 sudo ln -s /var/lib/snapd/snap /snap
 ```
 

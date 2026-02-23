@@ -7,7 +7,7 @@ See also [Installing snap on Red Hat Enterprise Linux](/).
 
 The snap packages for Rocky Linux can be found in the [Extra Packages for Enterprise Linux](https://fedoraproject.org/wiki/EPEL) (EPEL) repository.  The EPEL repository can be added to a Rocky Linux system with the following command:
 
-```bash
+```
 $ sudo dnf install epel-release
 $ sudo dnf upgrade
 ```
@@ -20,19 +20,19 @@ If you use a root user rather than _sudo_ to handle security privileges, run `su
 
 With the EPEL repository added to your Rocky Linux installation, simply install the *snapd* package (as root/or with _sudo_):
 
-```no-highlight
+```
 $ sudo yum install snapd
 ```
 
 Once installed, the *systemd* unit that manages the main snap communication socket needs to be enabled:
 
-```bash
+```
 $ sudo systemctl enable --now snapd.socket
 ```
 
 To enable *classic* snap support, enter the following to create a symbolic link between `/var/lib/snapd/snap` and `/snap`:
 
-```bash
+```
 $ sudo ln -s /var/lib/snapd/snap /snap
 ```
 

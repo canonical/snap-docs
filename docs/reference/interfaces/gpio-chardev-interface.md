@@ -6,7 +6,7 @@ The `gpio-chardev` interface allows access to specific GPIO chardev lines.
 
 Use  `snap interface gpio-chardev` to see which gpio chardev devices are available on the system:
 
-```bash
+```
 $ snap interface gpio-chardev
 name:          gpio-chardev
 summary:       allows access to specific GPIO chardev lines

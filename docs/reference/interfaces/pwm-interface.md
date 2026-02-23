@@ -5,7 +5,7 @@ The `pwm` interface allows access to a specific PWM channel on a device. The int
 
 Use `snap interface pwm` to see which PWM devices are available on the system:
 
-```bash
+```
 $ snap interface pwm
 name: pwm
 summary: allows access to specific PWM channel
@@ -21,7 +21,7 @@ slots:
 
 With an example snap application called _app_ installed, the following command will connect its PWM interface to the specified PWM device channel:
 
-```bash
+```
 $  snap connect app:activity-led gadget:led-1
 ```
 

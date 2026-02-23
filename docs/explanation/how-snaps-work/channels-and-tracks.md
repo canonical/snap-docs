@@ -19,7 +19,7 @@ The _tracking_ value for an installed snap, as shown in the output from the `sna
 
 To view the channel a snap is tracking, the following command may also be used:
 
-```bash
+```
 snap refresh --tracking vlc
 ```
 
@@ -27,7 +27,7 @@ snap refresh --tracking vlc
 
 All snaps have a default track. Without the snap developer specifying otherwise, the default track is called *latest*. Similarly, when no track is specified, a snap will implicitly install from the *latest* track. The track can also be specified explicitly:
 
-```bash
+```
 snap install vlc --channel=latest/edge
 ```
 
@@ -39,7 +39,7 @@ Equally, a track could also be used to track minor updates (2.0.1, 2.0.2), major
 
 Tracks are listed in the *channels* section of the output from the `snap info` command:
 
-```bash
+```
 $ snap info skype
 [...]
 channels:                                  
@@ -59,13 +59,13 @@ In the above output, the [Skype](https://snapcraft.io/skype) snap includes the c
 To install Skype from its *insider* track, for example, use the following
 command:
 
-```bash
+```
 snap install skype --channel=insider/stable
 ```
 
 A user who already has Skype installed can switch channel with the ``snap refresh`` command:
 
-```bash
+```
 snap refresh skype --channel=insider/stable
 ```
 
@@ -99,13 +99,13 @@ The risk-levels have the following meaning:
 
 Snaps are installed from the stable risk-level by default. For example, the following command installs VLC from its stable channel:
 
-```bash
+```
 sudo snap install vlc
 ```
 
 Use the `--channel` option to select a different risk-level. The following command will install the latest beta snap of VLC:
 
-```bash
+```
 sudo snap install --channel=beta vlc
 ```
 
@@ -116,20 +116,20 @@ channel with a more stable risk-level.
 
 After installation, the risk-level being tracked can be changed with the use of the ``switch`` command option:
 
-```bash
+```
 sudo snap switch --channel=stable vlc
 ```
 
 This option will not automatically refresh the snap to force the installation
 of a new snap. To switch channels and update the snap with a single command, add the `--channel` option to the *refresh* command:
 
-```bash
+```
 sudo snap refresh --channel=stable vlc
 ```
 
 To check which channel a snap is tracking, look for the *tracking* field in the output from the `snap info` command:
 
-```bash
+```
 $ snap info vlc
 [...]
 snap-id:      RT9mcUhVsRYrDLG8qnvGiy26NKvv6Qkd
@@ -160,14 +160,14 @@ This approach is commonly used for beta testing. If a snap is following a *beta*
 
 In some cases, when a specific revision is given, it may appear that a snap is being installed from a less stable channel when a revision is not available on the  morestable channel being tracked:
 
-```bash
+```
 $ snap install hello-world --revision=28
 hello-world (edge) 6.3 from Canonical✓ installed
 Channel latest/stable for hello-world is closed; temporarily forwarding to edge.
 ```
 This does not mean that the snap is now being tracked from a potentially riskier channel (_edge_, in the above example), but that the requested revision could only fetched from a riskier channel:
 
-```bash
+```
 $ snapcraft list-revisions hello-world
 Rev.    Uploaded              Arches    Version    Channels
 29      2019-04-17T16:43:58Z  all       6.4        latest/beta*,latest/candidate*,latest/edge*,latest/stable*

@@ -14,7 +14,7 @@ The snap daemon, snapd, is only built for currently supported openSUSE releases.
 
 You need first add the *snappy* repository from the terminal. Tumbleweed users, for example, can do this with the following command:
 
-```bash
+```
 sudo zypper addrepo --refresh \
   https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed \
   snappy
@@ -24,13 +24,13 @@ Swap out `openSUSE_Tumbleweed` for your chosen openSUSE distribution, such as `o
 
 With the repository added, import its GPG key:
 
-```bash
+```
 sudo zypper --gpg-auto-import-keys refresh
 ```
 
 Finally, upgrade the package cache to include the new *snappy* repository:
 
-```bash
+```
 sudo zypper dup --from snappy
 ```
 
@@ -38,7 +38,7 @@ sudo zypper dup --from snappy
 
 Snap can now be installed with the following:
 
-```bash
+```
 sudo zypper install snapd
 ```
 
@@ -46,13 +46,13 @@ You then need to either reboot, logout/login or `source /etc/profile` to have /s
 
 Now enable and start the *snapd* service with the following command:
 
-```bash
+```
 sudo systemctl enable --now snapd
 ```
 
 Run the following to enable and start the _snapd.apparmor_ service:
 
-```bash
+```
 sudo systemctl enable --now snapd.apparmor
 ```
 
@@ -64,7 +64,7 @@ If you don’t see the *snapd* update on your system, make sure the repository i
 
 If it's not, remove and re-add the repository with the following two commands (`--refresh` is important), replacing *openSUSE_Tumbleweed* with your specific version of openSUSE:
 
-```bash
+```
 sudo zypper removerepo snappy
 sudo zypper addrepo --refresh \
     https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed \

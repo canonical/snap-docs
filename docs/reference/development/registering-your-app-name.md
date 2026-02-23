@@ -41,7 +41,7 @@ Two further options enable you to register the snap as either _public_ or _priva
 
 To register a name with the web UI, log into your [developer account](https://snapcraft.io/account) with the _snapcraft login_ command:
 
-```bash
+```
 snapcraft login
 Enter your Ubuntu One e-mail address and password.
 If you do not have an Ubuntu One account, you can create one at https://snapcraft.io/account
@@ -54,7 +54,7 @@ Login successful.
 
 You can now use the _snapcraft register_ command to register your new snap's name:
 
-```bash
+```
 $ snapcraft register <snap name>
 
 We always want to ensure that users get the software they expect
@@ -75,7 +75,7 @@ As shown in the above output, you need to agree that most users will expect your
 
 By default, a newly registered snap is published as a _public_ snap. It can be registered as _private_ with the additional `--private- argument:
  
-```bash
+```
 $  snapcraft register --private <snap name>
 ```
 

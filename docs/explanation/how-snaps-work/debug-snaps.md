@@ -22,7 +22,7 @@ For more details on how AppArmor, seccomp and device permission security policie
 
 To investigate and test the confined environment of a snap, you can open a `bash` shell in it. After the snap is installed, use the `--shell  <name>.<command>` argument of `snap run`.
 
-```bash
+```
 $ snap run --shell mysnap.mycommand
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
@@ -44,7 +44,7 @@ Running the standard _strace_ command on a snapped application, however, can pro
 
 To use this, you first have to install the [strace-static](https://snapcraft.io/strace-static) snap:
 
-```bash
+```
 sudo snap install strace-static
 ```
 
@@ -70,7 +70,7 @@ To help isolate runtime errors when building and testing a snap, a snap can be i
 
 To install a snap in developer mode, use the `--devmode` argument:
 
-```bash
+```
 sudo snap install --devmode mysnap
 ```
 
@@ -119,7 +119,7 @@ If you believe there is a bug in a security policy or want to request and/or con
 
 You can also manually show snap policy violations by searching the logs for _audit_.
 
-```bash
+```
 $ sudo journalctl --since=yesterday | grep audit
 ```
 
@@ -127,12 +127,12 @@ The above command uses `--since=yesterday` to limit the typically verbose loggin
 
 A handy debugging technique is to tail/follow journalctl output while exercising the snap:
 
-```bash
+```
 $ sudo sysctl -w kernel.printk_ratelimit=0 ; journalctl --follow | grep audit
 ```
 
 As shown above, kernel log rate limiting can be disabled manually with:
- ```bash
+ ```
 $ sudo sysctl -w kernel.printk_ratelimit=0
 ```
 
@@ -167,7 +167,7 @@ audit: type=1326 audit(1430766107.122:16): auid=1000 uid=1000 gid=1000 ses=15 pi
 
 The `syscall=983045` can be resolved by running the `scmp_sys_resolver` command on a system of the same architecture as the one with the seccomp violation:
 
-```bash
+```
 $ scmp_sys_resolver 983045
 set_tls
 ```
@@ -180,7 +180,7 @@ The seccomp filter profile in expected to be located in /var/lib/snapd/seccomp/b
 
 The seccomp profile source (the `*.src` file in the profile directory) needs to be recompiled into the profile binary (`*.bin` in the profile directory) as follows:
 
-```bash
+```
 sudo /usr/lib/snapd/snap-seccomp compile /var/lib/snapd/seccomp/bpf/snap.$SNAP_NAME.src /var/lib/snapd/seccomp/bpf/snap.$SNAP_NAME.bin
 ```
 
@@ -196,7 +196,7 @@ On certain distributions, these tools can become superseded by versions embedded
 
 With re-execution from the subsequently installed core and snapd snaps, these tools get called using their full path from the same location as the currently running binary. This is visible from `/proc`:
 
-```bash
+```
 # with reexecution
 $ sudo ls -l /proc/$(pidof snapd)/exe
 lrwxrwxrwx 1 root root 0 Jun  5 10:10 /proc/1994/exe -> /snap/snapd/7777/usr/lib/snapd/snapd
@@ -206,7 +206,7 @@ Thus tools such as snap-seccomp will be called using its full path, `/snap/snapd
 
 Without re-execution, the snapd process is using a binary located in the host filesystem:
 
-```bash
+```
 # no reexecution
 $ sudo ls -l /proc/$(pidof snapd)/exe
 lrwxrwxrwx 1 root root 0 06-05 12:49 /proc/808335/exe -> /usr/lib/snapd/snapd

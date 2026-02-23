@@ -29,7 +29,7 @@ An update can be postponed for up to 14 days for a running application. The upda
 
 After closing the affected application, the refresh can be triggered manually with the `snap refresh` command, either globally for all snaps, or with the specific snap name:
 
-```bash
+```
 snap refresh <snap-name>
 ```
 

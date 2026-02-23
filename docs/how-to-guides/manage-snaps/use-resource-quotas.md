@@ -59,7 +59,7 @@ Limit the size of the aggregated journal log for all the snaps in the quota grou
 
 Accepts a value in either kilobytes(KB), megabytes(MB) or gigabytes(GB), including aggregated values:
 
-```bash
+```
 sudo snap set-quota loggroup --journal-size=64MB
 ```
 
@@ -71,7 +71,7 @@ Limit the number of messages logged to a maximum per time period. This is a usef
 
 The time period is can be nanoseconds(us), milliseconds (ms), seconds(s), minutes (m), and hours(h), including aggregated periods:
 
-```bash
+```
 sudo snap set-quota loggroup --journal-rate-limit=10/1h2m3s4ms5us
 ```
 
@@ -81,7 +81,7 @@ sudo snap set-quota loggroup --journal-rate-limit=10/1h2m3s4ms5us
 
 Memory units can be 'B', 'KB', 'MB or 'GB' with a size greater than 4KB:
 
-```bash
+```
 sudo snap set-quota highmem --memory=2GB
 ```
 
@@ -124,7 +124,7 @@ For example, `--cpu-set=0,1 --cpu=100%` will permit up to 100% CPU resource usag
 
 The following example will allow up to a maximum of half usage combined on four specific cores which means the sum of usage across all 4 specific cores cannot exceed 200%:
 
-```bash
+```
 snap set-quota max-two-specific-cores --cpu-set=0,1,2,3 --cpu=50%
 ```
 
@@ -140,7 +140,7 @@ For example, `--threads=4096` will limit a quota group to no more than 4096 thre
 
 The _threads_ option can also be used with both `--cpu` and `--cpu-set` options to target specific requirements:
 
-```bash
+```
 snap set-quota max-two-specific-cores --cpu-set=0,1,2,3 --cpu=50% --threads=8092
 ```
 
@@ -170,13 +170,13 @@ Snaps can belong to only one quota group, but quota groups can be nested.
 
 To create a nested quota group, add the `--parent=<parent group>` argument to the _set-quota_ command when creating a new quota group:
 
-```bash
+```
 sudo snap set-quota lowmem --memory=1GB --parent=highmem
 ```
 
 The *quotas* command will also show nested quota groups:
 
-```bash
+```
 $ snap quotas
 Quota    Parent   Constraints    Current
 highmem           memory=2.00GB  
@@ -188,13 +188,13 @@ The total resource use of nested quota groups cannot exceed that of the parent g
  
 Add the names of one or more snaps to the _set-quota_ command to include those snaps in the quota group when its created:
 
-```bash
+```
 sudo snap set-quota lowmem go-example-webserver --parent=highmem
 ```
 
 If the quota group already exists, snaps can be added by using _set-quota_ without the resource limit:
 
-```bash
+```
 sudo snap set-quota lowmem go-example-webserver
 ```
 
@@ -217,7 +217,7 @@ The _quota_ command shows information about a quota group, including the set of
 snaps it includes and any subgroups it contains, as well as its resource constraints and 
 the current usage of those constrained resources by snap services in those snaps:
 
-```bash
+```
 $ snap quota lowmem
 name:    lowmem
 parent:  highmem
@@ -231,7 +231,7 @@ snaps:
 
 Use the _quota_ command on the parent of any nested groups to view total resource usage and subgroups:
 
-```bash
+```
 $ snap quota highmem
 name:  highmem
 constraints:
@@ -247,7 +247,7 @@ subgroups:
 To remove a snap from a quota group, the entire group must be removed with the _remove-quota_ command and the quota group recreated without the snaps:
 
 
-```bash
+```
 $ sudo snap remove-quota lowmem
 $ sudo snap set-quota lowmem --memory=1GB
 $ snap quota lowmem

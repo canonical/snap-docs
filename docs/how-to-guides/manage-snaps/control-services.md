@@ -20,7 +20,7 @@ With the release of snapd 2.66, there is now distinction between user-level serv
 The `snap services` command lists the active and enabled state of snap-based services for the current user, or with the additional `--global` argument, for the entire system.
 
 
-```bash
+```
 $ sudo snap services --global  
 Service                    Startup  Current   Notes
 lxd.activate               enabled  inactive  -
@@ -39,7 +39,7 @@ nextcloud.renew-certs      enabled  active    -
 
 Adding a snap name as an argument will list only those services added by that snap, or with `<snap-name>.<app>`, for a single app:
 
-```bash
+```
 $ snap services lxd.daemon    
 Service     Startup  Current  Notes
 lxd.daemon  enabled  active   socket-activated
@@ -53,7 +53,7 @@ Services are restarted using the `snap restart <snap name>` command. This may be
 
 Using both the snap name and the specific app enables you to target a specific service:
 
-```bash
+```
 $ snap restart lxd.daemon
 2024-11-21T21:51:06+01:00 INFO Waiting for "snap.lxd.daemon.service" to stop.
 Restarted.
@@ -63,7 +63,7 @@ The option to perform an operation on all of a snap's services, or on one specif
 
 If a service supports _reloading_, enabling the service to remain running while loading a new configuration, this can be requested with the `--reload` option:
 
-```bash
+```
 snap restart --reload lxd.daemon
 ```
 
@@ -83,13 +83,13 @@ If operating on a snap that contains a user-service as root, the switch `--user`
 
 To prevent a service from starting on the next boot, use the `--disable` option:
 
-```bash
+```
 snap stop --disable lxd.daemon
 ```
 
 The *start* command includes an `--enable` option to re-enable the automatic starting of a service  when the system boots:
 
-```bash
+```
 snap start --enable lxd.daemon
 ```
 
@@ -104,7 +104,7 @@ command. As with the _services_ command, you can specify either a snap name to
 see the logs for all the services it contains, or the name of a specific
 service within a snap:
 
-```bash
+```
 $ sudo snap logs lxd
 2018-09-14T10:38:23Z lxd.daemon[11096]: => LXD is ready
 (...)
@@ -124,13 +124,13 @@ $ sudo snap logs lxd.daemon
 
 By default, only the last 10 lines are output. This can be changed with the `-n=` option which can accept either a number or `all` for the entire log:
 
-```bash
+```
 snap logs -n=all lxd.daemon
 ```
 
 Adding the `-f` option will keep log output open so you can follow new entries as they occur:
 
-```bash
+```
 sudo snap logs lxd -f
 ```
 

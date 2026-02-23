@@ -9,7 +9,7 @@ This interface is a companion interface to the [audio-playback](/reference/inter
 
 The brilliant [OBS Studio](https://snapcraft.io/obs-studio) is a good example of an application that needs access to your microphone/audio recording hardware.
 
-```bash
+```
 $ sudo snap connect obs-studio:audio-record
 ```
 

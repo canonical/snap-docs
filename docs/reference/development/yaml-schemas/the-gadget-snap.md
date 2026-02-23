@@ -358,7 +358,7 @@ One must ensure that `registration.proposed-serial`  is set to a _unique value_ 
 
 ### prepare-device options
 
-```bash
+```
 #!/bin/sh
 
 # optionally set the url of the service

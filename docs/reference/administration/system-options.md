@@ -43,7 +43,7 @@ Further details on the above, see the [official Raspberry Pi documentation](http
 Enables or disables journal persistence. Can be `true` or `false`. If persistent journals were previously enabled by this setting, changing the value to `false` will **delete all saved logs**.
 
 Example to enable the journal:
-```bash
+```
 snap set system journal.persistent=true
 ```
 
@@ -51,7 +51,7 @@ snap set system journal.persistent=true
 
 These options may be set to change the proxies to be used by the system when communicating with external sites that speak the respective protocols:
 
-```bash
+```
 snap set system proxy.http="http://<proxy_addr>:<proxy_port>"
 snap set system proxy.https="http://<proxy_addr>:<proxy_port>"
 ```
@@ -67,7 +67,7 @@ There are four system-wide options that are used to manage how updates are hande
 
 The following example asks the system to only refresh snaps between 4.00am and 7.00am, and 7.00pm and 10:10pm:
 
-```bash
+```
 snap set system refresh.timer=4:00-7:00,19:00-22:10 
 ```
 
@@ -94,7 +94,7 @@ By default, all snap services have the same value for systemd's `OOMScoreAdjust`
 
 The list of snaps need to be as string containing comma separated snap instance names in decreasing order of importance, such as:
 
-```bash
+```
 snap set system resilience.vitality-hint=snapA,snapB,snapC
 ```
 
@@ -108,7 +108,7 @@ In the above example, services inside `snapA` are the **least likely** to be kil
 
 May be set to _true_ on devices running Ubuntu Core to disable the console-conf system configuration wizard that is launched by default when booting an initialised Ubuntu Core image.
 
-```bash
+```
 snap set system service.console-conf.disable=true
 ```
 
@@ -118,7 +118,7 @@ This option is defined in the [gadget snap](/reference/development/yaml-schemas/
 
 Can be set to _true_ to disable the SSH service at startup.
 
-```bash
+```
 snap set system service.ssh.disable=true
 ```
 
@@ -130,7 +130,7 @@ Can be a comma separated list of hostnames, IPs or ports. When set, the SSH [Lis
 
 Port configuration needs to be in the following format: `:<port-number>`
 
-```bash
+```
 snap set system service.ssh.listen-address=:8022
 snap set system service.ssh.listen-address=myhost
 snap set system service.ssh.listen-address=192.168.1.2,myhost,foo:8022
@@ -142,12 +142,12 @@ Available since snapd _2.59_, and only on Ubuntu Core 20 or later.
 
 [Automatic snapshot](/how-to-guides/manage-snaps/create-data-snapshots) retention time is configured with the `snapshots.automatic.retention` system option. The default value is 31 days, and the value needs to be greater than 24 hours:
 
-```bash
+```
 snap set system snapshots.automatic.retention=30h
 ```
 To disable automatic snapshots, set the retention time to `no`:
 
-```bash
+```
 snap set system snapshots.automatic.retention=no
 ```
 
@@ -159,7 +159,7 @@ Automatic snapshots require snap version _2.39+_.
 
 When set to `offline`, prevents the system for initiating connections to the Store. 
 
-```bash
+```
 snap set system store.access=offline
 ```
 
@@ -167,7 +167,7 @@ Prevention includes explicit actions, such as installing a snap, and automatic a
 
 Unsetting the parameter restores the default access to the store.
 
-```bash
+```
 snap unset system store.access
 ```
 
@@ -179,13 +179,13 @@ A custom SSL certificate can be added to snapd's trusted certificates pool for t
 
 To add a certificate, enter the following:
 
-```bash
+```
 snap set system store-certs.cert1="$(cat /path/to/mycert)"
 ```
 
 A certificate can be removed with _unset_:
 
-```bash
+```
 snap unset system store-certs.cert1
 ```
 
@@ -195,7 +195,7 @@ Sets the swap size for the base system.
 
 Value can be any integer multiple of a megabyte that is either larger than or equal to 1 MB, or 0 for no swap enabled:
 
-```bash
+```
 snap set system swap.size=200M
 ```
 
@@ -212,7 +212,7 @@ defaults:
 
 May be set to _true_ to disable the backlight service:
 
-```bash
+```
 snap set core system.disable-backlight-service=true
 ```
 
@@ -220,7 +220,7 @@ snap set core system.disable-backlight-service=true
 
 Dynamically add permitted kernel boot parameters to the default kernel command line on devices using the GRUB bootloader and with [Ubuntu Core 20/22](https://ubuntu.com/core/docs/uc20/inside) or later.
 
-```bash
+```
 snap set system system.kernel.cmdline-append=”opt1=val1 opt2=val2”
 ```
 Proposed kernel boot parameters are verified against an _allow list_ in the [gadget snap](/reference/development/yaml-schemas/the-gadget-snap). See [gadget.yaml](reference/development/yaml-schemas/the-gadget-snap) for further details on the list syntax.
@@ -236,7 +236,7 @@ Consider using [system.kernel.dangerous-cmdline-append](#heading--system.kernel.
 
 Dynamically add any kernel boot parameters to the default kernel command line on devices using the GRUB bootloader with [Ubuntu Core 20](https://ubuntu.com/core/docs/uc20/inside) or later.
 
-```bash
+```
 snap set system system.kernel.dangerous-cmdline-append=”opt1=val1 opt2=val2”
 ```
 
@@ -252,7 +252,7 @@ The configuration will be stored in `/etc/sysctl.d/99-snapd.conf` and the defaul
 
 Example to set the log level to 1:
 
-```bash
+```
 $ snap set system system.kernel.printk.console-loglevel=1
 $ cat /etc/sysctl.d/99-snapd.conf 
 kernel.printk = 1 4 1 7
@@ -263,7 +263,7 @@ kernel.printk = 1 4 1 7
 On systems that support [Netplan](https://netplan.io/), such as Ubuntu Core 20 and 22, snapd can both query and configure the Netplan key and value notation through its _get_ and _set_ system options commands:
 
 
-```bash
+```
 $ snap get -d system system.network.netplan
 {
         "system.network.netplan": {
@@ -335,7 +335,7 @@ May be set to one of:
 
 To set the system power button behaviour to _hibernate_, for example, enter the following:
 
-```bash
+```
 snap set system system.power-key-action=hibernate
 ```
 
@@ -343,7 +343,7 @@ snap set system system.power-key-action=hibernate
 
 May be used to set a time zone value, as typically found in `/usr/share/zoneinfo`, such as `America/Chicago`.
 
-```bash
+```
 snap set system system.timezone="America/Chicago"
 ```
 
@@ -373,7 +373,7 @@ $ snap get -d system
 
 Configures the default size for the `/tmp` mount point on Ubuntu Core devices:
 
-```bash
+```
 snap set system tmp.size=<size>
 ```
 
@@ -381,7 +381,7 @@ Size can given as either bytes, megabytes or gigabytes: `<bytes>`, `<bytes/2^20>
 
 To set the `/tmp` mount point to a size of 2GB, for example, run the following command:
 
-```bash
+```
 snap set system tmp.size=2G
 ```
 
@@ -393,7 +393,7 @@ snap get system tmp.size
 
 To set to `/tmp` to the default size, remove any custom setting:
 
-```bash
+```
 snap unset system tmp.size
 ```
 By default, `/tmp` is set to use 50% of physical RAM.
@@ -402,7 +402,7 @@ By default, `/tmp` is set to use 50% of physical RAM.
 
 When _true_, permits the system to create users automatically from a valid [system-user assertion](https://ubuntu.com/core/docs/reference/assertions/system-user), such as an assertion stored on external storage (see [System user](https://ubuntu.com/core/docs/system-user) for more details). When _false_, users can only created manually with _create user_ API calls:
 
-```bash
+```
 snap set system users.create.automatic=false
 ```
 
@@ -424,7 +424,7 @@ A valid value is a non-negative time duration in seconds, or suffixed with `ms`,
 
 The following example will set the timeout to 1 minute:
 
-```bash
+```
 snap set system watchdog.runtime-timeout=1m
 ```
 
@@ -445,7 +445,7 @@ As with the _watchdog runtime timeout_, a valid value is a non-negative time dur
 
 The following example will set the timeout to 500 seconds:
 
-```bash
+```
 snap set system watchdog.shutdown-timeout=500
 ```
 
