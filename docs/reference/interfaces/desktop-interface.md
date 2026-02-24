@@ -1,5 +1,5 @@
 (interfaces-desktop-interface)=
-#  desktop interface
+# desktop interface
 
 `desktop` allows access to basic graphical desktop resources, such as Wayland.
 
