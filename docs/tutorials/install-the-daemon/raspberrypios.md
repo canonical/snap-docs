@@ -6,19 +6,19 @@ Snap can be installed on a [Raspberry Pi](https://www.raspberrypi.org/) running 
 
 Enter the following into the terminal:
 
-```bash
+```
 sudo apt update
 sudo apt install snapd
 ```
 You will also need to reboot your device. This can be accomplished from the terminal (and from the desktop), but make sure you save any open documents first:
 
-```bash
+```
 sudo reboot
 ```
 
 After this, install the `core` snap in order to get the latest `snapd`.
 
-```bash
+```
 $ sudo snap install core
 core 16-2.45.2 from Canonical✓ installed
 ```
@@ -28,7 +28,7 @@ core 16-2.45.2 from Canonical✓ installed
 
 To test your system, install the [hello-world](https://snapcraft.io/hello-world) snap and make sure it runs correctly:
 
-```bash
+```
 $ snap install hello-world
 hello-world 6.3 from Canonical✓ installed
 $ hello-world

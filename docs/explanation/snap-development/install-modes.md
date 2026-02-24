@@ -13,7 +13,7 @@ By default, a snap will attempt to install with _strict confinement_. Strict con
 
 Certain snaps, however, require unfettered access to the system, and these are packaged as _classic snaps_. Installing a snap that requires classic access will prompt the user to use the additional `--classic` argument:
 
-```bash
+```
 sudo snap install snapcraft --classic
 ```
 
@@ -53,7 +53,7 @@ Only non-classic snaps can be placed in jail mode. This can be useful when testi
 
 The `snap list` command will include the install mode status in the _Notes_ column for each respective snap:
 
-```no-highlight
+```
 Name        Version            Rev    Tracking        Publisher     Notes
 liquidctl   1.7.1-11-g6295354  1      latest/stable   morrisong     devmode
 snapcraft   5.0                6751   latest/stable   canonical✓    classic

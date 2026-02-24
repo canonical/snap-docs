@@ -16,13 +16,6 @@ After the interface has been connected, the host’s `/usr/share/doc` directory 
 
 This interface is helpful for *web browsers*, for example, because it enables them to open and view the host’s HTML system documentation.
 
-
-[comment]: <> (```{tip})
-
-See [Interface management](/) and [Supported interfaces](/reference/interfaces/index) for further details on how interfaces are used.
-
-[comment]: <> (```)
-
 ## Developer details
 
 **Auto-connect**: no

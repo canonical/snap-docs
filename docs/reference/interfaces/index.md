@@ -1,6 +1,6 @@
 # Interfaces
 
-[Interfaces](/explanation/all-about-interfaces) enable resources from one snap to be shared with another and with the system. The table below lists currently supported interfaces, with links to further details for each interface.
+[Interfaces](/explanation/interfaces/all-about-interfaces) enable resources from one snap to be shared with another and with the system. The table below lists currently supported interfaces, with links to further details for each interface.
 
 The following column names are used:
 

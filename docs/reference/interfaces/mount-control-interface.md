@@ -15,9 +15,7 @@ Use of `cifs` requires snapd version *2.68+*
 
 See [Interface management](/) and [Supported interfaces](/reference/interfaces/index) for further details on how interfaces are used.
 
----
-
-<h2 id=`heading--dev-details`>Developer details </h2>
+## Developer details 
 
 **[Auto-connect](/explanation/interfaces/interface-auto-connection)**: no</br>
 **[Super-privileged](/)**: yes</br>
@@ -44,7 +42,7 @@ It's the responsibility of the snapped application or service to create and main
 
 The `snapctl mount` command is the only option for creating a persistent mount point via its `--persistent` mount option.
 
-<h3 id='heading--filesystems'>Accepted filesystems</h3>
+### Accepted filesystems
 
 Most filesystem types which are supported by the host system are allowed by this interface, with a few exceptions.
 
@@ -60,7 +58,7 @@ While other filesystems are accepted, the following filesystems are supported al
 
 **Note:** When using `nfs` or `cifs` types, attribute `what` must be left out from the mount entry in plug attributes. Since neither of those types can be listed with any other fs types in a the same entry it is recommended do add a separate entry for NFS or CIFS.
 
-<h3 id='heading--options'>Permitted mount options</h3>
+### Permitted mount options
 
 The following filesystem-independent mount options are permitted:
 

@@ -26,7 +26,7 @@ As with [classic confinement](/explanation/security/classic-confinement), a snap
 
 Use the `snap connections` command to see which interfaces a snap needs, and which are currently connected:
 
-```bash
+```
 $ snap connections vlc
 Interface         Plug                  Slot               Notes
 camera            vlc:camera            -                  -

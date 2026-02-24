@@ -11,7 +11,7 @@ The `/run/snapd.socket` UNIX socket is used to connect a client to the API.
 
 To send a **POST** request with _curl_, for example, the following will ask snapd to install the [hello](https://snapcraft.io/hello) snap from the _edge_ channel:
 
-```bash
+```
 sudo curl -sS --unix-socket /run/snapd.socket \
 http://localhost/v2/snaps/hello \
 -X POST -d '{"action": "install", "channel": "edge"}'
@@ -19,7 +19,7 @@ http://localhost/v2/snaps/hello \
 
 Similarly, the following curl command will remove a [quota group](/how-to-guides/manage-snaps/use-resource-quotas) called _allquotas_:
 
-```bash
+```
 sudo curl -sS --unix-socket /run/snapd.socket \
 http://localhost/v2/quotas \
 -X POST -d '{"action": "remove", "group-name": "allquotas"}'
@@ -27,7 +27,7 @@ http://localhost/v2/quotas \
 
 A request will return a JSON-formatted object. The following example uses _curl_ to **GET** request the list of installed snaps, piped through _jq_ for formatting:
 
-```bash
+```
 $ sudo curl -sS --unix-socket /run/snapd.socket http://localhost/v2/apps \
 | jq
 {
@@ -58,13 +58,13 @@ If an app or client is already running as root, it _does not_ require the use of
 
 Authorisation is provided by sending a Macaroon with the HTTP authorisation header. For example:
 
-```no-highlight
+```
 Authorization: Macaroon root="serialized-store-macaroon",discharge="discharge-for-macaroon-authentication"
 ```
 
 If available, [Polkit](https://www.freedesktop.org/wiki/Software/polkit/) can also be used for authentication. The client may choose to allow user interaction for authentication, e.g. showing a graphical dialogue. This is done by setting an HTTP header (defaults to false):
 
-```no-highlight
+```
 X-Allow-Interaction: true
 ```
 
@@ -86,24 +86,24 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 * `type`: One of `sync`, `async` or `error`
 * `status-code`: HTTP status code matching the HTTP status line
 * `status`: HTTP reason phrase matching the HTTP status line
 * `maintenance`: JSON object containing maintenance information (_optional_)
 
-#### Maintenance Fields
+### Maintenance Fields
 
 * `kind`: Kind of maintenance restart, one of `system-restart` or `daemon-restart`
 * `message`: Text to show to user
 
-### Synchronous response
+## Synchronous response
 
 For a standard synchronous operation, the following JSON object is returned:
 
 Example:
-```javascript
+```
 {
     "type": "sync",
     "status-code": 200,
@@ -112,13 +112,13 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 In addition to the standard response fields, the following can also be present:
 
 * `result`: Result from the request. This can be any JSON structure and is commonly either an object or an array.
 
-### Asynchronous Response
+## Asynchronous Response
 
 When a request takes time to complete, an asynchronous response is returned.
 
@@ -134,7 +134,7 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 In addition to the standard response fields the following can be present:
 
@@ -158,13 +158,13 @@ Example:
 }
 ```
 
-#### Fields
+### Fields
 
 In addition to the standard response fields the following can be present:
 
 * `result`: Error information
 
-#### Result Fields
+### Result Fields
 
 * `message`: Description of the error, suitable for displaying to a user
 * `kind`: Unique code for the error, to enable a snapd client to display appropriate behaviour (_optional_)

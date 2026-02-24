@@ -5,7 +5,7 @@ If you're running [Parrot Security OS 4.1](https://www.parrotsec.org/) and above
 
 On older versions of Parrot OS, snap can be installed from the command line (and the *Synaptic Package Manager*). Launch the terminal from the top toolbar and enter the following:
 
-```bash
+```
 sudo apt update
 sudo apt install snapd
 ```

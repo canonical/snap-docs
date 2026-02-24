@@ -235,7 +235,7 @@ The revision number is applied to the snap binary on upload to the Snap Store, a
 
 The output to `snap info <snapname>` includes the revision for each snap in each track and channel as a number in brackets after the publishing date:
 
-```bash
+```
 channels:
   latest/stable:    20.0.7snap1               2021-02-05 (26119) 286MB -
   latest/candidate: ↑
@@ -264,7 +264,7 @@ In the domain of snaps, assertions and Ubuntu Core, the term _series_ is used to
 
 This can most obviously be seen in the output to _snap version_:
 
-```bash
+```
 $ snap version
 snap    2.52
 snapd   2.52
@@ -349,7 +349,7 @@ See our [Ubuntu Core](https://ubuntu.com/core/docs) documentation for more detai
 
 The *version* of a snap is a string assigned to a project by its developers. You can see the version string assigned to a snap in the output from `snap info <snapname>` or `snap find`:
 
-```bash
+```
 $ snap find nextcloud
 Name          Version       Publisher   Notes  Summary
 nextcloud     20.0.7snap1   nextcloud✓  -      A safe home for all your data

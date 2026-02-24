@@ -71,7 +71,7 @@ The hook should use `snapctl get` to retrieve configuration values from snapd. I
 
 For example, given the following command:
 
-```bash
+```
 $ snap set mysnap username=foo password=bar
 ```
 

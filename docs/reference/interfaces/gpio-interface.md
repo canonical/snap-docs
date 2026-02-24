@@ -6,7 +6,7 @@
 
 Use  `snap interface gpio` to see which gpio devices are available on the system:
 
-```bash
+```
 $ snap interface gpio
 name:    gpio
 summary: allows access to a specific GPIO pin
@@ -21,7 +21,7 @@ slots:
 
 The [pi-fancontrol](https://snapcraft.io/pi-fancontrol) snap provides simple fan control on a Raspberry Pi with a fan connected to GPIO 14 (pin 8). With the snap installed, the following command will connect the interface to the pin:
 
-```bash
+```
 snap connect pi-fancontrol:gpio pi:bcm-gpio-14
 ```
 

@@ -14,7 +14,7 @@ But it’s sometimes useful to be able to experiment with a snap locally, to hel
 
 In order to use `snap try`, you first need to get the unpacked contents of the snap. The first step is to get the snap itself. The most practical source of snaps is the snap store, where a snap can be downloaded with the `snap download` command:
 
-```bash
+```
 $ snap download hello-world
 Fetching snap "hello-world"
 Fetching assertions for "hello-world"
@@ -29,7 +29,7 @@ Alternatively, _.snap_ files for any installed snaps can be found at `/var/lib/s
 
 To uncompress the SquashFS _.snap_ file, use `unsquashfs <snap filename>`:
 
-```bash
+```
 $ unsquashfs hello-world_29.snap
 Parallel unsquashfs: Using 8 processors
 6 inodes (6 blocks) to write
@@ -46,7 +46,7 @@ The files associated with the snap can now be found in the `squashfs-root’ dir
 
 Running `snap try <directory>` installs an unpacked snap using a bind mount.
 
-```bash
+```
 $ snap try squashfs-root
 hello-world 6.4 mounted from /home/user/squashfs-root
 $ which hello-world
@@ -63,7 +63,7 @@ Most changes now made to files in the `squashfs-root` folder will be immediately
 
 Using the above hello-world snap, for example, we could edit the `bin/echo` script to change its output without rebuilding or remounting the snap:
 
-```bash
+```
 $ hello-world
 Hello world!
 $ sed -i 's/World/Everyone/g' /home/user/squashfs-root/bin/echo
@@ -81,7 +81,7 @@ This _prime_ directory includes all the staged components of a snap, which can t
 
 The following,  example, will build a _hello-world_ snap within [LXD](/) and offer its _prime_ directory locally:
 
-```bash
+```
 
 $ snapcraft try --use-lxd
 Pulling hello-world
@@ -98,7 +98,7 @@ You can now run `snap try /home/user/hello-world/prime`.
 
 The above snap can then be installed and tested with [`snap try`](#heading--snaptry) and the _prime_ directory as its target:
 
-```bash
+```
 $ snap try /home/user/hello-world/prime
 hello-world 0.1 mounted from /home/user/hello-world/prime
 ```

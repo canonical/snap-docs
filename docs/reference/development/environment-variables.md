@@ -13,7 +13,7 @@ See below for the various environment variables available to snap applications. 
 
 Each snap runs in a custom environment specifically made for it. To get an overview of the variables in it, you can open a shell as the snap and run the `env` command.
 
-```bash
+```
 $ snap run --shell <snap>.<command>
 $ env
 XDG_VTNR=1

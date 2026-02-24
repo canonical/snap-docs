@@ -60,8 +60,5 @@ Parrot Security OS <parrot>
 Pop!_OS <pop-os>
 Raspberry Pi OS <raspberrypios>
 Red Hat <red-hat>
-Rocky Linux <rocky-linux> 
+Rocky Linux <rocky-linux>
 Ubuntu <ubuntu>
-(tutorials-index)=
-
-

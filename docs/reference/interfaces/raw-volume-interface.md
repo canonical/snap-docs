@@ -15,7 +15,7 @@ To use a disk partition, the snap developer must add `plugs: [ raw-volume ]` to 
 
 Use  `snap interface raw-volume` to see which disk partitions are available on the system for snaps to use:
 
-```bash
+```
 $ snap interface raw-volume
 name:    raw-volume
 summary: allows access to specific disk partition

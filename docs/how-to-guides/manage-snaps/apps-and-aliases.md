@@ -13,7 +13,7 @@ As covered in [Get started](/tutorials/get-started), a snap's installed applicat
 
 If executing a command directly doesn't work, try prefixing it with the */snap/bin* path:
 
-```bash
+```
 $ /snap/bin/vlc
 ```
 Adding `/snap/bin` to your default _$PATH_ makes running snaps that don't automatically add themselves more convenient.
@@ -27,7 +27,7 @@ A few Linux distributions use a path of `/var/lib/snapd/snap/bin` instead of the
 
 The output of `snap info` lists the applications a snap makes available beneath the *commands:* section:
 
-```bash
+```
 $ snap info vlc
 name:      vlc
 summary:   The ultimate media player
@@ -52,14 +52,14 @@ For example, [LXD](https://canonical.com/lxd) snap exposes the application as *l
 
 Aliases can be viewed with the `snap aliases` command: 
 
-```bash
+```
 $ snap aliases lxd
 Command  Alias  Notes
 lxd.lxc  lxc    -
 ```
 Unlike applications that use a snap's namespace, there is no guarantee that an alias is going to be unique. For this reason, aliases can be easily disabled and re-enabled with the `unalias` and `prefer` commands:
 
-```bash
+```
 $ sudo snap unalias lxd
 Removed:
   - lxd.lxc as lxc
@@ -73,7 +73,7 @@ The *prefer* command enables all aliases for a given snap in preference to confl
 
 A snap can also be installed with an additional `--unaliased` argument to prevent aliases being created automatically:
 
-```bash
+```
 $ snap install lxd --unaliased
 lxd 4.22 from canonical✓ installed
 $ snap aliases lxd
@@ -95,7 +95,7 @@ Snap's aliasing system supports the creation of arbitrary custom aliases defined
 
 For example, the following exposes a new command under `/snap/bin` to support calling the `vlc` application as `my-vlc`:
 
-```bash
+```
 $ sudo snap alias vlc my-vlc
 Added:
   - vlc as my-vlc
@@ -109,7 +109,7 @@ When a manual alias is set, the original application name will continue to funct
 
 Removing a manually created alias is also straightforward:
 
-```bash
+```
 $ sudo snap unalias my-vlc    
 Removed:
   - vlc as my-vlc

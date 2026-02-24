@@ -10,7 +10,7 @@ Audio recording is enabled with the companion [audio-record](/reference/interfac
 The [VLC snap](https://snapcraft.io/vlc) is a good example of an application using the  audio-playback interface:
 
 
-```bash
+```
 $ snap connections vlc
 Interface               Plug                        Slot                     Notes
 audio-playback          vlc:audio-playback          :audio-playback          -
@@ -19,13 +19,13 @@ audio-record            vlc:audio-record            -                        -
 
 If for some reason you want to disable audio playback for a snap, use the disconnect command:
 
-```bash
+```
 snap disconnect vlc:audio-playback
 ```
 
 The connect command can be used to re-enable audio playback:
 
-```bash
+```
 snap connect vlc:audio-playback
 ```
 

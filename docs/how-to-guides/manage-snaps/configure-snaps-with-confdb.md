@@ -15,12 +15,12 @@ Confdb is currently considered an [Experimental feature](/reference/development/
 
 We first need to ensure the latest version of snapd is installed. This is important as confdb is still being actively developed:
 
-```bash
+```
 snap refresh
 ```
 We can then enable confdb with its experimental feature flag:
 
-```bash
+```
 sudo snap set system experimental.confdb=true
 ```
 

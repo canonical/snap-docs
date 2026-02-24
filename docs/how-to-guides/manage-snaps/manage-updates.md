@@ -24,13 +24,13 @@ There are two general approaches to postponing or otherwise managing snap update
 
 The `snap refresh --hold` command holds, or postpones, snap updates for individual snaps, or for all snaps on the system, either indefinitely or for a specified period of time.
 
-```bash
+```
 snap refresh --hold=<duration> <snap1> <snap2>...
 ```
 
 Time duration units can be seconds (s), minutes (m) or hours (h), or a combination of these.  To postpone updates indefinitely, a value of `forever` is also valid.
 
-```bash
+```
 $ snap refresh --hold=24h firefox
 General refreshes of "firefox" held until 2022-10-26T14:10:53+01:00
 ```
@@ -40,14 +40,14 @@ If no duration is specified, the time duration defaults to `forever`.
 
 If no snaps are specified, the hold applies to all snaps installed on the system:
 
-```bash
+```
 $ snap refresh --hold=24h
 Auto-refresh of all snaps held until 2022-10-26T14:25:58+01:00
 ```
 
 To see which snaps are being held, look for `held` in the _notes_ column when running `snap list`:
 
-```bash
+```
 $ snap list
 Name         Version  Rev   Tracking       Publisher          Notes                         
 alacritty    0.8.0    46    latest/stable  snapcrafters       classic   
@@ -83,14 +83,14 @@ The `snap refresh --unhold` command removes a refresh hold, either for the speci
 
 For a single snap:
 
-```bash
+```
 $ snap refresh --unhold firefox
 Removed general refresh hold of "firefox"
 ```
 
 For for all snaps:
 
-```bash
+```
 $ snap refresh --unhold
 Removed auto-refresh hold on all snaps
 ```
@@ -110,7 +110,7 @@ Use *refresh.timer* to modify when, and how frequently, your snaps are refreshed
 
 The following example asks the system to only refresh snaps between  4.00am and 7.00am, and 7.00pm and 10:10pm:
 
-```bash
+```
 sudo snap set system refresh.timer=4:00-7:00,19:00-22:10 
 ```
 
@@ -130,7 +130,7 @@ See [Timer string format](/reference/operations/timer-string-format) for a compr
 
 You can check the update frequency for your environment with the `refresh` command:
 
-```bash
+```
 $ snap refresh --time
 timer: 00:00~24:00/4
 last: today at 07:47 BST
@@ -145,12 +145,12 @@ Use *refresh.hold* to delay snap refreshes until a defined time and date (up to 
 
 For example, *5:22pm (BST), Tuesday 23rd April 2019*, would look like the following: 
 
-```no-highlight
+```
 2019-04-23T17:22:54+01:00
 ```
 The correct format can be generated with the *date* command:
 
-```bash
+```
 $ date --date="BST 2023-09-23 17:22:54" +%Y-%m-%dT%H:%M:%S%:z
 2023-09-23T17:22:54+01:00
 
@@ -189,7 +189,7 @@ By default, *refresh.metered* is enabled when a metered connection is detected.
 
 Use *refresh.retain* to set the maximum number of a snap's revisions stored by the system *after* the next refresh:
 
-```bash
+```
 sudo snap set system refresh.retain=3
 ```
 The *refresh.retain* value can be a number between 2 and 20. The default is `refresh.retain=3` on Ubuntu Core systems and `refresh.retain=2` on *classic* Ubuntu systems, such as those running an Ubuntu LTS release.
@@ -202,14 +202,14 @@ The *refresh.retain* value can be a number between 2 and 20. The default is `ref
 
 Regardless of when a refresh is scheduled, a refresh can be initiated with the `snap refresh` command:
 
-```bash
+```
 $ snap refresh
 gnome-system-monitor 3.28.2 from 'canonical' refreshed
 gnome-calculator 3.28.2 from 'canonical' refreshed
 ```
 The *refresh* command can also be used to see when the last refresh occurred and when the next is scheduled:
 
-```bash
+```
 $ snap refresh --time
 timer: 00:00~24:00/4
 last: today at 09:16 GMT
@@ -220,7 +220,7 @@ The first line in the above output shows the value of the *timer* system option.
 
 To see which snaps are going to be updated with the next _refresh_, use the additional `--list` argument:
 
-```bash
+```
 $ snap refresh --list
 Name           Version                    Rev   Publisher     Notes
 core           16-2.45.1+git2022.b6b3c25  9584  canonical✓    core
@@ -236,7 +236,7 @@ The `snap refresh --ammend` command can be used to replace a locally installed s
 
 Use the `snap changes` and `snap tasks <change-id>` commands to see details about what changed during the last refresh:
 
-```bash
+```
 $ snap changes
 ID    Status  Spawn                   Ready                   Summary
 2052  Done    today at 09:34 BST      today at 09:35 BST      Auto-refresh 7 snaps
@@ -245,7 +245,7 @@ ID    Status  Spawn                   Ready                   Summary
 
 Add the _change-id_ to see what actions a specific change performed:
 
-```bash
+```
 $ snap tasks 2053
 Status  Spawn               Ready               Summary
 Done    today at 15:16 BST  today at 15:16 BST  Ensure prerequisites for "gnome-calculator" are available

@@ -11,8 +11,8 @@ A validation set can help a group of interdependent snaps maintain their testing
 
 In particular, if the [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) for a device includes optional snaps, a validation set can be used to ensure specific collections of snaps are installed together on derivatives of the same devices.
 
-Enforced validation sets prevent listed snaps and components from being removed from the system
+Enforced validation sets prevent listed snaps and components from being removed from the system, generating an error similar to the following:
 
-"""bash
+```
 error: cannot remove component "mysnap+mycomp" as it is required by an enforcing validation set
-"""
+```

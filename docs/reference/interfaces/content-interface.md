@@ -70,13 +70,13 @@ plugs:
 
 Using the above configuration, the consumer snap could implement a part to run an executable from the following path:
 
-```bash
+```
 $SNAP/usr/local/bin/<executable-name>
 ```
 
 When more than one slot is connected to the same plug, the plug directory for the new connection will be incremented:
 
-```bash
+```
 $SNAP/usr/local/bin-2/<executable-name>
 ```
 

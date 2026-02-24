@@ -13,14 +13,14 @@ Disk space awareness is currently an experimental feature.
 
 When enabled, snapd checks whether there is enough space in `/var/lib/snapd` to complete an operation, such as enough space to store a requested snap to download. If there isn't enough space, an error is returned and the operation is not performed:
 
-```bash
+```
 $ snap install foo
 error: cannot install "foo" due to low disk space
 ```
 
 The error output can also include a hint on how a space requirement could be mitigated, such as suggesting the `--purge` flag with `snap remove` to disable the automatic snapshot generation:
 
-```bash
+```
 $ snap remove foo
 error: cannot remove "foo" due to low disk space, use --purge to avoid creating a snapshot
 ```
@@ -36,7 +36,7 @@ To enable disk space awareness, set one or more of the following _experimental_ 
 - `experimental.check-disk-space-remove`
 
 To enable the pre-install check, for example, use the following command:
-```bash
+```
 snap set system experimental.check-disk-space-install=true
 ```
 

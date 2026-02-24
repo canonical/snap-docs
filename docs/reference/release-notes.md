@@ -34,7 +34,7 @@ The snapd package updates automatically, and by default, checks for updates 4 ti
 
 To install snapd from the beta channel, for example, use the following command:
 
-```bash
+```
 sudo snap refresh snapd --beta
 ```
 

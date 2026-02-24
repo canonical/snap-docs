@@ -38,20 +38,20 @@ The store caches several older revisions of every snap, as does the local system
 
 The snap `install`, `refresh` and `download` commands can operate on these available revisions with an optional `--revision` argument.
 
-```bash
+```
 snap <command> <snap-name> --revision <revision-number>
 ```
 
 To install revision number _27_ of the hello-world snap, for example, run the following command:
 
-```bash
+```
 $ snap install hello-world --revision 27
 hello-world 6.3 from Canonical✓ installed
 ```
 
 The hello-world snap could be refreshed to revision number _28_ with the following command:
 
-```bash
+```
 $ snap refresh hello-world --revision 28
 hello-world 6.3 from Canonical✓ refreshed
 ```

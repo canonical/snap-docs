@@ -143,7 +143,7 @@ Interfaces are implemented as plugs and slots. A plug in one snap may connect to
 
 The _snap connections_ command can be used to see available interfaces alongside their slots and plugs.
 
-```bash
+```
 $ snap connections
 Interface           Plug                                Slot               Notes
 home                wormhole:home                       :home              -

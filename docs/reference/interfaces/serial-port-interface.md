@@ -5,7 +5,7 @@ The `serial-port` interface enables input and output access to a specific serial
 
 Use  `snap interface serial-port` to see which serial-port devices are available on the system:
 
-```bash
+```
 $ snap interface serial-port
 name:    serial-port
 summary: allows accessing a specific serial port

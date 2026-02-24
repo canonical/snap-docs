@@ -9,7 +9,7 @@ It's also possible to use the _Discover_ desktop application to search for avail
 
 Snap can also be installed from the command line. Open the *Konsole* terminal and enter the following:
 
-```bash
+```
 sudo apt update
 sudo apt install snapd
 ```

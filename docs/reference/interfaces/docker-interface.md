@@ -64,7 +64,7 @@ Lastly, the default-provider field tells snapd that if the user does not have an
 When the above example snap is built and installed, you can open a shell within the snap's environment with the following command:
 
 
-```bash
+```
 snap run --shell hello-docker
 ```
 

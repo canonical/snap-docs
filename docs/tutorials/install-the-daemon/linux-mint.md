@@ -9,13 +9,13 @@ From Linux Mint 20 onwards, installing Snap is blocked by a file called `nosnap.
 
 This can be accomplished from the command line, and the following command (for example) renames `nosnap.pref` to `nosnap.backup`:
 
-```bash
+```
 sudo mv /etc/apt/preferences.d/nosnap.pref /etc/apt/preferences.d/nosnap.backup
 ```
 
 With the file renamed, the package database needs to be updated next:
 
-```bash
+```
 sudo apt update
 ```
 
@@ -23,7 +23,7 @@ To now install snap from the Software Manager application, search for *snapd* an
 
 Alternatively, *snapd* can be installed from the command line:
 
-```bash
+```
 sudo apt install snapd
 ```
 
