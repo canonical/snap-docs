@@ -269,7 +269,8 @@ redirects = {
    "moos-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-moos-app/",
    "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/",
    "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/",
-   "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973"
+   "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973",
+   "reference/development/registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/"
 }
 
 ###########################
@@ -346,7 +347,7 @@ exclude_patterns = [
 html_css_files = ["css/cookie-banner.css"]
 
 # Used for copying OpenAPI HTML file
-html_extra_path = ["_html_extra"]
+html_extra_path = ["_html_extra/openapi.json"]
 
 # Add redirects, so they can be updated here to land with docs being moved
 rediraffe_branch = "main"
@@ -362,10 +363,10 @@ html_js_files = [
 
 # Specifies a reST snippet to be appended to each .rst file
 
-rst_epilog = """
-.. include:: /reuse/links.txt
-.. include:: /reuse/substitutions.txt
-"""
+# rst_epilog = """
+# .. include:: /reuse/links.txt
+# .. include:: /reuse/substitutions.txt
+# """
 
 # Feedback button at the top; enabled by default
 #

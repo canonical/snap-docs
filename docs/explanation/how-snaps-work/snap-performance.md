@@ -23,7 +23,7 @@ snap debug timings <change-id>
 
 The change identifiers (`<change-id>`) are listed under the `ID` column in the output to `snap changes`:
 
-```bash
+```
 ID    Status  Spawn                   Ready                   Summary
 8302  Done    yesterday at 18:24 BST  yesterday at 18:24 BST  Install "chromium" snap
 8303  Done    today at 11:46 BST      today at 11:46 BST      Remove hotplug connections and slots of device /dev/ttyACM0 (100 Series/C230 …; serial: 6564B3891339) with interface "serial-port"
@@ -34,7 +34,7 @@ Instead of a change id,  the `--last` argument can be used with a well defined n
 
 With the `--verbose` argument, the output will also include a label for the change:
 
-```pre
+```
 ID     Status Doing  Undoing  Label          Summary
 160162 Done   750ms        -  prerequisites  Ensure prerequisites for "chromium" are available
 ^             681ms        -  install-prereq install "cups"
@@ -48,9 +48,8 @@ The following charts were produced from the `Doing` column output of  `snap debu
 
 
 ```{dropdown} Debug timing data for cached install of Chromium snap
-:closed:
 
-```pre
+```
 ID      Status        Doing      Undoing  Label                          Summary
 160241  Done          461ms            -  prerequisites                  Ensure prerequisites for "chromium" are available
  ^                    353ms            -  install-prereq                 install "cups"
@@ -116,9 +115,8 @@ ID      Status        Doing      Undoing  Label                          Summary
 ![Chromium snap cold install timing data](https://assets.ubuntu.com/v1/49e70e0e-chromium-cold-install-pie.png)
 
 ```{dropdown} Debug timing data for cold install of Chromium snap
-:closed:
 
-```pre
+```
 ID      Status        Doing      Undoing  Label                          Summary
 160162  Done          750ms            -  prerequisites                  Ensure prerequisites for "chromium" are available
 ^                     681ms            -  install-prereq                 install "cups"
@@ -198,7 +196,7 @@ Tracking the execution times of such ensure activities can be useful. For exampl
 
 Use the `--ensure=` argument to see the timing details for the latest specified ensure activity, or with the optional `--all` argument to show timing data for every execution of the ensure activity.
 
-```bash
+```
 $ snap debug timings --ensure=refresh-catalogs
 ID                Status        Doing      Undoing  Summary
 refresh-catalogs                309ms            -  
@@ -210,7 +208,7 @@ refresh-catalogs                309ms            -
 
 The startup timing data for two subsystems, `load-state` and `ifacemgr`, are also tracked and can be output with the `--startup` argument:
 
-```bash
+```
 $ snap debug timings --startup=ifacemgr
 ID        Status        Doing      Undoing  Summary
 ifacemgr                    -            -  

@@ -27,7 +27,7 @@ For details on how confinement is implemented, see [Snap system architecture](/r
 
 Use the `snap` command to discover the confinement level for a snap:
 
-```bash
+```
 $ snap info --verbose vlc
 [...]
   confinement:       strict
@@ -37,7 +37,7 @@ $ snap info --verbose vlc
 
 To see which installed snaps are using classic confinement, look for *classic* under the *Notes* column in the output of `snap list`:
 
-```bash
+```
 $ snap list
 Name      Version   Rev   Tracking  Publisher       Notes
 vlc       3.0.6     770   stable    videolan✓       -

@@ -35,7 +35,7 @@ Click on _snap-files_ to download the archive.
 
 First, unzip the file we downloaded:
 
-```bash
+```
 $ unzip snap-files.zip
 Archive:  snap-files.zip
   inflating: snapd_2.53.2+git6345be5.6345be5-dirty_amd64.snap
@@ -43,7 +43,7 @@ Archive:  snap-files.zip
 
 This resultant snap for the specific pull request we selected earlier can now be installed with snap's [dangerous mode](/explanation/snap-development/install-modes.md#dangerous-mode):
 
-```bash
+```
 $ snap install --dangerous snapd_2.53.2+git6345be5.6345be5-dirty_amd64.snap
 2021-11-24T13:06:46Z INFO Waiting for automatic snapd restart...
 snapd 2.53.2+git6345be5.6345be5-dirty installed

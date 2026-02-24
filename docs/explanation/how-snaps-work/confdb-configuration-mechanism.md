@@ -10,9 +10,7 @@
 
 See [How to configure snaps with confdb](/how-to-guides/manage-snaps/configure-snaps-with-confdb) for instructions on using confdb with your own snaps, and read on for specific implementation details.
 
-```{info}
-Confdb is currently considered an [Experimental feature](https://forum.snapcraft.io/t/experimental-features/41241) and implementation details may change as development progresses.
-```
+Confdb is currently considered an [Experimental feature](/reference/development/experimental-features) and implementation details may change as development progresses.
 
 ## Confdb views
 
@@ -84,7 +82,7 @@ Instead of enumerating every possible combination, we can use a placeholder to m
 
 This enables the snap name to be dynamically mapped into the query: 
 
-```bash
+```
 $ snap get system/snap-status/observe snaps.firefox.status
 enabled
 
@@ -117,7 +115,7 @@ This example only provides a storage path. When omitted, the request path is ass
 
 As requests are matched on *prefixes* of the request paths in view rules, it’s possible to provide a prefix path to \`snap get\` and to obtain an aggregate result:
 
-```bash
+```
 $ snap get system/snap-status/observe snaps.firefox.status
 enabled
 
@@ -275,7 +273,7 @@ Writes to confdb data operate in a similar fashion to reads:
 1. Data modification is done with `snapctl set --view` command in the usual manner.
    To help snaps distinguish between uncommitted and pristine data, a `--pristine` flag can be used with `snapctl get --view`:
 
-   ```bash
+   ```
    $ snapctl get --view :plug-name path.modified
    <new_data>
 

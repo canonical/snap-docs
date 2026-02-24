@@ -7,7 +7,7 @@ Snap can be installed from the *Synaptic* package manager, found in the *System*
 
 Snap can also be installed from the command line. Open *Xfce Terminal* from the panel and enter the following:
 
-```bash
+```
 sudo apt update
 sudo apt install snapd
 ```

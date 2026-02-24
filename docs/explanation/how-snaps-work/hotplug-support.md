@@ -5,21 +5,19 @@ Hotplug support gives snaps the ability to integrate with Linux's [USB hotpluggi
 
 Developers wishing to add hotplug functionality to their own interfaces should see [Developing hotplug interfaces](/reference/interfaces/developing-hotplug-interfaces).
 
-> ⓘ  Hotplug support is currently [under active development](/reference/interfaces/snapd-roadmap), and will become widely available with a future release of snapd. It can be tested by installing *snapd* from its [edge channel](/) (see below).
-
 Initially, only USB serial port adapters using the [serial-port interface](/reference/interfaces/serial-port-interface) are supported. Other types of device, such as USB cameras, will be added in the future.
 
 In addition to creating a slot, snapd's hotplug support also remembers connections. If the device is unplugged, its slot disappears from the system. When the device is reconnected, its slot and connections are restored. 
 
->  ⓘ  *snapd* tracks devices by matching specific udev attributes. This means that even when a device is reconnected with a different udev path, such when it uses a different USB port or gets a non-deterministic enumeration by the kernel, it is still recognised as the old device by snapd and its old connections are restored with updated attributes.
+*snapd* tracks devices by matching specific udev attributes. This means that even when a device is reconnected with a different udev path, such when it uses a different USB port or gets a non-deterministic enumeration by the kernel, it is still recognised as the old device by snapd and its old connections are restored with updated attributes.
 
-### Enabling hotplug
+## Enabling hotplug
 
 Hotplug is currently an experimental feature that needs to be enabled. First ensure you have a recent snapd installed, either via the core snap or the snapd snap, at least 2.39. 
 
 Then enable hotplug support with the following command:
 
-```bash
+```
 sudo snap set system experimental.hotplug=true
 ```
 
@@ -31,7 +29,7 @@ The name of a hotplug slot is typically derived from a device’s udev attribute
 
 For example, a USB serial adapter from Future Technology Devices International (FTDI) with a model name of *FT232R_USB_UART*, will create the following slot for the system snap when connected:
 
-```bash
+```
 $ snap interface serial-port
 name:    serial-port
 summary: allows accessing a specific serial port

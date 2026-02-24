@@ -15,13 +15,13 @@ Ensure you have an [Ubuntu One](https://documentation.ubuntu.com/core/tutorials/
 
 The `snapcraft edit-validation-sets` command is used to create a validation set from the command line:
 
-```bash
+```
 snapcraft edit-validation-sets <account-id> <set-name> <sequence>
 ```
 
 This command requires your developer account id (`<account-id`), an arbitrary name for the validation set (`<set-name>`), and a sequence number (`<sequence>`). The sequence number starts at 1:
 
-```bash
+```
 snapcraft edit-validation-sets xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1 1
 ```
 
@@ -104,7 +104,7 @@ Modifying a validation set without updating the sequence can violate the constra
 
 Use the `snapcraft validation-sets` command to check which validation sets area available in the store:
 
-```bash
+```
 $ snapcraft validation-sets
 Account-ID                       Name      Sequence  Revision  When
 xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08
@@ -113,7 +113,7 @@ xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f testset1  2         0         2021-03-31
 
 To list only validation-sets with a specific set name, use the additional `--name` argument:
 
-```bash
+```
 $ snapcraft validation-sets --name myset1
 Account-ID                       Name      Sequence  Revision  When
 xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08
@@ -121,7 +121,7 @@ xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08
 
 An additional `--sequence` argument can be used to list validation sets with a specific sequence number:
 
-```bash
+```
 $ snapcraft validation-sets --name myset1 --sequence 1
 Account-ID                       Name      Sequence  Revision  When
 xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08
@@ -133,13 +133,13 @@ By default, only the _latest_ validation sets are listed. To list every validati
 
 The `snap validate --monitor` command is used to enable monitoring of a validation assertion on the system; in this mode the constraints of the assertion are not enforced (e.g. snaps may get automatically refreshed to newer revisions that make the assertion invalid as shown in the next example):
 
-```bash
+```
 snap validate --monitor xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/testset1
 ```
 
 The `snap validate` command, with no further arguments, checks whether the `snaps:` rules for all validation set assertions in the store are valid for the system:
 
-```bash
+```
 $ snap validate
 Validation                                 Mode     Seq  Current    Notes
 xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1    monitor  1    valid  
@@ -150,14 +150,14 @@ An assertion is invalid if snaps in the system do not satisfy the constraints of
 
 A specific validation set can be checked with `snap validate <account id>/<validation set name>`, with an optional sequence point set by adding `=<sequence>` to the validation set name:
 
-```bash
+```
 $ snap validate xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1=1
 valid
 ```
 
 A validation set assertion can be _pinned_ by the system administrator at the given sequence number:
 
-```bash
+```
 snap validate --monitor xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/testset1=3
 ```
 
@@ -167,7 +167,7 @@ Monitor mode validation requires a manual action (`snap validate`, as shown abov
 
 Finally, to remove a validation set from the system, use the `--forget` argument:
 
-```bash
+```
 snap validate --forget xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1
 ```
 
@@ -177,13 +177,13 @@ When validation set validity is enforced, snapd will block any operations that w
 
 A validation set can only be enforced if all required snaps are installed, and at the correct revision if specified. This is done by adding the `--enforce` argument to the ‘snap validate’ command:
 
-```bash
+```
 snap validate --enforce xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1
 ```
 
 This command will fetch the validation set assertion from the store if not available on the system, but will not refresh assertions, install missing snaps or remove invalid snaps. However, the `--refresh --enforce` arguments can be used to refresh the validation set assertion, install or refresh any snaps and revisions required for the assertion to become valid. Note that, if the assertion requires snaps to be removed, the `--refresh --enforce` request will not remove them and will instead quit without making any changes.
 
-```bash
+```
 snap validate --refresh --enforce xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1
 ```
 

@@ -25,7 +25,7 @@ For instance, the `audio-playback` interface connects VLC's audio-playback plug 
 
 You can see which snaps are using an interface with the `interface` command:
 
-```bash
+```
 $ snap interface audio-playback
 name:    audio-playback
 summary: allows audio playback via supporting services
@@ -65,7 +65,7 @@ On the terminal, the _snap_ command provides more granular control over interfac
 
 The `snap connections` command lists which interfaces are connected and being used, while adding `--all` additionally shows interfaces with unconnected slots or plugs (shown in the output as a `-`):
 
-```bash
+```
 $ snap connections --all
 Interface            Plug                           Slot                     Notes
 adb-support          scrcpy:adb-support             :adb-support             -
@@ -78,7 +78,7 @@ dbus                 -                              cameractrls:dbus-daemon  -
 
 To see which interfaces a snap is using, and which interfaces it could use but isn't, type `snap connections <snapname>`:
 
-```bash
+```
 $ snap connections vlc
 Interface       Plug                   Slot                 Notes
 audio-playback  vlc:audio-playback     :audio-playback      -
@@ -95,7 +95,7 @@ VLC can access the user's _/home_ directory because the [`home`](/reference/inte
 
 To see all connected interfaces on your system, use the _snap connections_ command without a snap name:
 
-```bash
+```
 $ snap connections
 Interface      Plug                    Slot                 Notes
 adb-support    scrcpy:adb-support      :adb-support         -
@@ -108,7 +108,7 @@ audio-playback chromium:audio-playback :audio-playback      -
 
 Adding `--all` to the _snap connections_ command will list all interfaces, including those without a connection:
 
-```bash
+```
 $ snap connections --all
 Interface      Plug                    Slot                 Notes
 adb-support    scrcpy:adb-support      :adb-support         -
@@ -138,7 +138,7 @@ See the _Auto-connect_ column in the [Supported interfaces](/reference/interface
 
 When you need to connect an interface manually, such as when you want to grant a snap access to [audio-record](/reference/interfaces/audio-record-interface) for audio input, use the `snap connect` command:
 
-```bash
+```
 snap connect <snap>:<plug interface>
 ```
 
@@ -146,13 +146,13 @@ With no further arguments, the plug will connect to the system via the snap daem
 
 For example, to connect VLC's _audio-record_ plug to the system's _audio-record_, you'd enter the following:
 
-```bash
+```
 sudo snap connect vlc:audio-record
 ```
 
 To connect an interface to a slot provided by another snap, provide this as an additional argument:
 
-```bash
+```
 snap connect <snap>:<plug interface> <snap>:<slot interface>
 ```
 
@@ -167,13 +167,13 @@ A successful connection grants any necessary permissions that may be required by
 
 To disconnect an interface, use `snap disconnect`:
 
-```bash
+```
 snap disconnect <snap>:<plug interface>
 ```
 
 Following our previous example, you would disconnect *vlc:audio-record* with the following command:
 
-```bash
+```
 sudo snap disconnect vlc:audio-record
 ```
 

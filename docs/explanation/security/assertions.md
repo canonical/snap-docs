@@ -57,7 +57,7 @@ Given a particular type and index, there is only one “latest” valid assertio
 
 The `snap known <type> [<header>=<value>...]` command can be used to view assertions or a specific type:
 
-```bash
+```
 $ snap known account account-id=generic
 type: account
 authority-id: canonical
@@ -71,7 +71,7 @@ sign-key-sha3-384: [...]
 
 Similarly, a snap's assertions are downloaded alongside the snap using the `snap download` command:
 
-```bash
+```
 $ snap download gnome-calculator
 Fetching snap "gnome-calculator"
 Fetching assertions for "gnome-calculator"

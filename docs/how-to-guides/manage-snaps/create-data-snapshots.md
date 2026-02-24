@@ -9,7 +9,7 @@ Snapshots are generated **manually** with the `snap save` command and **automati
 
 The `snap save` command creates a snapshot for all installed snaps, or if declared individually, specific snaps:
 
-```bash
+```
 $ sudo snap save
 Set  Snap         Age    Version               Rev   Size   Notes
 30   core         1.00s  16-2.37~pre1          6229   250B  -
@@ -24,7 +24,7 @@ If you'd rather not wait for the *save* operation to complete before regaining a
 
 You can see the state of your system's snapshots with the `snap saved` command. Adding `--id=<set/unique ID>` allows you to query a specific snapshot:
 
-```bash
+```
 $ snap saved --id=29
 Set  Snap             Age    Version               Rev   Size   Notes
 29   vlc              2h41m  3.0.6                 770   882kB  -
@@ -63,7 +63,7 @@ See [Data locations](/reference/operations/data-locations) for more details on h
 
 To verify the integrity of a snapshot, use the `check-snapshot` command:
 
-```bash
+```
 $ sudo snap check-snapshot 30
 Snapshot #30 verified successfully.
 ```
@@ -74,7 +74,7 @@ By default, snapshots are maintained and stored on the system that created them.
 
 To export a snapshot, use the `snap export-snapshot <set-id> <new-filename>` command:
 
-```bash
+```
 $ sudo snap export-snapshot 30 my-snapshot.zip
 Exported snapshot #30 into "my-snapshot.zip"
 ```
@@ -83,7 +83,7 @@ The resultant snapshot file is a _zip_ archive that contains two _json_ files to
 
 To import a previously exported snap shot, use the `snap import-snapshot` command:
 
-```bash
+```
 $ sudo snap import-snapshot mysnapshot
 Imported snapshot as #30
 Set  Snap  Age    Version  Rev   Size    Notes
@@ -96,7 +96,7 @@ If the snapshot with the same snapshot identifier exists, the import will overwr
 
 The `restore` command replaces the current user, system and configuration data with the corresponding data from the specified snapshot:
 
-```bash
+```
 $ sudo snap restore 30
 Restored snapshot #30.
 ```
@@ -112,7 +112,7 @@ Excluding a snap's system and configuration data from *snap restore* is not curr
 
 The `forget` command deletes a snapshot. This operation removes a snapshot from local storage and can not be undone:
 
-```bash
+```
 $ sudo snap forget 30
 Snapshot #30 forgotten.
 $ snap saved --id=30
@@ -127,7 +127,7 @@ Apart from on [Ubuntu Core](https://www.ubuntu.com/core) devices, where the feat
 
 To see which snapshots are generated automatically,  look for `auto` in the *Notes* column output from *snap saved*:
 
-```bash
+```
 $ snap saved
 Set  Snap              Age    Version               Rev   Size   Notes
 30   go                25d5h  1.10.7                3092   387B  -
@@ -139,13 +139,13 @@ As with manual snapshots, automatically generated snapshots can be manually dele
 
 Automatic snapshot retention time is configured with the `snapshots.automatic.retention` [system option](/how-to-guides/manage-snaps/set-system-options). The value needs to be greater than 24 hours:
 
-```bash
+```
 snap set system snapshots.automatic.retention=30h
 ```
 
 To disable automatic snapshots, set the retention time to `no`:
 
-```bash
+```
 snap set system snapshots.automatic.retention=no
 ```
 

@@ -57,7 +57,7 @@ plugs:
 
 When `private: true` is used,  the shared-memory interface is automatically connected:
 
-```bash
+```
 $ snap connections <example-private-shared-memory-snap>
 Interface      Plug                      Slot            Notes
 shared-memory  os-release:shared-memory  :shared-memory  -

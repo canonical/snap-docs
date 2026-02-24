@@ -7,7 +7,7 @@ The majority of snaps use [strict confinement](/) and do not have arbitrary acce
 
 To check whether a snap can connect to $HOME, use the _snap connections_ command:
 
-```bash
+```
 $ snap connections <snap-name>
 Interface  Plug                Slot         Notes
 home       <snap-name>:home    -        -
@@ -17,7 +17,7 @@ The above output shows that `<snap-name>` does provide a home interface (in the 
 
 Use the _snap connect_ command to connect an interface:
 
-```bash
+```
 $ snap connect <snap-name>:home :home
 ```
 The `:home` slot, with no \<snap-name\>  before the colon (`:`) is equivalent to directing the plug to connect to the system, which in this case is the $HOME directory.

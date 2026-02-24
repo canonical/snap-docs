@@ -11,7 +11,7 @@ The [LED class](https://www.kernel.org/doc/html/latest/leds/leds-class.html) is 
 
 Use the  `snap interface bool-file` command to see which boolean files are available on the system:
 
-```bash
+```
 $ snap interface bool-file
 name:    bool-file
 summary: allows access to specific file with bool semantics

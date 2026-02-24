@@ -108,13 +108,13 @@ plugs:
 
 As a user, if you want to allow `bar` to communicate with `foo` via D-Bus, then you can connect the interface like so:
 
-```bash
+```
 $ sudo snap connect bar:foo-svc foo:dbus-svc
 ```
 
 You can check it's worked with the following:
 
-```bash
+```
 $ snap connections
 Interface           Plug                 Slot               Notes
 dbus-svc            bar:dbus-svc         foo:dbus-svc       -

@@ -58,7 +58,7 @@ When declaring an instance of the `personal-files` plug or slot, it should be na
 
 You would then be able to use the following to enable access to personal files:
 
-```bash
+```
 snap connect foo:dot-config-foo
 ```
 

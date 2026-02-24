@@ -21,19 +21,19 @@ There are various causes for this error.  Try the following steps, and if the pr
 
 1. Restart snapd:
 
-   ```bash
+   ```
    sudo systemctl restart snapd snapd.socket
    ```
 
 1. Reload systemd's daemon state:
 
-    ```bash
+    ```
    sudo systemctl daemon-reload
     ```
 
 1. Reboot the machine:
     
-    ```bash
+    ```
     sudo reboot
     ```
 
@@ -63,7 +63,7 @@ Linux distributions differ, but most will need a restart after snapd has been in
 
 Executables from installed snaps can usually be found in `/snap/bin/`, and this should also be in your path. You can check this by typing `echo $PATH | grep "snap/bin"` on the command line, or by using the _which_ command to see where the executable binary:
 
-```bash
+```
 $ which spotify
 /snap/bin/spotify
 ```
@@ -72,7 +72,7 @@ If an executable isn't in your path, try using the `snap run` command, such as `
 
 You can also manually add `/snap/bin` to your system $PATH. This is typically accomplished by adding a line similar to the following in your shell environment's configuration file (such as `~/.bashrc` or `~/.zshrc`):
 
-```bash
+```
 export PATH="/snap/bin:$PATH"
 ```
 
@@ -100,7 +100,7 @@ Snaps that depend on a _browser-sandbox_, such as Teams and Chromium, may inadve
 
 As a temporary solution, the issues can be bypassed with the following command:
 
-```bash
+```
 sudo sysctl kernel.unprivileged_userns_clone=1
 ```
 ## Too early for operation errors
@@ -119,7 +119,7 @@ One of the best ways to solve an issue is to understand when and where the error
 
 The `snap changes` and `snap tasks <change-id>` commands, for example, output details about what changed during the last refresh:
 
-```bash
+```
 $ snap changes
 ID    Status  Spawn                   Ready                   Summary
 2052  Done    today at 09:34 BST      today at 09:35 BST      Auto-refresh 7 snaps
@@ -128,13 +128,13 @@ ID    Status  Spawn                   Ready                   Summary
 
 The snap daemon documents its operations to the system log. This can be retrieved and viewed with the following command: 
 
-```bash
+```
 sudo journalctl --no-pager -u snapd
 ```
 
 The `snap debug` command can be used to probe the state of the daemon:
 
-```bash
+```
 $ sudo snap debug state /var/lib/snapd/state.json
 ID    Status  Spawn                   Ready                   Label                         Summary
 2955  Done    yesterday at 13:53 BST  yesterday at 13:53 BST  hotplug-remove-serial-port    Remove hotplug connections and slots of device /dev/ttyACM0 (Keyboardio Model…; serial: Ckbio01E) with interface "serial-port"

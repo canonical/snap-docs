@@ -15,7 +15,7 @@ The **snap install** and **snap refresh** commands accept an additional `--trans
 
 To install hello and hello-world snaps as a single transaction, for example, run the following command:
 
-```bash
+```
 $ snap install hello hello-world --transaction=all-snaps
 hello-world 6.4 from Canonical✓ installed
 hello 2.10 from Canonical✓ installed

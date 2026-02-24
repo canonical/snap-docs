@@ -17,4 +17,5 @@ Extend snap functionality with API access and customised environments for your a
 Install modes <install-modes>
 System username <system-usernames>
 Tab completion <tab-completion>
+XDG desktop portals <xdg-desktop-portals>
 Building snap on RHEL <building-snap-rpms-on-rhel>

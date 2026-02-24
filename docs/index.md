@@ -27,7 +27,7 @@ Snap and Snapcraft are members of the Ubuntu family. They're both open source pr
 * [Get support](https://forum.snapcraft.io/c/snap/14)
 * [Join the Discourse forum](https://forum.snapcraft.io/)
 * [Interactive chat on Matrix.org](https://matrix.to/#/#snapd:ubuntu.com)
-* [Contribute to our documentation](/contribute-to-our-docs)
+* [Contribute to our documentation](contribute-to-our-docs)
 * [Project roadmap](https://forum.snapcraft.io/t/the-snapd-roadmap/1973)
 
 Thinking about using snap for your next project? [Get in touch!](https://forum.snapcraft.io/)

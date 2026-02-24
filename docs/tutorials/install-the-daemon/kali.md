@@ -6,13 +6,13 @@ Installing snap from a _live_ Kali Linux environment is not currently supported.
 ```
 From a Kali Linux installation, snap can be installed directly from the command line:
 
-```bash
+```
 sudo apt update
 sudo apt install snapd
 ```
 If the *sudo* command isn't installed (usually because a root password was provided at install time), you can install *snap* by first switching to the *root* account:
 
-```no-highlight
+```
 su root
 apt update
 apt install snapd
@@ -20,7 +20,7 @@ apt install snapd
 
 Additionally, enable and start both the snapd and the snapd.apparmor services with the following command:
 
-```bash
+```
 systemctl enable --now snapd apparmor
 ```
 
@@ -28,7 +28,7 @@ systemctl enable --now snapd apparmor
 
 To test your system, install the [hello-world](https://snapcraft.io/hello-world) snap and make sure it runs correctly:
 
-```bash
+```
 $ snap install hello-world
 hello-world 6.3 from Canonical✓ installed
 $ hello-world

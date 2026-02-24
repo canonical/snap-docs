@@ -15,7 +15,7 @@ To use the uio device, the snap developer must add `plugs: [ uio ]` to a snap's 
 
 Use  `snap interface uio` to see which disk partitions are available on the system for snaps to use:
 
-```bash
+```
 $ snap interface uio
 name:    uio
 summary: allows access to specific uio device

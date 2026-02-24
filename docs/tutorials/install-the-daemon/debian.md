@@ -3,13 +3,13 @@
 
 On Debian, snap can be installed directly from the command line:
 
-```bash
+```
 sudo apt update
 sudo apt install snapd
 ```
 If the *sudo* command isn't installed (usually because a root password was provided at install time), you can install *snap* by first switching to the *root* account:
 
-```no-highlight
+```
 $ su root
 # apt update
 # apt install snapd
@@ -19,7 +19,7 @@ $ su root
 
 After this, install the `snapd` snap in order to get the latest `snapd`.
 
-```bash
+```
 sudo snap install snapd
 ```
 
@@ -27,7 +27,7 @@ sudo snap install snapd
 
 To test your system, install the [hello-world](https://snapcraft.io/hello-world) snap and make sure it runs correctly:
 
-```bash
+```
 $ sudo snap install hello-world
 hello-world 6.3 from Canonical✓ installed
 $ hello-world

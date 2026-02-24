@@ -73,7 +73,7 @@ The path attribute can then be read by the following methods of the interface (a
 
 The following is one potentially complete implementation of `HotplugDeviceDetected`:
 
-```go
+```
 func (iface *myInterface) HotplugDeviceDetected(di *hotplug.HotplugDeviceInfo) (*hotplug.ProposedSlot, error) {
 	bus, _ := di.Attribute("ID_BUS”)
         // some arbitrary criteria to filter irrelevant devices out
@@ -94,7 +94,7 @@ When creating filtering logic for the above function, it is useful to inspect ud
 
 As an example, the following is an example of output from *udevadm* for a USB serial port adapter:
 
-```no-highlight
+```
 P: /devices/pci0000:00/0000:00:11.0/0000:02:00.0/usb2/2-2/2-2.1/2-2.1:1.0/ttyUSB0/tty/ttyUSB0
 N: ttyUSB0
 S: serial/by-id/usb-FTDI_FT232R_USB_UART_AH06W0EQ-if00-port0

@@ -4,7 +4,7 @@ Experimental features are part of the _snapd_ development process. They allow en
 
 If an experimental feature is considered unstable or likely to change, they are demarcated by an experimental feature flag, such as the following for [Quota groups](/t/25553).
 
-```bash
+```
 sudo snap set system experimental.quota-groups=true
 ```
 ## Request for feedback

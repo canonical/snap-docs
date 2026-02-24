@@ -47,7 +47,7 @@ SNAP_SAVE_DATA=/var/lib/snapd/save/snap/hello-world
 
 The above environment variable references a mount point at the following location:
 
-```bash
+```
 $ mount | grep "snapd/save"
 /dev/mapper/ubuntu-save on /var/lib/snapd/save type ext4 (rw,relatime)
 ```
@@ -84,7 +84,7 @@ When deleting and removing a snap from a system, the following will happen:
 
 To remove a snap without generating a snapshot, use the additional ‘–purge’ argument:
 
-```bash
+```
 $ sudo snap remove vlc --purge
 vlc removed
 ```
