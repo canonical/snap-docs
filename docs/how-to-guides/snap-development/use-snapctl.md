@@ -191,7 +191,7 @@ grade:         signed
 
 This can be changed to JSON with the `--json` flag:
 
-```json
+```
 {
   "architecture": "amd64",
   "base": "core22",

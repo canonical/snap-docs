@@ -73,7 +73,7 @@ The path attribute can then be read by the following methods of the interface (a
 
 The following is one potentially complete implementation of `HotplugDeviceDetected`:
 
-```go
+```
 func (iface *myInterface) HotplugDeviceDetected(di *hotplug.HotplugDeviceInfo) (*hotplug.ProposedSlot, error) {
 	bus, _ := di.Attribute("ID_BUS”)
         // some arbitrary criteria to filter irrelevant devices out

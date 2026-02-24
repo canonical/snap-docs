@@ -145,7 +145,7 @@ The following specification defines what is supported in `gadget.yaml`:
 
 ``` {dropdown} gadget.yaml
 
-```yaml
+```
 # Define the format of this file. The default and latest format is zero.
 # Clients reading this file must reject it the format is greater than
 # the supported one. (optional)

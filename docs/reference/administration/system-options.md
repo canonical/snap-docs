@@ -349,7 +349,7 @@ snap set system system.timezone="America/Chicago"
 
 To see the current timezone settings, use the `snap get -d system`:
 
-```yaml
+```
 $ snap get -d system
 {
         "experimental": {

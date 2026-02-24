@@ -44,14 +44,12 @@ Examples of changes that require an issue are things like:
 - Significant technical corrections or updates
 - Feature additions or enhancements
 
-For the full description of the contribution workflow, see {ref}`local-development`.
-
 ## Contributions we don't accept
 
 We reserve the right to reject any contribution at our own discretion where:
 
 **The outline of proposed work has not already been agreed by a maintainer.**
-: To protect maintainers' limited time, we do not accept unsolicited contributions. A PR must be tied to a valid and agreed issue unless it only makes a small change. Submitting an issue after a PR doesn't *guarantee* that we will then accept the PR. To save yourself time, effort, and frustration, please {ref}`follow the outlined procedures <local-development>`.
+: To protect maintainers' limited time, we do not accept unsolicited contributions. A PR must be tied to a valid and agreed issue unless it only makes a small change. Submitting an issue after a PR doesn't *guarantee* that we will then accept the PR. 
 
 **The pull request far exceeds the scope of what was agreed.**
 : "Scope creep" makes it much harder to review and accept changes. If a pull request becomes too large, we may ask you to break it into multiple smaller PRs. Stick to the scope of the original issue as much as you can -- if you discover more changes need to be made, discuss them in the PR or the original issue. A new PR can be submitted with the extra fixes.

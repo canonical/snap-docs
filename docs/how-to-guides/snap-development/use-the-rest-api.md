@@ -103,7 +103,7 @@ Example:
 For a standard synchronous operation, the following JSON object is returned:
 
 Example:
-```javascript
+```
 {
     "type": "sync",
     "status-code": 200,
