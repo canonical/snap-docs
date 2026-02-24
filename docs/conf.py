@@ -269,7 +269,8 @@ redirects = {
    "moos-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-moos-app/",
    "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/",
    "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/",
-   "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973"
+   "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973",
+   "reference/development/registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/"
 }
 
 ###########################

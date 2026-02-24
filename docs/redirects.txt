@@ -89,7 +89,7 @@ snap-confinement/ explanation/security/snap-confinement
 classic-confinement/ explanation/security/classic-confinement
 assertions/ explanation/security/assertions
 snapd-release-process/ explanation/security/snapd-release-process
-contribute-to-docs/ contribute-to-our-docs
+contribute-to-docs/ contributing
 nvme-control-interface/ reference/interfaces/nvme-control-interface
 iscsi-initiator-interface/ reference/interfaces/iscsi-initiator-interface
 dm-multipath-interface/ reference/interfaces/dm-multipath-interface
