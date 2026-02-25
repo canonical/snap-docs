@@ -28,7 +28,7 @@ snap install --dangerous ./my-snap+comp1+comp2_1.0.comp
 
 When refreshing a snap, all components will refresh to the new revisions tuple. If the new snap revision does not define some components defined in the previously installed snap and that are currently installed, those components will be removed.
 
-Refreshing an unnasserted snap requires  new component builds to be installed manually.
+Refreshing an unasserted snap requires  new component builds to be installed manually.
 
 ## Updating components
 

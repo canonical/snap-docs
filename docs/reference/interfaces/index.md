@@ -143,7 +143,7 @@ The following column names are used:
 | [network-setup-observe](network-setup-observe-interface) | read network settings | Network | no |
 | [network-status](network-status-interface) | access the NetworkStatus service | Network | yes |
 | [nfs-mount](nfs-mount-interface) | allows the mounting and unmounting of Network File System mount points | Network, Service | no |
-| [nomad-support](nomad-support-interface) |  enable's HashiCorp's Nomad to access CPU and memory management | System, Containers, Service | no |
+| [nomad-support](nomad-support-interface) |  enables HashiCorp's Nomad to access CPU and memory management | System, Containers, Service | no |
 | [nvidia-drivers-support](nvidia-drivers-support-interface) | internally used NVIDIA access | Super privileged, Ubuntu Core | no |
 | [nvme-control](nvme-control-interface) | manage and access NVMe controllers | Super privileged | no |
 | [ofono](ofono-interface) | allows operating as the oFono service | Network, Discrete, Developer | no |

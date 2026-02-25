@@ -76,7 +76,7 @@ The above schema describes three configuration paths: an SSID, a password and a 
 
 Snapd expects the storage schema to conform to a very precise format, using 2 spaces for indentation and sorting map entries. Both Python 3’s `json.dump` and Golang’s `json.MarshalIndent` can be used to produce this format. `jq -S` can also be used to sort the schema. It’s useful to keep the storage schema in its own file so we can modify it over time.
 
-See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#schema-types) for a detailed description of types and contrains. 
+See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#schema-types) for a detailed description of types and contains. 
 
 ### View rules
 

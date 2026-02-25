@@ -192,7 +192,7 @@ Snapd includes the following built-in features that interacts with user informat
 * The [personal-files](/) interface allows access to specified files in the user's home
 * [Persisted data on Ubuntu Core devices](/t/data-locations/24905#p-94053-ubuntu-core)
 
-Snapd is designed to make these interfactions secure by default. Developers are expected to implement their own data storage solutions, e.g. database and configuration files, on top of snapd’s secure mechanisms. This means developers share responsibility for ensuring the availability, integrity, confidentiality, and compatibility of user data over the lifetime of a snap or snap-based product.
+Snapd is designed to make these interactions secure by default. Developers are expected to implement their own data storage solutions, e.g. database and configuration files, on top of snapd’s secure mechanisms. This means developers share responsibility for ensuring the availability, integrity, confidentiality, and compatibility of user data over the lifetime of a snap or snap-based product.
 
 Snaps that use classic confinement do not benefit from snapd's sandboxing and isolation features, and thus operate with fewer security boundaries. This elevated level of access introduces a higher risk to the confidentiality and integrity of user data. 
 

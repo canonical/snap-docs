@@ -5,7 +5,7 @@ The `docker` interface allows client access to the Docker socket. Use this inter
 
 Due to the nature of containers, the permissions granted to the [Docker snap](https://snapcraft.io/docker) allow it to bypass elements of the _snapd_ security sandbox. This is acceptable because the Docker snap publisher is trusted and because applications running inside such containers are further isolated with the sandbox built by Docker itself.
 
-While anyone can rebuild the [Docker snap from source](https://github.com/docker-snap/docker-snap), not everyone is immediately trusted with the privileged interfaces it requires to function. This interface can be used instead to permit such access by allowing snapped applications to communicate with the Docker daemon socket on the Docker snap. This enables anyone to create and publish a snap that requires Docker without requiring the same privileged interfaces requied by the Docker snap itself.
+While anyone can rebuild the [Docker snap from source](https://github.com/docker-snap/docker-snap), not everyone is immediately trusted with the privileged interfaces it requires to function. This interface can be used instead to permit such access by allowing snapped applications to communicate with the Docker daemon socket on the Docker snap. This enables anyone to create and publish a snap that requires Docker without requiring the same privileged interfaces required by the Docker snap itself.
 
 
 ```{tip}

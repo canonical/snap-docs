@@ -163,7 +163,7 @@ error: cannot perform the following tasks:
 (cannot enable alias "bar_env" for "hello-world_foo", already enabled for "hello-world_bar")
 ```
 
-When aliases trigger a conflict during snap installation, try passing `--unaliased` with the command to disable automatic aliase generation:
+When aliases trigger a conflict during snap installation, try passing `--unaliased` with the command to disable automatic alias generation:
 
 ```
 $ sudo snap install snap-with-conflicting-alias_foo --unaliased
