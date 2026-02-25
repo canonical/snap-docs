@@ -305,6 +305,7 @@ unsandboxed
 Unsetting
 unsetting
 unsquash
+UPower
 URIs
 usbtop
 userns
