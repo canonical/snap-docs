@@ -75,7 +75,7 @@ The following combination is also valid:
 
 `snap {start,stop,restart} --system --users=all my-snap`
 
-As root, the default behavior of not specifying anything is the equivolent of:
+As root, the default behavior of not specifying anything is the equivalent of:
 
 `snap {start,stop,restart} --system my-snap`
 

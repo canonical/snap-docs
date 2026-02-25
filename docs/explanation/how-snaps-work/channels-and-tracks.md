@@ -158,7 +158,7 @@ For example, when a specific risk-level channel is closed, the snap store will s
 
 This approach is commonly used for beta testing. If a snap is following a *beta* channel that is then closed, the store will offer the snap from the *candidate* channel. If the *candidate* channel is not available, the snap from the *stable* channel will be selected. If the *beta* channel re-opens, the snap will once again be selected from that channel.
 
-In some cases, when a specific revision is given, it may appear that a snap is being installed from a less stable channel when a revision is not available on the  morestable channel being tracked:
+In some cases, when a specific revision is given, it may appear that a snap is being installed from a less stable channel when a revision is not available on the  more stable channel being tracked:
 
 ```
 $ snap install hello-world --revision=28

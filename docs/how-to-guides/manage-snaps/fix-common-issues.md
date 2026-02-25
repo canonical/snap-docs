@@ -51,7 +51,7 @@ The Snap Store Status page also includes a status history for the servers over t
 
 ![Snap Store incident report](https://assets.ubuntu.com/v1/5af8a398-image.png) 
 
-See [Extremely slow snap downoads](https://forum.snapcraft.io/t/extremely-slow-snap-downloads/4668/38) for further discussions on snap download speeds.
+See [Extremely slow snap downloads](https://forum.snapcraft.io/t/extremely-slow-snap-downloads/4668/38) for further discussions on snap download speeds.
 
 ## Missing binaries / command not found
 

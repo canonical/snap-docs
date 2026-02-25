@@ -82,7 +82,7 @@ We’re pleased to share that Snapd 2.74 snap is available for testing in the be
 * Confdb: support filtering in API and confdbstate
 * Confdb: support field filtering on reads
 * Confdb: support "parameters" stanza and check filters against them
-* Confdb: add support for '--with' contraints
+* Confdb: add support for '--with' constraints
 * Confdb: parsing fixes and error handling improvements
 * Assertions: restrict serials to new format in confdb-control
 * Assertions: add verify signature function
@@ -207,7 +207,7 @@ We’re pleased to share that Snapd 2.74 snap is available for testing in the be
 ### **Highlights**
 
 * Enable the gpio-chardev interface now with the more robust gpio-aggregator configfs kernel interface ([LP: #1916244](https://bugs.launchpad.net/snapd/+bug/1916244))
-* FDE enhancements and additions: add generic reseal function and correct sealing with kernel command line defaults, support replacing TPM protected keys at runtime, secboot preinstall check fix actions and using OPTEE (Ubunbu Core & arm) for protecting keys, as an alternative to existing fde-setup hooks.
+* FDE enhancements and additions: add generic reseal function and correct sealing with kernel command line defaults, support replacing TPM protected keys at runtime, secboot preinstall check fix actions and using OPTEE (Ubuntu Core & arm) for protecting keys, as an alternative to existing fde-setup hooks.
 
 ### **Notable updates**
 
