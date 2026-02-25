@@ -49,7 +49,7 @@ You can check on the operational status of the servers attached to the Snap Stor
 
 The Snap Store Status page also includes a status history for the servers over the last week and an incident history.
 
-![iSnap Store incident report](https://assets.ubuntu.com/v1/5af8a398-image.png) 
+![Snap Store incident report](https://assets.ubuntu.com/v1/5af8a398-image.png) 
 
 See [Extremely slow snap downoads](https://forum.snapcraft.io/t/extremely-slow-snap-downloads/4668/38) for further discussions on snap download speeds.
 
