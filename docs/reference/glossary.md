@@ -1,34 +1,15 @@
 (reference-operations-glossary)=
 # Glossary
 
-<!--
-
-:construction: This topic is under construction. Feel free to add new terms.
-
-To help with linking to these terms, we're using the following syntax as the heading for each title definition:
-
-```html
-<h3 id='heading--term'>term</h3>
-```
-
-TODO:
-plugin
-snapcraft.yaml
-metrics
-dangerous
-[/quote]
-
--->
-
 There are a significant number of terms and definitions that are unique to the snap, snapd, and snapcraft ecosystem. This page defines the terminology and other terms touched by these tools and links to further information when required.
 
-If you're new to using snaps, take a look at [Getting started](/tutorials/get-started), and if you're looking to build your own snaps, take a look at the [Snapcraft overview](/).
+If you're new to using snaps, take a look at [Getting started](/tutorials/get-started), and if you're looking to build your own snaps, take a look at [Craft a snap](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/).
 
 ## Terms and definitions
 
 ### appliance
 
-An appliance is a pre-configured [Ubuntu Core](#heading--ubuntu-core) bootable image that includes one or more snaps to provide a specific set of features. The [OpenHAB](https://ubuntu.com/appliance/openhab) smart home system, the [Plex](https://ubuntu.com/appliance/plex) media server, and the [Nextcloud Server](https://ubuntu.com/appliance/nextcloud) platform, are all available as appliances, for example.
+An appliance is a pre-configured [Ubuntu Core](#ubuntu-core) bootable image that includes one or more snaps to provide a specific set of features. The [OpenHAB](https://ubuntu.com/appliance/openhab) smart home system, the [Plex](https://ubuntu.com/appliance/plex) media server, and the [Nextcloud Server](https://ubuntu.com/appliance/nextcloud) platform, are all available as appliances, for example.
 
 See [What is an Ubuntu Appliance](https://ubuntu.com/appliance/about) for more details.
 
@@ -44,17 +25,17 @@ See [Assertions](/explanation/security/assertions) for more details.
 
 A  base is a special kind of snap that provides a run-time environment with a minimal set of libraries that are common to most applications. They’re transparent to users, but they need to be considered, and specified, when building a snap.
 
-See [Base snaps](/) for more details.
+See [Bases](https://documentation.ubuntu.com/snapcraft/stable/reference/bases/) for more details.
 
 ### branch
 
 A branch is an optional finer subdivision of a channel for a published snap that allows for the creation of a short-lived sequences of snaps that can be pushed on demand by snap developers to help with fixes or temporary experimentation.
 
-See [Branches](/t/channels/551#heading--branches) for more details.
+See [Branches](/explanation/how-snaps-work/channels-and-tracks.md#branches) for more details.
 
 ### brand store
 
-See [dedicated Snap Store](#heading--dedicated)
+See [Dedicated Snap Store](#dedicated-snap-store)
 
 ### channel
 
@@ -78,25 +59,25 @@ See [Snap confinement](/explanation/security/snap-confinement) for more details.
 
 _core_ is a base snap built from [Ubuntu 16.04 LTS](http://releases.ubuntu.com/16.04/). It's different from _core16_ (see below) because it bundles _snapd_ and its associated tools whereas core16 does not.
 
-See [Base snaps](/) for more details.
+See [Bases](https://documentation.ubuntu.com/snapcraft/stable/reference/bases/) for more details.
 
 ### core16
 
 _core16_ is a base snap built from [Ubuntu 16.04 LTS](http://releases.ubuntu.com/16.04/). It's different from _core_ (see above) because it does not include _snapd_ and its associated tools.
 
-See [Base snaps](/) for more details.
+See [Bases](https://documentation.ubuntu.com/snapcraft/stable/reference/bases/) for more details.
 
 ### core18
 
-_core18_ is a base snap built from [Ubuntu 18.04 LTS](http://releases.ubuntu.com/18.04/). It's the current standard base for snap building and is the recommended base for the majority of snaps. It’s what the [snapcraft init](/t/snapcraft-overview/8940#heading--creating-snapcraft) command includes when generating a new project’s template  *snapcraft.yaml* .
+_core18_ is a base snap built from [Ubuntu 18.04 LTS](http://releases.ubuntu.com/18.04/). It's the former standard base for snap building.
 
-See [Base snaps](/) for more details.
+See [Bases](https://documentation.ubuntu.com/snapcraft/stable/reference/bases/) for more details.
 
 ### core20
 
-_core20_ is under active development. It's a base snap built from [ Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/), released April 23, 2020.
+_core20_ is a base snap built from [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/), released April 23, 2020.
 
-See [Base snaps](/) for more details on base snaps.
+See [Bases](https://documentation.ubuntu.com/snapcraft/stable/reference/bases/) for more details.
 
 ### Dedicated Snap Store
 
@@ -105,7 +86,6 @@ A *Dedicated Snap Store* (formerly known as a *Brand Store* ) allows vendors run
 It can inherit selected packages from other snap stores, and host a set of snaps specific to a brand and device models, and be either open to all developers or a specific list.
 
 See [Store overview](https://core.docs.ubuntu.com/en/build-store/#brand-stores) in our Ubuntu Core documentation for more details.
-
 
 ### devmode
 
@@ -119,13 +99,13 @@ Epochs enable snap developers to control how users receive a new application rel
 
 When a new release breaks data compatibility with an older version, incrementing the epoch in the new release stops old users automatically refreshing to the new version.
 
-See [Epochs](/) for more details.
+See [Manage data compatibility](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-data-compatibility/) in the _Snapcraft_ documentation for more details.
 
 ### extension
 
 Snapcraft extensions enable snap developers to easily incorporate a set of common requirements into a snap. There are extensions to help with the packaging of both Gnome and KDE Plasma applications.
 
-See [Snapcraft extensions](/) for more details.
+See [Snapcraft extensions](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/) for more details.
 
 ### gadget
 
@@ -143,9 +123,9 @@ For more details, see [Supported snap hooks](/reference/development/supported-sn
 
 An interface enables resources from one snap to be shared with another and with the system. Interfaces require a connection, which is commonly made automatically, or manually with the `snap connect` command.
 
-For a snap to use an interface, its developer needs to have first defined its corresponding plugs and slots within a snap’s [snapcraft.yaml](/) file.
+For a snap to use an interface, its developer needs to have first defined its corresponding plugs and slots within a snap’s [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml) file.
 
-See [Interfaces](/explanation/interfaces/all-about-interfaces) and [Interface management](/how-to-guides/work-with-snaps/connect-interfaces) for more details.
+See [Interfaces](/explanation/interfaces/all-about-interfaces) and [Interface management](/how-to-guides/manage-snaps/connect-interfaces) for more details.
 
 ### Launchpad
 
@@ -153,7 +133,7 @@ Launchpad is a code collaboration and secure build system for open source projec
 
 Launchpad provides the ability to build your snap for multiple architectures - x86, ARM, RISC-V, POWER, s390. If you use Launchpad for snap building then you need to provide it with your source code and snapcraft. It will build and publish new revisions of your snap, which you can test and release. If you do not already have a good multi-arch CI/CD system up and running then we recommend you use Launchpad to support all devices with your snap.
 
-See [Remote build](/) for more details.
+See [Remote build](https://documentation.ubuntu.com/snapcraft/stable/explanation/remote-build/) for more details.
 
 ### layout
 
@@ -161,13 +141,13 @@ Layouts help snap developers make snap-confined elements accessible from locatio
 
 They cannot be used to expose elements to non-permitted locations on the host environment (such as exposing a file to `/etc/` on the host filesystem).
 
-See [Snap layouts](/) for more details.
+See [Snap layouts](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/use-layouts/) for more details.
 
 ### LXD
 
 [LXD](https://linuxcontainers.org/lxd/introduction/) is a next generation system container manager. It offers a user experience similar to virtual machines but using Linux containers instead. It can be used by the _snapcraft_ command to isolate the build process from the host system.
 
-See [Building with LXD](/) for details.
+See [Building with LXD](https://documentation.ubuntu.com/snapcraft/stable/reference/build-environment-options/) for details.
 
 ### Model
 
@@ -175,19 +155,21 @@ Snaps are a containerised application format which is designed for desktops and 
 
 Each machine where snaps are installed has its own sense of type - a model. This comes from the IoT world, where a box which is acting as a security camera recorder would be expected to have a very different software load than a box which is acting as an elevator control system. The manufacturer of the box specifies the model. Based on that model, snaps will follow specific rules about software installation. For example, on an elevator control system, the model might dictate that certain snaps must be installed, and other snaps may not be installed.
 
+See the [Model assertion](https://documentation.ubuntu.com/core/reference/assertions/model/) documentation for more details.
+
 ### Multipass
 
 [Multipass](https://multipass.run/) is a lightweight VM manager for Linux, Windows and macOS. It's designed for developers who want a fresh Ubuntu environment with a single command. It uses KVM on Linux, Hyper-V on Windows and HyperKit on macOS to run the VM with minimal overhead.
 
 By default, the  _snapcraft_ command uses Multipass to isolate the build process from the host system.
 
-See [Building your snap](/t/snapcraft-overview/8940#heading--building-your-snap) for further details.
+See [Set up Snapcraft](https://documentation.ubuntu.com/snapcraft/stable/how-to/set-up-snapcraft/#install-multipass) for further details.
 
 ### parallel installs
 
 Parallel installs enable you to run multiple instances of the same snap on the same system. Each instance is completely isolated from all other instances, including its name, configuration, interface connections, data locations, services, applications and aliases.
 
-See [Parallel installs](/) for more information.
+See [Parallel installs](/explanation/how-snaps-work/parallel-installs) for more information.
 
 ### part
 
@@ -201,7 +183,7 @@ A platform snap contains the parts, packages, interface connections and environm
 
 Examples include kde-frameworks to provide KDE Plasma compatibility, and WINE to help snaps more easily run Microsoft Windows executables.
 
-A platform snap cannot be installed directly by users. They are instead invoked by snap developers as the [default-provider](/t/the-content-interface/1074#heading--default) in a [content interface](/t/the-content-interface).
+A platform snap cannot be installed directly by users. They are instead invoked by snap developers as the `default-provider` in a [content interface](/reference/interfaces/content-interface).
 
 ### preseeding
 
@@ -217,17 +199,17 @@ Snaps update automatically, and by default, the snapd daemon checks for updates 
 
 When, and how often, these updates occur can be modified with the snap command. Updates can be set to occur on Friday at midnight, for example, or for specific days of the month, such as only the third Monday, or even the last Friday of the month, between 23:00 to 01:00 the next day.
 
-See [Managing updates](/how-to-guides/work-with-snaps/manage-updates) for further details.
+See [How to manage updates](/how-to-guides/manage-snaps/manage-updates) for further details.
 
 ### remote build
 
 Remote build is a feature in [Snapcraft](https://snapcraft.io/docs/snapcraft-overview) (from  *[Snapcraft 3.9+](/t/snapcraft-release-notes)* onwards) that enables anyone to run a multi-architecture snap build process on remote servers using [Launchpad](https://launchpad.net/). With remote build, you can build snaps for hardware you don’t have access to and free up your local machine for other tasks.
 
-See [Remote build](/) for further details.
+See [Remote build](https://documentation.ubuntu.com/snapcraft/stable/explanation/remote-build/) for further details.
 
 ### revision
 
-A snap's *revision* is a number assigned by the [Snap Store](#heading--snap-store) automatically to give each snap a unique identity within and across its channels.
+A snap's *revision* is a number assigned by the [Snap Store](#snap-store) automatically to give each snap a unique identity within and across its channels.
 
 It's important to note that there is no real concept of higher or lower snap revisions and the current revision of the snap is simply the one that is released onto a channel.
 
@@ -256,7 +238,7 @@ When Ubuntu Core boots for the first time, the _seeding_ process installs an ini
 
 Each installed snap needs to be verified and have their respective AppArmor and seccomp security profiles, systemd units and mount points created. The time this takes is proportional to the number of asserted snaps being seeded but installing many snaps can impact first boot speed.
 
-The seeding process runs quicker with [preseeding](https://ubuntu.com/core/docs/preseeding).
+The seeding process runs quicker with [preseeding](https://documentation.ubuntu.com/core/how-to-guides/image-creation/optimise-boot-speed/index.html).
 
 ### series
 
@@ -287,7 +269,7 @@ See [Getting started](/tutorials/get-started) for more details.
 
 Snapcraft is both the command and the framework used to build your own snaps. The command and framework are cross-platform and can help you to easily build and publish your snaps to the [Snap Store](https://snapcraft.io/store)
 
-See [Snapcraft overview](/) for more details.
+See [Craft a snap](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/) for a tutorial on building a snap.
 
 ### snapd
 
@@ -313,7 +295,7 @@ See [Snapshots](/how-to-guides/manage-snaps/create-data-snapshots) for further d
 
 ### Snap Store
 
-[Snap Store](https://snapcraft.io/store)  provides a place to upload your snaps, and for users to browse and install. It hosts thousands of snaps for millions of users on multiple architectures across 41 different Linux distributions.
+The Snap Store provides a place to upload your snaps, and for users to browse and install. It hosts thousands of snaps for millions of users on multiple architectures across 40 different Linux distributions.
 
 See [snapcraft.io/store](https://snapcraft.io/store) for more details.
 
@@ -333,11 +315,11 @@ See [Snap confinement](/explanation/security/snap-confinement) for more details.
 
 Tracks enable snap developers to publish multiple supported releases of their application under the same snap name. They are one of the levels of channel subdivision.
 
-See [Tracks](/t/channels/551#heading--tracks) for more details.
+See [Tracks](/explanation/how-snaps-work/channels-and-tracks) for more details.
 
 ### Transitional interface
 
-A _transitional interface_ is an [interface](/how-to-guides/work-with-snaps/connect-interfaces) that can be used by a trusted snap to access traditional Linux desktop environments that were not designed to integrate with [snap confinement](/explanation/security/snap-confinement). These interfaces will become deprecated as replacement or modified technologies that enforce strong application isolation become available.
+A _transitional interface_ is an [interface](/explanation/interfaces/all-about-interfaces) that can be used by a trusted snap to access traditional Linux desktop environments that were not designed to integrate with [snap confinement](/explanation/security/snap-confinement). These interfaces will become deprecated as replacement or modified technologies that enforce strong application isolation become available.
 
 ### Ubuntu Core
 
@@ -359,5 +341,5 @@ The version string typically reflects the general release version of a snap's pr
 
 The version string for the [Nextcloud snap](https://snapcraft.io/nextcloud) in its latest/stable channel, for example, tracks the version of the latest stable release, such as `20.0.7`. The version string for Nextcloud in its latest/edge channel represents its source code branch and build date, such as `master-2021-03-09`.
 
-See [Getting started](https://forum.snapcraft.io/t/getting-started/3876) for more details.
+See [Getting started](/tutorials/get-started) for more details.
 
