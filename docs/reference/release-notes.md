@@ -125,7 +125,7 @@ We’re pleased to share that Snapd 2.74 snap is available for testing in the be
 * Interfaces: *-driver-libs | accept component paths
 * Interfaces: desktop-legacy, unity7 | remove workaround for slash filtering in ibus address
 * Interfaces: fwupd | allow writing reboot notification in /run
-* Interfaces: add 'install' coreutil to base AppArmor template
+* Interfaces: add 'install' coreutils to base AppArmor template
 * Interfaces: u2f-devices | add apparmor permissions to allow the use of the libfido2 library in snaps
 * Interfaces: u2f-devices | add support for Thetis security key
 * Interfaces: add AppArmor workaround for mmap MAP_HUGETLB
