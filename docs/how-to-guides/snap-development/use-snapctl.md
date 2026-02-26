@@ -65,6 +65,24 @@ bar
 
 You can also use the `--default` flag to provide a default value to be returned if no data is stored under the requested configuration path.
 
+If the data being requested can be filtered, due to the path specifying placeholders or field filters, we can constrain the filter parameters using the `--with` flag:
+
+```sh
+$ snapctl get --view :setup-wifi routes --with to=default
+{
+    "enp3s0": {
+        "to": "default",
+        "via": "10.12.34.3",
+        "metric": 100
+    },
+    "eth0": {
+        "to": "default",
+        "via": "10.0.0.1",
+        "metric": 200
+    }
+}
+```
+
 For further information on confdb, see [Configure snaps with confdb](/how-to-guides/manage-snaps/configure-snaps-with-confdb.md) and [Confdb configuration mechanism](/explanation/how-snaps-work/confdb-configuration-mechanism.md).
 
 ## Components
