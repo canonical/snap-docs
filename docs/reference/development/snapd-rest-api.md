@@ -16,7 +16,7 @@ For general information on how to use the API, including how to access it, its r
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: window.location.pathname +"../openapi.yaml",
+    url: 'https://snapcraft.io/docs/reference/development/openapi.yaml',
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
