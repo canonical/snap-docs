@@ -346,3 +346,4 @@ how-to-guides/manage-snaps/use-snapctl/ how-to-guides/snap-development/use-snapc
 reference/operations/data-locations/ reference/administration/data-locations/
 reference/operations/system-architecture/ reference/system-architecture/
 how-to-guides/work-with-snaps/ how-to-guides/
+snap-layouts/ reference/development/yaml-schemas/the-snap-format/
