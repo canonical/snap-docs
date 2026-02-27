@@ -258,6 +258,39 @@ $ cat /etc/sysctl.d/99-snapd.conf
 kernel.printk = 1 4 1 7
 ```
 
+## system system.motd
+
+Ubuntu Core systems come with a default message of the day. From Ubuntu Core 24 onwards, the message of the day can be customized from the defaults configuration section in the [gadget.yaml](/reference/development/yaml-schemas/the-gadget-snap) file to set a custom message available since first boot:
+
+```yaml
+defaults:
+  system:
+    system:
+      motd: |
+        Welcome to Ubuntu Core
+        Wish you a great day
+```
+
+Message of the day can also be configured in a running system:
+
+```
+snap set system system.motd="$(printf "Welcome to Ubuntu Core\nWish you a great day")"
+```
+
+Here `printf` is used to handle the backslash-escaped characters such as newline.
+
+To set a custom message from a file:
+
+```
+snap set system system.motd="$(cat /path/to/custom/motd)"
+```
+
+The custom message can be removed with _unset_ which will reset to the default message of the day:
+
+```
+snap unset system system.motd
+```
+
 ## system system.network.netplan
 
 On systems that support [Netplan](https://netplan.io/), such as Ubuntu Core 20 and 22, snapd can both query and configure the Netplan key and value notation through its _get_ and _set_ system options commands:
