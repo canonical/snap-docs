@@ -18,7 +18,7 @@ window.onload = function() {
   const ui = SwaggerUIBundle({
 //    url: 'https://snapcraft.io/docs/reference/development/openapi.yaml',
 //    url: '/docs/openapi.json',
-    url: window.location.pathname +"./openapi.json",
+    url: "openapi.json",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -94,4 +94,3 @@ window.onload = function() {
   ]);
 }
 </script>
-
