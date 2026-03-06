@@ -1,11 +1,11 @@
 Snap documentation
 =========================
 
-This repository contains the source files to build a work-in-progress migration of the Snap documentation.
+This repository contains the source files to build the Snap documentation available at https://snapcraft.io/docs/.
 
-The migration involves porting the documentation currently hosted and published directly from the Snapcraft forum (https://forum.snapcraft.io/c/doc/15) to this repository, where it will be built with `Sphinx <https://www.sphinx-doc.org>`_ and published via `ReadtheDocs <https://readsthedocs.com/>`_.
+The documentation is written in Markdown, built with `Sphinx <https://www.sphinx-doc.org>`_, and published via `ReadtheDocs <https://readsthedocs.com/>`_.
 
-The documentation is written in Markdown and built with Sphinx, all taken from the `Documentation starter pack`_.
+This documentation was previously hosted and published in the `Snapcraft forum <https://forum.snapcraft.io/c/doc/15>`_, and was migrated in early 2026.
 
 Build the documentation
 -----------------------
