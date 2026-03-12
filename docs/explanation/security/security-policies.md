@@ -76,28 +76,38 @@ Locally, these are handled by the snap daemon, *snapd*, while remote connections
 ### Snapd (snap daemon) cryptography
 
 * **Digital signatures for [assertions](https://ubuntu.com/core/docs/reference/assertions)**
-</br>SHA3-384 and SHA512 for hashing, OpenPGP v4 signatures with RSA 4096/8192 keys
+</br>[SHA3-384] and [SHA512] for hashing, [OpenGPG signature packet] V4 signatures with [RSA] 4096/8192 keys.
 * **Hashing of snaps**</br>
-SHA3-384
+[SHA3-384]
 * **HTTPS communication**</br>
-Snapd uses the [golang standard library TLS package](https://pkg.go.dev/crypto/tls) as client, always configured to use at least TLS >= 1.2
+Snapd uses the [Go standard library TLS package] for the client, configured to use at least TLS >= 1.2.
 * **Device session request signing**</br>
-Same as digital signatures for assertions; the device key is RSA 4096
+Same as digital signatures for assertions: [SHA3-384], [SHA512] and [OpenGPG signature packet]. [RSA] 4096 device key.
 * **Macaroons for authorisation and authentication**</br>
-Snapd uses them via [gopkg.in/macaroon.v1](https://github.com/go-macaroon/macaroon/tree/v1.0.0), which means SHA256 HMACs and [NaCL secretbox](https://pkg.go.dev/golang.org/x/crypto/nacl/secretbox).
+Snapd uses them via [Go macaroon V1], which means [SHA256] [HMAC]s and [NaCL secretbox].
 
 ### Snap Store cryptography
 
 * **Digital signatures for [assertions](https://ubuntu.com/core/docs/reference/assertions)**</br>
-The key ID of the signing key is encoded with SHA3-384, and the assertion is signed with either 4096-bit RSA or 8192-bit RSA
+The key ID of the signing key is encoded with [SHA3-384], and the assertion is signed with either 4096-bit or 8192-bit [RSA].
 * **Hashing of artifacts**</br>
-The store generates many hashes of an uploaded artefact using SHA3-384, SHA256 and SHA512 to ensure the uniqueness and integrity of the artefact.
+The store generates many hashes of an uploaded artefact using [SHA3-384], [SHA256] and [SHA512] to ensure the uniqueness and integrity of the artefact.
 * **Macaroons for authorisation and authentication**</br>
-HMAC SHA256, NaCl crypto_secretbox
+[SHA256] [HMAC] and [NaCL secretbox]
 * **Macaroons encryption of 3rd party caveats**</br>
-Salsa20 (NaCl crypto_secretbox)
+Salsa20 ([NaCL secretbox])
 * **Enterprise Store nonce signing**</br> 
-Used as additional security for REST API access. RSA4096 is used to sign and verify the nonce.
+Used as additional security for REST API access. [RSA] 4096-bit is used to sign and verify the nonce.
+
+[SHA3-384]: https://pkg.go.dev/golang.org/x/crypto/sha3
+[SHA512]: https://pkg.go.dev/crypto/sha512
+[SHA256]: https://pkg.go.dev/crypto/sha256
+[RSA]: https://pkg.go.dev/crypto/rsa
+[OpenGPG signature packet]: https://pkg.go.dev/golang.org/x/crypto/openpgp/packet
+[Go standard library TLS package]: https://pkg.go.dev/crypto/tls
+[Go macaroon V1]: https://github.com/go-macaroon/macaroon/tree/v1.0.0
+[HMAC]: https://pkg.go.dev/crypto/hmac
+[NaCL secretbox]: https://pkg.go.dev/golang.org/x/crypto/nacl/secretbox 
 
 ### Confinement and isolation mechanisms
 
