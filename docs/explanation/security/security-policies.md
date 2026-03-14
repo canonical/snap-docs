@@ -80,11 +80,19 @@ Locally, these are handled by the snap daemon, *snapd*, while remote connections
 * **Hashing of snaps**</br>
 [SHA3-384]
 * **HTTPS communication**</br>
-Snapd uses the [Go standard library TLS package] for the client, configured to use at least TLS >= 1.2.
+Snapd uses the [Go standard library TLS package] for the client, configured to use TLS 1.2 or later.
 * **Device session request signing**</br>
 Same as digital signatures for assertions: [SHA3-384], [SHA512] and [OpenGPG signature packet]. [RSA] 4096 device key.
 * **Macaroons for authorisation and authentication**</br>
 Snapd uses them via [Go macaroon V1], which means [SHA256] [HMAC]s and [NaCL secretbox].
+
+In the standard snapd, cryptographic functionality is provided by Go’s native cryptographic implementations from the Go standard library. These implementations may make use of architecture-specific optimizations (CPU instruction set extensions such as AES-NI or SHA) where available.
+
+Snapd is also being developed in a FIPS variant - not yet generally available - in which cryptographic operations are provided by OpenSSL rather than Go’s native implementations. In this variant, OpenSSL may either be bundled with snapd or supplied by the host system, enabling integration with cryptographic modules validated under FIPS in environments that require FIPS compliance. For more information about FIPS see: [Information about FIPS on Ubuntu 22.04].
+
+In both variants, cryptographically secure randomness is sourced from the operating system via the Linux kernel’s randomness interfaces (for example getrandom(2)), which provide entropy to user-space cryptographic libraries.
+
+[Information about FIPS on Ubuntu 22.04]: https://ubuntu.com/security/certifications/docs/2204/fips#p-99917-updates-and-preview
 
 ### Snap Store cryptography
 
@@ -179,9 +187,9 @@ Before _refresh awareness_ became available, if a refresh occurred while a snap 
 (ref-security-policies_refresh-awareness)=
 ### Refresh awareness
 
-By default, a service running from a snap needs to be restarted whenever the snap is refreshed (see {ref}`Services and daemons <explanation-security-security-policies>`) for more details).
+By default, a service running from a snap needs to be restarted whenever the snap is refreshed (see {ref}`Services and daemons <explanation-security-security-policies>` for more details).
 
-Stopping and starting a service is a requirement to support {ref}`snap revert <explanation-security-security-policies>`) and its copying of a snap’s system data from the current version to the new version.
+Stopping and starting a service is a requirement to support {ref}`snap revert <explanation-security-security-policies>` and its copying of a snap’s system data from the current version to the new version.
 
 System data typically includes databases, data files, and configuration files (see {ref}`Data locations <interfaces-data-locations>`), although all of this is up to the snap developer.
 
@@ -201,7 +209,7 @@ Snapd includes the following built-in features that interacts with user informat
 * {ref}`Snapshots <how-to-guides-manage-snaps-create-data-snapshots>` of snap {ref}`user data <interfaces-data-locations>`
 * The {ref}`home <interfaces-home-interface>` interface allows access to non-hidden files in the user’s home
 * The {ref}`personal-files <interfaces-personal-files-interface>` interface allows access to specified files in the user's home
-* {ref}`Persisted data on Ubuntu Core devices <interfaces-data-locations>`
+* {ref}`Persisted data on Ubuntu Core devices <interfaces-data-locations_ubuntu-core-persisted-data>`
 
 Snapd is designed to make these interactions secure by default. Developers are expected to implement their own data storage solutions, e.g. database and configuration files, on top of snapd’s secure mechanisms. This means developers share responsibility for ensuring the availability, integrity, confidentiality, and compatibility of user data over the lifetime of a snap or snap-based product.
 
@@ -226,5 +234,33 @@ Sometimes it is also required to extend what is allowed by an existing interface
   * {ref}`File permissions and cgroups <explanation-security-security-policies>`
 * {ref}`How to request store approval for snap policy changes <interfaces-reviewing-classic-confinement-snaps>`
 
-To publish a classic snap that operates outside these restrictions it is required to request a classic confinement request that involves a rigorous process for vetting the publisher.
+To publish a classic snap that operates outside these restrictions, you must submit a classic confinement request that involves a rigorous process for vetting the publisher.
 
+## Security maintenance
+
+Snapd is delivered both as Debian packages and as snaps, and the security maintenance responsibilities and lifecycles differ depending on the delivery mechanism.
+
+The snapd Debian packages are maintained by the Ubuntu Security Team and receive security updates through the standard Ubuntu security maintenance process. The duration of this maintenance follows the [Ubuntu Release Cycle]. This lifecycle applies only to the snapd deb packages provided as part of Ubuntu releases.
+
+The snapd snap is maintained by the snapd team, who are responsible for delivering security updates through snap revisions. The lifecycle and maintenance model for snapd snaps is separate from the Ubuntu release lifecycle and follows the Ubuntu Core and snap track maintenance model.
+
+Ubuntu Core 16 includes snapd embedded within the core snap (which functions as the base operating system snap). Security maintenance for snapd in the Ubuntu Core 16 core snap is handled by the snapd team through updates to the core snap.
+
+[Ubuntu Release Cycle]: https://ubuntu.com/about/release-cycle
+
+### Security updates
+
+The snapd team allocates capacity for security fixes following each major snapd release. Major snapd releases currently occur on an approximately two-month cadence, and a planned security update window is scheduled after each major release.
+
+These security update releases are primarily intended to address high-priority security vulnerabilities that require timely remediation outside of the normal feature release cycle.
+
+Lower-priority security vulnerabilities may be accumulated and delivered as part of these planned security update releases. Security updates may be released outside of this preferred cadence where required to address critical vulnerabilities.
+
+Security vulnerabilities are handled under a responsible disclosure process. Security issues are tracked and developed privately and are not publicly visible until fixes are released and the vulnerability is disclosed. This ensures that users receive fixes before detailed vulnerability information becomes publicly available.
+
+### How to report vulnerabilities
+
+Please report [suspected security vulnerabilities] **privately** by following the instructions in [SECURITY.md].
+
+[suspected security vulnerabilities]: https://github.com/canonical/snapd/blob/master/SECURITY.md#what-qualifies-as-a-security-issue
+[SECURITY.md]: https://github.com/canonical/snapd/blob/master/SECURITY.md#reporting-a-vulnerability
