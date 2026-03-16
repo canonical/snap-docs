@@ -24,6 +24,7 @@ The following hooks are currently implemented:
 - install-device hook
 - interface hooks
 - prepare-device hook
+- prepare-serial hook
 - pre-refresh hook
 - post-refresh hook
 - remove hook
@@ -166,6 +167,13 @@ For further details, see {ref}`Interface hooks <explanation-interfaces-interface
 This hook is only supported in gadget snaps.
 
 See {ref}`The gadget snap <reference-development-yaml-schemas-the-gadget-snap>` documentation for more details.
+
+<h2 id='heading--prepare-serial'>The prepare-serial hook</h2>
+
+This hook is only supported in gadget snaps.
+
+See {ref}`The gadget snap <reference-development-yaml-schemas-the-gadget-snap>` documentation for more details.
+
 
 <h2 id='heading--pre-refresh'>The pre-refresh hook</h2>
 
