@@ -225,7 +225,7 @@ The above example shows execution times related to snapd’s interface manager, 
 
 [SquashFS](https://www.kernel.org/doc/Documentation/filesystems/squashfs.txt) is a standard Linux file system that encases an operational directory structure within a single compressed file. It’s commonly used to provide bootable live Linux environments on USB storage, but it’s also used to package a snap.
 
-A snap is a SquashFS file that contains the library and binary environment for the snap, alongside the metadata to describe its access and capabilities. The SquashFS file is either mounted by _systemd_ when the snap is first installed, or during the early phases of the bootup for a system, such as Ubuntu Core, that already has snaps installed.
+A snap is a SquashFS file that contains the library and binary environment for the snap, alongside the metadata to describe its access and capabilities. The SquashFS file is either mounted by _systemd_ when the snap is first installed, or during the early phases of the boot up for a system, such as Ubuntu Core, that already has snaps installed.
 
 SquashFS decompression occurs when a snap is first run on a system and its performance has been closely monitored. In particular, decompression performance may differ according to the compression algorithm used, the size of the SquashFS archive, the number of files it contains, whether it’s being accessed for the first time (cold-cache) or whether it’s being accessed again (warm-cache). 
 
