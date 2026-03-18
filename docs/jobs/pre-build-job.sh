@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # Configuration
-REPO="canonical/snapd"
-# Ensure this matches the actual filename of your YAML workflow in the snapd repo
-WORKFLOW="build-documentation.yaml" 
-ARTIFACT_NAME="openapi-spec" # Updated to match the new GitHub Action output
+REPO="canonical/snap-docs"
+WORKFLOW="build-rest-api.yml" 
+ARTIFACT_NAME="openapi-spec"
 TARGET_DIR="${SOURCEDIR}/_html_extra/reference/api"
 
 mkdir -p "${TARGET_DIR}"
@@ -15,6 +14,7 @@ RUN_IDS=$(gh run list \
   -R "${REPO}" \
   --workflow "${WORKFLOW}" \
   --status success \
+  --branch master \
   --limit 100 \
   --json databaseId \
   -q '.[].databaseId')
