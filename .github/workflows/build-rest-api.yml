@@ -4,10 +4,7 @@
 name: Prepare the REST OpenAPI Specification
 on:
   repository_dispatch:
-    types: [openapi-updated]
-env:
-  SNAPD_BRANCH: ${{ github.event.client_payload.snapd_branch }}
-  DEPLOY: ${{ github.event.client_payload.snapd_branch == 'main' || github.ref == 'refs/heads/main' }}
+    types: [api-updated]
 
 jobs:
   process-specification:
@@ -21,7 +18,7 @@ jobs:
           repository: canonical/snapd
           path: ./snapd
           fetch-depth: 0
-          ref: ${{ env.SNAPD_BRANCH }}
+          ref: master
 
       - name: Check Licensing/Copyright Compliance
         uses: docker://fsfe/reuse
@@ -49,4 +46,3 @@ jobs:
       #  run: |
       #      curl -X POST -H "Authorization: Bearer ${{ secrets.RTD_PAT }}" \
       #      https://read-the-docs.com \
-      #      -d '{"deploy":"${{ env.DEPLOY}}"}' something like this
