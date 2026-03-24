@@ -20,6 +20,11 @@ RUN_IDS=$(gh run list \
   --json databaseId \
   -q '.[].databaseId')
 
+if [ -z "$RUN_IDS" ]; then
+  echo "Error: No successful runs found for '${WORKFLOW}' workflow from the master branch of '${REPO}' repo."
+  exit 1
+fi
+
 DOWNLOAD_SUCCESS=false
 
 for id in $RUN_IDS; do
@@ -38,7 +43,8 @@ for id in $RUN_IDS; do
 done
 
 if [ "$DOWNLOAD_SUCCESS" = false ]; then
-  echo "Error: Checked the last ${N_RUNS} successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
+  RUNS_FOUND=$(echo "$RUN_IDS" | wc -l)
+  echo "Error: Checked the last ${RUNS_FOUND} successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
   exit 1
 fi
 
