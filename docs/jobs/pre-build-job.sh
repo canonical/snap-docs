@@ -1,21 +1,22 @@
 #!/bin/bash
 
 # Configuration
-REPO="canonical/snap-docs"
-WORKFLOW="build-rest-api.yml" 
+REPO="canonical/snapd"
+WORKFLOW="build-documentation.yaml" 
 ARTIFACT_NAME="openapi-spec"
 TARGET_DIR="${SOURCEDIR}/_html_extra/reference/api"
+N_RUNS=100
 
 mkdir -p "${TARGET_DIR}"
 
-echo "Searching for the latest successful run that has artifact '${ARTIFACT_NAME}'..."
+echo "Searching for the latest successful ${WORKFLOW} run that has artifact '${ARTIFACT_NAME}'..."
 
 RUN_IDS=$(gh run list \
   -R "${REPO}" \
   --workflow "${WORKFLOW}" \
   --status success \
   --branch master \
-  --limit 100 \
+  --limit "${N_RUNS}" \
   --json databaseId \
   -q '.[].databaseId')
 
@@ -37,7 +38,7 @@ for id in $RUN_IDS; do
 done
 
 if [ "$DOWNLOAD_SUCCESS" = false ]; then
-  echo "Error: Checked the last 100 successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
+  echo "Error: Checked the last ${N_RUNS} successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
   exit 1
 fi
 
