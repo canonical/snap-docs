@@ -79,9 +79,9 @@ Example:
     "type": "sync",
     "status-code": 200,
     "status": "OK",
-    "maintenance": { 
-        "kind": "system-restart", 
-        "message": "system is restarting" 
+    "maintenance": {
+        "kind": "system-restart",
+        "message": "system is restarting"
     }
 }
 ```
@@ -170,3 +170,14 @@ In addition to the standard response fields the following can be present:
 * `kind`: Unique code for the error, to enable a snapd client to display appropriate behaviour (_optional_)
 * `value`: extra information on the error, typically a string for the snap name or an object with fields dependent on the kind (_optional_)
 
+## Client libraries
+
+### Python
+
+The [snap-http](https://github.com/canonical/snap-http) package provides a Python interface to the snapd REST API:
+
+```
+pip install snap-http
+```
+
+See the [snap-http repository](https://github.com/canonical/snap-http) for documentation and usage examples.

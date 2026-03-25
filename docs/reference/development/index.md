@@ -19,6 +19,10 @@ YAML schemas define exactly what a device, kernel and snap is capable of.
  - {ref}`Gadget snap <reference-development-yaml-schemas-the-gadget-snap>`: System and device properties. 
  - {ref}`Kernel snap <reference-development-yaml-schemas-the-kernel-snap>`: The Linux kernel snap, its metadata and setup files.
 
+## Client libraries
+
+* [snap-http](https://github.com/canonical/snap-http): A Python library for interacting with the snapd REST API (`pip install snap-http`).
+
 ```{toctree}
 :hidden:
 :titlesonly:
