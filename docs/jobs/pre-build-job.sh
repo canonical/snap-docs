@@ -45,7 +45,8 @@ done
 if [ "$DOWNLOAD_SUCCESS" = false ]; then
   RUNS_FOUND=$(echo "$RUN_IDS" | wc -l)
   echo "Error: Checked the last ${RUNS_FOUND} successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
-  exit 1
+  mv ${SOURCEDIR}/_html_extra/reference/development/snapd-rest-api/openapi.json ${TARGET_DIR}/openapi.json
+  echo "Using local copy of openapi.json instead."
 fi
 
 echo "OpenAPI spec successfully downloaded to ${TARGET_DIR}/openapi.json"
