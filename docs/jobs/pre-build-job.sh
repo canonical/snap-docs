@@ -21,7 +21,7 @@ RUN_IDS=$(gh run list \
   -q '.[].databaseId')
 
 if [ -z "$RUN_IDS" ]; then
-  echo "Error: No successful runs found for '${WORKFLOW}' workflow from the master branch of '${REPO}' repo."
+  echo "Warning: No successful runs found for '${WORKFLOW}' workflow from the master branch of '${REPO}' repo."
 fi
 
 DOWNLOAD_SUCCESS=false
@@ -43,7 +43,7 @@ done
 
 if [ "$DOWNLOAD_SUCCESS" = false ]; then
   RUNS_FOUND=$(echo "$RUN_IDS" | wc -l)
-  echo "Error: Checked the last ${RUNS_FOUND} successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
+  echo "Warning: Checked the last ${RUNS_FOUND} successful runs, but none contained the artifact '${ARTIFACT_NAME}'."
   mv ${SOURCEDIR}/_html_extra/reference/development/snapd-rest-api/openapi.json ${TARGET_DIR}/openapi.json
   echo "Using local copy of openapi.json instead."
 fi
