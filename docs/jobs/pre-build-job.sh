@@ -22,7 +22,6 @@ RUN_IDS=$(gh run list \
 
 if [ -z "$RUN_IDS" ]; then
   echo "Error: No successful runs found for '${WORKFLOW}' workflow from the master branch of '${REPO}' repo."
-  exit 1
 fi
 
 DOWNLOAD_SUCCESS=false
