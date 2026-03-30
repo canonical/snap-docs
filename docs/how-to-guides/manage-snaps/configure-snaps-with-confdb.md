@@ -328,3 +328,40 @@ $ cat /snap/reader-snap/common/ssid
 acme-some-ssid
 ```
 
+## Getting secret data
+*From snapd version 2.76+*
+
+If we wanted to ensure that only admins were able to access certain data in confdb storage, we can add a visibility field to storage entries. For example, say we wanted only admins to read the `psk` field defined earlier. To limit access to `psk`, in the storage schema definition, we would change
+
+```yaml
+"psk": "$password",
+```
+
+to
+
+```yaml
+"psk": {
+  "type": "$password",
+  "visibility": "secret"
+},
+```
+
+Assuming we have then recreated and signed the assertion, we can see that read access to that field is now limited.
+
+```console
+$ sudo snap run --shell custodian-snap.sh
+# snapctl get --view :configure-wifi acme.password
+super-secret
+# exit
+
+$ snap run --shell custodian-snap.sh
+# snapctl get --view :configure-wifi acme.password
+cannot get "acme.password" through <account-id>/network/configure-wifi: unauthorized access
+# exit
+
+$ sudo snap get <account-id>/network/configure-wifi acme.password
+super-secret
+
+$ snap get <account-id>/network/configure-wifi acme.password
+access denied (try with sudo)
+```
