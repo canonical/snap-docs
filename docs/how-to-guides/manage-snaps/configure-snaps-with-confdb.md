@@ -56,7 +56,7 @@ For example:
       "schema": {
         "wifi": {
           "schema": {
-            "psk": "$password",
+            "psk": "${password}",
             "ssid": "string",
             "state": {
               "type": "string",
@@ -120,10 +120,8 @@ views:
       content:
         -
         storage: ssid
-        access: read
         -
         storage: state
-        access: read
 
 body-length: 552
 sign-key-sha3-384: 74KHeq1foV…
@@ -168,10 +166,8 @@ views:
         content:
           -
             storage: ssid
-            access: read
           -
             storage: state
-            access: read
 
 body: |-
   {
@@ -186,7 +182,7 @@ body: |-
         "wifi": {
           "values": {
             "schema": {
-              "psk": "$password",
+              "psk": "${password}",
               "ssid": "string",
               "state": {
                 "choices": ["up", "down"],
