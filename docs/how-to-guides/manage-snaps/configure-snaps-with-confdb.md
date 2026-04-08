@@ -334,14 +334,14 @@ acme-some-ssid
 If we wanted to ensure that only admins were able to access certain data in confdb storage, we can add a visibility field to storage entries. For example, say we wanted only admins to read the `psk` field defined earlier. To limit access to `psk`, in the storage schema definition, we would change
 
 ```yaml
-"psk": "$password",
+"psk": "${password}",
 ```
 
 to
 
 ```yaml
 "psk": {
-  "type": "$password",
+  "type": "${password}",
   "visibility": "secret"
 },
 ```
