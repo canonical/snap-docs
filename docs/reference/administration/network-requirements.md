@@ -33,8 +33,9 @@ As of 2021-10-25, the *.snapcraftcontent.com domains are the following:
 Snapcraft also requires:
 * upload.apps.ubuntu.com:443
 
-Devices being provisioned for brand stores will need the following:
-* serial-vault-partners.canonical.com:443
+Devices being provisioned for Dedicated Snap Stores will need the following:
+* api.snapcraft.io/v1:443 # the Model Service
+* serial-vault-partners.canonical.com:443 # The legacy Serial Vault
 
 ### Deprecated cdn.snapcraft.io domains
 
