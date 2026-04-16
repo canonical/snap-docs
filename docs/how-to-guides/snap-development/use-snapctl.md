@@ -145,7 +145,7 @@ health:
 
 For more comprehensive information on using `snapctl set-health`, see [Health checks](https://forum.snapcraft.io/t/health-checks/10605).
 
-## Interface connections<
+## Interface connections
 
 (from _snapd 2.43+_)
 
@@ -195,7 +195,7 @@ The _snap model_ command can be used to return to the active model identificatio
 
 The requesting snap must be either:
 1. a {ref}`gadget snap <reference-development-yaml-schemas-the-gadget-snap>`
-1. published from the same brand as the device model assertion 
+1. published from the same brand as the device model assertion
 1. have the {ref}`snapd-control <interfaces-snapd-control-interface>` plug
 
 By default, the output model identification information is presented in a structured yaml-like format:
@@ -354,7 +354,7 @@ The following keys and values can potentially be returned:
    The current (operational) system mode:
    - `install`: denotes the system is installing
    - `factory-reset`: a factory reset has been triggered
-   - `recover`: the system is in _recovery mode_  
+   - `recover`: the system is in _recovery mode_
    - `run`: indicates the system has booted normally.</br>This is the only reported system mode on UC16/UC18 system.
 
    See [Recovery modes](https://ubuntu.com/core/docs/recovery-modes) for more details on each mode.
