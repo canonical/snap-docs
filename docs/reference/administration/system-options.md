@@ -93,14 +93,14 @@ See {ref}`Home directories outside of ‘/home’ <interfaces-home-outside-home>
 
 ## system interface
 
-Allows configuring certain behaviour of individual interface rules. For now, the only allowed option is to configure the auto-connection.
+Permits specific interfaces options to be changed . The only option currently supported is interface [auto-connection](https://snapcraft.io/docs/explanation/interfaces/interface-auto-connection/).
 
-- **.allow-auto-connection**: configure auto-connection rules for the interface, options are `{false|true|verified}`.
-  * `false` or `true` controls whether any auto-connection is allowed at all.
+- **interface.allow-auto-connection**: configure auto-connection rules for the interface, options are `{false|true|verified}`.
+  * `false` or `true` controls whether auto-connections are permitted.
   * `verified` means that only snaps carrying a snap declaration can auto-connect this interface.
 
 The following example would configure the `x11` interface
-to disallow all auto-connections:
+to deny all auto-connections:
 
 ```
 snap set system interface.x11.allow-auto-connection=false
