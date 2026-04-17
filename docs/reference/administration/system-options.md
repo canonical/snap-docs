@@ -64,7 +64,7 @@ snap set system proxy.https="http://<proxy_addr>:<proxy_port>"
 
 ## system pki.certs.custom
 
-A custom certificate named `<name>` can be managed with the following system options:
+Enables custom certificate management with the following options (replace `<name>` with the certificate name):
 
 - **pki.certs.custom.\<name>.content**: sets the certificate payload. This option must be set first to register the certificate in the database, and the `<name>` used in the option becomes the initially registered certificate name
 - **pki.certs.custom.\<name>.name**: changes the registered certificate name after the certificate content has been set
