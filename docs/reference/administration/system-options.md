@@ -62,6 +62,39 @@ snap set system proxy.https="http://<proxy_addr>:<proxy_port>"
 
 > ⓘ Available only on Ubuntu Core.
 
+## system pki.certs.custom
+
+A custom certificate named `<name>` can be managed with the following system options:
+
+- **pki.certs.custom.\<name>.content**: sets the certificate payload. This option must be set first to register the certificate in the database, and the `<name>` used in the option becomes the initially registered certificate name
+- **pki.certs.custom.\<name>.name**: changes the registered certificate name after the certificate content has been set
+- **pki.certs.custom.\<name>.state**: sets the certificate state to `blocked` or `accepted`. If not explicitly set, the default state is `accepted`. Setting the state to `unset` removes the certificate
+
+The following example sets the certificate content, changes the certificate name, and blocks the certificate:
+
+```
+snap set system pki.certs.custom.<name>.content=<payload>
+snap set system pki.certs.custom.<name>.name=new-name
+snap set system pki.certs.custom.<name>.state=blocked
+```
+
+To remove the certificate, set its state to `unset` or unset it:
+
+```
+snap set system pki.certs.custom.<name>.state=unset
+snap unset system pki.certs.custom.<name>
+```
+
+Use `snap get` to retrieve the list of custom certificates:
+
+```
+snap get system pki.certs.custom
+```
+
+> ⓘ Available only on Ubuntu Core.
+
+> ⓘ Available since snapd _2.75_.
+
 ## system refresh
 
 There are four system-wide options that are used to manage how updates are handed:
