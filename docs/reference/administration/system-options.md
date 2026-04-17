@@ -106,6 +106,7 @@ to disallow all auto-connections:
 snap set system interface.x11.allow-auto-connection=false
 ```
 
+> ⓘ Available since snapd _2.73_.
 
 ## system resilience.vitality-hint
 
