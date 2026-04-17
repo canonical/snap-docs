@@ -30,16 +30,7 @@ The following gadget repositories contain the gadget snap definitions for _amd64
 - [Raspberry Pi "Universal" Gadget Snap](https://github.com/canonical/pi-gadget)
 - [i386](https://github.com/canonical/pc-i386-gadget)
 
-In addition to the above, the IoT Devices Field team maintains a GitHub repository with source code branches that contain templates for the following device architectures:
-
-- [arm64-odroid-hc4](https://github.com/canonical/iot-field-gadget-snap/tree/22-arm64-odroid-hc4)
-- [arm64-orange-pi-5plus](https://github.com/canonical/iot-field-gadget-snap/tree/22-arm64-orange-pi-5plus)
-- [amd64-pc](https://github.com/canonical/iot-field-gadget-snap/tree/22-amd64-pc)
-- [amd64-pc-classic](https://github.com/canonical/iot-field-gadget-snap/tree/22-amd64-pc-classic)
-- [risc64-icicle](https://github.com/canonical/iot-field-gadget-snap/tree/22-riscv64-icicle)
-- [risc64-nezha](https://github.com/canonical/iot-field-gadget-snap/tree/22-riscv64-nezha)
-
-In the near future, we expect to add a RISC-V reference gadget snap to this list.
+In addition to the above, the IoT Devices Field team maintains a [GitHub repository](https://github.com/canonical/iot-field-gadget-snap) with source code branches that contain examples for several hardware platforms:
 
 ## The gadget.yaml file
 
