@@ -102,15 +102,11 @@ snapctl remove +<comp_name>
 
 If these commands are run from a {ref}`hook <reference-development-supported-snap-hooks>`, the components will be installed/removed after the hook itself has run if it ended successfully.
 
-## snapctl commands
-
-From within a snap, the [snapctl](https://snapcraft.io/docs/using-snapctl) command can be used to install and remove components from an application, including snap hooks and component hooks. The commands for this are:
-
-$ snapctl install +<comp_name>
-
-$ snapctl remove +<comp_name>
-
-If these commands are run from a hook, the components will be installed/removed after the hook itself has run if it ended successfully.
+### Asynchronous Operation
+These commands are run synchronously by default, however, if snapctl supports the _async_ feature, then the `--no-wait` flag can be used to
+immediately return a change ID, which can then be polled with snapctl is-ready <change-id>. To view all change-ids associated with a snapctl
+context, the command `snapctl tasks` may be used. Optionally, the `--json` flag may be passed to return the data as JSON rather than a tabular
+representation.
 
 ## Health state
 
