@@ -19,7 +19,7 @@ The `snapcraft edit-validation-sets` command is used to create a validation set 
 snapcraft edit-validation-sets <account-id> <set-name> <sequence>
 ```
 
-This command requires your developer account id (`<account-id`), an arbitrary name for the validation set (`<set-name>`), and a sequence number (`<sequence>`). The sequence number starts at 1:
+This command requires your developer account id (`<account-id>`), an arbitrary name for the validation set (`<set-name>`), and a sequence number (`<sequence>`). The sequence number starts at 1:
 
 ```
 snapcraft edit-validation-sets xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1 1
@@ -102,7 +102,7 @@ Modifying a validation set without updating the sequence can violate the constra
 
 <h2 id='heading--listing'>Listing validation sets</h2>
 
-Use the `snapcraft validation-sets` command to check which validation sets area available in the store:
+Use the `snapcraft validation-sets` command to check which validation sets are available in the store:
 
 ```
 $ snapcraft validation-sets
@@ -173,7 +173,7 @@ snap validate --forget xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1
 
 <h2 id='heading--enforcing'>Enforcing assertion validity</h2>
 
-When validation set validity is enforced, snapd will block any operations that would result in snap revisions violating the validation set’s constraints and rendering it invalid.
+When validation set validity is enforced, snapd will block most operations that would result in snap revisions violating the validation set’s constraints and rendering it invalid. Notably, snapd will not block operations with the `--ignore-validation` flag or local installs by manually downloading and installing a snap.
 
 A validation set can only be enforced if all required snaps are installed, and at the correct revision if specified. This is done by adding the `--enforce` argument to the ‘snap validate’ command:
 
@@ -187,7 +187,7 @@ This command will fetch the validation set assertion from the store if not avail
 snap validate --refresh --enforce xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1
 ```
 
-After enforcement is enabled, snapd ensures the consistency of the enforced validation sets, and the snaps they reference, during install, refresh and remove operations.
+After enforcement is enabled, snapd ensures the consistency of the enforced validation sets, and the snaps they reference, during install (online only), refresh and remove operations.
 
 During auto-refreshes or manual refreshes, enforced validation set assertions on the system may be updated to a newer revision. 
 
@@ -203,5 +203,5 @@ For brief periods during multi-snap updates, different snap revisions, from prev
 
 As with monitor mode, enforcing can be disabled for select validation sets with the ‘snap validate --forget’ command.
 
-When using `snap install` and `snap refresh`, the `--ignore-validation` flag can be added to bypass validation set enforcement for the snaps affected. Doing so will ignore the validation of the given snap, and for subsequent refresh operations. This may result in the validation set becoming _invalid_ in `snap validate` output.
+When using `snap install` and `snap refresh`, the `--ignore-validation` flag can be added to bypass validation set enforcement for the snaps affected. Doing so will ignore the validation of the given snap, and for subsequent refresh operations. This may result in the validation set becoming _invalid_ in `snap validate` output. Local snap installation will always bypass validation set enforcement since the purposeful act of installing a specific snap already indicates that a user is acting intentionally.
 
