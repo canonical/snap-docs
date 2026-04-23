@@ -187,7 +187,7 @@ This command will fetch the validation set assertion from the store if not avail
 snap validate --refresh --enforce xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1
 ```
 
-After enforcement is enabled, snapd ensures the consistency of the enforced validation sets, and the snaps they reference, during install (online only), refresh and remove operations.
+After enforcement is enabled, snapd ensures the consistency of the enforced validation sets, and the snaps they reference, during install (only when installing through the store), refresh and remove operations.
 
 During auto-refreshes or manual refreshes, enforced validation set assertions on the system may be updated to a newer revision. 
 
