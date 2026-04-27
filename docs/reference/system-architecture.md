@@ -8,9 +8,8 @@ These components inter-communicate and operate together to create a secure and c
 ## System process overview
 
 ![Snap system process overview, showing how the snap daemon, snapd, manages snaps within a sandbox and configures the system security modules for access|666x500](/images/system-architecture.png)
-[wrap="center"]
-**Snap system process overview, showing how the snap daemon, snapd, manages snaps within a sandbox and configures the system security modules for access**
-[/wrap]
+
+**Figure: Snap system process overview, showing how the snap daemon, snapd, manages snaps within a sandbox and configures the system security modules for access.**
 
 The snap daemon, **snapd**,  handles **snap management** to configure and maintain each snap. 
 
