@@ -17,6 +17,9 @@ Confdb is currently considered an {ref}`Experimental feature <ref-experimental-f
 
 Settings are exposed via _views_. Views allow for both granular access control and *granular configuration contracts* to enable the evolution of a configuration value.
 
+![Architectural overview, showing users and snaps interacting with separate confdb databags through granular views](/images/confdb-architecture.png)
+**Figure: Architectural overview, showing users and snaps interacting with separate confdb databags through granular views.**
+
 The `view` field in the  [confdb-schema assertion](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#confdb-schema-assertion-fields) is a set of mappings from “request” paths to “storage” paths.
 
 Users and snaps can access the _request_ path, while the _storage_ path defines the layout in storage.
