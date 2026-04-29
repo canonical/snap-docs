@@ -231,7 +231,7 @@ qt551          5.5                        30    keshavnrj     -
 
 ## Locally installed snaps
 
-The `snap refresh --ammend` command can be used to replace a locally installed snap with an identically named snap on the store.
+The `snap refresh --amend` command can be used to replace a locally installed snap with an identically named snap on the store.
 
 ## Monitor changes
 
