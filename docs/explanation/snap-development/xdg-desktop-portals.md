@@ -1,5 +1,5 @@
 (interfaces-xdg-desktop-portals)=
-# xdg-desktop-portals
+# XDG Desktop Portals
 
 Portals are a standardised framework allowing desktop applications to use resources outside of their sandbox. The file chooser portal, for example, opens a native file chooser on the host system. When the user selects a file, the application is granted access to that file.
 
@@ -37,7 +37,6 @@ If your application is not using one of those toolkits, you will need to use the
 
 > ⓘ Both the [`gnome` extension](https://snapcraft.io/docs/gnome-extension) and the  [`kde-neon` extension](https://snapcraft.io/docs/kde-neon-extension) automatically enable portal support for GTK 3 and Qt applications on GTK-based desktops. If your snap uses either extension, you only need to do step 1.
 
-
 ## File chooser portal vs home interface
 
 It is recommended to use the file chooser portal instead of the {ref}`home <interfaces-home-interface>` and {ref}`removable-media <interfaces-removable-media-interface>` interfaces for the following reasons:
@@ -52,10 +51,16 @@ However, the file chooser portal works a bit differently than the home interface
 
 The FileChooser portal also contains a few bugs:
 
-
 * ["Executable" permissions are currently not retained](https://github.com/flatpak/xdg-desktop-portal/issues/517). All files will appear as non-executable to your application.
 * Support for selecting folders instead of files will only work on distributions using `xdg-desktop-portal` > 1.8.0.
 * Currently, the files are mounted even if your application has access to the file using another interface. See [Improving XDG Desktop Support](https://forum.snapcraft.io/t/improving-xdg-desktop-portal-support/13035) for the current status on fixing this issue.
+
+## Secret portal vs password-manager-service interface
+
+Both the {ref}`Secret portal<how-to-guides-use-the-secret-portal>` and the {ref}`password-manager-service interface <interfaces-password-manager-service-interface>` allow applications to retrieve user secrets, such as passwords. The Secret portal method is recommended, however, as it limits access *only* to those secrets owned by an application, and no others. 
+
+* Unlike the password-manager-service interface, the Secret portal provides a per-application master secret, enabling applications to manage their own encryption.  
+* The Secret portal requires `xdg-desktop-portal` version 1.5.0 or later. Supported by Ubuntu 20.04 onwards.
 
 ## Known Limitations
 

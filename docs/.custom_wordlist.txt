@@ -141,6 +141,8 @@ LEDs
 libcomposite
 libgpiod
 libs
+libsecret
+libsecrets
 listmount
 LLMs
 loopback
@@ -174,6 +176,7 @@ onboarding
 onwards
 opengl
 openvswitch
+OSCrypt
 otf
 Pamac
 passthrough
@@ -218,12 +221,14 @@ RPMs
 rst
 runtimes
 rw
+safeStorage
 sandboxing
 SCard
 scarthgap
 secboot
 [Ss]eccomp
 secretbox
+Secretportal
 secureboot
 SELinux
 setpriv
@@ -249,6 +254,7 @@ syscheck
 [Ss]ysfs
 syslog
 systemd
+Tauri
 tex
 texlive
 Thumbnailer
