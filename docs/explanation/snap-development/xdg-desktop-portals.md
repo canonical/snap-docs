@@ -20,7 +20,7 @@ See the [Portal API reference](https://docs.flatpak.org/en/latest/portal-api-ref
 
 1. **Use the Portal APIs in your application**
   Unlike regular {ref}`Snapcraft interfaces <ref-index_interfaces>`, *portals require applications to use a new API* in order to access resources. Toolkits like GTK 3 and Qt5, however, provide transparent support for portals. See [Portal support in GTK 3](https://docs.flatpak.org/en/latest/portals.html#portal-support-in-gtk) or [Portal support in Qt5 and KDE](https://docs.flatpak.org/en/latest/portals.html#portal-support-in-qt-and-kde) for detailed information.
-If your application is not using one of those toolkits, you will need to use the Portals API directly. See [the Portals API documentation](https://flatpak.github.io/xdg-desktop-portal/docs/portal-interfaces.html) for more information.
+If your application is not using one of those toolkits, you will need to use the Portals API directly. See [the Portals API documentation](https://flatpak.github.io/xdg-desktop-portal/docs/api-reference.html) for more information.
 
 2. **Add the `desktop` interface to your snap**
   This interface gives your snap access to the portals.
