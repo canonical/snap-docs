@@ -32,9 +32,9 @@ When making a request, an administrator (or a snap accessing a configuration), m
 
 An attempt is then made to match the request path against a path in the view's rules. If a rule’s path contains a matching prefix then the corresponding storage path is used to retrieve a value.
 
-If more than one rule matches the request, then the result is aggregated from all of the values. 
+If more than one rule matches the request, then the result is aggregated from all of the values.
 
-Multiple views can have the same “request” field, but different “storage”, facilitating backwards compatibility when transitioning to a new layout. 
+Multiple views can have the same “request” field, but different “storage”, facilitating backwards compatibility when transitioning to a new layout.
 
 #### Example implementation
 
@@ -61,7 +61,7 @@ views:
 [...]
 ```
 
-This above configuration could be be accessed as follows:
+This above configuration could be accessed as follows:
 
 ```
 $ snap get system/snap-status/observe snaps.firefox.status
@@ -84,7 +84,7 @@ Instead of enumerating every possible combination, we can use a placeholder to m
 [...]
 ```
 
-This enables the snap name to be dynamically mapped into the query: 
+This enables the snap name to be dynamically mapped into the query:
 
 ```
 $ snap get system/snap-status/observe snaps.firefox.status
@@ -110,7 +110,7 @@ To add more configuration paths for snaps, either add more rules or, if possible
         - storage: status
         - storage: revision
 
-[...] 
+[...]
 ```
 
 This example only provides a storage path. When omitted, the request path is assumed to be equal to the storage path by default.
@@ -185,7 +185,7 @@ Requests are compared to rule prefixes until a match occurs which means an empty
 
 ##### Namespaces
 
-If there a change in the configuration data’s layout, only the assertion needs to be modified. The snap could experience the same namespace, isolating it from schema changes. For example, the following assertion exposes the same data under the same namespace (from a user or snap’s perspective) but the storage layout it assumes is completely different:
+If there is a change in the configuration data’s layout, only the assertion needs to be modified. The snap sees the same namespace, isolating it from schema changes. For example, the following assertion exposes the same data under the same namespace (from a user or snap’s perspective) but the storage layout it assumes is completely different:
 
 ```yaml
 ...
@@ -227,13 +227,13 @@ $ snapctl get --view :observe-status snaps.firefox.status
 enabled
 ```
 
-confdb supports the same commands and options as the {ref}`original configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. This includes unsetting data using `snapctl --view unset ...` or by using `snapctl --view set` with a `\!` prefixed to the request path.
+Confdb supports the same commands and options as the {ref}`original configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. This includes unsetting data using `snapctl --view unset ...` or by using `snapctl --view set` with a `\!` prefixed to the request path.
 
 ### Custodians
 
 The confdb interface plug can have one other attribute, `role`, which is optional and can only take a value of `custodian`.
 
-`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. Custodians are responsible for a subset of the configuration data. As such, at least one custodian must be installed and connected for the data to be accessible.  
+`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. Custodians are responsible for a subset of the configuration data. As such, at least one custodian must be installed and connected for the data to be accessible.
 
 One of the key aspects of the custodian role relates to ephemeral data which we’ll cover in the next section.
 
@@ -245,7 +245,7 @@ Configuration paths are marked as ephemeral in the storage schema which is speci
 
 During `snap` or `snapctl` access (whether to read or write), changes are either committed or read as a transaction. Snapd will get data from its storage and then schedule certain [hooks](https://documentation.ubuntu.com/snapcraft/stable/reference/hooks/) from snaps with plugs referring to views affected by the data.
 
-We’ll cover hooks in more detail in the next section so for now we’ll just focus on two: `save-view-<plug>` and `load-view-<plug>`. These are invoked for custodian snaps when writing and reading, respectively, and are prefixed with the name of the interface plug for which the snap is custodian. 
+We’ll cover hooks in more detail in the next section so for now we’ll just focus on two: `save-view-<plug>` and `load-view-<plug>`. These are invoked for custodian snaps when writing and reading, respectively, and are suffixed with the name of the interface plug for which the snap is custodian.
 
 When snapd detects that a `snap` or `snapctl set` might impact ephemeral data, it stores the changes in a transaction object and invokes `save-view-<plug>` hooks for connected custodians. These hooks can then query the ongoing transaction with the usual `snapctl get --view ...` commands to read changes to the ephemeral data and then store them off-snapd as they wish. Snapd will also store these changes but it does so as a cache, not as an authoritative version.
 
@@ -256,15 +256,15 @@ When ephemeral data is read, snapd will similarly schedule `load-view-<plug>` ho
 
 Confdb supports 5 types of [hooks](https://documentation.ubuntu.com/snapcraft/stable/reference/hooks/):
 
-* `load-view-<plug>`  
-* `query-view-<plug>`  
-* `change-view-<plug>`  
-* `save-view-<plug>`  
+* `load-view-<plug>`
+* `query-view-<plug>`
+* `change-view-<plug>`
+* `save-view-<plug>`
 * `observe-view-<plug>`
 
-`load-view-<plug>` and `query-view-<plug>` are scheduled during read operations, while `change-view-<plug>`, `save-view-<plug>` and `observe-view-<plug>` are relevant only to writes. 
+`load-view-<plug>` and `query-view-<plug>` are scheduled during read operations, while `change-view-<plug>`, `save-view-<plug>` and `observe-view-<plug>` are relevant only to writes.
 
-The `save-view`/`load-view` hooks are mandatory if the path being accessed either maps to ephemeral data or may contain nested data that is (i.e., that is marked as ephemeral in the storage schema). The other hooks are optional.
+The `save-view`/`load-view` hooks are mandatory if the path being accessed either maps to ephemeral data or may contain nested data (i.e., marked as ephemeral in the storage schema). The other hooks are optional.
 
 During a read of the confdb data:
 1. snapd first reads the configuration data it stores internally and creates a transaction object to carry it.
@@ -274,7 +274,7 @@ During a read of the confdb data:
 Both series of hooks are run in the same order, sorted by their snap’s name.
 
 Writes to confdb data operate in a similar fashion to reads:
-1. Snapd creates a transaction object, storing the intended changes to the confdb data. 
+1. Snapd creates a transaction object, storing the intended changes to the confdb data.
 1. The first hooks to be scheduled are the `change-view-<plug>` hooks. These hooks provide an opportunity for custodian snaps to modify the data before it’s committed or even to reject it entirely. This is useful if the snaps must maintain complex invariants that can’t be expressed as [schema types and constraints](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#schema-types).
 1. Data modification is done with `snapctl set --view` command in the usual manner.
    To help snaps distinguish between uncommitted and pristine data, a `--pristine` flag can be used with `snapctl get --view`:
@@ -293,7 +293,6 @@ Writes to confdb data operate in a similar fashion to reads:
    $ snapctl fail <reason>
    ```
 
-1. Once all `change-view-<plug>` hooks have run, the `save-view-<hooks>` run in the same order (i.e., ordered by snap name). If any hook should fail, the transaction would be cancelled. Any `save-view-<plug>` hooks that had been invoked would be invoked again with pristine data, in order to help custodian snaps maintain consistency among the various versions of the configuration data. 
+1. Once all `change-view-<plug>` hooks have run, the `save-view-<plug>` run in the same order (i.e., ordered by snap name). If any hook should fail, the transaction would be cancelled. Any `save-view-<plug>` hooks that had been invoked would be invoked again with pristine data, in order to help custodian snaps maintain consistency among the various versions of the configuration data.
 
 1. Finally, snapd schedules `observe-view-<plug>` hooks, which is the only type of confdb hook that can be defined by a non-custodian snap. This hook simply notifies snaps plugging views affected by the write that configuration data relevant to them may have changed. The failure of these hooks does not prevent the committing of the changes, as non-custodians are not allowed to reject them. Once those hooks run (successfully or not), the changes are committed by snapd.
-

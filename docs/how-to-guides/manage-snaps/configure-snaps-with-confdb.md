@@ -3,7 +3,7 @@
 
 _Confdb_ is a configuration system that allows snaps to be configured in fine-grained ways using a [confdb-schema](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/) assertion.
 
-This guide will detail the steps required to use confdb, as well as explore some of its features. For implementation details, see the {ref}`Confdb configuration mechanism <explanation-how-snaps-work-confdb-configuration-mechanism>`. 
+This guide will detail the steps required to use confdb, as well as explore some of its features. For implementation details, see the {ref}`Confdb configuration mechanism <explanation-how-snaps-work-confdb-configuration-mechanism>`.
 
 We'll use an example where one snap creates a Wi-Fi configuration that another snap can view.
 
@@ -18,6 +18,7 @@ We first need to ensure the latest version of snapd is installed. This is import
 ```
 snap refresh
 ```
+
 We can then enable confdb with its experimental feature flag:
 
 ```
@@ -31,7 +32,7 @@ To use confdb, we must first create a [confdb-schema assertion](https://document
 There are two main parts to a confdb-schema assertion:
 - View rules
 - Storage schema
- 
+
 The *view rules* determine the “schema” of the configuration namespace exposed to the snap, i.e., what paths can be accessed and how they’re mapped onto the storage schema.
 
 The *storage schema* determines what the actual stored data looks like and what constraints apply.
@@ -51,7 +52,7 @@ For example:
         "password": {
           "type": "string",
           "pattern": "^[\w~!@#\$%\^&-\+=\;:,\.\/\?]{8,63}$"
-      },    
+      },
     },
       "schema": {
         "wifi": {
@@ -76,13 +77,13 @@ The above schema describes three configuration paths: an SSID, a password and a 
 
 Snapd expects the storage schema to conform to a very precise format, using 2 spaces for indentation and sorting map entries. Both Python 3’s `json.dump` and Golang’s `json.MarshalIndent` can be used to produce this format. `jq -S` can also be used to sort the schema. It’s useful to keep the storage schema in its own file so we can modify it over time.
 
-See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#schema-types) for a detailed description of types and contains. 
+See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#schema-types) for a detailed description of types and constraints.
 
 ### View rules
 
 Now let’s create some view rules to access confdb.
 
-In our example, we’ll use one snap to configure the network and another to access, which means we need two views: `configure-wifi` and `access-wifi`.
+In our example, we’ll use one snap to configure the network and another to access it, which means we need two views: `configure-wifi` and `access-wifi`.
 
 * `configure-wifi` exposes parameters and allows them to be set.
 * `access-wifi` allows the snap to list Wi-Fi connections and read SSID and state information (e.g., up, down).
@@ -203,7 +204,7 @@ Then exit the editor and sign the assertion when prompted.
 See [Create a new snap](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/) for a general overview of the snap creation process.
 
 There are two things a snap needs to be able to use confdb:
-* a plug to declare its intent to use a confdb namespace and 
+* a plug to declare its intent to use a confdb namespace and
 * an optional set of {ref}`hooks <reference-development-supported-snap-hooks>` that snapd invokes when the namespace is accessed
 
 ### Custodian snap
@@ -225,13 +226,13 @@ plugs:
     role: custodian
 ```
 
-The other component that must be defined in the snap are the {ref}`hooks <reference-development-supported-snap-hooks>`. 
+The other component that must be defined in the snap are the {ref}`hooks <reference-development-supported-snap-hooks>`.
 
 Snaps interact with confdb through {ref}`snapctl <how-to-guides-manage-snaps-use-snapctl>` and, in turn, snapd invokes various hooks when confdb is read from or written to.
 
 In this case, the custodian snap will only define the `change-view-<plug>`, which provides an opportunity for the snap to modify values being set.
 
-As an example, we’ll say that the SSID must be prefixed with our company’s name: “Acme”. The configuration can be set by the administrator using {ref}`snap set <how-to-guides-work-with-snaps-configure-snaps>` or by any other snap with access to that view, so it’s the custodian snap’s responsibility to enforce that the prefix is enforced.
+As an example, we’ll say that the SSID must be prefixed with our company’s name: “Acme”. The configuration can be set by the administrator using {ref}`snap set <how-to-guides-work-with-snaps-configure-snaps>` or by any other snap with access to that view, so it’s the custodian snap’s responsibility to enforce the prefix.
 
 Our `change-view-configure-wifi` hook looks like this:
 
@@ -241,7 +242,7 @@ Our `change-view-configure-wifi` hook looks like this:
 # prefix the SSID with "acme", if not already present
 value=$(snapctl get --view :configure-wifi acme.ssid)
 if [[ "$?" -eq 0 && "$value" != acme-* ]]; then
-  snapctl set --view :configure-wifi ssid="acme-$value"
+  snapctl set --view :configure-wifi acme.ssid="acme-$value"
 fi
 ```
 
@@ -276,9 +277,9 @@ We can mediate snap access to confdb-schema views by connecting their confdb plu
 Note that when a snap is published by the same account ID as the assertion, the interface plug will be auto-connected.
 
 ```shell
-snap install custodian-snap reader-snap 
-snap connect custodian-snap:configure-wifi 
-snap connect reader-snap:access-wifi 
+snap install custodian-snap reader-snap
+snap connect custodian-snap:configure-wifi
+snap connect reader-snap:access-wifi
 ```
 
 ## Setting data
@@ -327,7 +328,7 @@ acme-some-ssid
 ## Getting secret data
 *From snapd version 2.76+*
 
-If we wanted to ensure that only admins were able to access certain data in confdb storage, we can add a visibility field to storage entries. For example, say we wanted only admins to read the `psk` field defined earlier. To limit access to `psk`, in the storage schema definition, we would change
+If we wanted to ensure that only admins were able to access certain data in confdb storage, we could add a visibility field to storage entries. For example, say we wanted only admins to read the `psk` field defined earlier. To limit access to `psk`, in the storage schema definition, we would change
 
 ```
 "psk": "${password}",
