@@ -28,7 +28,7 @@ The `--dangerous` argument will install a local snap without validating or check
 
 This option is useful when testing snaps shared through a trusted channel, and for testing snaps built locally, before eventually being published to the store.
 
-The `snap refresh --ammend` command can be used to replace a locally installed snap with an identically named snap on the store.
+The `snap refresh --amend` command can be used to replace a locally installed snap with an identically named snap on the store.
 
 ## Developer mode
 
