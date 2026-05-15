@@ -36,7 +36,7 @@ Tracks are listed in the *channels* section of the output from the `snap info` c
 ```
 $ snap info firefox
 [...]
-hannels:
+channels:
   latest/stable:    149.0.2-1     2026-04-08 (8107) 287MB -
   latest/candidate: 150.0-1       2026-04-16 (8172) 288MB -
   latest/beta:      150.0b10-1    2026-04-15 (8166) 288MB -
