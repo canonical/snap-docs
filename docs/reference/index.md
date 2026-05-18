@@ -51,3 +51,4 @@ System architecture <system-architecture>
 Interfaces <interfaces/index>
 Administration <administration/index>
 Snap development <development/index>
+Exit codes <exit-codes>
