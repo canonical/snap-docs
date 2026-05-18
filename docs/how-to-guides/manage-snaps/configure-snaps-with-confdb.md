@@ -325,6 +325,10 @@ $ cat /snap/reader-snap/common/ssid
 acme-some-ssid
 ```
 
+Note that concurrent accesses may block if they would result in writes running concurrently with another access. If any access is blocked, subsequent accesses will also be queued to ensure that they are run in order.
+
+For example, if there is a read ongoing and a write is requested, the write will be blocked. A new read would then also be queued and only run after the write, even though reads are normally run concurrently. This ensures that a stream of reads cannot starve a write access.
+
 ## Getting secret data
 *From snapd version 2.76+*
 
