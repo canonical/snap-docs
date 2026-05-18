@@ -83,6 +83,10 @@ $ snapctl get --view :setup-wifi routes --with to=default
 }
 ```
 
+Concurrent accesses may block if they would result in writes running concurrently with another access. If any access is blocked, subsequent accesses will also be queued to ensure that they are run in order.
+
+For example, if there is a read ongoing and a write is requested, the write will be blocked. A new read would then also be queued and only run after the write, even though reads are normally run concurrently. This ensures that a stream of reads cannot starve a write access.
+
 For further information on confdb, see {ref}`Configure snaps with confdb <how-to-guides-manage-snaps-configure-snaps-with-confdb>` and {ref}`Confdb configuration mechanism <explanation-how-snaps-work-confdb-configuration-mechanism>`.
 
 ## Components
