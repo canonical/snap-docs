@@ -17,6 +17,7 @@ Details that help with the day-to-day operations of working with snaps.
 * {ref}`Interfaces <ref-index_interfaces>`: Every interface alongside their most important attributes.
 * {ref}`Snap system architecture <reference-operations-system-architecture>`: What snapd uses to manage confinement and security. 
 * {ref}`System options <reference-operations-system-options>`: Configurations options for the system and native snap devices.
+* {ref}`Exit codes <reference-operations-exit-codes>`: Exit codes returned by the `snap` command.
 
 ## Administration
 
@@ -51,3 +52,4 @@ System architecture <system-architecture>
 Interfaces <interfaces/index>
 Administration <administration/index>
 Snap development <development/index>
+Exit codes <exit-codes>

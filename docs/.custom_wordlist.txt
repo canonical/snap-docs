@@ -213,6 +213,7 @@ repo
 Repology
 requesters
 resampling
+retryable
 roadmapped
 Rockcraft
 RODatabase
