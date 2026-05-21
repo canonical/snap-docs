@@ -22,7 +22,7 @@ For more details on how AppArmor, seccomp and device permission security policie
 
 To investigate and test the confined environment of a snap, you can open a `bash` shell in it. After the snap is installed, use the `--shell  <name>.<command>` argument of `snap run`.
 
-```
+```sh
 $ snap run --shell mysnap.mycommand
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
@@ -44,7 +44,7 @@ Running the standard _strace_ command on a snapped application, however, can pro
 
 To use this, you first have to install the [strace-static](https://snapcraft.io/strace-static) snap:
 
-```
+```sh
 sudo snap install strace-static
 ```
 
@@ -58,7 +58,7 @@ You will be asked for your password because the internal strace logic relies on 
 
 Additionally, you can disable post-processing of the strace output by passing `--raw` to `--strace=`:
 
-```
+```sh
 snap run --strace=--raw <snap-name>
 ```
 
@@ -70,11 +70,36 @@ To help isolate runtime errors when building and testing a snap, a snap can be i
 
 To install a snap in developer mode, use the `--devmode` argument:
 
-```
+```sh
 sudo snap install --devmode mysnap
 ```
 
 When a snap is installed with developer mode, violations against a snap's security policy are permitted to proceed but logged via journald.
+
+## Generating a system diagnostic report
+
+[`snap-debug-info.sh`](https://github.com/canonical/snapd/blob/master/debug-tools/snap-debug-info.sh) is a script included in the snapd snap that collects comprehensive information about snapd's state. It contains system details that are useful in bug reports as well as diagnosing snapd behaviour. These include
+
+- `snap` command's version,
+- active model assertion,
+- snaps, components, and services installed,
+- connections on the system,
+- recent changes performed on the system including those in Doing or Error state,
+- offline snap changes,
+- validation sets,
+- uptime, date, and diskspace,
+- contents of gadget.yaml (if a gadget snap is present),
+- snap system config,
+- status of the snapd.service,
+- snapd journal entries,
+- DENIED log messages from system journal,
+- snapd stacktraces.
+
+Note that the output is expected to be verbose, especially on systems with many snaps installed. Run the script as root or with sudo since some commands used require those permissions.
+
+```sh
+sudo /snap/snapd/current/usr/lib/snapd/snap-debug-info.sh > snapd-debug.log
+```
 
 ## Debugging policy violation logs
 
@@ -267,4 +292,3 @@ The above command has changed to snap-device-helper
 - https://assets.ubuntu.com/v1/66fcd858-ubuntu-core-security-whitepaper.pdf
 - https://github.com/canonical/snapd/wiki/Snap-Execution-Environment
 - https://forum.snapcraft.io/t/stracing-snap-commands/1433
-

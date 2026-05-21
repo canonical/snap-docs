@@ -13,7 +13,7 @@ Extend snap functionality with API access, internal tools, and customised enviro
 * {ref}`Use snapctl <how-to-guides-manage-snaps-use-snapctl>`: use the snapctl tool within a snap application.
 * {ref}`Use the Secret portal <how-to-guides-use-the-secret-portal>`: how to use the Secret portal
 * {ref}`Test snapd fixes <how-to-guides-fix-common-issues-test-snapd-fixes>`: test out the latest release of the snap daemon.
-* {ref}`Debug snaps <how-to-guides-fix-common-issues-debug-snaps>`: solve issues with snapped application.
+* {ref}`Debug snaps <how-to-guides-fix-common-issues-debug-snaps>`: solve issues with snapped application and generate a snapd diagnostic report.
 * {ref}`snap try <how-to-guides-fix-common-issues-debug-snaps>`: test a snap package on your system.
 * {ref}`Using in-development features <ref-experimental-features_experimental-features>`: learn how to use cutting edge snap features.
 
