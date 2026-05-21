@@ -87,18 +87,18 @@ When a snap is installed with developer mode, violations against a snap's securi
 - recent changes performed on the system including those in Doing or Error state,
 - offline snap changes,
 - validation sets,
-- uptime, date, and diskspace,
+- uptime, date, and disk space,
 - contents of gadget.yaml (if a gadget snap is present),
 - snap system config,
 - status of the snapd.service,
 - snapd journal entries,
 - DENIED log messages from system journal,
-- snapd stacktraces.
+- snapd stack traces.
 
 Note that the output is expected to be verbose, especially on systems with many snaps installed. Run the script as root or with sudo since some commands used require those permissions.
 
 ```sh
-sudo /snap/snapd/current/usr/lib/snapd/snap-debug-info.sh > snapd-debug.log
+sudo /snap/snapd/current/usr/lib/snapd/snap-debug-info.sh > snap-debug.log
 ```
 
 ## Debugging policy violation logs
