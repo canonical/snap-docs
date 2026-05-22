@@ -78,7 +78,7 @@ When a snap is installed with developer mode, violations against a snap's securi
 
 ## Generating a system diagnostic report
 
-[`snap-debug-info.sh`](https://github.com/canonical/snapd/blob/master/debug-tools/snap-debug-info.sh) is a script included in the snapd snap that collects comprehensive information about snapd's state. It contains system details that are useful in bug reports as well as diagnosing snapd behaviour. These include
+[`snap-debug-info.sh`](https://github.com/canonical/snapd/blob/master/debug-tools/snap-debug-info.sh) is a script included in the snapd snap that collects comprehensive information about snapd's state. It contains system details that are useful in bug reports as well as diagnosing snapd behaviour. These include:
 
 - `snap` command's version,
 - active model assertion,
