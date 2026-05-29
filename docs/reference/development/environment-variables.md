@@ -183,6 +183,46 @@ The vanilla `HOME` environment variable before snapd-induced remapping, refer to
 
 Requires _snapd_ 2.46+.
 
+### <pre>SNAP_APP_NAME</pre>
+
+The name of the application being run, as specified in the `snapcraft.yaml`.
+
+Only set when running an application command.
+
+Typical value: `cmd`
+
+Requires _snapd_ 2.77+.
+
+### <pre>SNAP_APP_COMMON_ID</pre>
+
+The common identifier of the application, as specified by the `common-id` field in `snapcraft.yaml`. This is typically a reverse-DNS identifier used to associate the application with its desktop entry.
+
+Only set when running an application that defines a `common-id`.
+
+Typical value: `org.example.Foo`
+
+Requires _snapd_ 2.77+.
+
+### <pre>SNAP_APP_DESKTOP_FILE</pre>
+
+The absolute path to the application's installed desktop file.
+
+Only set when running an application that has an associated desktop file on disk.
+
+Typical value: `/var/lib/snapd/desktop/applications/org.example.Foo.desktop`
+
+Requires _snapd_ 2.77+.
+
+### <pre>SNAP_APP_BUS_NAME</pre>
+
+The D-Bus bus name the application is allowed to own, as specified by the `bus-name` field in `snapcraft.yaml`.
+
+Only set when running an application that defines a `bus-name`.
+
+Typical value: `org.example.Foo`
+
+Requires _snapd_ 2.77+.
+
 ## Generic variables
 
 ### <pre>HOME</pre>
