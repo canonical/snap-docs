@@ -189,7 +189,7 @@ The name of the application being run, as specified in the `snapcraft.yaml`.
 
 Only set when running an application command.
 
-Typical value: `cmd`
+Typical value: `my-snap-app`
 
 Requires _snapd_ 2.77+.
 
@@ -207,9 +207,11 @@ Requires _snapd_ 2.77+.
 
 The absolute path to the application's installed desktop file.
 
-Only set when running an application that has an associated desktop file on disk.
+Only set when running an application that has an associated desktop file on disk. The actual value depends on whether `common-id` is defined, or whether `desktop-file-ids` attribute is added to the `desktop` interface plug, and presence of matching desktop files. 
 
-Typical value: `/var/lib/snapd/desktop/applications/org.example.Foo.desktop`
+Typical values:
+- `/var/lib/snapd/desktop/applications/my-snap-name_my-snap-app.desktop`
+- `/var/lib/snapd/desktop/applications/org.example.Foo.desktop`
 
 Requires _snapd_ 2.77+.
 
