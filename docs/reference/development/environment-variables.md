@@ -207,8 +207,6 @@ Requires _snapd_ 2.77+.
 
 The absolute path to the application's installed desktop file.
 
-Only set when running an application that has an associated desktop file on disk. The actual value depends on whether `common-id` is defined, or whether `desktop-file-ids` attribute is added to the `desktop` interface plug, and presence of matching desktop files. 
-
 Typical values:
 - `/var/lib/snapd/desktop/applications/my-snap-name_my-snap-app.desktop`
 - `/var/lib/snapd/desktop/applications/org.example.Foo.desktop`
