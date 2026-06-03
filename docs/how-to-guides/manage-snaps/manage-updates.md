@@ -258,6 +258,8 @@ Done    today at 15:16 BST  today at 15:16 BST  Clean up "gnome-system-monitor" 
 Done    today at 15:16 BST  today at 15:16 BST  Run configure hook of "gnome-system-monitor" snap if present
 ```
 
+Optionally, the `--format` flag may be passed with the `json` argument to return the data as JSON rather than a tabular representation.
+
 ## Revert to an earlier revision
 
 A snap may be reverted to an earlier revision with the `snap revert` command. By default, it will attempt to revert to the previous revision:
