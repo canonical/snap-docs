@@ -111,7 +111,7 @@ Installation and removal commands are run synchronously by default, however, if 
 - If both support the feature, and the `--no-wait` flag is passed, the change-id is returned immediately and the user polls `snapctl is-ready` to determine when
 the change has finished.
 - If both support the feature, and the `--no-wait` flag is not passed, the client will use is-ready internally to ensure the change completes before returning.
-- If snapctl does not support the feature, the daemon reverts to the existing polling approach interally.
+- If snapctl does not support the feature, the daemon reverts to the existing polling approach internally.
 
 To view all tasks associated with a change-id in the same snapctl context, the command `snapctl tasks` may be used, also aliased to `snapctl changes`. Optionally, the `--format` flag may be passed with the `json` argument to return the data as JSON rather than a tabular representation.
 
