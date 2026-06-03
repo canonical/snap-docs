@@ -1,17 +1,14 @@
 (reference-development-yaml-schemas-the-kernel-snap)=
 # The kernel snap
 
-As the name implies, the _kernel_ snap is responsible for defining the Linux
-kernel that will run in a snap-based system. The correct kernel snap for a given
-system is selected via the model assertion, produced and signed by the device's
-brand account before the image is built. Once the image is built, the kernel
-snap may be updated, but it cannot be replaced by a completely different kernel
-snap.
+The kernel snap is responsible for providing the Linux kernel image and modules
+for the system. The kernel snap to be used is defined in the device's model
+assertion, which is produced and signed by the Brand authority.
 
 Canonical publishes some reference kernel snaps as well as kernel snaps for main
 Canonical models such as official Ubuntu Core VMs on various certified public
 clouds, as well as general purpose computing images for popular physical devices
-such as the 64-bit x86 PC and Raspberry Pi 2 and 3.
+such as the 64-bit x86 PC and Raspberry Pi.
 
 For details on building a kernel snap, see [Build a kernel snap](https://documentation.ubuntu.com/core/how-to-guides/image-creation/build-a-kernel-snap/)
 in the Ubuntu Core documentation.
@@ -34,8 +31,8 @@ The layout for a kernel snap has some variation, but usually follows:
 
 The kernel and initrd may be discrete objects, usually named `kernel.img` and
 `initrd.img`, respectively. However, they could also be distributed as a single [Unified Kernel Image](https://uapi-group.org/specifications/specs/unified_kernel_image/)
-(UKI) or as a [Flatted Image Tree](https://docs.u-boot.org/en/v2024.07/usage/fit/source_file_format.html)
-(FIT) image. These are usually named `kernel.efi` or `kernel.img`, respectively.
+(UKI) or as a [Flatted Image Tree](https://fitspec.osfw.foundation/) (FIT) image.
+These are usually named `kernel.efi` or `kernel.img`, respectively.
 
 ### kernel.yaml
 
@@ -76,10 +73,9 @@ volumes:
             target: /dtbs/
 ```
 
-### initrd
+## initrd
 
 The initrd component of the kernel snap plays a fundamental role in the booting
 of an Ubuntu Core system.
 
 The initrd is usually built using the ubuntu-core-initramfs tool.
-
