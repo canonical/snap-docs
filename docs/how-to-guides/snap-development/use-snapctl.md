@@ -107,11 +107,15 @@ snapctl remove +<comp_name>
 If these commands are run from a {ref}`hook <reference-development-supported-snap-hooks>`, the components will be installed/removed after the hook itself has run if it ended successfully.
 
 ### Asynchronous Operation
-By default installation and removal commands are run synchronously and will block until the change is completed.
+By default, the `install` and `remove` subcommands run synchronously and will block until the change they create is completed.
 
-To enable deeper insight of the change, the `--no-wait` flag can be passed. In this case, the change-id is returned immediately and the user can poll `snapctl is-ready` to determine when the change has finished.
+The --no-wait flag can be used with install and remove to indicate that snapctl should not block on the created change. Instead, snapctl will immediately return the change ID. This has similar semantics to --no-wait when used with snap install/refresh. This change ID should be used with the is-ready and tasks subcommands.
 
-To view all tasks associated with a change-id in the same snapctl context, the command `snapctl tasks` may be used. Optionally, the `--format` flag may be passed with the `json` argument to return the data as JSON rather than a tabular representation.
+The is-ready subcommand enables polling the given change until it has reached a terminal state. See snapctl is-ready --help for a detailed breakdown of the exit codes used.
+
+The tasks subcommand prints detailed information about the given change. This includes information such as the exact state of the change and the progress of individual tasks within the change. Provide the --format=json argument to receive JSON output, rather than the default tabular representation.
+
+Note that both snapctl is-ready and snapctl tasks can only be used with changes that were created by the snap in which they are being invoked. Arbitrary changes on the system cannot be introspected via these subcommands.
 
 ## Health state
 
