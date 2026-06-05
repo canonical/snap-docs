@@ -109,7 +109,7 @@ If these commands are run from a {ref}`hook <reference-development-supported-sna
 ### Asynchronous Operation
 By default, the `install` and `remove` sub-commands run synchronously and will block until the change they create is completed.
 
-The `--no-wait` flag can be used with `install` and `remove` to indicate that snapctl should not block on the created change. Instead, snapctl will immediately return the change ID. This has similar semantics to `--no-wait` when used with `snap install/refresh`. This change ID should be used with the `is-ready` and `tasks` sub-commands.
+The `--no-wait` flag can be used with `install` and `remove` to indicate that snapctl should not block on the created change. Instead, snapctl will immediately return the change ID. This has similar semantics to `--no-wait` when used with `snap install/refresh`. This change ID should be used with the `is-ready` and `tasks` sub-commands. Note that `--no-wait` is not allowed to be run within a hook.
 
 The `is-ready` sub-command enables polling the given change until it has reached a terminal state. See `snapctl is-ready --help` for a detailed breakdown of the exit codes used.
 
