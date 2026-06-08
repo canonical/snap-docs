@@ -106,15 +106,16 @@ snapctl remove +<comp_name>
 
 If these commands are run from a {ref}`hook <reference-development-supported-snap-hooks>`, the components will be installed/removed after the hook itself has run if it ended successfully.
 
-## snapctl commands
+### Asynchronous Operation
+By default, the `install` and `remove` sub-commands run synchronously and will block until the change they create is completed.
 
-From within a snap, the [snapctl](https://snapcraft.io/docs/using-snapctl) command can be used to install and remove components from an application, including snap hooks and component hooks. The commands for this are:
+The `--no-wait` flag can be used with `install` and `remove` to indicate that snapctl should not block on the created change. Instead, snapctl will immediately return the change ID. This has similar semantics to `--no-wait` when used with `snap install/refresh`. This change ID should be used with the `is-ready` and `tasks` sub-commands. Note that `--no-wait` is not allowed to be used within a hook.
 
-$ snapctl install +<comp_name>
+The `is-ready` sub-command enables polling the given change until it has reached a terminal state. See `snapctl is-ready --help` for a detailed breakdown of the exit codes used.
 
-$ snapctl remove +<comp_name>
+The `tasks` sub-command prints detailed information about the given change. This includes information such as the exact state of the change and the progress of individual tasks within the change. Provide the `--format=json` argument to receive JSON output, rather than the default tabular representation.
 
-If these commands are run from a hook, the components will be installed/removed after the hook itself has run if it ended successfully.
+Note that both `snapctl is-ready` and `snapctl tasks` can only be used with changes that were created by the snap in which they are being invoked. Arbitrary changes on the system cannot be introspected via these sub-commands.
 
 ## Health state
 
