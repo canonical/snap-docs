@@ -53,8 +53,8 @@ assets:
 directories, usually created by a kernel component.
 
 * `assets` details a list of content the kernel snap provides, usually device
-tree files, to the gadget snap. These are then referenceable in the gadget
-snap's `gadget.yaml` like so:
+tree files, to the gadget snap. These are then citable in the gadget snap's
+`gadget.yaml` like so:
 
 ```yaml
 volumes:
