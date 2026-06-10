@@ -73,9 +73,12 @@ volumes:
             target: /dtbs/
 ```
 
+<!--
+TODO -- document the initrd more thoroughly
 ## initrd
 
 The initrd component of the kernel snap plays a fundamental role in the booting
 of an Ubuntu Core system.
 
 The initrd is usually built using the ubuntu-core-initramfs tool.
+-->
