@@ -1588,9 +1588,9 @@ paths:
                 containing the new model assertion.
               type: object
               required:
-                - assertion
+                - new-model
               properties:
-                assertion:
+                new-model:
                   type: string
                   description: A string containing the full, signed model assertion.
                   example: |
@@ -1607,7 +1607,7 @@ paths:
               remodelRequest:
                 summary: A typical JSON request to set a new model.
                 value:
-                  assertion: |-
+                  new-model: |-
                     type: model
                     authority-id: generic
                     series: 16
