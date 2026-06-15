@@ -89,7 +89,7 @@ See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assert
 
 Now let’s create some view rules to access confdb.
 
-In our example, we'll use one snap to configure the network and another to access it, which means we need two views: `wifi-admin` and `wifi-state`.
+In our example, we'll use one snap to host the views and allow configuration of the network, and another snap to access the configuration. This means we will need two views: `configure-wifi` and `access-wifi`.
 
 * `wifi-admin` exposes parameters and allows them to be set.
 * `wifi-state` allows the snap to list Wi-Fi connections and read SSID and state information (e.g., up, down).
@@ -108,27 +108,27 @@ views:
     summary: Configure Wi-Fi networks
     rules:
       -
-      request: "{name}.ssid"
-      storage: "v1.wifi.{name}.ssid"
+        request: "{name}.ssid"
+        storage: "wifi.{name}.ssid"
       -
-      request: "{name}.password"
-      storage: "v1.wifi.{name}.psk"
+        request: "{name}.password"
+        storage: "wifi.{name}.psk"
       -
-      request: "{name}.state"
-      storage: "v1.wifi.{name}.state"
+        request: "{name}.state"
+        storage: "wifi.{name}.state"
 
   wifi-state:
     summary: List and read Wi-Fi SSIDs
     rules:
       -
-      request: "{name}"
-      storage: "v1.wifi.{name}"
-      access: read
-      content:
+        request: "{name}"
+        storage: "wifi.{name}"
+        access: read
+        content:
         -
-        storage: ssid
+          storage: ssid
         -
-        storage: state
+          storage: state
 
 body-length: 552
 sign-key-sha3-384: 74KHeq1foV…
@@ -225,7 +225,7 @@ Custodian snaps have a special role when accessing ephemeral data. They're respo
 
 The data that snapd stores for ephemeral configuration is only a cached, non-authoritative version of the external data. At least one custodian snap must be installed in the system for a particular confdb-schema.
 
-The first snap will configure the Wi-Fi network to be used, so let’s configure it accordingly:
+The first snap will act as the custodian for both views as well as allowing configuration of the Wi-Fi network, so let’s configure it accordingly:
 
 ```yaml
 plugs:
@@ -233,6 +233,11 @@ plugs:
     interface: confdb
     account: <account-id>
     view: network/wifi-admin
+    role: custodian
+  access-wifi:
+    interface: confdb
+    account: <account-id>
+    view: network/access-wifi
     role: custodian
 ```
 
@@ -260,7 +265,7 @@ That’s it for the custodian snap.
 
 ### Reader snap
 
-Now we’ll create a snap that will read the configuration. Its plug will reference the read-only view and it will omit the `role`:
+Now we’ll create a snap that will only read the configuration. Its plug will reference the read-only view and it will omit the `role`:
 
 ```yaml
 plugs:
@@ -288,8 +293,9 @@ Note that when a snap is published by the same account ID as the assertion, the 
 
 ```shell
 snap install custodian-snap reader-snap
-snap connect custodian-snap:network-wifi-admin
-snap connect reader-snap:network-wifi-state
+snap connect custodian-snap:configure-wifi
+snap connect custodian-snap:access-wifi
+snap connect reader-snap:access-wifi
 ```
 
 ## Setting data
@@ -325,10 +331,10 @@ ID   Status  Spawn               Ready               Summary
 $ snap change 123
 Status  Spawn  Ready  Summary
 Done    ...    ...    Clears the ongoing confdb transaction from state (on error)
-Done    ...    ...    Run hook change-view-network-wifi-admin of snap "custodian-snap"
-Done    ...    ...    Run hook observe-view-network-wifi-state of snap "reader-snap"
-Done    ...    ...    Commit changes to confdb (<account-id>/network/wifi-admin)
-Done    ...    ...    Clears the ongoing confdb transaction from state
+Done    ...    ...    Run hook change-view-configure-wifi of snap "custodian-snap"
+Done    ...    ...    Run hook observe-view-access-wifi of snap "test-snap"
+Done    ...    ...    Commit changes to confdb (NI7Jstuu8gffcoXr02i1kYt898p6Co0A/network/wifi-setup)
+Done   ...    ...   Clears the ongoing confdb transaction from state
 
 
 $ cat /snap/reader-snap/common/ssid
