@@ -52,19 +52,25 @@ For example:
         "password": {
           "type": "string",
           "pattern": "^[\w~!@#\$%\^&-\+=\;:,\.\/\?]{8,63}$"
+        }
       },
-    },
       "schema": {
-        "wifi": {
+        "v1": {
           "schema": {
-            "psk": "${password}",
-            "ssid": "string",
-            "state": {
-              "type": "string",
-              "choices": [
-                "up",
-                "down"
-              ]
+            "wifi": {
+              "values": {
+                "schema": {
+                  "psk": "${password}",
+                  "ssid": "string",
+                  "state": {
+                    "type": "string",
+                    "choices": [
+                      "up",
+                      "down"
+                    ]
+                  }
+                }
+              }
             }
           }
         }
@@ -73,7 +79,7 @@ For example:
   }
 ```
 
-The above schema describes three configuration paths: an SSID, a password and a connection state.
+The above schema describes three fields within each Wi-Fi entry: an SSID, a password and a connection state.
 
 Snapd expects the storage schema to conform to a very precise format, using 2 spaces for indentation and sorting map entries. Both Python 3’s `json.dump` and Golang’s `json.MarshalIndent` can be used to produce this format. `jq -S` can also be used to sort the schema. It’s useful to keep the storage schema in its own file so we can modify it over time.
 
@@ -83,10 +89,10 @@ See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assert
 
 Now let’s create some view rules to access confdb.
 
-In our example, we’ll use one snap to configure the network and another to access it, which means we need two views: `configure-wifi` and `access-wifi`.
+In our example, we'll use one snap to configure the network and another to access it, which means we need two views: `wifi-admin` and `wifi-state`.
 
-* `configure-wifi` exposes parameters and allows them to be set.
-* `access-wifi` allows the snap to list Wi-Fi connections and read SSID and state information (e.g., up, down).
+* `wifi-admin` exposes parameters and allows them to be set.
+* `wifi-state` allows the snap to list Wi-Fi connections and read SSID and state information (e.g., up, down).
 
 Both of these can be defined as follows:
 
@@ -98,25 +104,25 @@ name:         network
 summary:      Configure network parameters
 timestamp:    2025-04-02T19:31:32Z
 views:
-  configure-wifi:
+  wifi-admin:
     summary: Configure Wi-Fi networks
     rules:
       -
       request: "{name}.ssid"
-      storage: "wifi.{name}.ssid"
+      storage: "v1.wifi.{name}.ssid"
       -
       request: "{name}.password"
-      storage: "wifi.{name}.psk"
+      storage: "v1.wifi.{name}.psk"
       -
       request: "{name}.state"
-      storage: "wifi.{name}.state"
+      storage: "v1.wifi.{name}.state"
 
-  access-wifi:
+  wifi-state:
     summary: List and read Wi-Fi SSIDs
     rules:
       -
       request: "{name}"
-      storage: "wifi.{name}"
+      storage: "v1.wifi.{name}"
       access: read
       content:
         -
@@ -146,23 +152,23 @@ The end result should look something like the following:
 account-id: <account-id>
 name: network
 views:
-  configure-wifi:
+  wifi-admin:
     rules:
       -
         request: "{name}.ssid"
-        storage: "wifi.{name}.ssid"
+        storage: "v1.wifi.{name}.ssid"
       -
         request: "{name}.password"
-        storage: "wifi.{name}.psk"
+        storage: "v1.wifi.{name}.psk"
       -
         request: "{name}.state"
-        storage: "wifi.{name}.state"
+        storage: "v1.wifi.{name}.state"
 
-  access-wifi:
+  wifi-state:
     rules:
       -
         request: "{name}"
-        storage: "wifi.{name}"
+        storage: "v1.wifi.{name}"
         access: read
         content:
           -
@@ -180,14 +186,18 @@ body: |-
         }
       },
       "schema": {
-        "wifi": {
-          "values": {
-            "schema": {
-              "psk": "${password}",
-              "ssid": "string",
-              "state": {
-                "choices": ["up", "down"],
-                "type":"string"
+        "v1": {
+          "schema": {
+            "wifi": {
+              "values": {
+                "schema": {
+                  "psk": "${password}",
+                  "ssid": "string",
+                  "state": {
+                    "choices": ["up", "down"],
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -219,10 +229,10 @@ The first snap will configure the Wi-Fi network to be used, so let’s configure
 
 ```yaml
 plugs:
-  configure-wifi:
+  network-wifi-admin:
     interface: confdb
     account: <account-id>
-    view: network/configure-wifi
+    view: network/wifi-admin
     role: custodian
 ```
 
@@ -234,15 +244,15 @@ In this case, the custodian snap will only define the `change-view-<plug>`, whic
 
 As an example, we’ll say that the SSID must be prefixed with our company’s name: “Acme”. The configuration can be set by the administrator using {ref}`snap set <how-to-guides-work-with-snaps-configure-snaps>` or by any other snap with access to that view, so it’s the custodian snap’s responsibility to enforce the prefix.
 
-Our `change-view-configure-wifi` hook looks like this:
+Our `change-view-network-wifi-admin` hook looks like this:
 
 ```shell
 #!/bin/bash -xe
 
 # prefix the SSID with "acme", if not already present
-value=$(snapctl get --view :configure-wifi acme.ssid)
+value=$(snapctl get --view :network-wifi-admin acme.ssid)
 if [[ "$?" -eq 0 && "$value" != acme-* ]]; then
-  snapctl set --view :configure-wifi acme.ssid="acme-$value"
+  snapctl set --view :network-wifi-admin acme.ssid="acme-$value"
 fi
 ```
 
@@ -254,10 +264,10 @@ Now we’ll create a snap that will read the configuration. Its plug will refere
 
 ```yaml
 plugs:
-  access-wifi:
+  network-wifi-state:
     interface: confdb
     account: <account-id>
-    view: network/access-wifi
+    view: network/wifi-state
 ```
 
 Non-custodian snaps can only define an `observe-view-<plug>` hook, which allows them to be notified when the confdb-schema referenced by that plug has been used to modify data.
@@ -266,7 +276,7 @@ Non-custodian snaps can only define an `observe-view-<plug>` hook, which allows 
 #!/bin/sh -xe
 
 # read the new SSID and store it somewhere
-new_ssid=$(snapctl get --view :access-wifi acme.ssid)
+new_ssid=$(snapctl get --view :network-wifi-state acme.ssid)
 echo "$new_ssid" >> "$SNAP_COMMON"/ssid
 ```
 
@@ -278,8 +288,8 @@ Note that when a snap is published by the same account ID as the assertion, the 
 
 ```shell
 snap install custodian-snap reader-snap
-snap connect custodian-snap:configure-wifi
-snap connect reader-snap:access-wifi
+snap connect custodian-snap:network-wifi-admin
+snap connect reader-snap:network-wifi-state
 ```
 
 ## Setting data
@@ -288,37 +298,37 @@ Now we’re ready to start setting data, we’ll use `snap run --shell` to mimic
 
 ```shell
 $ sudo snap run --shell custodian-snap.sh
-# snapctl set --view :configure-wifi acme.ssid=some-ssid acme.password=super-secret
+# snapctl set --view :network-wifi-admin acme.ssid=some-ssid acme.password=super-secret
 # exit
 
 $ sudo snap run --shell reader-snap.sh
-# snapctl get --view :access-wifi acme.ssid
+# snapctl get --view :network-wifi-state acme.ssid
 acme-some-ssid
 # exit
 
-$ snap get <account-id>/network/access-wifi acme.ssid
+$ snap get <account-id>/network/wifi-state acme.ssid
 acme-some-ssid
 ```
 
-As expected, the `change-view-configure-wifi` hook was invoked when `custodian-snap` modified the SSID and prefixed the value with “acme”.
+As expected, the `change-view-network-wifi-admin` hook was invoked when `custodian-snap` modified the SSID and prefixed the value with "acme".
 
 We were also able to read the same value from both another connected snap and through the snapd API using `snap get`.
 
-We can also check that the `reader-snap`’s `observe-view-access-wifi` hook was invoked when the SSID was changed and that it saved the new value in SNAP\_COMMON:
+We can also check that the `reader-snap`'s `observe-view-network-wifi-state` hook was invoked when the SSID was changed and that it saved the new value in SNAP\_COMMON:
 
 ```shell
 $ snap changes
 ID   Status  Spawn               Ready               Summary
-123  Done    today at ...        today at ...        Set confdb through "<account-id>/network/configure-wifi"
+123  Done    today at ...        today at ...        Set confdb through "<account-id>/network/wifi-admin"
 ...
 
 $ snap change 123
 Status  Spawn  Ready  Summary
 Done    ...    ...    Clears the ongoing confdb transaction from state (on error)
-Done    ...    ...    Run hook change-view-manage-wifi of snap "custodian-snap"
-Done    ...    ...    Run hook observe-view-manage-wifi of snap "test-snap"
-Done    ...    ...    Commit changes to confdb (NI7Jstuu8gffcoXr02i1kYt898p6Co0A/network/wifi-setup)
-Done   ...    ...   Clears the ongoing confdb transaction from state
+Done    ...    ...    Run hook change-view-network-wifi-admin of snap "custodian-snap"
+Done    ...    ...    Run hook observe-view-network-wifi-state of snap "reader-snap"
+Done    ...    ...    Commit changes to confdb (<account-id>/network/wifi-admin)
+Done    ...    ...    Clears the ongoing confdb transaction from state
 
 
 $ cat /snap/reader-snap/common/ssid
@@ -351,18 +361,18 @@ Assuming we have then recreated and signed the assertion, we can see that read a
 
 ```console
 $ sudo snap run --shell custodian-snap.sh
-# snapctl get --view :configure-wifi acme.password
+# snapctl get --view :network-wifi-admin acme.password
 super-secret
 # exit
 
 $ snap run --shell custodian-snap.sh
-# snapctl get --view :configure-wifi acme.password
-cannot get "acme.password" through <account-id>/network/configure-wifi: unauthorized access
+# snapctl get --view :network-wifi-admin acme.password
+cannot get "acme.password" through <account-id>/network/wifi-admin: unauthorized access
 # exit
 
-$ sudo snap get <account-id>/network/configure-wifi acme.password
+$ sudo snap get <account-id>/network/wifi-admin acme.password
 super-secret
 
-$ snap get <account-id>/network/configure-wifi acme.password
+$ snap get <account-id>/network/wifi-admin acme.password
 access denied (try with sudo)
 ```
