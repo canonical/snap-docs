@@ -204,7 +204,7 @@ If there is a change in the configuration data’s layout, only the assertion ne
       access: read
 ```
 
-```{note}
+```{warning}
 The configuration namespace should be considered carefully up front. While new confdb views can be added and existing ones can be extended, devices in the field may be running older snap versions that still depend on the existing namespace and views. Removing or renaming request paths, views, or schemas can therefore break those older snaps, making "outdated" namespaces difficult to retire safely.
 ```
 
