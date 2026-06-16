@@ -46,16 +46,16 @@ The following is almost the simplest confdb-schema assertion that could be defin
 ```yaml
 type: confdb-schema
 account-id: system
-name: snap-status
+name: snaps
 
 [...]
 
 views:
-  observe:
+  state:
     rules:
       -
       request: snaps.firefox.status
-      storage: snaps.firefox.status
+      storage: v1.snaps.firefox.status
       access: read
 
 [...]
@@ -64,7 +64,7 @@ views:
 This above configuration could be accessed as follows:
 
 ```
-$ snap get system/snap-status/observe snaps.firefox.status
+$ snap get system/snaps/state snaps.firefox.status
 enabled
 ```
 
@@ -79,7 +79,7 @@ Instead of enumerating every possible combination, we can use a placeholder to m
     rules:
       -
       request: snaps.{name}.status
-      storage: snaps.{name}.status
+      storage: v1.snaps.{name}.status
       access: read
 [...]
 ```
@@ -87,10 +87,10 @@ Instead of enumerating every possible combination, we can use a placeholder to m
 This enables the snap name to be dynamically mapped into the query:
 
 ```
-$ snap get system/snap-status/observe snaps.firefox.status
+$ snap get system/snaps/state snaps.firefox.status
 enabled
 
-$ snap get system/snap-status/observe snaps.spotify.status
+$ snap get system/snaps/state snaps.spotify.status
 disabled
 ```
 
@@ -101,10 +101,11 @@ To add more configuration paths for snaps, either add more rules or, if possible
 ```yaml
 [...]
 
+  state:
     rules:
       -
       request: snaps.{name}
-      storage: snaps.{name}
+      storage: v1.snaps.{name}
       access: read
       content:
         - storage: status
@@ -120,13 +121,13 @@ This example only provides a storage path. When omitted, the request path is ass
 As requests are matched on *prefixes* of the request paths in view rules, it’s possible to provide a prefix path to \`snap get\` and to obtain an aggregate result:
 
 ```
-$ snap get system/snap-status/observe snaps.firefox.status
+$ snap get system/snaps/state snaps.firefox.status
 enabled
 
-$ snap get system/snap-status/observe snaps.spotify.revision
+$ snap get system/snaps/state snaps.spotify.revision
 7
 
-$ snap get system/snap-status/observe snaps
+$ snap get system/snaps/state snaps
 {
   "firefox": {
     "status": "enabled"
@@ -146,16 +147,16 @@ All the rule mappings defined above have the same “request” and “storage�
 ...
     rules:
       -
-      request: snaps.{name}
-      storage: snaps.{name}
-      access: read
-      content:
-        - storage: status
-        - storage: revision
+        request: snaps.{name}
+        storage: v1.snaps.{name}
+        access: read
+        content:
+          - storage: status
+          - storage: revision
       -
-      request: system-status
-      storage: snaps.snapd.status
-      access: read
+        request: system-status
+        storage: v1.snaps.snapd.status
+        access: read
 ```
 
 This maps an already exposed path (snaps.snapd.status) under a new request path, allowing us to query `system-status` directly.
@@ -163,7 +164,7 @@ This maps an already exposed path (snaps.snapd.status) under a new request path,
 In the future, if a new path was intended to provide the value for `system-status`, we would only need to modify the mapping.
 
 ```
-$ snap get system/snap-status/observe
+$ snap get system/snaps/state
 {
   "snaps": {
     "firefox": {
@@ -191,17 +192,17 @@ If there is a change in the configuration data’s layout, only the assertion ne
 ...
     rules:
       -
-      request: snaps.{name}.status
-      storage: statuses.{name}
-      access: read
+        request: snaps.{name}.status
+        storage: v1.statuses.{name}
+        access: read
       -
-      request: snaps.{name}.revision
-      storage: revision.{name}
-      access: read
+        request: snaps.{name}.revision
+        storage: v1.revisions.{name}
+        access: read
       -
-      request: system-status
-      storage: status.snapd
-      access: read
+        request: system-status
+        storage: v1.statuses.snapd
+        access: read
 ```
 
 ```{warning}
@@ -211,14 +212,14 @@ The configuration namespace should be considered carefully up front. While new c
 (ref-confdb-configuration-mechanism_interface-plugs)=
 ## Interface Plugs
 
-Snaps can use the {ref}`confdb interface <interfaces-confdb>` to express their interest in accessing a view through the plug stanza in their snapcraft.yaml (then snap.yaml). For example, a snap wishing to access the same `observe` view would declare it as:
+Snaps can use the {ref}`confdb interface <interfaces-confdb>` to express their interest in accessing a view through the plug stanza in their snapcraft.yaml (then snap.yaml). For example, a snap wishing to access the same `state` view would declare it as:
 
 ```yaml
 plugs:
-  observe-status:
+  snaps-state:
     interface: confdb
     account: system
-    view: snap-status/observe
+    view: snaps/state
 ```
 
 If the snap publisher signed the confdb assertion, the confdb interface will be auto-connected. Otherwise, the plug must be connected to the `:confdb` slot manually.
@@ -226,12 +227,11 @@ If the snap publisher signed the confdb assertion, the confdb interface will be 
 The snap can then refer to this interface plug when accessing confdb with the `snapctl` commands. It must also use the `--view` flag to signal this as a confdb request:
 
 ```
-$ snapctl set --view :observe-status snaps.firefox.status=enabled
-$ snapctl get --view :observe-status snaps.firefox.status
+$ snapctl get --view :snaps-state snaps.firefox.status
 enabled
 ```
 
-Confdb supports the same commands and options as the {ref}`original configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. This includes unsetting data using `snapctl --view unset ...` or by using `snapctl --view set` with a `\!` prefixed to the request path.
+Confdb supports the same commands and options as the {ref}`original configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. This includes unsetting data using `snapctl unset --view ...` or by using `snapctl set --view` with a `\!` prefixed to the request path.
 
 ### Custodians
 

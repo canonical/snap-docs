@@ -9,10 +9,10 @@ See the {ref}`Confdb configuration mechanism <explanation-how-snaps-work-confdb-
 
 ```
 [...]
- read-sensor-params:
+ sensors-sensor1-state:
   interface: confdb
   account: acme
-  view: sensors/read-sensor1-parameters
+  view: sensors/sensor1-state
 ```
 
 ```{warning}
