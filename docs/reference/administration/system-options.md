@@ -269,6 +269,16 @@ defaults:
 
 > ⓘ Available only on Ubuntu Core.
 
+## system system.hostname
+
+May be used to set the static hostname of the host:
+
+```
+snap set system system.hostname="new_name"
+```
+
+> ⓘ Available only on Ubuntu Core.
+
 ## system system.disable-backlight-service
 
 May be set to _true_ to disable the backlight service:

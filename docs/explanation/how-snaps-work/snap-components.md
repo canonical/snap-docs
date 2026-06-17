@@ -45,7 +45,7 @@ It is possible to create a component by running `snap pack <dir>`, however, `<di
 
 All files inside this directory will be included within the created squashfs file, which will be named by default `<snap_name>+<component_name>_<comp_version>.comp.`
 
-For further details on packaging, see [How to package and upload a snap with components](https://canonical-snapcraft.readthedocs-hosted.com/en/latest/howto/components.html). 
+For further details on packaging, see [Create a component](https://documentation.ubuntu.com/snapcraft/9.0/how-to/crafting/create-a-component/). 
 
 ## Revisions
 
