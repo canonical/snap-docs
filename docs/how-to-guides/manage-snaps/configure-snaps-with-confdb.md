@@ -89,7 +89,7 @@ See [confdb-schema types](https://documentation.ubuntu.com/core/reference/assert
 
 Now let’s create some view rules to access confdb.
 
-In our example, we'll use one snap to host the views and allow configuration of the network, and another snap to access the configuration. This means we will need two views: `configure-wifi` and `access-wifi`.
+In our example, we'll use one snap as custodian of the two views and allowing changes to the configuration of the network, and another snap to access it. This means we will need two views: `configure-wifi` and `access-wifi`.
 
 * `wifi-admin` exposes parameters and allows them to be set.
 * `wifi-state` allows the snap to list Wi-Fi connections and read SSID and state information (e.g., up, down).
