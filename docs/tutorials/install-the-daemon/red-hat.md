@@ -27,21 +27,6 @@ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noa
 sudo dnf upgrade
 ```
 
-## Add EPEL to RHEL 7
-
-The EPEL repository can be added to a  RHEL 7 system with the following command:
-
-```
-sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-```
-Adding the *optional* and *extras* repositories is also recommended:
-
-```
-sudo subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
-sudo yum update
-```
-If you're interested in understanding how these packages are built, see  {ref}`Building a snap RPM for Red Hat Enterprise Linux (RHEL) <interfaces-building-snap-rpms-on-rhel>`.
-
 ## Installing snapd
 
 With the EPEL repository added to your RHEL installation, the next step is to install the *snapd* package:

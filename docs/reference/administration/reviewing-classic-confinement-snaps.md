@@ -25,6 +25,8 @@ Because classic confinement snaps run without restrictions, use of classic confi
  3. the advocacy team, reviewers team and/or architects participate in vetting the snap/publisher
  4. once the publisher has been vetted, the technical reasons are captured and the request is approved, a store reviewer will issue a snap declaration for the snap and add a comment to the store, giving the URL to the forum post
 
+ A template for applying for classic confinement exists [here](https://forum.snapcraft.io/t/about-the-classic-confinement-category/43830)
+
 ### Known categories
 
 Classic requests generally fall under a number of categories. Below lists categories that developers may consult for things that are known to be allowed/disallowed use of classic confinement. @reviewers may consult these lists when processing classic requests. If something falls outside of these lists, then the requirements must be gathered by a senior reviewer and discussed with an architect (after which, it can be added to the lists).

@@ -19,7 +19,7 @@ sudo systemctl enable --now snapd.socket
 
 ## Confinement
 
-To take advantage of {ref}`Snap confinement <explanation-security-snap-confinement>` and application sandboxing, ensure [AppArmor](https://wiki.archlinux.org/title/AppArmor#Installation) is install and enabled on your system, then run the following:
+To take advantage of {ref}`Snap confinement <explanation-security-snap-confinement>` and application sandboxing, ensure AppArmor is installed and enabled by [following this guide](https://wiki.archlinux.org/title/AppArmor#Installation), then run the following:
 
 ```
 sudo systemctl enable --now snapd.apparmor.service
