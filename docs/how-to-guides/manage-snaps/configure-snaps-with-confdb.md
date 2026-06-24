@@ -341,11 +341,7 @@ For example, if there is a read ongoing and a write is requested, the write will
 
 ## Default values
 
-Confdb has no schema-level mechanism for declaring default values. There are two ways to provide them.
-
-### Supplying a default per request
-
-If no value has been set for a requested path, `snap get` returns an error. You can supply a fallback with `--default`:
+Confdb has no schema-level mechanism for declaring default values. If no value has been set for a requested path, `snap get` returns an error. You can supply a fallback with `--default`:
 
 ```shell
 $ snap get --default=acme-default <account-id>/network/wifi-state acme.ssid
@@ -353,19 +349,6 @@ acme-default
 ```
 
 Snaps can use the same `--default` flag through `snapctl get --view`. In both cases, `--default` can only be used when requesting a single path. The value is returned to the caller only and isn't stored, so every reader must supply its own `--default`.
-
-### Populating defaults with a load-view hook
-
-To avoid each caller passing a flag, a custodian snap can populate a default with a `load-view-<plug>` hook. snapd runs this hook on every read through the custodian's view, so it can set any path that has no value before the read is served:
-
-```shell
-#!/bin/bash -xe
-
-# set a default ssid if one hasn't been configured
-if ! snapctl get --view :network-wifi-admin acme.ssid >/dev/null 2>&1; then
-  snapctl set --view :network-wifi-admin acme.ssid=acme-default
-fi
-```
 
 ## Getting secret data
 *From snapd version 2.76+*
