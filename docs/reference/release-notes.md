@@ -51,7 +51,8 @@ We greatly appreciate your contributions and support!
 
 We’re pleased to share that Snapd 2.74 snap is available for testing in the beta channel.
 
-### New in snapd 2.74
+### **Highlights**
+
 * FDE: use new activation API from secboot
 * FDE: use activation API also with non keydata keys
 * FDE: ignore internal recovery key expiration during install
