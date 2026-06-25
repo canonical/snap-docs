@@ -10,7 +10,10 @@ The `system-packages-doc` interface permits access file system locations used to
 * `/usr/share/javascript/`
 * `/usr/share/libreoffice/help/`
 * `/usr/share/sphinx_rtd_theme/`
-* `/usr/share/xubuntu-docs/	`
+* `/usr/share/xubuntu-docs/`
+* `/usr/share/help/`
+* `/usr/share/info/`
+* `/usr/share/man/`
 
 After the interface has been connected, the host’s `/usr/share/doc` directory replaces the `/usr/share/doc` for the context of the snap.
 
