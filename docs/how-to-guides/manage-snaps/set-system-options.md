@@ -1,7 +1,7 @@
 (how-to-guides-manage-snaps-set-system-options)=
 # Set system options
 
-Snap supports a set of system-wide options that allow you to customise your snap environment. See {ref}`System options <how-to-guides-manage-snaps-set-system-options>` for which options are supported.
+Snap supports a set of system-wide options that allow you to customise your snap environment. See {ref}`System options <reference-operations-system-options>` for which options are supported.
 
 As with {ref}`Configuration in snaps <how-to-guides-work-with-snaps-configure-snaps>`, these options are changed with the `set` and `get` commands, but with a target of  *system* instead of a specific snap:
 
