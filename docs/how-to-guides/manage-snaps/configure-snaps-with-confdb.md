@@ -339,6 +339,17 @@ Note that concurrent accesses may block if they would result in writes running c
 
 For example, if there is a read ongoing and a write is requested, the write will be blocked. A new read would then also be queued and only run after the write, even though reads are normally run concurrently. This ensures that a stream of reads cannot starve a write access.
 
+## Default values
+
+Confdb has no schema-level mechanism for declaring default values, but both `snap` and `snapctl` allow supplying a fallback with `--default`:
+
+```shell
+$ snap get --default=acme-default <account-id>/network/wifi-state acme.ssid
+acme-default
+```
+
+In both cases, `--default` can only be used when requesting a single path.
+
 ## Getting secret data
 *From snapd version 2.76+*
 
