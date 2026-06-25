@@ -18,6 +18,8 @@ Set  Snap         Age    Version               Rev   Size   Notes
 30   vlc          529ms  3.0.6                 770   882kB  -
 ```
 
+> Before using this command, in order to ensure consistency of saved data, it is recommended to stop all applications and services of the snap (`snap stop <snap-name>`). Start them again once the snapshot has been saved.
+
 Each snapshot has a unique ID, or revision, shown in the *Set* column above. This value is unique to each *save* operation, regardless of the number of snaps it includes. *Age* is the period of time since the snapshot was created, while *Version* and *Rev* refer to the specific snap at the time of the snapshot. *Size* is the amount of storage used by a snapshot. 
 
 If you'd rather not wait for the *save* operation to complete before regaining access to your terminal, add the `--no-wait` argument.
@@ -102,8 +104,7 @@ $ sudo snap restore 30
 Restored snapshot #30.
 ```
 
-Before using this command, make sure you have the snap application installed, and that its services, if any, are stopped (`snap stop <snap-name>`). 
-Start them again once the snapshot has been successfully restored.
+> Before using this command, make sure you have the snap installed, and that its applications and services, if any, are stopped (`snap stop <snap-name>`). Start them again once the snapshot has been successfully restored.
 
 By default, this command restores all the data for all the snaps in a snapshot. You can restore data for specific snaps by simply listing them after the command and for specific users with the `--users=<usernames>` argument.
 
