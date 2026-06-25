@@ -341,14 +341,14 @@ For example, if there is a read ongoing and a write is requested, the write will
 
 ## Default values
 
-Confdb has no schema-level mechanism for declaring default values. If no value has been set for a requested path, `snap get` returns an error. You can supply a fallback with `--default`:
+Confdb has no schema-level mechanism for declaring default values, but both `snap` and `snapctl` allow supplying a fallback with `--default`:
 
 ```shell
 $ snap get --default=acme-default <account-id>/network/wifi-state acme.ssid
 acme-default
 ```
 
-Snaps can use the same `--default` flag through `snapctl get --view`. In both cases, `--default` can only be used when requesting a single path. The value is returned to the caller only and isn't stored, so every reader must supply its own `--default`.
+In both cases, `--default` can only be used when requesting a single path.
 
 ## Getting secret data
 *From snapd version 2.76+*
