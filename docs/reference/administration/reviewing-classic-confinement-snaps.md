@@ -44,6 +44,7 @@ Classic requests generally fall under a number of categories. Below lists catego
 * terminal emulators, multiplexers and shells
 * HPC or orchestration agents/software for running workloads on systems without traditional users where the systems are otherwise managed outside of the agent (ie, the software simply orchestrates running workloads on systems and doesn't manage the systems themselves). Note: many HPC/orchestration applications can run with strict confinement and classic should only be granted if snapd does not support the specific use case (eg, the [need for user accounting](https://forum.snapcraft.io/t/request-for-classic-confinement-slurm/18309/11)).
 * Installer snaps for Ubuntu Flavors based on the official [ubuntu-flavor-installer](https://github.com/canonical/ubuntu-flavor-installer) 
+* agent/assistant that runs arbitrary user-directed code and needs to reach files and programs that aren’t known at build time
 
 #### Unsupported  
 * management snaps
