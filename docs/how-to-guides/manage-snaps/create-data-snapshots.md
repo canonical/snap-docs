@@ -51,6 +51,8 @@ User-specific locations:
 - **SNAP_USER_COMMON** (`/home/<username>/snap/<snap-name>/common`)
 - **SNAP_USER_DATA** (`/home/<username>/snap/<snap-name>/<revision>`)
 
+[snapd _2.77_+] Data residing in mount points under the snap data directories listed above is excluded from all snapshots, whether created manually with `snap save` or automatically when a snap is removed.
+
 It's important to note that **SNAP_DATA** and **SNAP_USER_DATA** place their data within a directory specific to each snap {ref}`revision <explanation-how-snaps-work-revisions>`, whereas  **SNAP_COMMON** and  **SNAP_USER_COMMON** do not.
 
 You need to be aware of what data is copied forward when you move from one revision to the next and which data will be restored if you switch to a previous snapshot.
@@ -112,7 +114,9 @@ Before using this command, make sure the snap is installed, then stop its servic
 
 By default, this command restores all the data for all the snaps in a snapshot. You can restore data for specific snaps by simply listing them after the command and for specific users with the `--users=<usernames>` argument.
 
-Excluding a snap's system and configuration data from *snap restore* is not currently possible. 
+[snapd _2.77_+] Existing {ref}`mount-control <interfaces-mount-control-interface>` mount points under snap data directories are preserved when a snapshot is restored and are not overwritten.
+
+Excluding a snap's system and configuration data from *snap restore* is not currently possible.
 
 ## Deleting a snapshot
 
@@ -170,7 +174,7 @@ On Ubuntu-based systems, snapshots are stored in the `/var/lib/snapd/snapshots` 
 ├── <snapshot-number>_<snap-name>_<revision>.zip
 └────── archive.tgz
     │   ├── <revision-number>
-    │   └── $SNAP_DATA (/var/snap/<snap-name>-<revision>)
+    │       └── $SNAP_DATA (/var/snap/<snap-name>-<revision>)
     │   └── common
     │       └── $SNAP_COMMON (/var/snap/<snap-name>/common)
     ├── meta.json
