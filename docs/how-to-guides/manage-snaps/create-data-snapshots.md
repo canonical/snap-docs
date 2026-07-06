@@ -66,6 +66,32 @@ When a snapshot is restored:
 
 See {ref}`Data locations <interfaces-data-locations>` for more details on how these locations are intended to be used by a snap, and see {ref}`Inside a snapshot <ref-create-data-snapshots_inside-a-snapshot>` to see how they're stored within a snapshot.
 
+### Excluding data
+
+The author of a snap can use the `meta/snapshots.yaml` file to declare which files and directories to exclude when creating snapshots. The path patterns must start with **SNAP_DATA**, **SNAP_COMMON**, **SNAP_USER_DATA**, or **SNAP_USER_COMMON** and cannot include "[]", "{}", "?", or "**".
+
+```yaml
+# meta/snapshots.yaml
+exclude:
+  - $SNAP_DATA/*.png
+  - $SNAP_COMMON/*/*
+```
+
+The static exclusion from `meta/snapshots.yaml` can be extended with dynamic requests to the [`/v2/snaps`](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps) REST API endpoint.
+
+```bash
+$ echo '{
+    "action": "snapshot",
+    "snaps": ["<snap1>", "<snap2>"],
+    "snapshot-options": {
+        "<snap1>": {"exclude":["<pattern1>"]},
+        "<snap2>": {"exclude":["<pattern2>"]}
+    }
+}' | snap debug api -X POST -H 'Content-Type: application/json' /v2/snaps
+```
+
+Static exclusion from `meta/snapshots.yaml` applies to both manual (`snap save`) and automatic snapshots. However, dynamic exclusion via the REST API is only available for manual snapshots.
+
 ## Verifying a snapshot
 
 To verify the integrity of a snapshot, use the `check-snapshot` command:
