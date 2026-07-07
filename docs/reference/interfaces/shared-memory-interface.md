@@ -69,3 +69,31 @@ The test code can be found in the snapd repository:
 The source code for the interface is in the snapd repository:
 [shared_memory.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/shared_memory.go)</br>
 
+### Common issues
+
+#### Semaphore errors in Python
+
+When using the interface in non-private mode with multi-processing Python, one might encounter something like this:
+```
+ProcessPoolExecutor(max_workers=max_workers) as executor:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/opt/python/lib/python3.11/concurrent/futures/process.py", line 732, in __init__
+self._call_queue = _SafeQueue(
+^^^^^^^^^^^
+File "/opt/python/lib/python3.11/concurrent/futures/process.py", line 173, in __init__
+super().__init__(max_size, ctx=ctx)
+File "/opt/python/lib/python3.11/multiprocessing/queues.py", line 43, in __init__
+self._rlock = ctx.Lock()
+^^^^^^^^^^
+File "/opt/python/lib/python3.11/multiprocessing/context.py", line 68, in Lock
+return Lock(ctx=self.get_context())
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/opt/python/lib/python3.11/multiprocessing/synchronize.py", line 169, in __init__
+SemLock.__init__(self, SEMAPHORE, 1, 1, ctx=ctx)
+File "/opt/python/lib/python3.11/multiprocessing/synchronize.py", line 57, in __init__
+sl = self._semlock = _multiprocessing.SemLock(
+^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied`
+```
+
+The error comes from Python semaphores attempting to access /dev/shm. To remedy, use private mode instead that bind-mounts a snap-private /dev/shm and then grants access to all of it.
