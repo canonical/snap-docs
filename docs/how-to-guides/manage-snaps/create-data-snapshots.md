@@ -68,29 +68,33 @@ See {ref}`Data locations <interfaces-data-locations>` for more details on how th
 
 ### Excluding data
 
-The author of a snap can use the `meta/snapshots.yaml` file to declare which files and directories to exclude when creating snapshots. The path patterns must start with **SNAP_DATA**, **SNAP_COMMON**, **SNAP_USER_DATA**, or **SNAP_USER_COMMON** and cannot include "[]", "{}", "?", or "**".
+#### Static exclusion via meta/snapshots.yaml
+A snap can use the [`meta/snapshots.yaml`](https://documentation.ubuntu.com/snapcraft/latest/reference/snapshots/) file to exclude data from snapshots. This config file contains a single `exclude` keyword which lists one or more wildcard patterns of files or directories to exclude from snapshots. The wildcard patterns must start with the **SNAP_DATA**, **SNAP_COMMON**, **SNAP_USER_DATA**, or **SNAP_USER_COMMON** variable and cannot include `[`, `]`, `{`, `}`, `?`, or `**`.
+
+Since the exclusions are defined in the snap package, they do not change between snapshots and are fixed for a given revision. These static exclusions apply to both manual and automatic snapshots.
 
 ```yaml
 # meta/snapshots.yaml
 exclude:
   - $SNAP_DATA/*.png
-  - $SNAP_COMMON/*/*
+  - $SNAP_COMMON/stories
+  - $SNAP_USER_DATA/data/transactions.db
+  - $SNAP_USER_COMMON/*/*
 ```
 
-The static exclusion from `meta/snapshots.yaml` can be extended with dynamic requests to the [`/v2/snaps`](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps) REST API endpoint.
+#### Dynamic exclusion via snapd REST API
+The static exclusion from `meta/snapshots.yaml` can be extended via dynamic requests to the [`/v2/snaps`](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps) REST API endpoint. The POST request body includes a `snapshot-options` field that lists wildcard patterns of files or directories to exclude from snapshots for individual snaps. Because the patterns are specified per request, they can vary between snapshot operations. As a result, dynamic exclusion is only available for manual snapshots.
 
-```bash
-$ echo '{
+```json
+{
     "action": "snapshot",
     "snaps": ["<snap1>", "<snap2>"],
     "snapshot-options": {
-        "<snap1>": {"exclude":["<pattern1>"]},
-        "<snap2>": {"exclude":["<pattern2>"]}
+        "<snap1>": {"exclude": ["<pattern1>", "<pattern2>"]},
+        "<snap2>": {"exclude": ["<pattern3>"]}
     }
-}' | snap debug api -X POST -H 'Content-Type: application/json' /v2/snaps
+}
 ```
-
-Static exclusion from `meta/snapshots.yaml` applies to both manual (`snap save`) and automatic snapshots. However, dynamic exclusion via the REST API is only available for manual snapshots.
 
 ## Verifying a snapshot
 
