@@ -189,7 +189,7 @@ sitemap_show_lastmod = True
 
 
 # Default name conflicts with RTD's sitemap generation
-# sitemap_filename = "sitemap.xml"
+sitemap_filename = "doc-sitemap.xml"
 
 # Exclude generated pages from the sitemap:
 
