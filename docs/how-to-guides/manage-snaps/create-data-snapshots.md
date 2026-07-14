@@ -66,6 +66,36 @@ When a snapshot is restored:
 
 See {ref}`Data locations <interfaces-data-locations>` for more details on how these locations are intended to be used by a snap, and see {ref}`Inside a snapshot <ref-create-data-snapshots_inside-a-snapshot>` to see how they're stored within a snapshot.
 
+### Excluding data
+
+#### Static exclusion via meta/snapshots.yaml
+A snap can use the [`meta/snapshots.yaml`](https://documentation.ubuntu.com/snapcraft/latest/reference/snapshots/) file to exclude data from snapshots. This config file contains a single `exclude` keyword which lists one or more wildcard patterns of files or directories to exclude from snapshots. The wildcard patterns must start with the **SNAP_DATA**, **SNAP_COMMON**, **SNAP_USER_DATA**, or **SNAP_USER_COMMON** variable and cannot include `[`, `]`, `{`, `}`, `?`, or `**`.
+
+Since the exclusions are defined in the snap package, they do not change between snapshots and are fixed for a given revision. These static exclusions apply to both manual and automatic snapshots.
+
+```yaml
+# meta/snapshots.yaml
+exclude:
+  - $SNAP_DATA/*.png
+  - $SNAP_COMMON/stories
+  - $SNAP_USER_DATA/data/transactions.db
+  - $SNAP_USER_COMMON/*/*
+```
+
+#### Dynamic exclusion via snapd REST API
+A snapshot can also be created using a POST request to the [`/v2/snaps`](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps) REST API endpoint. The request body includes a `snapshot-options` field that can be used to list snap-specific paths of files or directories to exclude from the snapshot. These paths follow the same patterns as mentioned above for the `meta/snapshots.yaml` file. The exclusion path patterns are specified per request and can vary across snapshots. This dynamic path exclusion is only available for manual snapshots.
+
+```json
+{
+    "action": "snapshot",
+    "snaps": ["<snap1>", "<snap2>"],
+    "snapshot-options": {
+        "<snap1>": {"exclude": ["<pattern1>", "<pattern2>"]},
+        "<snap2>": {"exclude": ["<pattern3>"]}
+    }
+}
+```
+
 ## Verifying a snapshot
 
 To verify the integrity of a snapshot, use the `check-snapshot` command:
