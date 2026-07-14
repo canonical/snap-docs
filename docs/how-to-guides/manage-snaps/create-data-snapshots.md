@@ -83,7 +83,7 @@ exclude:
 ```
 
 #### Dynamic exclusion via snapd REST API
-The static exclusion from `meta/snapshots.yaml` can be extended via dynamic requests to the [`/v2/snaps`](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps) REST API endpoint. The POST request body includes a `snapshot-options` field that lists wildcard patterns of files or directories to exclude from snapshots for individual snaps. Because the patterns are specified per request, they can vary between snapshot operations. As a result, dynamic exclusion is only available for manual snapshots.
+A snapshot can also be created using a POST request to the [`/v2/snaps`](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps) REST API endpoint. The request body includes a `snapshot-options` field that can be used to list snap-specific paths of files or directories to exclude from the snapshot. These paths follow the same patterns as mentioned above for the `meta/snapshots.yaml` file. The exclusion path patterns are specified per request and can vary across snapshots. This dynamic path exclusion is only available for manual snapshots.
 
 ```json
 {
