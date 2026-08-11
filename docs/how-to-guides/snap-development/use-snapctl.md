@@ -91,6 +91,7 @@ The `--wait-for` flag can be used to specify a timeout after which the command w
 
 For further information on confdb, see {ref}`Configure snaps with confdb <how-to-guides-manage-snaps-configure-snaps-with-confdb>` and {ref}`Confdb configuration mechanism <explanation-how-snaps-work-confdb-configuration-mechanism>`.
 
+(how-to-guides-manage-snaps-use-snapctl-components)=
 ## Components
 
 Component support requires *snapd 2.67+* .
