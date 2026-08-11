@@ -9,7 +9,7 @@ Just like a snap, a component is implemented as a squashfs file. If installed, t
 
 Components can be thought of as either an internal implementation detail of the host snap that remains transparent to the user, or as a visible snap component that can be installed, refreshed and removed similarly to snaps.
 
-See {ref}`Using components <how-to-guides-manage-snaps-using-components>` for installation, removal and listing options. To control components from within a snap, see {ref}`snapctl components <how-to-guides-manage-snaps-use-snapctl>`. Components can also be managed through the <a href="../api/redoc-static.html">Snapd REST API</a>.
+See {ref}`Using components <how-to-guides-manage-snaps-using-components>` for installation, removal and listing options. To manage components from within a snap, see {ref}`snapctl <how-to-guides-manage-snaps-use-snapctl-components>` components commands. Components can also be managed through the <a href="../api/redoc-static.html">Snapd REST API</a>.
 
 Component requires *snapd 2.67+* .
 
@@ -99,3 +99,7 @@ The execution environment for component hooks will be similar to the one defined
 
 Component hooks run as confined snap applications, which is also the case for all snap hooks.
 
+## Accessing components from within a snap environment
+
+Within the snap environment, all available components of the snap are declared in `$SNAP/meta/snap.yaml`.
+All installed components are exposed under `$SNAP/../components/$SNAP_REVISION/`. The content of each component is available under `$SNAP/../components/$SNAP_REVISION/<comp-name>/` and the presence of this non-empty directory indicates that a given component is installed.
