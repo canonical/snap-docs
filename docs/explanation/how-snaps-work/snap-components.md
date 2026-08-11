@@ -99,3 +99,7 @@ The execution environment for component hooks will be similar to the one defined
 
 Component hooks run as confined snap applications, which is also the case for all snap hooks.
 
+## Detecting components from within a snap
+
+To check whether a specific component is installed, verify the presence of its non-empty content directory at `$SNAP/../components/$SNAP_REVISION/<comp-name>/`. To enumerate all components declared by the snap (installed or not), inspect the `components` section of `$SNAP/meta/snap.yaml`.
+
