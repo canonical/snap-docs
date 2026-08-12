@@ -225,6 +225,15 @@ Typical value: `org.example.Foo`
 
 Requires _snapd_ 2.77+.
 
+### <pre>SNAP_COMPONENTS</pre>
+
+Path to components directory. Installed components are available under
+`$SNAP_COMPONENTS/<comp-name>/`.
+
+Typical value: /snap/hello-world/components/27
+
+Requires _snapd_ 2.78+
+
 ## Generic variables
 
 ### <pre>HOME</pre>
