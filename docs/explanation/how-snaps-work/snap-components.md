@@ -102,4 +102,4 @@ Component hooks run as confined snap applications, which is also the case for al
 ## Accessing components from within a snap environment
 
 Within the snap environment, all available components of the snap are declared in `$SNAP/meta/snap.yaml`.
-All installed components are exposed under `$SNAP/../components/$SNAP_REVISION/`. The content of each component is available under `$SNAP/../components/$SNAP_REVISION/<comp-name>/` and the presence of this non-empty directory indicates that a given component is installed.
+All installed components are exposed under `$SNAP_COMPONENTS/`, which is the same path as `$SNAP/../components/$SNAP_REVISION/` used with _snapd_ older than 2.78. The content of each component is available under `$SNAP_COMPONENTS/<comp-name>/` and the presence of this non-empty directory indicates that a given component is installed.
