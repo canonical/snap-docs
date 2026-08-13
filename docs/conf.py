@@ -149,7 +149,7 @@ html_context = {
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
 
-    # Required for feedback button    
+    # Required for feedback button
     'github_issues': 'enabled',
 }
 
@@ -241,9 +241,7 @@ redirects = {
    "release-management": "https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/manage-revisions-and-releases/",
    "releasing-your-app": "https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/publish-a-snap/",
    "robotics": "https://canonical-robotics.readthedocs-hosted.com/en/latest/",
-   "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/",
    "ros-noetic": "https://snapcraft.io/ros-noetic-desktop/",
-   "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/",
    "ros2-foxy-extension": "https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/",
    "ros2-humble-extension": "https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/",
    "ros2-jazzy-extension": "https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/",
@@ -263,7 +261,7 @@ redirects = {
    "node-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-node-app/",
    "electron-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-electron-app/",
    "flutter-applications":  "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-flutter-app/",
-   "ruby-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/index.html",
+   "ruby-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/", # ruby page was removed, but redirect to integrations page
    "rust-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-rust-app/",
    "moos-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-moos-app/",
    "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/",
@@ -335,17 +333,7 @@ redirects = {
    "gtk3-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk3-app/",
    "gtk2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk2-app/",
    "desktop-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-pre-built-app/",
-   "go-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-go-app/#how-to-craft-a-go-app",
-   "java-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-java-app/#how-to-craft-a-java-app",
-   "moos-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-moos-app/#how-to-craft-a-moos-app",
-   "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/#how-to-craft-an-ros-1-app",
-   "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/#how-to-craft-an-ros-2-app",
-   "ruby-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/",
-   "rust-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-rust-app/#how-to-craft-a-rust-app",
    "dotnet-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-dotnet-app/#how-to-craft-a-dotnet-app",
-   "pre-built-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-pre-built-app/#how-to-craft-a-pre-built-app",
-   "electron-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-electron-app/#how-to-craft-an-electron-app",
-   "node-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-node-app/#how-to-craft-a-node-app"
 }
 
 ###########################
@@ -491,5 +479,5 @@ if os.path.exists('./reuse/substitutions.yaml'):
         myst_substitutions = yaml.safe_load(fd.read())
 
 # Suppress missing xref warnings, as these are generated for targets automatically
-suppress_warnings = ['myst.xref_missing'] 
+suppress_warnings = ['myst.xref_missing']
 
