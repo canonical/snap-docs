@@ -259,6 +259,26 @@ snapctl umount </path/to/mount/point>
 
 See {ref}`mount-control interface <interfaces-mount-control-interface>` for further details on permitted filesystems and mount options.
 
+### Mounts in SNAP_DATA and snap refreshes
+
+`SNAP_DATA` is revision-specific (see {ref}`Environment variables <reference-development-environment-variables>`): its path changes when a snap refreshes to a new revision. Any mounts under `SNAP_DATA` are therefore not automatically carried over to the new revision's data directory.
+
+If a mount inside `SNAP_DATA` must be preserved across a refresh, the snap developer must manage it explicitly in the snap's refresh hooks:
+
+- The `pre-refresh` hook should unmount it:
+
+  ```sh
+  snapctl umount "$SNAP_DATA/my/mount/point"
+  ```
+
+- The `post-refresh` hook should re-establish it under the new revision's path:
+
+  ```sh
+  snapctl mount -o <options> -t <fstype> </path/to/device> "$SNAP_DATA/my/mount/point"
+  ```
+
+Mounts under `SNAP_COMMON` (`/var/snap/<snap-name>/common`) are not affected by revision changes and do not require this handling.
+
 
 ##  Reboot control (from the UC20+ install-device hook)
 
