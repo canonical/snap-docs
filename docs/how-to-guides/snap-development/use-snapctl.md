@@ -271,7 +271,7 @@ If a mount inside `SNAP_DATA` must be preserved across a refresh, the snap devel
   snapctl umount "$SNAP_DATA/my/mount/point"
   ```
 
-- The `post-refresh` hook should re-establish it under the new revision's path:
+- The `post-refresh` hook, or an application or service whenever it's run for the first time, can re-establish it under the new revision's path:
 
   ```sh
   snapctl mount -o <options> -t <fstype> </path/to/device> "$SNAP_DATA/my/mount/point"
