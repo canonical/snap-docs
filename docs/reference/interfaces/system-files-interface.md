@@ -23,7 +23,7 @@ The [Firefox](https://snapcraft.io/firefox), [Chromium](https://snapcraft.io/chr
 
 Requires snapd version _2.37+_.
 
-Consumers of this interface require a [snap declaration](https://forum.snapcraft.io/t/process-for-aliases-auto-connections-and-tracks/455/) for distribution via the [Snap Store](https://snapcraft.io/store) and acceptance in the store requires that the interface is not be used to access:
+Consumers of this interface require a {ref}`snap declaration <interfaces-process-for-aliases-auto-connections-and-tracks>` for distribution via the [Snap Store](https://snapcraft.io/store) and acceptance in the store requires that the interface is not be used to access:
 - system files where the snap is not the clear owner (eg, /dev, /proc, /sys, /usr, etc).
 - paths in `/dev`, such as `/dev/sda1`
   Access to `/dev` device nodes requires both AppArmor policy and device control group inclusion, but the _system-files_ interface does not have enough information to generate the necessary policy to enable these use cases. As such, purpose-specific interfaces should be used instead, such as  {ref}`block-devices <interfaces-block-devices-interface>` or {ref}`raw-volume <interfaces-raw-volume-interface>`.
