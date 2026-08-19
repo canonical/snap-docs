@@ -97,7 +97,7 @@ assumes:
     - <feature>
 
 # The epoch this release is intended for. For further details, see:
-# https://forum.snapcraft.io/t/snap-epochs/10316
+# https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-data-compatibility/
 # (snapd 2.38+)
 epoch: <value>
 
@@ -134,7 +134,7 @@ apps:
 
       # Path to a bash snippet to use for tab completion.
       # (snapcraft 2.33+, snapd 2.30+)
-      # See https://forum.snapcraft.io/t/2261
+      # See https://snapcraft.io/docs/explanation/snap-development/tab-completion/
       completer: <path to file>
 
       # List of plug names the application is associated with.

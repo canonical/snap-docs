@@ -82,7 +82,7 @@ You will need to restart your shell for the changes to take effect.
 
 The snap daemon (snapd) requires a user’s home directory ($HOME) to be located under  `/home`  on the local filesystem. This requirement cannot currently be changed. However, it is possible to  *bind mount*  an alternative $HOME location to  `/home`  to allow other locations to be found by snapd. This process is outlined below.
 
-See [Home directories outside of ‘/home’](https://forum.snapcraft.io/t/home-directories-outside-of-home/19224) for further details.
+See [Home directories outside of ‘/home’](https://snapcraft.io/docs/explanation/how-snaps-work/home-outside-home/) for further details.
 
 ## Domain served /home directories
 

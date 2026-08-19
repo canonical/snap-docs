@@ -234,7 +234,7 @@ For historical context: traditionally Snapd supported mediation of the sysfs int
 
 The new kernel GPIO APIs are typically consumed through the libgpiod library (C or various bindings) or a set of command line utilities provided by said library.
 
-For more information on how to use the new interface (and migration from the older gpio interface), please check the official documentation for the gpio-chardev interface:[ https://forum.snapcraft.io/t/the-gpio-chardev-interface/46411](https://forum.snapcraft.io/t/the-gpio-chardev-interface/46411).
+For more information on how to use the new interface (and migration from the older gpio interface), please check the official documentation for the [gpio-chardev interface](https://snapcraft.io/docs/reference/interfaces/gpio-chardev-interface/).
 
 ### **More about our FDE journey**
 
