@@ -104,7 +104,7 @@ epoch: <value>
 # Additional usernames the snap may use. Currently, the only supported
 # values for <name> is '_daemon_' (snapd 2.61+), and the now deprecated
 # 'snap-daemon'. For further details, see:
-# https://forum.snapcraft.io/t/system-usernames/13386
+# https://snapcraft.io/docs/explanation/snap-development/system-usernames/
 
 system-usernames:
   <name>: shared

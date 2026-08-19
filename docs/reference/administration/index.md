@@ -13,7 +13,7 @@ Deepen your understanding of how snaps can run on all kinds of devices, in all k
 * [Data locations]():
 * {ref}`Distribution support <reference-administration-distribution-support>`: The status of current builds for Linux distributions with snap support.
 * {ref}`Network requirements <reference-administration-network-requirements>`: What network access snaps require to operate correctly.
-* {ref}`Timer string format <interfaces-process-for-aliases-auto-connections-and-tracks>`: The string format to use whenever times, dates and durations are defined.
+* {ref}`Timer string format <interfaces-timer-string-format>`: The string format to use whenever times, dates and durations are defined.
 
 ## Requesting permission
 
