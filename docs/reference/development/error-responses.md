@@ -1,7 +1,7 @@
 (reference-development-rest-api-error-responses)=
 # Error responses
 
-When {ref}`Using the snapd REST API <how-to-guides-manage-snaps-use-the-rest-api>`, requests sent to the <a href="../api/redoc-static.html">snapd REST API</a> can return both standard HTTP error responses, and a snapd-specific _error kind_, in the body of the response. These are detailed below.
+When {ref}`Using the snapd REST API <how-to-guides-manage-snaps-use-the-rest-api>`, requests sent to the [snapd REST API](https://snapcraft.io/docs/reference/development/snapd-rest-api/) can return both standard HTTP error responses, and a snapd-specific _error kind_, in the body of the response. These are detailed below.
 
 ## Status codes
 

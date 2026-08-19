@@ -9,7 +9,7 @@ Just like a snap, a component is implemented as a squashfs file. If installed, t
 
 Components can be thought of as either an internal implementation detail of the host snap that remains transparent to the user, or as a visible snap component that can be installed, refreshed and removed similarly to snaps.
 
-See {ref}`Using components <how-to-guides-manage-snaps-using-components>` for installation, removal and listing options. To manage components from within a snap, see {ref}`snapctl <how-to-guides-manage-snaps-use-snapctl-components>` components commands. Components can also be managed through the <a href="../api/redoc-static.html">Snapd REST API</a>.
+See {ref}`Using components <how-to-guides-manage-snaps-using-components>` for installation, removal and listing options. To manage components from within a snap, see {ref}`snapctl <how-to-guides-manage-snaps-use-snapctl-components>` components commands. Components can also be managed through the [Snapd REST API](https://snapcraft.io/docs/reference/development/snapd-rest-api/#/Asynchronous/manageSnaps).
 
 Component requires *snapd 2.67+* .
 
