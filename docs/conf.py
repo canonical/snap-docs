@@ -223,6 +223,7 @@ templates_path = ["_templates"]
 #       the sphinx_reredirects extension will be disabled.
 
 redirects = {
+   "gadget-boot-assets": "https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/gadget-boot-assets/",
    "snapcraft-overview": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
    "base-snaps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/",
    "parts-lifecycle": "https://documentation.ubuntu.com/snapcraft/stable/explanation/parts-lifecycle/",
@@ -235,6 +236,7 @@ redirects = {
    "choosing-a-security-model": "https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/anatomy-of-snapcraft-yaml/#confinement",
    "creating-snapcraft-yaml": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
    "creating-your-developer-account": "https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/authenticate/",
+   "releasing-to-the-snap-store": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/publish-a-snap/",
    "dump-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/dump_plugin/",
    "package-repositories": "https://documentation.ubuntu.com/snapcraft/stable/reference/package-repositories/",
    "nil-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/nil_plugin/",
@@ -267,7 +269,7 @@ redirects = {
    "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/",
    "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/",
    "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973",
-   "reference/development/registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/",
+   "registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/",
    "autotools-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/autotools_plugin/",
    "ant-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/ant_plugin/",
    "cmake-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/cmake_plugin/",
@@ -332,7 +334,7 @@ redirects = {
    "ros-troubleshooting": "https://canonical-robotics.readthedocs-hosted.com/en/latest/references/snapcraft/faq/",
    "gtk3-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk3-app/",
    "gtk2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk2-app/",
-   "desktop-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-pre-built-app/",
+   "desktop-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/", # desktop page was removed, but redirects to integrations page
    "dotnet-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-dotnet-app/#how-to-craft-a-dotnet-app",
 }
 

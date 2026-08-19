@@ -45,7 +45,8 @@ set-system-options/ reference/administration/system-options
 service-management/ how-to-guides/manage-snaps/control-services
 using-components/ how-to-guides/manage-snaps/using-components
 configure-with-confdb/ reference/interfaces/confdb-interface
-manage-validation-sets/ explanation/how-snaps-work/validation-sets
+manage-validation-sets/ how-to-guides/manage-snaps/manage-validation-sets
+permission-requests/ reference/administration/process-for-aliases-auto-connections-and-tracks
 snap-deltas/ explanation/how-snaps-work/snap-deltas
 using-the-api/ how-to-guides/snap-development/use-the-rest-api
 using-snapctl/ how-to-guides/snap-development/use-snapctl
@@ -209,7 +210,6 @@ installing-snap-store-app/ tutorials/get-started
 parallel-installs/ explanation/how-snaps-work/parallel-installs
 process-for-aliases-auto-connections-and-tracks/  reference/administration/process-for-aliases-auto-connections-and-tracks
 reviewing-classic-confinement-snaps/ reference/administration/reviewing-classic-confinement-snaps
-registering-your-app-name/ reference/development/registering-your-app-name
 snap-documentation/ index.md
 snapcraft-docs-roadmap/ explanation/security/snapd-release-process
 account-control-interface/ reference/interfaces/account-control-interface
