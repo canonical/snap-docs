@@ -233,7 +233,7 @@ redirects = {
    "base-snaps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/",
    "parts-lifecycle": "https://documentation.ubuntu.com/snapcraft/stable/explanation/parts-lifecycle/",
    "snap-epochs": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-data-compatibility/",
-   "adding-global-metadata": "https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml/#reference-snapcraft-yaml-top-level-keys/",
+   "adding-global-metadata": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#reference-snapcraft-yaml-top-level-keys",
    "adding-parts": "https://documentation.ubuntu.com/snapcraft/stable/reference/parts/parts-and-steps/",
    "architectures": "https://documentation.ubuntu.com/snapcraft/stable/reference/architectures/",
    "build-and-staging-dependencies": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-dependencies/",

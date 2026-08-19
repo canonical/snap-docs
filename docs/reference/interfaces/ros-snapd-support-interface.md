@@ -5,7 +5,7 @@ The `ros-snapd-support` interface allows the snaps [`ros-snapd`](https://snapcra
 
 ## Developer details
 
-[Auto-connect](https://snapcraft.io/docs/interface-management#heading--auto-connections): no\
+[Auto-connect](https://snapcraft.io/docs/explanation/interfaces/interface-auto-connection/#auto-connections): no\
 [Super-privileged](https://snapcraft.io/docs/super-privileged-interfaces): yes
 
 <h3 id='heading--endpoint-access'>Endpoint access permissions</h3>

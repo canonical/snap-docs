@@ -71,7 +71,7 @@ Under the hood, the application runner does the following:
 
 The snap packaging system employs various cryptographic technologies to secure local and remote snap operations.
 
-Locally, these are handled by the snap daemon, *snapd*, while remote connections require mediation between snapd and the [Snap Store](https://snapcraft.io/docs/glossary#heading--snap-store), which supports its own set of cryptographic technologies. Both sets of these are listed below.
+Locally, these are handled by the snap daemon, *snapd*, while remote connections require mediation between snapd and the [Snap Store](https://snapcraft.io/docs/reference/glossary/#snap-store), which supports its own set of cryptographic technologies. Both sets of these are listed below.
 
 ### Snapd (snap daemon) cryptography
 

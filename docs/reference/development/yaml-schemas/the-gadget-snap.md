@@ -89,8 +89,8 @@ The structure section lists entities with gadget data inside the image, most of 
 
 There are two {ref}`system options <how-to-guides-manage-snaps-set-system-options>` that can be used to add new kernel boot parameters to a system that has been deployed and is running:
 
-1. [system.kernel.cmdline-append](https://snapcraft.io/docs/system-options#heading--kernel-cmdline-append)
-2. [system.kernel.dangerous-cmdline-append](https://snapcraft.io/docs/system-options#heading--kernel-dangerous-cmdline-append)
+1. [system.kernel.cmdline-append](https://snapcraft.io/docs/reference/administration/system-options/#system-system-kernel-cmdline-append)
+2. [system.kernel.dangerous-cmdline-append](https://snapcraft.io/docs/reference/administration/system-options/#system-system-kernel-dangerous-cmdline-append)
 
 The second setting can be run (dangerously) without any prior configuration, but the first setting will permit **only** boot parameters verified against an *allow list* defined within the gadget snap.
 
