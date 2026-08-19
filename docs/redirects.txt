@@ -214,7 +214,7 @@ installing-snap-store-app/ tutorials/get-started
 parallel-installs/ explanation/how-snaps-work/parallel-installs
 process-for-aliases-auto-connections-and-tracks/  reference/administration/process-for-aliases-auto-connections-and-tracks
 reviewing-classic-confinement-snaps/ reference/administration/reviewing-classic-confinement-snaps
-snap-documentation/ index.md
+snap-documentation/ index
 snapcraft-docs-roadmap/ explanation/security/snapd-release-process
 account-control-interface/ reference/interfaces/account-control-interface
 accounts-service-interface/ reference/interfaces/accounts-service-interface

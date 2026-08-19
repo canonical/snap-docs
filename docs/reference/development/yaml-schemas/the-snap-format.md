@@ -129,7 +129,7 @@ apps:
       command-chain: <list of commands>
 
       # An identifier to a desktop-id within an external appstream file.
-      # See https://docs.snapcraft.io/using-external-metadata
+      # See https://documentation.ubuntu.com/snapcraft/stable/reference/external-package-information/
       common-id: <desktop file id>
 
       # Path to a bash snippet to use for tab completion.

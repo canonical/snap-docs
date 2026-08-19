@@ -5,7 +5,7 @@ Environment variables are widely used across Linux to provide convenient access 
 
 Both Snapcraft and snapd consume, set, and pass-through specific environment variables to support building and running snaps. 
 
-See below for the various environment variables available to snap applications. For environment variables connected to Snapcraft, see [Parts environment variables](https://documentation.ubuntu.com/snapcraft/stable/reference/parts/parts-and-steps/).
+See below for the various environment variables available to snap applications. For environment variables connected to Snapcraft, see [Parts environment variables](https://documentation.ubuntu.com/snapcraft/stable/reference/part-environment-variables/).
 
 ## List environment variables
 

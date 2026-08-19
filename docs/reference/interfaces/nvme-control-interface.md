@@ -16,7 +16,7 @@ For further details on interfaces, see {ref}`How to connect interfaces <explanat
 
 ### Code examples
 
-The test code can be found in the snapd repository:</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/onvme_control_test.go
+The test code can be found in the snapd repository:</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/nvme_control_test.go
 
 The source code for the interface is in the snapd repository:
 </br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/nvme_control.go

@@ -35,7 +35,7 @@ If your application is not using one of those toolkits, you will need to use the
 
 - **Electron**:  portal support is present in the Electron file chooser.
 
-> ⓘ Both the [`gnome` extension](https://snapcraft.io/docs/gnome-extension) and the  [`kde-neon` extension](https://snapcraft.io/docs/kde-neon-extension) automatically enable portal support for GTK 3 and Qt applications on GTK-based desktops. If your snap uses either extension, you only need to do step 1.
+> ⓘ Both the [`gnome` extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/gnome-extension/) and the  [`kde-neon` extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/kde-neon-extensions/) automatically enable portal support for GTK 3 and Qt applications on GTK-based desktops. If your snap uses either extension, you only need to do step 1.
 
 ## File chooser portal vs home interface
 
@@ -65,7 +65,7 @@ Both the {ref}`Secret portal<how-to-guides-use-the-secret-portal>` and the {ref}
 ## Known Limitations
 
 * `org.freedesktop.portal.Flatpak.Spawn` only works in a Flatpak. If your application needs to run arbitrary binaries on the host system, you can use {ref}`classic confinement <explanation-security-classic-confinement>`.
-* Portal support depends on the version of `xdg-desktop-portal` in the host system. Older versions do not support all portals. [Repology](https://repology.org/project/xdg-desktop-portal/versions) shows what version of `xdg-desktop-portal` each distribution has and the [portals NEWS](https://github.com/flatpak/xdg-desktop-portal/blob/master/NEWS) file explains what portals each version supports.
+* Portal support depends on the version of `xdg-desktop-portal` in the host system. Older versions do not support all portals. [Repology](https://repology.org/project/xdg-desktop-portal/versions) shows what version of `xdg-desktop-portal` each distribution has and the [portals NEWS](https://github.com/flatpak/xdg-desktop-portal/blob/main/NEWS.md) file explains what portals each version supports.
 
 > ⓘ See Desktop applications for more information on how to snap a desktop application.
 

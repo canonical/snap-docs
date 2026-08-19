@@ -238,7 +238,7 @@ For more information on how to use the new interface (and migration from the old
 
 ### **More about our FDE journey**
 
-***The previous release***, 2.71, concluded the Snapd contribution to TPM FDE for the 25.10 [install image](https://cdimage.ubuntu.com/daily-live/current/questing-desktop-amd64.iso).
+***The previous release***, 2.71, concluded the Snapd contribution to TPM FDE for the 25.10 [install image](https://releases.ubuntu.com/25.10/ubuntu-25.10-desktop-amd64.iso).
 
 Progression through the 25.10 cycle up to 2.71:
 * 2.68.* - introduced a new key format, added support for passphrases during installation, and included various fixes.
@@ -317,7 +317,7 @@ The official release for this version was Snapd 2.68.4.
 
 * [FDE](https://ubuntu.com/core/docs/full-disk-encryption): Add support for a new and more extensible key format and passphrases for encrypted partitions can now be specified during installation
 * [Components](https://snapcraft.io/docs/components): Support online/offline [remodeling](https://ubuntu.com/core/docs/remodelling) and the creation of new recovery systems for models that contain components, on Ubuntu Core as well as Hybrid systems. Components are useful for distributing optional resources for a snap, such as debug symbols alongside snap binaries, and kernel modules alongside a kernel snap.
-* [Kernel Components](https://canonical-snapcraft.readthedocs-hosted.com/en/stable/reference/components.html): Make kernel components and modules available in early boot
+* [Kernel Components](https://documentation.ubuntu.com/snapcraft/stable/reference/components/): Make kernel components and modules available in early boot
 * Interfaces: Added [auditd-support interface](https://snapcraft.io/docs/auditd-support-interface) that allows a snap to ship auditd as part of a snap and `checkbox-support` interface that allows unrestricted access to devices when testing with checkbox
 
 ### Notable updates

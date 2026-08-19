@@ -12,7 +12,7 @@ For further details on interfaces, see {ref}`How to connect interfaces <explanat
 
 ### Code examples
 
-The test code can be found in the snapd repository:</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/dm-multipath_test.go
+The test code can be found in the snapd repository:</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/dm_multipath_test.go
 
 The source code for the interface is in the snapd repository:
-</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/dm-multipath.go
+</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/dm_multipath.go

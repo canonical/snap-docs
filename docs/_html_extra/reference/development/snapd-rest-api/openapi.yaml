@@ -11,7 +11,7 @@ info:
 
     For general information on how to use the API, including how to access it,
     its requests and responses, results fields and error types, see [Using the
-    REST API](https://snapcraft.io/docs/using-the-api).
+    REST API](https://snapcraft.io/docs/how-to-guides/snap-development/use-the-rest-api/).
 servers:
   - url: unix:///run/snapd.socket
     description: |-

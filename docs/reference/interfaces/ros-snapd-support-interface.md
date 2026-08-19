@@ -17,5 +17,5 @@ The `ros-snapd-support` interface allows the snaps [`ros-snapd`](https://snapcra
 
 The test code can be found in the snapd repository: [https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support_test.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support_test.go)
 
-The source code for the interface is in the snapd repository:[ https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support.go.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support.go.go)
+The source code for the interface is in the snapd repository:[ https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support.go)
 
