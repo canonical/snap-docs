@@ -35,7 +35,9 @@ installing-snap-on-rocky/ tutorials/install-the-daemon/rocky-linux
 installing-snap-on-ubuntu/ tutorials/install-the-daemon/ubuntu
 snap-howto/ how-to-guides/
 managing-updates/ how-to-guides/manage-snaps/manage-updates
+keeping-snaps-up-to-date/ how-to-guides/manage-snaps/manage-updates
 interface-management/ explanation/interfaces/all-about-interfaces
+snapcraft-interfaces/ explanation/interfaces/all-about-interfaces
 configuration-in-snaps/ how-to-guides/manage-snaps/configure-snaps
 commands-and-aliases/ how-to-guides/manage-snaps/apps-and-aliases
 snapshots/ how-to-guides/manage-snaps/create-data-snapshots
@@ -73,6 +75,8 @@ snapd-error-codes/ reference/development/error-responses
 the-snap-format/ reference/development/yaml-schemas/the-snap-format
 the-gadget-snap/ reference/development/yaml-schemas/the-gadget-snap
 gadget-snap/ reference/development/yaml-schemas/the-gadget-snap
+the-prepare-device-hook/ reference/development/yaml-schemas/the-gadget-snap
+the-prepare-serial-request-hook/ reference/development/yaml-schemas/the-gadget-snap
 the-kernel-snap/ reference/development/yaml-schemas/the-kernel-snap
 kernel-snap/ reference/development/yaml-schemas/the-kernel-snap
 release-notes/ reference/release-notes

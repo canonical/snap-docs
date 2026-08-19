@@ -224,7 +224,12 @@ templates_path = ["_templates"]
 
 redirects = {
    "gadget-boot-assets": "https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/gadget-boot-assets/",
+   "snapcraft": "https://documentation.ubuntu.com/snapcraft/stable/",
+   "snapcraft-format": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/",
    "snapcraft-overview": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
+   "snapcraft-schema": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/",
+   "snapcraft-top-level-metadata": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#top-level-keys",
+   "snapcraft-yaml-reference": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/",
    "base-snaps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/",
    "parts-lifecycle": "https://documentation.ubuntu.com/snapcraft/stable/explanation/parts-lifecycle/",
    "snap-epochs": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-data-compatibility/",
