@@ -48,7 +48,7 @@ For some interfaces there are patterns and rationale that can generally be appli
 
 * alsa - auto-connection is generally limited to snaps requiring low-level, direct access to audio devices. 
     * Rationale: a lot of hardware does not perform multiplexing of clients so a snap directly accessing the hardware might block audio for other applications on some systems. Sound servers like pulseaudio are designed to multiplex audio and snaps should typically instead plugs the `audio-playback` (and `audio-record` if needed), which grants access to pulseaudio
-    * Reference: https://snapcraft.io/docs/reference/interfaces/alsa-interface/
+    * Reference: {ref}`alsa interface <interfaces-alsa-interface>`
 * content - the base declaration defines that snaps that plugs the content interface will auto-connect with other snaps from the same publisher. Global auto-connect for content providers is allowed only under certain circumstances
     * Rationale: because there is no tight coupling or dependency graphs between the provider and the consumer, there are no guarantees that a providing snap cannot break consuming snaps. Publishers are expected to manage breaking changes with their snaps, but are not generally expected to be concerned about others' snaps
     * Reference:
@@ -97,7 +97,7 @@ For some interfaces there are patterns and rationale that can generally be appli
 
 If auto-connection is not granted, options for snap publishers are:
 * have the snap check if the interface is connected via `snapctl is-connected <iface>` and instruct the user to use the `snap connect` CLI command or connect via the snap-store/gnome-software GUI. This could be done on startup or contextually at the time of access. Ideally when instructing the user, the details of the access would be explained so the user can make an informed choice. It is true that there is an extra step for the user, but done well, this need not be onerous and may even provide additional trust that your snap and the system as a whole are working to keep everything secure. Note, if using `snapctl is-connected` you should also add a corresponding `assumes: 2.43` to your snapcraft.yaml since this is only available in snap since 2.43 to ensure this [functions as expected](https://forum.snapcraft.io/t/interfaces-for-raspberry-pi-imager/15822/20).
-* use a newer, safer API. Eg, instead of using cups-control, the application could use [the Printing portal](https://forum.snapcraft.io/t/inkscape-autoconnect-cups-control/8739/52). If an application needs access to a file from a disconnected interface/etc, use a file dialog that supports [portals](https://snapcraft.io/docs/explanation/snap-development/xdg-desktop-portals/)
+* use a newer, safer API. Eg, instead of using cups-control, the application could use [the Printing portal](https://forum.snapcraft.io/t/inkscape-autoconnect-cups-control/8739/52). If an application needs access to a file from a disconnected interface/etc, use a file dialog that supports {ref}`portals <interfaces-xdg-desktop-portals>`
 * fallback gracefully. Eg, if password-manager-service is disconnected, fallback to storing passwords locally
 
 In the future, the snapd team plans to provide a [prompt API for snaps to use ](https://forum.snapcraft.io/t/inkscape-autoconnect-cups-control/8739/39) that will not only provide appropriate messaging, but also allow the user to choose to connect within the prompt.

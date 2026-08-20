@@ -274,19 +274,20 @@ Snapcraft is both the command and the framework used to build your own snaps. Th
 
 See [Craft a snap](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/) for a tutorial on building a snap.
 
+(ref-glossary_snapd)=
 ### snapd
 
 _snapd_ is the background service that manages and maintains your snaps.
 
 Alongside its various service and management functions, snapd provides the _snap_ command, implements the confinement policies that isolate snaps from the base system and from each other, and governs the interfaces that allow snaps to access specific system resources outside of their confinement.
 
-See [Snap documentation](https://snapcraft.io/docs) for more details.
+See {ref}`Snap documentation <ref-index_snap-documentation>` for more details.
 
 ### snappy
 
 Snappy was the predecessor to Ubuntu Core. The term is still occasionally used informally to refer to various aspects of the snap ecosystem, such as the command, the package format, the Snap Store and Ubuntu Core. It's best to avoid using this term; use *Snap* or *the Snap ecosystem* instead.
 
-See [Snap documentation](https://snapcraft.io/docs) for general details about the snap ecosystem.
+See {ref}`Snap documentation <ref-index_snap-documentation>` for general details about the snap ecosystem.
 
 ### snapshot
 

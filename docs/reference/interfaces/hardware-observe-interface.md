@@ -5,7 +5,7 @@ The `hardware-observe` interface allows for getting hardware information from th
 
 `hardware-observe` grants read-only access to many files and directories, primarily in `/sys` and `/proc`. Additionally, it provides access to many utility files and binaries such as `lspci`, `lsusb`, and `hwinfo`.
 
-`hardware-observe` is a more general and broad interface. If more specific hardware access is required, such as for GPIO or I2C devices, See the [gpio](https://snapcraft.io/docs/gpio-interface) and [i2c](https://snapcraft.io/docs/i2c-interface) interfaces.
+`hardware-observe` is a more general and broad interface. If more specific hardware access is required, such as for GPIO or I2C devices, See the {ref}`gpio <interfaces-gpio-interface>` and {ref}`i2c <interfaces-i2c-interface>` interfaces.
 
 
 ---

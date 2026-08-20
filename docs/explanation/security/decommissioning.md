@@ -46,9 +46,7 @@ Typical locations where snap data may remain include:
 
 ### Removing installed snaps
 
-Removal of the snapd snap requires first removing all other snaps. Removing installed snaps with `snap remove --purge <snap>` prevents taking an automatic snapshot, however existing [snapshots] still remain.
-
-[snapshots]: https://snapcraft.io/docs/how-to-guides/manage-snaps/create-data-snapshots/
+Removal of the snapd snap requires first removing all other snaps. Removing installed snaps with `snap remove --purge <snap>` prevents taking an automatic snapshot, however existing {ref}`snapshots <how-to-guides-manage-snaps-create-data-snapshots>` still remain.
 
 ### Removing the snapd snap
 

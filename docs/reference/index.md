@@ -31,7 +31,7 @@ Deepen your understanding of how snaps can run on all kinds of devices, in all k
 Extend snap functionality with API access and customised environments for your applications and devices.
 
 * {ref}`Environment variables <reference-development-environment-variables>`: Internal values accessible to snapped applications.
-* [Snapd REST API](https://snapcraft.io/docs/reference/development/snapd-rest-api/): Interactive OpenAPI documentation for the Snapd REST API.
+* {ref}`Snapd REST API <reference-development-snapd-rest-api>`: Interactive OpenAPI documentation for the Snapd REST API.
 * {ref}`REST API error codes <reference-development-rest-api-error-responses>`: The types of errors returned by the API.
 
 YAML schemas define exactly what a device, kernel and snap is capable of.

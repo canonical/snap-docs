@@ -22,7 +22,7 @@ $ snap connect <snap-name>:home :home
 ```
 The `:home` slot, with no \<snap-name\>  before the colon (`:`) is equivalent to directing the plug to connect to the system, which in this case is the $HOME directory.
 
-A snap developer can [request permission](https://snapcraft.io/docs/reference/administration/process-for-aliases-auto-connections-and-tracks/) to have the `home` interface connected automatically. In this case, non-hidden files and directories will be accessible from that snap without any further configuration being necessary.
+A snap developer can {ref}`request permission <interfaces-process-for-aliases-auto-connections-and-tracks>` to have the `home` interface connected automatically. In this case, non-hidden files and directories will be accessible from that snap without any further configuration being necessary.
 
 Requires snapd version _2.33+_.
 

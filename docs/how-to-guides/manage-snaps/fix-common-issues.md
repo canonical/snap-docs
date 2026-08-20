@@ -82,7 +82,7 @@ You will need to restart your shell for the changes to take effect.
 
 The snap daemon (snapd) requires a user’s home directory ($HOME) to be located under  `/home`  on the local filesystem. This requirement cannot currently be changed. However, it is possible to  *bind mount*  an alternative $HOME location to  `/home`  to allow other locations to be found by snapd. This process is outlined below.
 
-See [Home directories outside of ‘/home’](https://snapcraft.io/docs/explanation/how-snaps-work/home-outside-home/) for further details.
+See {ref}`Home directories outside of ‘/home’ <interfaces-home-outside-home>` for further details.
 
 ## Domain served /home directories
 
@@ -107,7 +107,7 @@ sudo sysctl kernel.unprivileged_userns_clone=1
 
 After installing the snap daemon, _snapd_, it can take a short amount of time to initialise its environment.
 
-During this initialisation period, if certain instructions are attempted either from the `snap` command or the [REST API](https://snapcraft.io/docs/reference/development/snapd-rest-api/), the following error may be generated:
+During this initialisation period, if certain instructions are attempted either from the `snap` command or the {ref}`REST API <reference-development-snapd-rest-api>`, the following error may be generated:
 
 `error: too early for operation, device not yet seeded or device model not acknowledged`
 

@@ -1,7 +1,7 @@
 (interfaces-snap-refresh-control-interface)=
 #  snap-refresh-control interface
 
-The `snap-refresh-control` interface allows extended control, via [snapctl](https://snapcraft.io/docs/using-snapctl), of refreshes targeting the snap.
+The `snap-refresh-control` interface allows extended control, via {ref}`snapctl <how-to-guides-manage-snaps-use-snapctl>`, of refreshes targeting the snap.
 
 **This interface and the full set of features it requires to function are currently under development.**
 

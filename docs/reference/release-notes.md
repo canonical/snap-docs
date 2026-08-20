@@ -234,7 +234,7 @@ For historical context: traditionally Snapd supported mediation of the sysfs int
 
 The new kernel GPIO APIs are typically consumed through the libgpiod library (C or various bindings) or a set of command line utilities provided by said library.
 
-For more information on how to use the new interface (and migration from the older gpio interface), please check the official documentation for the [gpio-chardev interface](https://snapcraft.io/docs/reference/interfaces/gpio-chardev-interface/).
+For more information on how to use the new interface (and migration from the older gpio interface), please check the official documentation for the {ref}`gpio-chardev interface <interfaces-gpio-chardev>`.
 
 ### **More about our FDE journey**
 
@@ -316,9 +316,9 @@ The official release for this version was Snapd 2.68.4.
 ### Highlights
 
 * [FDE](https://ubuntu.com/core/docs/full-disk-encryption): Add support for a new and more extensible key format and passphrases for encrypted partitions can now be specified during installation
-* [Components](https://snapcraft.io/docs/components): Support online/offline [remodeling](https://ubuntu.com/core/docs/remodelling) and the creation of new recovery systems for models that contain components, on Ubuntu Core as well as Hybrid systems. Components are useful for distributing optional resources for a snap, such as debug symbols alongside snap binaries, and kernel modules alongside a kernel snap.
+* {ref}`Components <how-to-guides-manage-snaps-using-components>`: Support online/offline [remodeling](https://ubuntu.com/core/docs/remodelling) and the creation of new recovery systems for models that contain components, on Ubuntu Core as well as Hybrid systems. Components are useful for distributing optional resources for a snap, such as debug symbols alongside snap binaries, and kernel modules alongside a kernel snap.
 * [Kernel Components](https://documentation.ubuntu.com/snapcraft/stable/reference/components/): Make kernel components and modules available in early boot
-* Interfaces: Added [auditd-support interface](https://snapcraft.io/docs/auditd-support-interface) that allows a snap to ship auditd as part of a snap and `checkbox-support` interface that allows unrestricted access to devices when testing with checkbox
+* Interfaces: Added {ref}`auditd-support interface <interfaces-auditd-support>` that allows a snap to ship auditd as part of a snap and `checkbox-support` interface that allows unrestricted access to devices when testing with checkbox
 
 ### Notable updates
 * Fix issue preventing hybrid systems from being seeded on first boot
@@ -407,7 +407,7 @@ As part of this release cycle, our `ubuntu-image` and validation-sets documentat
 
 *Released 6th June 2024*
 
-Snap-based [Ubuntu Core](https://ubuntu.com/core) devices will benefit from many of our the features for this release, including support for [Offline remodelling](https://ubuntu.com/core/docs/uc20/remodelling#heading--offline), the use of [Validation sets](https://snapcraft.io/docs/validation-sets) in the [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) and setting a custom port for SSH. 
+Snap-based [Ubuntu Core](https://ubuntu.com/core) devices will benefit from many of our the features for this release, including support for [Offline remodelling](https://ubuntu.com/core/docs/uc20/remodelling#heading--offline), the use of {ref}`Validation sets <explanation-how-snaps-work-validation-sets>` in the [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) and setting a custom port for SSH.
 
 There’s also a new `snap sign` [`--chain`](https://ubuntu.com/core/docs/system-user#heading--generating-auto) argument in this release, that can be used to aggregate all the assertions required to create a new system user.
 

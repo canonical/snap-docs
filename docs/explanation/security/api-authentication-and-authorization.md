@@ -73,9 +73,7 @@ Polkit actions with suitable messages for different scenarios are defined in:
 ## Authorization
 
 After authenticating the calling snap, system user, socket and snapd user, snapd determines whether the caller is authorized to perform the requested operation with access level specified by the API endpoint policy.
-For details about API endpoint policy refer to the [snapd API documentation].
-
-[snapd API documentation]: https://snapcraft.io/docs/reference/development/snapd-rest-api/
+For details about API endpoint policy refer to the {ref}`snapd API documentation <reference-development-snapd-rest-api>`.
 
 ### Base access levels
 

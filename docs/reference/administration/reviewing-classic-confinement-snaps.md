@@ -55,7 +55,7 @@ Classic requests generally fall under a number of categories. Below lists catego
 * hard-coded paths (use snapcraft-preload, layouts)
 * ability to run other snaps directly (as opposed to defined interfaces)
 * access to arbitrary files on the system because the application isn't designed with confinement in mind (if a desktop application, use portals or [xdg-open](https://forum.snapcraft.io/t/allowing-xdg-open-to-open-files/3789/11))
-* access to arbitrary files on the system due to developer/user inertia (home and removable-media is almost always sufficient, though [personal-files](https://snapcraft.io/docs/reference/interfaces/personal-files-interface/) and [system-files](https://snapcraft.io/docs/reference/interfaces/system-files-interface/) may be used under certain circumstances.
+* access to arbitrary files on the system due to developer/user inertia (home and removable-media is almost always sufficient, though {ref}`personal-files <interfaces-personal-files-interface>` and {ref}`system-files <interfaces-system-files-interface>` may be used under certain circumstances.
 * access to arbitrary files on the system to avoid increasing a snap's size
 * [GNOME shell extensions](https://forum.snapcraft.io/t/yaru-dark-theme-toggle-review-request/13169/7)
 * [nautilus extensions](https://forum.snapcraft.io/t/synchrorep-need-classic-confinement/13347/8)

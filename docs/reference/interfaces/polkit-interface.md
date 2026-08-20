@@ -39,7 +39,7 @@ See https://forum.snapcraft.io/t/proposal-add-polkit-and-polkit-agent-interfaces
 To install polkit rules to the host system, a snap has to include a .rules file to `$SNAP/meta/polkit/${plug_name}.*.rules`. Snapd will install the rule file when the plug is connected given that there is a corresponding entry under `install-rules` with the same rule file name and the specified integrity `sha3-384` hash matches.
 
 ### Approval process for `install-rules`
-For distribution via the [Snap store](https://snapcraft.io/store), snaps that use the polkit interface with the `install-rules` attribute need an approved [snap declaration](https://snapcraft.io/docs/process-for-aliases-auto-connections-and-tracks).
+For distribution via the [Snap store](https://snapcraft.io/store), snaps that use the polkit interface with the `install-rules` attribute need an approved {ref}`snap declaration <interfaces-process-for-aliases-auto-connections-and-tracks>`.
 
 For acceptance, the publisher needs to:
 * Explain the rationale for installing the polkit rule.
