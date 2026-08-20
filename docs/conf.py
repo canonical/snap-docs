@@ -275,6 +275,7 @@ redirects = {
    "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/",
    "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973",
    "registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/",
+   "reference/development/registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/",
    "autotools-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/autotools_plugin/",
    "ant-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/ant_plugin/",
    "cmake-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/cmake_plugin/",
