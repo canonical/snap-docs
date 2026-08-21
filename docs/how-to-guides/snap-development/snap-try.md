@@ -75,7 +75,7 @@ Hello Everyone!
 
 When developing a snap with [snapcraft](https://documentation.ubuntu.com/snapcraft/stable/), the `snapcraft try` command can be used in combination with `snap try` to quickly test a snap and fix issues.
 
-The `snapcraft try` command runs through the build process to the completion of the _prime_ stage (see [Parts lifecycle](https://documentation.ubuntu.com/snapcraft/stable/reference/parts/parts-and-steps) for further details). It then exposes the resultant _prime_ directory to the snapcraft directory, even from within a virtual machine or container.
+The `snapcraft try` command runs through the build process to the completion of the _prime_ stage (see [Parts lifecycle](https://documentation.ubuntu.com/snapcraft/stable/explanation/parts-lifecycle/) for further details). It then exposes the resultant _prime_ directory to the snapcraft directory, even from within a virtual machine or container.
 
 This _prime_ directory includes all the staged components of a snap, which can then be installed and tested with the `snap try <prime directory>` command.
 

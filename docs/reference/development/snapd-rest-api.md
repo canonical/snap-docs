@@ -1,3 +1,4 @@
+(reference-development-snapd-rest-api)=
 # SnapD REST API
 
 The REST API provides access to snapd's state and many of its key functions, as listed below.

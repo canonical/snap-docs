@@ -1,7 +1,7 @@
 (explanation-security-security-policies)=
 # Security policies
 
-Without [custom flags at installation](https://snapcraft.io/docs/install-modes), or subsequent {ref}`interface connections <how-to-guides-work-with-snaps-connect-interfaces>`, snaps remain confined to a restrictive security sandbox, preventing access to system resources outside the snap.
+Without {ref}`custom flags at installation <interfaces-install-modes>`, or subsequent {ref}`interface connections <how-to-guides-work-with-snaps-connect-interfaces>`, snaps remain confined to a restrictive security sandbox, preventing access to system resources outside the snap.
 
 Snap developers need to be aware which system resources their applications depend on from within the snap.
 
@@ -71,7 +71,7 @@ Under the hood, the application runner does the following:
 
 The snap packaging system employs various cryptographic technologies to secure local and remote snap operations.
 
-Locally, these are handled by the snap daemon, *snapd*, while remote connections require mediation between snapd and the [Snap Store](https://snapcraft.io/docs/glossary#heading--snap-store), which supports its own set of cryptographic technologies. Both sets of these are listed below.
+Locally, these are handled by the snap daemon, *snapd*, while remote connections require mediation between snapd and the {ref}`Snap Store <ref-glossary_snap-store>`, which supports its own set of cryptographic technologies. Both sets of these are listed below.
 
 ### Snapd (snap daemon) cryptography
 

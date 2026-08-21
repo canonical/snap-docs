@@ -97,14 +97,14 @@ assumes:
     - <feature>
 
 # The epoch this release is intended for. For further details, see:
-# https://forum.snapcraft.io/t/snap-epochs/10316
+# https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-data-compatibility/
 # (snapd 2.38+)
 epoch: <value>
 
 # Additional usernames the snap may use. Currently, the only supported
 # values for <name> is '_daemon_' (snapd 2.61+), and the now deprecated
 # 'snap-daemon'. For further details, see:
-# https://forum.snapcraft.io/t/system-usernames/13386
+# https://snapcraft.io/docs/explanation/snap-development/system-usernames/
 
 system-usernames:
   <name>: shared
@@ -129,12 +129,12 @@ apps:
       command-chain: <list of commands>
 
       # An identifier to a desktop-id within an external appstream file.
-      # See https://docs.snapcraft.io/using-external-metadata
+      # See https://documentation.ubuntu.com/snapcraft/stable/reference/external-package-information/
       common-id: <desktop file id>
 
       # Path to a bash snippet to use for tab completion.
       # (snapcraft 2.33+, snapd 2.30+)
-      # See https://forum.snapcraft.io/t/2261
+      # See https://snapcraft.io/docs/explanation/snap-development/tab-completion/
       completer: <path to file>
 
       # List of plug names the application is associated with.

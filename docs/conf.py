@@ -223,18 +223,25 @@ templates_path = ["_templates"]
 #       the sphinx_reredirects extension will be disabled.
 
 redirects = {
+   "gadget-boot-assets": "https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/gadget-boot-assets/",
+   "snapcraft": "https://documentation.ubuntu.com/snapcraft/stable/",
+   "snapcraft-format": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/",
    "snapcraft-overview": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
+   "snapcraft-schema": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/",
+   "snapcraft-top-level-metadata": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#top-level-keys",
+   "snapcraft-yaml-reference": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/",
    "base-snaps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/",
    "parts-lifecycle": "https://documentation.ubuntu.com/snapcraft/stable/explanation/parts-lifecycle/",
    "snap-epochs": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-data-compatibility/",
-   "adding-global-metadata": "https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml/#reference-snapcraft-yaml-top-level-keys/",
-   "adding-parts": "https://documentation.ubuntu.com/snapcraft/stable/reference/parts/parts-and-steps/",
+   "adding-global-metadata": "https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#reference-snapcraft-yaml-top-level-keys",
+   "adding-parts": "https://documentation.ubuntu.com/snapcraft/stable/reference/parts-steps/",
    "architectures": "https://documentation.ubuntu.com/snapcraft/stable/reference/architectures/",
    "build-and-staging-dependencies": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-dependencies/",
    "build-configuration": "https://documentation.ubuntu.com/snapcraft/stable/reference/processes/snap-build-process/",
    "choosing-a-security-model": "https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/anatomy-of-snapcraft-yaml/#confinement",
    "creating-snapcraft-yaml": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
    "creating-your-developer-account": "https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/authenticate/",
+   "releasing-to-the-snap-store": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/publish-a-snap/",
    "dump-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/dump_plugin/",
    "package-repositories": "https://documentation.ubuntu.com/snapcraft/stable/reference/package-repositories/",
    "nil-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/nil_plugin/",
@@ -267,6 +274,7 @@ redirects = {
    "ros-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-1-app/",
    "ros2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-an-ros-2-app/",
    "snapd-roadmap": "https://forum.snapcraft.io/t/the-snapd-roadmap/1973",
+   "registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/",
    "reference/development/registering-your-app-name": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/",
    "autotools-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/autotools_plugin/",
    "ant-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/ant_plugin/",
@@ -285,7 +293,7 @@ redirects = {
    "scons-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/scons_plugin/",
    "dotnet-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/dotnet_v2_plugin/",
    "crystal-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/crystal_plugin/",
-   "waf-plugin": "https://documentation.ubuntu.com/snapcraft/stable/a/plugins/",
+   "waf-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/",
    "writing-local-plugins": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/",
    "ros2-shared-memory-in-snaps": "https://canonical-robotics.readthedocs-hosted.com/en/latest/how-to-guides/packaging/ros-2-shared-memory-in-snaps/",
    "release-notes-snapcraft-3-0": "https://documentation.ubuntu.com/snapcraft/stable/release-notes/",
@@ -332,7 +340,7 @@ redirects = {
    "ros-troubleshooting": "https://canonical-robotics.readthedocs-hosted.com/en/latest/references/snapcraft/faq/",
    "gtk3-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk3-app/",
    "gtk2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk2-app/",
-   "desktop-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-pre-built-app/",
+   "desktop-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/", # desktop page was removed, but redirects to integrations page
    "dotnet-apps": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-dotnet-app/#how-to-craft-a-dotnet-app",
 }
 

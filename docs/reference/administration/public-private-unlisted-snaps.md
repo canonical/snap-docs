@@ -3,7 +3,7 @@
 
 Alongside using {ref}`tracks and channels <explanation-how-snaps-work-channels-and-tracks>` to control which releases are available, and restrictions per-territory, Snap developers can also control _who_ has access to their snaps by marking a published snap as either public, private or unlisted.
 
-When [registering a snap](https://forum.snapcraft.io/t/registering-your-app-name/6793), there is an option to make its listing either public or private. After registration, this value can be changed from the _Settings page_ of the Snap Store web UI  for the  registered snap:
+When [registering a snap](https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/register-a-snap/), there is an option to make its listing either public or private. After registration, this value can be changed from the _Settings page_ of the Snap Store web UI  for the  registered snap:
 
 ![Snap Store settings tab](https://assets.ubuntu.com/v1/617fa9e2-private_03.png) 
 

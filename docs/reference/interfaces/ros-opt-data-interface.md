@@ -96,7 +96,7 @@ When the new snap is built, installed and executed, the output will now be the c
 
 ---
 
-The test code can be found in the snapd repository: [https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_data_test.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_datae_test.go)
+The test code can be found in the snapd repository: [https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_data_test.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_data_test.go)
 
 The source code for the interface is in the snapd repository:
 [https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_data.go](https://github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_data.go)

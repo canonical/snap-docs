@@ -13,7 +13,7 @@ Access to `/mnt` requires snapd version *2.36+*.
 
 **Auto-connect**: no
 
-This interface is typically [not granted](https://forum.snapcraft.io/t/process-for-aliases-auto-connections-and-tracks/455) the ability to {ref}`auto-connect <explanation-interfaces-interface-auto-connection>` because doing so will permit access to potentially sensitive data such as photos, documents and encryption keys. 
+This interface is typically {ref}`not granted <interfaces-process-for-aliases-auto-connections-and-tracks>` the ability to {ref}`auto-connect <explanation-interfaces-interface-auto-connection>` because doing so will permit access to potentially sensitive data such as photos, documents and encryption keys.
 
 Certain application types may be granted an exception for the following reasons:
 

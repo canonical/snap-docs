@@ -6,6 +6,6 @@
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes
 
-Consumers of this interface require a [snap declaration](https://forum.snapcraft.io/t/process-for-aliases-auto-connections-and-tracks/455/) for distribution via the Snap Store.
+Consumers of this interface require a {ref}`snap declaration <interfaces-process-for-aliases-auto-connections-and-tracks>` for distribution via the Snap Store.
 
 

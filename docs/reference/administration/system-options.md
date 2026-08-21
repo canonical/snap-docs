@@ -126,7 +126,7 @@ See {ref}`Home directories outside of ‘/home’ <interfaces-home-outside-home>
 
 ## system interface
 
-Permits specific interfaces options to be changed . The only option currently supported is interface [auto-connection](https://snapcraft.io/docs/explanation/interfaces/interface-auto-connection/).
+Permits specific interfaces options to be changed . The only option currently supported is interface {ref}`auto-connection <explanation-interfaces-interface-auto-connection>`.
 
 - **interface.allow-auto-connection**: configure auto-connection rules for the interface, options are `{false|true|verified}`.
   * `false` or `true` controls whether auto-connections are permitted.
@@ -289,6 +289,7 @@ snap set core system.disable-backlight-service=true
 
 > ⓘ Available only on Ubuntu Core.
 
+(reference-administration-system-options-kernel-cmdline-append)=
 ## system system.kernel.cmdline-append
 
 Dynamically add permitted kernel boot parameters to the default kernel command line on devices using the GRUB bootloader and with [Ubuntu Core 20/22](https://ubuntu.com/core/docs/uc20/inside) or later.
@@ -305,6 +306,7 @@ Consider using `system.kernel.dangerous-cmdline-append` instead if:
  - the gadget snap on your device is either the pc-gadget or pi-gadget, as the allow list isn’t defined.
  - you need to add kernel boot parameters without any verification filter.
 
+(reference-administration-system-options-kernel-dangerous-cmdline-append)=
 ## system system.kernel.dangerous-cmdline-append
 
 Dynamically add any kernel boot parameters to the default kernel command line on devices using the GRUB bootloader with [Ubuntu Core 20](https://ubuntu.com/core/docs/uc20/inside) or later.
