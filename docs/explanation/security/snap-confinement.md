@@ -12,7 +12,7 @@ A snap's confinement level controls the degree of isolation it has from the user
 There are two levels of snap confinement for published snaps:
 - **Strict** 
    Used by the majority of snaps. Strictly confined snaps run in complete isolation, up to a minimal access level that's deemed always safe. Consequently, strictly confined snaps can not access files, network, processes or any other system resource without requesting specific access via an interface.
-- {ref}`**Classic** <explanation-security-classic-confinement>`
+- **{ref}`Classic <explanation-security-classic-confinement>`**
    Allows access to the system's resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires {ref}`manual approval <interfaces-reviewing-classic-confinement-snaps>`, and installation requires the `--classic` command line argument.
 
 An additional mode is useful during the development process:
@@ -49,4 +49,3 @@ wormhole  0.11.2    112   stable    snapcrafters    -
 ## Interfaces and confinement
 
 Snaps with strict confinement must use {ref}`interfaces <explanation-interfaces-all-about-interfaces>` to access resources on the user's system, including those provided by other snaps.
-
