@@ -72,7 +72,7 @@ The following column names are used:
 | {ref}`docker-support <interfaces-docker-support-interface>` | allows operating as the Docker daemon | Super privileged, Containers | no |
 | {ref}`dsp <interfaces-dsp-interface>` | enables the control of digital signal processors (DSPs) | Hardware, Developer | no |
 | {ref}`dvb <interfaces-dvb-interface>` | allows access to all DVB devices and APIs | Hardware, Developer, Media | no |
-| {ref}`egl-driver-libs] <interfaces-egl-driver-libs>` | access to EGL the graphics sub-system | Under development | no |
+| {ref}`egl-driver-libs <interfaces-egl-driver-libs>` | access to EGL the graphics sub-system | Under development | no |
 | {ref}`empty <interfaces-empty-interface>` | allows testing without additional permissions | System, Other | no |
 | {ref}`firewall-control <interfaces-firewall-control-interface>` | configure a network firewall | Network | no |
 | {ref}`firmware-update-support <ref-firmware-updater-support-interface_firmware-updater-support-interface>` | allows a snap to operate as the Firmware Updater | Super privileged | no |
