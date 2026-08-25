@@ -4,6 +4,7 @@ allquotas
 alsa
 API
 apparmor
+[Aa]utostart
 auditd
 backend
 backends
@@ -99,6 +100,7 @@ guiscrcpy
 gyre
 gzip
 hardcoding
+hashbang
 hidraw
 HMACs
 homedirs
@@ -156,6 +158,7 @@ manpage
 [Mm]aster
 microcontroller
 microcontrollers
+mitigations
 mmap
 mmc
 mountspace
@@ -247,6 +250,8 @@ stdout
 [Ss]trace
 subproject
 subprojects
+subgid
+subuid
 sudo
 SVG
 syscall
@@ -283,6 +288,7 @@ unmounting
 unnasserted
 unpackaged
 unsandboxed
+[Uu]nsquashing
 Unsetting
 unsetting
 unsquash
