@@ -60,7 +60,7 @@ UNIX domain socket peer credentials (`SO_PEERCRED`) allows a server to securely 
 
 Snapd authenticates snaps by performing a cgroup lookup using the process PID obtained from peer credentials to determine which snap the requesting process belongs to. This identifies the calling snap, whose connected interfaces are then used for authorization decisions. The cgroup is assigned during process bootstrap, and the sandbox prevents the snap process from moving itself to a different cgroup, which helps protect this mechanism against spoofing.
 
-#### Polkit authenticaton requests
+#### Polkit authentication requests
 
 Certain snapd API operations are authorized via Polkit. For these operations, snapd queries Polkit to determine whether the caller is permitted to perform the requested action. Polkit is an authorization framework that may require user or administrator authentication before authorization is granted.
 

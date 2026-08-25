@@ -186,7 +186,7 @@ Requests are compared to rule prefixes until a match occurs which means an empty
 
 ##### Namespaces
 
-If there is a change in the configuration data’s layout, only the assertion needs to be modified. The snap sees the same namespace, isolating it from schema changes. For example, the following assertion exposes the same data under the same namespace (from a user or snap’s perspective) but the storage layout it assumes is completely different:
+If the configuration data layout changes, only the assertion needs to be modified. The snap sees the same namespace, isolating it from schema changes. For example, the following assertion exposes the same data under the same namespace (from a user or snap’s perspective) but the storage layout it assumes is completely different:
 
 ```yaml
 ...
