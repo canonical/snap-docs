@@ -20,7 +20,7 @@ The snap system has been designed to look after itself with automatic security a
 
 ## Manage snaps
 
-Outside of whatever facilities a snapped application may provide, snaps also provides data snapshots, usage quotas and control over if when when a service runs.
+Outside of whatever facilities a snapped application may provide, snaps also provides data snapshots, usage quotas and control over if and when a service runs.
 
 * {ref}`Create data snapshots <how-to-guides-manage-snaps-create-data-snapshots>`: Make a copy of a snap's user, system and configuration data.
 * {ref}`Use quota resources <how-to-guides-manage-snaps-use-resource-quotas>`: Set processor and memory resource limits on your snaps.

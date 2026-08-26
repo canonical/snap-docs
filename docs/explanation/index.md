@@ -11,7 +11,7 @@ Our explanatory and conceptual guides are written to provide a better understand
 
 ## How snaps work
 
-Understand how snaps update automatically, and use revisions and transactional updates to mange risk and mitigate potential issues.
+Understand how snaps update automatically, and use revisions and transactional updates to manage risk and mitigate potential issues.
 
 * {ref}`Refresh awareness <explanation-how-snaps-work-refresh-awareness>`: How updates are handled when apps are running.
 * {ref}`Using channels <explanation-how-snaps-work-channels-and-tracks>`: Understanding channels, tracks, risk-levels and branches.
@@ -32,7 +32,7 @@ As you begin to use snaps more, interfaces can be used to carefully permit and l
 Learn about how snaps use standard Linux security policies to isolate themselves from the system, and from each other.
 
 * {ref}`Security policies <explanation-security-security-policies>`: How we use AppArmor, Seccomp and cgroups to secure snaps.
-* {ref}`Snap confinement <explanation-security-snap-confinement>`: Learn more about snap's various degrees of isolation.
+* {ref}`Snap confinement <explanation-security-snap-confinement>`: Learn more about Snap's various degrees of isolation.
 * {ref}`Assertions <explanation-security-assertions>`: Digitally signed documents used to verify all snap artefacts.
 * {ref}`Snapd release process <explanation-security-snapd-release-process>`: How and when we update the snapd package.
 
