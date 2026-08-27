@@ -58,7 +58,8 @@ This allows for changes to be rolled back or *unset* if errors occur during the 
 
 ---
 
-<h2 id='heading--the-configure-hook'>The configure hook<sup><a href='#heading--the-configure-hook'>⚓</a></sup></h2>
+<span id="heading--the-configure-hook"></span>
+## The configure hook
 
 The `configure` hook is called every time one the following actions happen:
 
@@ -100,7 +101,8 @@ The same hook can also modify the configuration of a snap within the context of 
 
 > ⓘ Note that configuration options do not need to be defined anywhere. `snapctl set` and `snap set` will accept any (valid) option name.
 
-<h2 id='heading--default-configure'>The default-configure hook</h2>
+<span id="heading--default-configure"></span>
+## The default-configure hook
 
 The default-configure-hook is an optional extension to the {ref}`configure hook <reference-development-supported-snap-hooks>` that executes only on snap installation and _before_ services are started to provide access to the default configuration values stored in a device’s {ref}`gadget snap <reference-development-yaml-schemas-the-gadget-snap>`.
 
@@ -126,15 +128,17 @@ echo "option: $gadget_option" > $SNAP_DATA/options/gadget
 
 For more information see {ref}`Adding Snap configuration <how-to-guides-manage-snaps-set-system-options>` and {ref}`Using the snapctl tool <how-to-guides-manage-snaps-use-snapctl>`.
 
-<h2 id='heading--fde'>The full-disk-encryption hook</h2>
+<span id="heading--fde"></span>
+## The full-disk-encryption hook
 
 [Ubuntu Core 20 ](https://ubuntu.com/core/docs/uc20/) (UC20) uses [full disk encryption](https://ubuntu.com/core/docs/uc20/full-disk-encryption) (FDE) whenever the hardware allows, protecting both the confidentiality and integrity of a device’s data when there’s physical access to a device, or after a device has been lost or stolen.
 
 Creating a verifiable boot process on a non-standard (non-UEFI+TPM platform) FDE platform, such as a Raspberry Pi or other ARM devices, is board-specific and will typically involve creating custom gadget and kernel snaps. UC20, however, does provide a helper mechanism, via a hook interface, to ensure the integrity of any subsequently executed or accessed data.
 
-See [UC20 full-disk-encryption hook interface](https://snapcraft.io/docs/reference/development/supported-snap-hooks/) for details on how this hook is implemented.
+See {ref}`Full-disk-encryption hooks <reference-development-uc20-fde-hooks>` for details on how this hook is implemented..
 
-<h2 id='heading--gate-auto-refresh'>The gate-auto-refresh hook</h2>
+<span id="heading--gate-auto-refresh"></span>
+## The gate-auto-refresh hook
 
 The gate-auto-refresh hook is executed by snapd for every snap that will be updated with the next automatic refresh. It’s also executed for every snap that is dependent on a snap that will be updated.
 
@@ -142,19 +146,22 @@ This hook is capable of executing the snapctl refresh command with 3 specific ar
 
 This feature is currently considered experimental. See {ref}`Refresh control <how-to-guides-work-with-snaps-manage-updates>` for more details.
 
-<h2 id='heading--install'>The install hook</h2>
+<span id="heading--install"></span>
+## The install hook
 
 The `install` hook is called upon initial install only, i.e. it's not called on subsequent refreshes.
 
 The hook is executed before starting snap services (if it has any) and before the `configure` hook. The install hook is the place for one-time actions, such as an early initialisation of a resource when installed for the first time.
 
-<h2 id='heading--install-device'>The install-device hook</h2>
+<span id="heading--install-device"></span>
+## The install-device hook
 
 This hook is supported in Ubuntu Core 20 and subsequent releases.
 
 See [Installation process](https://ubuntu.com/core/docs/uc20/installation-process#heading--install-device) in the Ubuntu Core documentation for more details.
 
-<h2 id='heading--interface'>The interface hooks</h2>
+<span id="heading--interface"></span>
+## The interface hooks
 
 Interface hooks are executed when an interface is either connected or disconnected via the interface’s plugs and slots mechanism.
 
@@ -162,20 +169,23 @@ They can be used to read or write attributes from a connection and, for example,
 
 For further details, see {ref}`Interface hooks <explanation-interfaces-interface-hooks>`.
 
-<h2 id='heading--prepare-device'>The prepare-device hook</h2>
+<span id="heading--prepare-device"></span>
+## The prepare-device hook
 
 This hook is only supported in gadget snaps.
 
 See {ref}`The gadget snap <reference-development-yaml-schemas-the-gadget-snap>` documentation for more details.
 
-<h2 id='heading--prepare-serial'>The prepare-serial hook</h2>
+<span id="heading--prepare-serial"></span>
+## The prepare-serial hook
 
 This hook is only supported in gadget snaps.
 
 See {ref}`The gadget snap <reference-development-yaml-schemas-the-gadget-snap>` documentation for more details.
 
 
-<h2 id='heading--pre-refresh'>The pre-refresh hook</h2>
+<span id="heading--pre-refresh"></span>
+## The pre-refresh hook
 
 The `pre-refresh` hook is called whenever the snap gets refreshed. 
 
@@ -185,7 +195,8 @@ This hook is a good place for any maintenance or cleanup actions that prepare th
 
 The `pre-refresh` hook is not executed when {ref}`snap revert <tutorials-get-started>` is used to install an earlier revision of a snap. If such an operation affects snap functionality, the snap needs to detect this action and manually perform whatever actions may be necessary.
 
-<h2 id='heading--post-refresh'>The post-refresh hook</h2>
+<span id="heading--post-refresh"></span>
+## The post-refresh hook
 
 The `post-refresh` hook is similar to `pre-refresh` (above) in that it is called whenever the snap gets refreshed.
 
@@ -193,9 +204,9 @@ This hook is executed for the newly installed revision of the snap, before start
 
 The `post-refresh` hook is not executed when {ref}`snap revert <tutorials-get-started>` is used to install an earlier revision of a snap. If such an operation affects snap functionality, the snap needs to detect this action and manually perform whatever actions may be necessary.
 
-<h2 id='heading--remove'>The remove hook</h2>
+<span id="heading--remove"></span>
+## The remove hook
 
 The `remove` hook is called when the last revision of the snap gets removed from the system.
 
 This hook is executed after stopping the services of the snap (if the snap has any services), therefore it's useful for any custom cleanup logic.
-
