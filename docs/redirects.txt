@@ -69,6 +69,7 @@ super-privileged-interfaces/ explanation/interfaces/super-privileged-interfaces
 network-requirements/ reference/administration/network-requirements
 distro-support/ reference/administration/distribution-support
 supported-snap-hooks/ reference/development/supported-snap-hooks
+uc20-fde-hooks/ reference/development/uc20-fde-hooks/
 services-and-daemons/ how-to-guides/manage-snaps/control-services
 environment-variables/ reference/development/environment-variables
 snapd-error-codes/ reference/development/error-responses
