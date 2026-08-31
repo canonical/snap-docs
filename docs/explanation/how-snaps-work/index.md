@@ -7,7 +7,7 @@ myst:
 (explanation-how-snaps-work-index)=
 # How snaps work
 
-Understand how snaps update automatically, and use revisions and transactional updates to mange risk and mitigate potential issues.
+Understand how snaps update automatically, and use revisions and transactional updates to manage risk and mitigate potential issues.
 
 * {ref}`Refresh awareness <explanation-how-snaps-work-refresh-awareness>`: How updates are handled when apps are running.
 * {ref}`Using channels <explanation-how-snaps-work-channels-and-tracks>`: Understanding channels, tracks, risk-levels and branches.

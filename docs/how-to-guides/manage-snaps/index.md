@@ -7,7 +7,7 @@ myst:
 (how-to-guides-manage-snaps-index)=
 # Manage snaps
 
-Outside of whatever facilities a snapped application may provide, additional snap functionality includes  data snapshots, usage quotas and control over if when when a service runs.
+Outside of whatever facilities a snapped application may provide, additional snap functionality includes  data snapshots, usage quotas and control over if and when a service runs.
 
 ## System configuration
 
