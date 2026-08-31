@@ -7,6 +7,6 @@ As of snapd 2.41, this interface is deprecated and the {ref}`audio-playback <int
 
 **Auto-connect**: no
 
-*Note: The {ref}``audio-playback` <interfaces-audio-playback-interface>` interface is auto-connected.*
+*Note: The {ref}`audio-playback <interfaces-audio-playback-interface>` interface is auto-connected.*
 
 
