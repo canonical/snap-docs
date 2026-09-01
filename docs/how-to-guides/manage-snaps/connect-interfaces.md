@@ -89,9 +89,9 @@ home            vlc:home               :home                -
 (...)
 ```
 
-In the above output, the {ref}``camera` <interfaces-camera-interface>` interface is not connected because its slot is empty. This means VLC cannot access any connected cameras.
+In the above output, the {ref}`camera <interfaces-camera-interface>` interface is not connected because its slot is empty. This means VLC cannot access any connected cameras.
 
-VLC can access the user's _/home_ directory because the {ref}``home` <interfaces-home-interface>` interface is connected to the system `$HOME` directory (denoted by the `:home` slot name).
+VLC can access the user's _/home_ directory because the {ref}`home <interfaces-home-interface>` interface is connected to the system `$HOME` directory (denoted by the `:home` slot name).
 
 To see all connected interfaces on your system, use the _snap connections_ command without a snap name:
 
