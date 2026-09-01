@@ -7,7 +7,7 @@ Sharing happens at the filesystem level, which means anything that can be expres
 
 ## Example
 
-The [Yaru MATE Icons](https://github.com/ubuntu-mate/icon-theme-yaru-mate-snap) snap is a good producer snap example, letting other applications access the wonderful MATE icon theme. But there are many other producer snaps too, including several for [GTK Common Themes](https://snapcraft.io/gtk-common-themes) and [KDE Frameworks](https://snapcraft.io/kde-frameworks-5-core18) for better application integration with the desktop.
+The [Yaru MATE Icons](https://github.com/ubuntu-mate/icon-theme-yaru-mate-snap) snap is a good producer snap example, letting other applications access the wonderful MATE icon theme. But there are many other producer snaps too, including several for [GTK Common Themes](https://snapcraft.io/gtk-common-themes), [KDE Frameworks](https://snapcraft.io/kde-frameworks-5-core18) for better application integration with the desktop, and [Mesa](https://github.com/canonical/mesa-2404) for graphical libraries stack.
 
 ## Developer details
 
@@ -41,7 +41,7 @@ In all of the cases we see a small set of attributes defined on the particular i
 
 ### Using <code>source</code>
 
-The `source` attribute presents one or more sub-directories, shared from a slot to a plug, beneath the plug's `target` path. Adding the `source` attribute ensures that sub-directories, shared from one or more producer snaps, are presented separately to the consumer snap beneath its `target` path.
+The `source` attribute presents one or more sub-directories, shared from a slot to a plug, **beneath** the plug's `target` path. Adding the `source` attribute ensures that sub-directories, shared from one or more producer snaps, are presented separately to the consumer snap beneath its `target` path.
 
 When multiple slots are connected to the same plug _and_ they share directories with the same name, those directories are given unique names with the following pattern:  `<directory>`, `<directory>-2`, `<directory>-3`, `<directory>-x`. The names of shared directories with unique names are retained, as defined by the slot.
 
@@ -56,7 +56,51 @@ slots:
     content: my-binaries
     source:
       read:
-        - $SNAP/bin
+        - $SNAP/bin   # binaries to share
+        - $SNAP/libs  # libraries to share
+```
+
+**consumer/snapcraft.yaml**:
+```yaml
+plugs:
+  _plug_name_:
+    interface: content
+    content: my-binaries
+    target: $SNAP/connected-content
+```
+
+Using the above configuration, the consumer snap could implement a part to run an executable from the following path:
+
+```
+$SNAP/connected-content/bin/<executable-name>
+```
+
+While the libraries accessible at:
+
+```
+$SNAP/connected-content/libs/<library-name>
+```
+
+When more than one slot, providing similarly named sources, is connected to the same plug, the plug directory for the new connection will be incremented:
+
+```
+$SNAP/connected-content/bin-2/<executable-name>
+```
+
+Directory names are preserved after a reboot.
+
+### Using thread <coderead</code> and <code>write</code> attributes
+
+Without the `source` attribute, content from the producer snap is mounted at the **exact path** indicated in the consumer snap:
+
+**producer/snapcraft.yaml**:
+```yaml
+slots:
+  _slot_name_:
+    interface: content
+    content: my-binaries
+    read:
+      - $SNAP/bin
 ```
 
 **consumer/snapcraft.yaml**:
@@ -68,23 +112,17 @@ plugs:
     target: $SNAP/usr/local/bin
 ```
 
-Using the above configuration, the consumer snap could implement a part to run an executable from the following path:
+Using the above configuration, the consumer snap can access executables using the following path:
 
 ```
 $SNAP/usr/local/bin/<executable-name>
 ```
 
-When more than one slot is connected to the same plug, the plug directory for the new connection will be incremented:
-
-```
-$SNAP/usr/local/bin-2/<executable-name>
-```
-
-Directory names are preserved after a reboot.
+It is recommended to only expose a single `read` path using this configuration.
 
 ## Read-only content sharing
 
-Read-only content sharing is ideal for executables and files related to global graphical themes and images.
+Read-only content sharing is ideal for executables, libraries and files related to global graphical themes or images.
 
 ### Sharing an executable
 
@@ -113,7 +151,7 @@ The directory can be added to `PATH` in the wrapper script, if desired, and the 
 
 #### Sharing a C-level library
 
-A consumer snap can link to libraries shared by a producer snap:
+A consumer snap can link to libraries shared by a producer snap, using the `read`/`write` attribute combination:
 
 **producer/snapcraft.yaml**:
 ```yaml
@@ -143,6 +181,37 @@ In the above example:
 - `1604` denotes Ubuntu 16.04 LTS toolchain and libraries were used within the build environment
 
 API and BUILDENV can be anything that is meaningful to the provider and consumers. For example, the GNOME content snap uses `gnome-3-26-1604` to denote the full GNOME 3.26 platform libraries and supporting files built on Ubuntu 16.04 LTS.
+
+#### Sharing icons or themes
+
+A consumer snap can link to themes shared by a producer snap, which exposes multiple directories using the `source` attribute:
+
+**producer/snapcraft.yaml**:
+```yaml
+slots:
+  icon-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/icons/Yaru-MATE-dark
+        - $SNAP/share/icons/Yaru-MATE-light
+```
+
+**consumer/snapcraft.yaml**:
+```yaml
+plugs:
+  old-libraries:
+    interface: content
+    content: lib0-1604
+    target: $SNAP/themes
+```
+
+After connecting the interface, the *consumer* snap can observe all themes under `$SNAP/themes`, the directories would be exposed as:
+
+```
+$SNAP/themes/Yaru-MATE-dark
+$SNAP/themes/Yaru-MATE-light
+```
 
 ### Content identifier obligations
 
