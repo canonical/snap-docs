@@ -75,7 +75,7 @@ Using the above configuration, the consumer snap could implement a part to run a
 $SNAP/connected-content/bin/<executable-name>
 ```
 
-While the libraries accessible at:
+While the libraries are accessible at:
 
 ```
 $SNAP/connected-content/libs/<library-name>
@@ -89,7 +89,7 @@ $SNAP/connected-content/bin-2/<executable-name>
 
 Directory names are preserved after a reboot.
 
-### Using thread <coderead</code> and <code>write</code> attributes
+### Using thread <code>read</code> and <code>write</code> attributes
 
 Without the `source` attribute, content from the producer snap is mounted at the **exact path** indicated in the consumer snap:
 
