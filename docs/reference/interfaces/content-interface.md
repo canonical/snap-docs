@@ -209,7 +209,7 @@ plugs:
     target: $SNAP/themes
 ```
 
-After connecting the interface, the *consumer* snap can observe all themes under `$SNAP/themes`, the directories would be exposed as:
+After connecting the interface, the *consumer* snap can observe all themes under `$SNAP/themes`, and the directories would be exposed as:
 
 ```
 $SNAP/themes/Yaru-MATE-dark
