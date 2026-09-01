@@ -37,10 +37,10 @@ For distributions without the snap daemon pre-installed, use the links below for
 | {ref}`elementary OS <tutorials-install-the-daemon-elementary-os>` | {ref}`Fedora <tutorials-install-the-daemon-fedora>` |
 | {ref}`GalliumOS <interfaces-installing-snap-on-galliumos>` | {ref}`Kali Linux <interfaces-installing-snap-on-kali>` |
 | {ref}`KDE Neon* <interfaces-installing-snap-on-kde-neon>` | {ref}`Linux Mint <tutorials-install-the-daemon-linux-mint>` | 
-| {ref}`Manjaro* <tutorials-install-the-daemon-manjaro-linux>` | {ref}`openSUSE <tutorials-install-the-daemon-opensuse>` |
-| {ref}`Parrot Security OS <interfaces-installing-snap-on-parrot-security-os>` | {ref}`Pop!_OS <tutorials-install-the-daemon-pop-os>` |
-| {ref}`Raspberry Pi OS <interfaces-installing-snap-on-raspbian>` | | {ref}`Rocky Linux <tutorials-install-the-daemon-rocky-linux>` |
-| {ref}`Ubuntu* <tutorials-install-the-daemon-ubuntu>` |  |
+| {ref}`Manjaro* <tutorials-install-the-daemon-manjaro-linux>` | {ref}`OpenMandriva <tutorials-install-the-daemon-openmandriva>` |
+| {ref}`openSUSE <tutorials-install-the-daemon-opensuse>` | {ref}`Parrot Security OS <interfaces-installing-snap-on-parrot-security-os>` |
+| {ref}`Pop!_OS <tutorials-install-the-daemon-pop-os>`  | {ref}`Raspberry Pi OS <interfaces-installing-snap-on-raspbian>` |
+| {ref}`Rocky Linux <tutorials-install-the-daemon-rocky-linux>` | {ref}`Ubuntu* <tutorials-install-the-daemon-ubuntu>` |
 
 **\*** While snapd is pre-installed on these systems, installation instructions can help if you're using older versions, or want to re-install snap after removing it.
 
@@ -61,6 +61,7 @@ Kali Linux <kali>
 Linux Mint <linux-mint>
 Manjaro Linux <manjaro-linux>
 KDE Neon <neon>
+openMandriva <openmandriva>
 openSUSE <opensuse>
 Parrot Security OS <parrot>
 Pop!_OS <pop-os>
