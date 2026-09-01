@@ -7,7 +7,7 @@ Sharing happens at the filesystem level, which means anything that can be expres
 
 ## Example
 
-The [Yaru MATE Icons](https://github.com/ubuntu-mate/icon-theme-yaru-mate-snap) snap is a good producer snap example, letting other applications access the wonderful MATE icon theme. But there are many other producer snaps too, including several for [GTK Common Themes](https://snapcraft.io/gtk-common-themes), [KDE Frameworks](https://snapcraft.io/kde-frameworks-5-core18) for better application integration with the desktop, and [Mesa](https://github.com/canonical/mesa-2404) for graphical libraries stack.
+The [Yaru MATE Icons](https://github.com/ubuntu-mate/icon-theme-yaru-mate-snap) snap is a good producer snap example, letting other applications access the wonderful MATE icon theme. But there are many other producer snaps too, including several for [GTK Common Themes](https://snapcraft.io/gtk-common-themes), [KDE Frameworks](https://snapcraft.io/kde-frameworks-5-core18) for better application integration with the desktop, and [Mesa](https://github.com/canonical/mesa-2404) for a graphical libraries stack.
 
 ## Developer details
 
@@ -43,7 +43,7 @@ In all of the cases we see a small set of attributes defined on the particular i
 
 The `source` attribute presents one or more sub-directories, shared from a slot to a plug, **beneath** the plug's `target` path. Adding the `source` attribute ensures that sub-directories, shared from one or more producer snaps, are presented separately to the consumer snap beneath its `target` path.
 
-When multiple slots are connected to the same plug _and_ they share directories with the same name, those directories are given unique names with the following pattern:  `<directory>`, `<directory>-2`, `<directory>-3`, `<directory>-x`. The names of shared directories with unique names are retained, as defined by the slot.
+When multiple slots are connected to the same plug _and_ they share directories with the same name, those directories are given unique names with the following pattern:  `<directory>`, `<directory>-2`, `<directory>-3`, `<directory>-x`. The first connection keeps the original directory name from the slot; subsequent connections with the same name get the suffixed form.
 
 With the following example, directories from the producer snap are shared in corresponding directories beneath the _consumer_ snap's `target` path:
 
@@ -89,7 +89,7 @@ $SNAP/connected-content/bin-2/<executable-name>
 
 Directory names are preserved after a reboot.
 
-### Using thread <code>read</code> and <code>write</code> attributes
+### Using the <code>read</code> and <code>write</code> attributes
 
 Without the `source` attribute, content from the producer snap is mounted at the **exact path** indicated in the consumer snap:
 
@@ -117,6 +117,8 @@ Using the above configuration, the consumer snap can access executables using th
 ```
 $SNAP/usr/local/bin/<executable-name>
 ```
+
+When more than one slot is connected to the same plug, the plug directory for the new connection will be incremented using the same mechanism as with the `source` attribute described above (`<directory>`, `<directory>-2`, `<directory>-3`, `<directory>-x`).
 
 It is recommended to only expose a single `read` path using this configuration.
 
@@ -151,7 +153,7 @@ The directory can be added to `PATH` in the wrapper script, if desired, and the 
 
 #### Sharing a C-level library
 
-A consumer snap can link to libraries shared by a producer snap, using the `read`/`write` attribute combination:
+A consumer snap can link to libraries shared by a producer snap, using the `read`/`write` attributes:
 
 **producer/snapcraft.yaml**:
 ```yaml
@@ -191,6 +193,7 @@ A consumer snap can link to themes shared by a producer snap, which exposes mult
 slots:
   icon-themes:
     interface: content
+    content: icon-themes
     source:
       read:
         - $SNAP/share/icons/Yaru-MATE-dark
@@ -200,9 +203,9 @@ slots:
 **consumer/snapcraft.yaml**:
 ```yaml
 plugs:
-  old-libraries:
+  icon-themes:
     interface: content
-    content: lib0-1604
+    content: icon-themes
     target: $SNAP/themes
 ```
 
