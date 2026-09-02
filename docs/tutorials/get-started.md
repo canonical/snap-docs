@@ -218,7 +218,7 @@ home            vlc:home               :home                -
 (...)
 ```
 
-The slot is the provider of the resource while the plug is the consumer, and a slot can support multiple plug connections. In the above output, the {ref}``camera` <interfaces-camera-interface>` interface is not connected because its slot is empty. This means VLC cannot access any connected cameras. The `<snap-name>:<interface-name>` syntax describes which snap is responsible for which component. If there's no snap, such as with `:audio-playback`, the component is directly connected to the system.
+The slot is the provider of the resource while the plug is the consumer, and a slot can support multiple plug connections. In the above output, the [`camera`](interfaces-camera-interface) interface is not connected because its slot is empty. This means VLC cannot access any connected cameras. The `<snap-name>:<interface-name>` syntax describes which snap is responsible for which component. If there's no snap, such as with `:audio-playback`, the component is directly connected to the system.
 
 To allow a camera to be accessible to VLC, the interface can be connected with the `snap connect` command:
 
@@ -235,13 +235,13 @@ To access its interface management functions, either search for an installed sna
 
 -->
 
-As you can see the output from `snap connections vlc`, and in the above image, VLC  already has access a  user's _/home_ directory because the {ref}``home` <interfaces-home-interface>` interface is connected to the system `$HOME` directory. This is an {ref}`automatic connection <explanation-interfaces-interface-auto-connection>`, and is granted to certain interfaces and snaps when an interface provides fundamental functionality, such as VLC accessing your personal video and audio files.
+As you can see the output from `snap connections vlc`, and in the above image, VLC  already has access a  user's _/home_ directory because the [`home`](interfaces-home-interface) interface is connected to the system `$HOME` directory. This is an {ref}`automatic connection <explanation-interfaces-interface-auto-connection>`, and is granted to certain interfaces and snaps when an interface provides fundamental functionality, such as VLC accessing your personal video and audio files.
 
 Refer to {ref}`Interfaces <explanation-interfaces-all-about-interfaces>` for more information.
 
 ## Where snaps store data
 
-Most snaps use strict confinement. This isolates both their execution environments and their data from your system (see {ref}`Snap Confinement <explanation-security-snap-confinement>` for further details). A confined snap that needs user-access to files will most likely use the {ref}``home` <interfaces-home-interface>` interface to bridge this confinement gap, allowing you to save and load files from your home directory automatically.
+Most snaps use strict confinement. This isolates both their execution environments and their data from your system (see {ref}`Snap Confinement <explanation-security-snap-confinement>` for further details). A confined snap that needs user-access to files will most likely use the [`home`](interfaces-home-interface) interface to bridge this confinement gap, allowing you to save and load files from your home directory automatically.
 
 You can see whether the _home_ interface is being used in the output to `snap connections <snap name>`:
 
