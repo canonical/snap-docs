@@ -15,9 +15,9 @@ We'd be grateful for any feedback users of these experimental features may have.
 
 ## Feature graduation process
 
-When a feature graduates from experimental status, it is first set as default enabled when unconfigured. When the feature flag is set/changed, a warning stating that the feature is enabled by default and will be permanently enabled in a future release will be presented. 
+When a feature graduates from experimental status, it is first set as default enabled. When the feature flag is set/changed, a warning stating that the feature is enabled by default and will be permanently enabled in a future release will be presented. 
 
-In a future release, the experimental feature is graduated to be permanently enabled. At this point, it is impossible to disable the feature. Attempting to set/change its feature flag will record a warning stating that the feature is no longer experimental and is always enabled.
+In a future release, the experimental feature is graduated to be permanently enabled. At this point, it is impossible to disable the feature. Attempting to set/change its feature flag will present a warning stating that the feature is no longer experimental and is always enabled.
 
 ## Experimental features being removed
 
