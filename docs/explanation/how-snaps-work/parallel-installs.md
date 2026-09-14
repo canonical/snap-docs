@@ -242,6 +242,28 @@ When snapd installs a snap with services, the services are automatically started
 
 A demo snap https://github.com/bboozzoo/parallel-installs-demo provides an example of reconfiguration via configure hooks.
 
+Depending on timing, it may also be necessary to clear the systemd failed state before applying the new port configuration, as repeated failed starts for a port already in use can trigger systemd start-rate limiting and suppress further restarts until you run `reset-failed`.
+
+To identify the affected service and avoid restart suppression:
+
+1. Identify the service name:
+
+  ```
+  snap services <snap-instance-name>
+  ```
+
+2. Clear the failed state:
+
+  ```
+  sudo systemctl reset-failed snap.<snap-instance-name>.<service-name>.service
+  ```
+
+3. Apply the port configuration (this restarts the service through the configure hook):
+
+  ```
+  sudo snap set <snap-instance-name> <key>=<port>
+  ```
+
 #### DBus names
 
 Services exporting the API on DBus under a well known name may conflict with other instances of the same snap. Those may require fixes from application or snap developers.
