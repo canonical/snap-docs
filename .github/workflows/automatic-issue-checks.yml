@@ -20,7 +20,7 @@ jobs:
             function isIssueTemplate(title, body) {
               const isDefaultTitle = title === "docs: TYPE YOUR QUESTION HERE";
 
-              const bodyPattern = /^\*Please describe the question or issue you're facing with "[^"\r\n]*"\.\*\r?\n{5}---\r?\n\*Reported from: https?:\/\/[^*\s]+\*$/;
+              const bodyPattern = /^\*Please describe the question or issue you're facing with "[^"\r\n]*"\.\*(?:\r?\n){5}---\r?\n\*Reported from: https?:\/\/\S+?\*$/;
 
               return isDefaultTitle && bodyPattern.test(body);
             }
@@ -38,7 +38,9 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                body: "This issue was automatically closed because it did not contain any details. Please reopen it to provide feedback about the Snap documentation. If the issue concerns a specific snap, please use `snap report-issue <snap-name>` instead."
+                body: "This issue was automatically closed because it did not contain any details. Please reopen it to provide feedback about the Snap documentation.\n"+
+                      "\n"+
+                      "If the issue concerns a specific snap, please use `snap report-issue <snap-name>` instead."
               });
 
               core.info(`Closed issue #${issue.number} because it matched the default empty template.`);
