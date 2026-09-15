@@ -242,9 +242,7 @@ When snapd installs a snap with services, the services are automatically started
 
 A demo snap https://github.com/bboozzoo/parallel-installs-demo provides an example of reconfiguration via configure hooks.
 
-Depending on timing, it may also be necessary to clear the systemd failed state before applying the new port configuration, as repeated failed starts for a port already in use can trigger systemd start-rate limiting and suppress further restarts until you run `reset-failed`.
-
-To identify the affected service and avoid restart suppression:
+Repeated failed starts of a service due to a port already in use can trigger systemd start-rate limiting and suppress further restarts. To avoid restart suppression:
 
 1. Identify the service name:
 
@@ -252,7 +250,7 @@ To identify the affected service and avoid restart suppression:
   snap services <snap-instance-name>
   ```
 
-2. Clear the failed state:
+2. Clear the failed state before applying the new port configuration:
 
   ```
   sudo systemctl reset-failed snap.<snap-instance-name>.<service-name>.service
