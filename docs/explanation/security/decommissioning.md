@@ -19,7 +19,7 @@ Decommissioning of Ubuntu Core systems should be performed at the system level r
 
 ## Hybrid Classic systems
 
-Hybrid Classic system is a classic system with kernel snap e.g. Ubuntu 26.04 using the TPM backed FDE installation option. It provides a Classic Ubuntu user experience but rely on snapd for essential system functionality such as system snaps, recovery, and full disk encryption. On these systems, snapd is not an optional component and should not be removed.
+Hybrid Classic system is a classic system with kernel snap e.g. Ubuntu 26.04 using the TPM backed FDE installation option. It provides a Classic Ubuntu user experience but relies on snapd for essential system functionality such as system snaps, recovery, and full disk encryption. On these systems, snapd is not an optional component and should not be removed.
 
 Decommissioning of Hybrid Classic systems should be performed at the system level rather than by removing snapd, and is therefore outside the scope of this section.
 
