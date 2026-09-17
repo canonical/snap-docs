@@ -21,7 +21,7 @@ In a future release, the experimental feature is graduated to be permanently ena
 
 ## Experimental features being removed
 
-Currently, [gate-auto-refresh-hook](https://documentation.ubuntu.com/core/explanation/refresh-control) is planned to be removed. Please share your use case for the features at [forum](https://forum.snapcraft.io/t/planned-updates-to-snapd-experimental-features) so we can consider it prior to removal.
+Currently, [gate-auto-refresh-hook](https://documentation.ubuntu.com/core/explanation/refresh-control) is planned to be removed. Please share your use case for the feature at [forum](https://forum.snapcraft.io/t/planned-updates-to-snapd-experimental-features) so we can consider it prior to removal.
 
 ## Current experimental features
 
