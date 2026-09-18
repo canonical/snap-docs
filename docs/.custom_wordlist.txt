@@ -112,6 +112,7 @@ html
 https
 hugepage
 ibus
+IDE
 ie
 ifacemgr
 iio
@@ -189,6 +190,7 @@ PCIe
 pcscd
 pidof
 [Pp]ipewire
+PIN
 pkexec
 plantuml
 Plex
@@ -201,6 +203,7 @@ ppp
 preinstall
 [Pp]reseed
 [Pp]reseeding
+PR
 ptp
 ptrace
 pulseaudio
