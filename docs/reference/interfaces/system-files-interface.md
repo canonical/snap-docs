@@ -29,7 +29,7 @@ Consumers of this interface require a {ref}`snap declaration <interfaces-process
   Access to `/dev` device nodes requires both AppArmor policy and device control group inclusion, but the _system-files_ interface does not have enough information to generate the necessary policy to enable these use cases. As such, purpose-specific interfaces should be used instead, such as  {ref}`block-devices <interfaces-block-devices-interface>` or {ref}`raw-volume <interfaces-raw-volume-interface>`.
 
 
-> ⓘ  Do not share data between snaps
+> ⓘ  Do not share data between snaps.
 </br>While `system-files` can be used to share data with another snap, such as within a configuration file, this behaviour is not recommended. The {ref}`content interface <interfaces-content-interface>` should be used instead.
 
 
@@ -62,4 +62,3 @@ With the above, a `snap connect` command would look like: `snap connect foo:etc-
 
 The source code for this interface is in the *snapd* repository:
 <https://github.com/canonical/snapd/blob/master/interfaces/builtin/system_files.go>
-
