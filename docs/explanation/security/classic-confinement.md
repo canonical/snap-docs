@@ -67,4 +67,4 @@ cgroups | Yes | No
 AppArmor | Enforce mode | Complain mode
 Seccomp | Strict filtering | No filtering
 `LD_LIBRARY_PATH` | Depends | Empty
-Library loading | Staged packages </br>Base | Staged packages </br>Base </br>Host system
+Library loading | Staged packages</br> Base | Staged packages</br>Base</br>Host system
