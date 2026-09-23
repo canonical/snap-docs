@@ -258,6 +258,7 @@ Lower-priority security vulnerabilities may be accumulated and delivered as part
 
 Security vulnerabilities are handled under a responsible disclosure process. Security issues are tracked and developed privately and are not publicly visible until fixes are released and the vulnerability is disclosed. This ensures that users receive fixes before detailed vulnerability information becomes publicly available.
 
+(explanation-security-security-policies-how-to-report-vulnerabilities)=
 ### How to report vulnerabilities
 
 Please report [suspected security vulnerabilities] **privately** by following the instructions in [SECURITY.md].
