@@ -274,9 +274,9 @@ The default AppArmor profile allows instance specific access only. Applications 
 
 Snaps can use `listen-stream` socket definitions of three kinds: a network address, or an `AF_UNIX` socket addressed by either a filesystem path or an abstract name. Each behaves differently with parallel installs:
 
-* **Network sockets** (for example a bare `<port>`) are not adjusted for parallel installs. Instances trying to bind to the same address and port collide in the same way described above under Ports, and the socket unit file may need manual adjustment.
-* **`AF_UNIX` filesystem-path sockets** using `$SNAP_DATA`, `$SNAP_COMMON` or `$XDG_RUNTIME_DIR` for system daemons, or `$SNAP_USER_DATA`, `$SNAP_USER_COMMON` or `$XDG_RUNTIME_DIR` for user daemons, are automatically expanded to instance-specific locations, so no manual adjustment is required.
+* **Network sockets** (for example a bare `<port>`) are not adjusted for parallel installs. Instances trying to bind to the same address and port collide in the same way described above under Ports. Since the address is hardcoded, using `AF_INET`/`AF_INET6` socket activation is not recommended for snaps that want to support parallel installs.
+* **`AF_UNIX` filesystem-path sockets** using `$SNAP_DATA`, `$SNAP_COMMON` or `$XDG_RUNTIME_DIR` for system daemons, or `$SNAP_USER_DATA`, `$SNAP_USER_COMMON` or `$XDG_RUNTIME_DIR` for user daemons, are automatically expanded to instance-specific locations, so the clients can use the appropriate path, for example `/var/snap/hello-world_foo/common/name.socket`.
 * **`AF_UNIX` abstract sockets** must be declared with a `@snap.<snap-name>.` prefix. When generating the systemd socket unit for a snap instance, snapd automatically remaps this prefix to `@snap.<instance-name>.`, so each instance listens on its own abstract address without colliding with other instances. Clients must connect using the instance-qualified address, for example `@snap.hello-world_foo.socket` rather than `@snap.hello-world.socket`.
 
-If, after any variable expansion or instance remapping, the resulting socket address exceeds the maximum length allowed for a Unix domain socket address, snapd fails to generate the socket unit and reports an error instead of producing a non-functional socket.
+If, after any variable expansion or instance remapping, the resulting socket address exceeds the maximum length of 108 bytes allowed for a [Unix domain socket](https://man7.org/linux/man-pages/man7/unix.7.html) address, snapd fails to generate the socket unit and reports an error.
 
