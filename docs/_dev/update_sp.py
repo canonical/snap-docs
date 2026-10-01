@@ -14,12 +14,13 @@ import os
 import re
 import subprocess
 import sys
+
 import requests
 from packaging.version import parse as parse_version
 from requests.exceptions import RequestException
 
 SPHINX_DIR = os.path.abspath(os.path.dirname(__file__))
-DOCS_DIR = os.path.abspath(os.path.join(SPHINX_DIR, '..'))
+DOCS_DIR = os.path.abspath(os.path.join(SPHINX_DIR, ".."))
 REQUIREMENTS = os.path.join(DOCS_DIR, "requirements.txt")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
 GITHUB_REPO = "canonical/sphinx-stack"
@@ -162,9 +163,7 @@ def update_static_files():
         # Checks nested files '_dev/**/**.*' for changed SHA (single level of depth)
         elif item["type"] == "dir":
             logging.debug(item["name"] + " is a directory")
-            for nested_item in query_api(
-                f"{GITHUB_API_DEV_DIR}/{item['name']}"
-            ).json():
+            for nested_item in query_api(f"{GITHUB_API_DEV_DIR}/{item['name']}").json():
                 logging.debug(f"Checking {nested_item['name']}")
                 if nested_item["name"] in files:
                     index = files.index(nested_item["name"])

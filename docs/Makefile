@@ -4,6 +4,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
+
 DEV_DIR          ?= _dev
 SPHINX_OPTS      ?= -c . -d $(DEV_DIR)/.doctrees -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
@@ -108,9 +109,21 @@ linkcheck: install
 pa11y: pa11y-install html
 	find $(DOCS_BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y_CMD)
 
-# Without --return-code-scheme explicit, pymarkdownlnt returns 1 for multiple scenarios.
+# Without --return-code-scheme explicit, pymarkdownlnt returns 1 for multiple scenarios
+# By using the explicit scheme, it only returns 1 when no files are found,
+# which should not result in failure
 lint-md: pymarkdownlnt-install
-	@. $(DOCS_VENV); pymarkdownlnt --config $(DEV_DIR)/.pymarkdown.json --return-code-scheme explicit scan --recurse $(CHECK_PATH); status=$$?; if [ $$status -eq 1 ]; then echo "No Markdown files selected for linting"; exit 0; fi; exit $$status;
+	@. $(DOCS_VENV); pymarkdownlnt \
+		--config $(DEV_DIR)/.pymarkdown.json \
+		--return-code-scheme explicit \
+		scan --recurse $(CHECK_PATH); \
+	status=$$?; \
+	if [ $$status -eq 1 ]; then \
+		echo "No Markdown files selected for linting"; \
+		exit 0; \
+	fi; \
+	echo "pymarkdownlnt exited with code $$status"; \
+	exit $$status;
 
 vale-install: install
 	@. $(DOCS_VENV); test -f $(VALE_CONFIG) || python3 $(DEV_DIR)/get_vale_conf.py
@@ -152,7 +165,6 @@ pdf-prep: install
 
 pdf-prep-force:
 	apt-get update
-	apt-get upgrade -y
 	apt-get install --no-install-recommends -y $(DOCS_PDFPACKAGES) \
 
 pdf: pdf-prep
