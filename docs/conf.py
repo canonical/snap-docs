@@ -1,5 +1,6 @@
 import datetime
 import os
+import textwrap
 import yaml
 
 # Configuration for the Sphinx documentation builder.
@@ -91,7 +92,7 @@ ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 
 # TODO: To customise the favicon, uncomment and update as needed.
 
-# html_favicon = '.sphinx/_static/favicon.png'
+# html_favicon = '_dev/_static/favicon.png'
 
 
 # Dictionary of values to pass into the Sphinx context for all pages:
@@ -105,7 +106,7 @@ html_context = {
     #
     # TODO: If there's no such website,
     #       remove the {{ product_page }} link from the page header template
-    #       (usually .sphinx/_templates/header.html; also, see README.rst).
+    #       (usually _dev/_templates/header.html; also, see README.rst).
     "product_page": "snapcraft.io",
     # Product tag image; the orange part of your logo, shown in the page header
     #
@@ -395,6 +396,7 @@ extensions = [
     "sphinx_config_options",
     "sphinx_contributor_listing",
     "sphinx_filtered_toctree",
+    "sphinx_llm.txt",
     "sphinx_related_links",
     "sphinx_roles",
     "sphinx_terminal",
@@ -404,7 +406,7 @@ extensions = [
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
     "sphinx_sitemap",
-    "sphinxext.rediraffe",
+    "sphinx_rerediraffe",
     "sphinxcontrib.mermaid",
 ]
 
@@ -412,6 +414,8 @@ extensions = [
 
 exclude_patterns = [
     "doc-cheat-sheet*",
+    ".venv*",
+    "_dev",
 ]
 
 # Adds custom CSS files, located under 'html_static_path'
@@ -424,6 +428,21 @@ html_extra_path = ["_html_extra"]
 # Add redirects, so they can be updated here to land with docs being moved
 rediraffe_branch = "main"
 rediraffe_redirects = "redirects.txt"
+rediraffe_dir_only = True
+
+############################
+# sphinx-llm configuration #
+############################
+
+llms_txt_description = textwrap.dedent(
+    """\
+    This is the documentation for Snap, a software packaging and deployment system
+    developed by Canonical.
+    """
+)
+
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
@@ -488,4 +507,3 @@ if os.path.exists('./reuse/substitutions.yaml'):
 
 # Suppress missing xref warnings, as these are generated for targets automatically
 suppress_warnings = ['myst.xref_missing']
-

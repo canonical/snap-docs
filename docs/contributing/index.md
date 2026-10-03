@@ -16,9 +16,9 @@ The documentation for _snap_ is
 [hosted in GitHub](https://github.com/canonical/snap-docs) and
 rendered, via [Read the Docs](https://about.readthedocs.com/), to [https://snapcraft.io/docs/](https://snapcraft.io/docs/).
 
-We use the [Sphinx documentation generator](https://www.sphinx-doc.org/) to create our documentation, which is written in [MyST Markdown](https://mystmd.org/) and built from [Canonical's Sphinx Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack).
+We use the [Sphinx documentation generator](https://www.sphinx-doc.org/) to create our documentation, which is written in [MyST Markdown](https://mystmd.org/) and built with [Canonical's Sphinx Stack](https://github.com/canonical/sphinx-stack).
 
-For further details, see the [Starter Pack documentation](https://canonical-starter-pack.readthedocs-hosted.com/stable/).
+For further details, see the [Sphinx Stack documentation](https://documentation.ubuntu.com/sphinx-stack/).
 
 ## The Open Documentation Academy
 

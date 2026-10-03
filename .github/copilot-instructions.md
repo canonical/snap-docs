@@ -5,8 +5,8 @@ This file contains short, concrete guidance for AI coding agents working in this
 
 ## Quick context
 - Project: documentation built with Sphinx (MyST/Markdown + some reST).
-- Key directories: `docs/` (content), `docs/.sphinx/` (style/config helpers), `.github/workflows/` (CI).
-- Primary build: virtualenv at `docs/.sphinx/venv` created by `make install` from the repo root.
+- Key directories: `docs/` (content), `docs/_dev/` (style/config helpers), `.github/workflows/` (CI).
+- Primary build: virtualenv at `docs/.venv` created by `make install` from the repo root.
 
 ## Most useful commands (examples)
 - Create venv & install deps: `make install` (from repo root).
@@ -33,14 +33,14 @@ This file contains short, concrete guidance for AI coding agents working in this
 ## Files to check/read when changing behavior or styling
 - `docs/conf.py` — Sphinx configuration and extensions (canonical_sphinx, myst, intersphinx).
 - `docs/Makefile` — canonical make targets and environment expectations (venv location, PIPOPTS usage).
-- `docs/.sphinx/.markdownlint.json` and `docs/.sphinx/spellingcheck.yaml` — editorial/style rules used by CI.
-- `docs/.sphinx/pa11y.json` and `docs/.sphinx/.wordlist.txt` — accessibility and spelling exceptions.
+- `docs/_dev/.pymarkdown.json` — Markdown lint configuration.
+- `docs/_dev/pa11y.json` — accessibility checker configuration.
 - `.github/workflows/*` — CI entrypoints and special flags (e.g. docs-only triggers).
 
 ## How to propose edits (recommended checklist)
 1. Run `make run` locally and visually confirm layout and link changes.
 2. Run `make linkcheck` and `make vale` to catch link/style issues early.
-3. Check `docs/.sphinx/*` for project-specific lint/spell rules and adhere to them.
+3. Check `docs/_dev/*` for project-specific lint/spell rules and adhere to them.
 4. Push a branch and open a PR; CI will validate markdown style and Sphinx build on `docs/**` changes.
 
 ## Examples from this repo (quick references)
