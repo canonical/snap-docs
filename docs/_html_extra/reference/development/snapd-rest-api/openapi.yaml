@@ -11,7 +11,7 @@ info:
 
     For general information on how to use the API, including how to access it,
     its requests and responses, results fields and error types, see [Using the
-    REST API](https://snapcraft.io/docs/how-to-guides/snap-development/use-the-rest-api/).
+    REST API](https://snapcraft.io/docs/using-the-api).
 servers:
   - url: unix:///run/snapd.socket
     description: |-
@@ -24,22 +24,28 @@ tags:
     description: List and add assertion types.
   - name: Asynchronous
     description: Return the reference to a change that will occur in the background.
-  - name: AuthenticationRequired
-    description: Access is restricted to the root user.
+  - name: AuthenticatedAccess
+    description: Allows requests from authenticated users (root, provide macaroon, or via polkit) provided they are not received on snapd-snap.socket.
+  - name: ByActionAccess
+    description: Access checking depends on the action included in the request body.
   - name: Changes
     description: Interact with changes.
   - name: Experimental
     description: Interact with experimental features.
+  - name: InterfaceAuthenticatedAccess
+    description: Allows requests from authenticated users (root, provide macaroon, or via polkit), including requests from snapd-snap.socket for snaps that plug one of the provided interfaces.
+  - name: InterfaceOpenAccess
+    description: Allows requests without authentication, including requests from snapd-snap.socket for snaps that plug one of the provided interfaces.
   - name: Interfaces
     description: Display and manage interactions between snaps.
   - name: Notices
     description: Interact with notices.
   - name: OpenAccess
-    description: Do not require the user to authenticate.
+    description: Allows requests without authentication, provided they are not received on snapd-snap.socket.
   - name: Prompting
-    description: Interact with the prompting system.
-  - name: Root
-    description: Requires the user to authenticate with root access.
+    description: Interact with the prompting subsystem.
+  - name: RootAccess
+    description: Allows requests from the root user, provided they were not received on snapd-snap.socket.
   - name: Snaps
     description: Interact with snaps.
   - name: Store
@@ -147,7 +153,7 @@ paths:
       tags:
         - Apps
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
       summary: Modify aliases
       description: Modify aliases by performing an 'alias', 'unalias', or 'prefer' action.
       operationId: modifyAliases
@@ -195,7 +201,7 @@ paths:
     get:
       tags:
         - Apps
-        - OpenAccess
+        - InterfaceOpenAccess
         - Synchronous
       summary: List available apps
       description: Lists applications available from installed snaps. Can be filtered by services or snap names.
@@ -249,7 +255,7 @@ paths:
       tags:
         - Apps
         - Asynchronous
-        - AuthenticationRequired
+        - InterfaceAuthenticatedAccess
       summary: Modify attributes of applications
       description: Perform actions like start, stop, or restart on snap applications, typically services.
       operationId: modifyApps
@@ -349,7 +355,7 @@ paths:
     post:
       tags:
         - Assertions
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
       summary: Attempt to add or replace an assertion
       description: |-
@@ -490,8 +496,8 @@ paths:
   /v2/changes:
     get:
       tags:
-        - AuthenticationRequired
         - Changes
+        - InterfaceOpenAccess
         - Synchronous
       summary: Get all changes
       description: Retrieves a list of all changes in progress or completed on the system.
@@ -552,8 +558,8 @@ paths:
           type: string
     get:
       tags:
-        - AuthenticationRequired
         - Changes
+        - InterfaceOpenAccess
         - Synchronous
       summary: Get the status of a change
       description: Retrieves the current status of a specific background change by its ID.
@@ -571,7 +577,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Changes
         - Synchronous
       summary: Abort a change
@@ -606,7 +612,7 @@ paths:
   /v2/cohorts:
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
       summary: Create cohort keys
       description: Creates a set of cohort keys for a given set of snaps.
@@ -662,17 +668,16 @@ paths:
     post:
       tags:
         - Experimental
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
-      summary: Delegate remote confdb management to operators
+      summary: Delegate control of confdb views to operators
       description: |-
-        Grants or withdraws an operator's ability to remotely manage confdb values
-        on the device.
+        Grants or withdraws an operator's control over confdb views on the device.
 
-        Use the `delegate` action to allow an operator to remotely manage specific
+        Use the `delegate` action to grant an operator control over specific
         confdb views using the specified authentication methods.
 
-        Use the `undelegate` action to withdraw this ability. Omit `views` or
+        Use the `undelegate` action to withdraw this control. Omit `views` or
         `authentications` to withdraw all views or all authentication methods
         respectively.
       operationId: postConfdbControl
@@ -738,6 +743,8 @@ paths:
           $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/AccessDenied'
+        '500':
+          $ref: '#/components/responses/InternalError'
   /v2/confdb/{account}/{confdb-schema}/{view}:
     parameters:
       - name: account
@@ -767,7 +774,7 @@ paths:
     get:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Experimental
       summary: Get configurations from confdb
       description: Retrieves configuration values from confdb.
@@ -786,6 +793,29 @@ paths:
             object.
           schema:
             type: string
+        - name: constraints
+          in: query
+          description: |-
+            A JSON object holding values used to constrain parameters, keyed by the
+            parameter names. Used to filter data according to the placeholders and
+            field filters in the matched requests.
+          schema:
+            type: string
+        - name: access-timeout
+          in: query
+          description: |-
+            How long to wait for other confdb accesses to complete before
+            cancelling the request and failing with an error. If not specified,
+            a default timeout of 10 minutes is applied.
+          schema:
+            type: string
+            format: Go duration
+            externalDocs:
+              description: |-
+                Read more about how Go handles time and durations in the official
+                Go Time package documentation.
+              url: https://pkg.go.dev/time#ParseDuration
+          example: 2m30s
       responses:
         '202':
           $ref: '#/components/responses/Accepted'
@@ -794,7 +824,7 @@ paths:
     put:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Experimental
       summary: Set configurations in confdb
       description: Sets configuration values in confdb.
@@ -816,6 +846,23 @@ paths:
                     A map of configuration paths to JSON values to be set.
                     Use null to unset a value.
                   additionalProperties: true
+                options:
+                  type: object
+                  properties:
+                    access-timeout:
+                      type: string
+                      description: |-
+                        How long to wait for other confdb accesses to complete
+                        before cancelling the request and failing with an error.
+                        If not specified, a default timeout of 10 minutes is
+                        applied.
+                      format: Go duration
+                      externalDocs:
+                        description: |-
+                          Read more about how Go handles time and durations in the
+                          official Go Time package documentation.
+                        url: https://pkg.go.dev/time#ParseDuration
+                      example: 15s
               example:
                 values:
                   office.ssid: foo
@@ -883,7 +930,7 @@ paths:
   /v2/find:
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - OpenAccess
         - Store
         - Synchronous
@@ -892,7 +939,7 @@ paths:
         Finds snaps or components in the store that match the search criteria and
         are compatible with the host system. In order for the user to be authorized
         to use this route, they must be logged in via 'snap-login', hence being
-        tagged as both OpenAccess and AuthenticationRequired. PeerAuth is not listed
+        tagged as both OpenAccess and AuthenticatedAccess. PeerAuth is not listed
         here as sudo is not required to interact with the route.
       operationId: findSnaps
       security: []
@@ -968,7 +1015,7 @@ paths:
           type: string
     get:
       tags:
-        - OpenAccess
+        - InterfaceOpenAccess
         - Synchronous
         - Snaps
       summary: Get a snap's icon
@@ -1092,7 +1139,7 @@ paths:
     post:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Interfaces
       summary: Issue an action to the interface system
       description: |-
@@ -1137,14 +1184,57 @@ paths:
           $ref: '#/components/responses/Accepted'
         '400':
           $ref: '#/components/responses/BadRequest'
+  /v2/interfaces/requests:
+    post:
+      tags:
+        - ByActionAccess
+        - Experimental
+        - Interfaces
+        - Prompting
+        - Synchronous
+      summary: Ask for application access
+      description: Ask whether an application should be given access via an interface.
+      operationId: postInterfacesRequests
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/PromptingActionAsk'
+      responses:
+        '200':
+          description: The outcome of whether to allow or deny the application access.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    required:
+                      - outcome
+                    properties:
+                      outcome:
+                        type: string
+                        enum:
+                          - allow
+                          - deny
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /v2/interfaces/requests/prompts:
     get:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
-        - Sync
+        - Synchronous
       summary: Retrieve all outstanding prompts
       description: Retrieves a list of all outstanding access request prompts.
       operationId: getPrompts
@@ -1160,14 +1250,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PromptingPrompt'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /v2/interfaces/requests/prompts/{id}:
     get:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
         - Synchronous
       summary: Retrieve a prompt by ID
@@ -1189,13 +1287,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PromptingPrompt'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
     post:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
         - Synchronous
       summary: Reply to a prompt
@@ -1227,14 +1333,24 @@ paths:
                 type: array
                 items:
                   type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /v2/interfaces/requests/rules:
     get:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
         - Synchronous
       summary: Retrieve all rules
@@ -1264,13 +1380,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PromptingRule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
     post:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
         - Synchronous
       summary: Create or remove rules
@@ -1298,14 +1422,24 @@ paths:
                   - type: array
                     items:
                       $ref: '#/components/schemas/PromptingRule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /v2/interfaces/requests/rules/{id}:
     get:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
         - Synchronous
       summary: Retrieve a rule by ID
@@ -1327,13 +1461,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PromptingRule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
     post:
       tags:
         - Experimental
+        - InterfaceOpenAccess
         - Interfaces
-        - OpenAccess
         - Prompting
         - Synchronous
       summary: Patch or remove a rule by ID
@@ -1363,12 +1505,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PromptingRule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /v2/login:
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Store
         - Synchronous
       summary: Authenticate user with snapd and store
@@ -1457,7 +1609,7 @@ paths:
   /v2/logout:
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Store
         - Synchronous
       summary: Log user out of snapd and the store
@@ -1482,7 +1634,7 @@ paths:
   /v2/logs:
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
       summary: Get log contents
       description: Retrieves log contents from the snapd daemon. The response is a stream of newline-delimited JSON objects.
@@ -1512,7 +1664,7 @@ paths:
         '200':
           description: A stream of log messages. Each line is a self-contained JSON object.
           content:
-            application/x-ndjson:
+            application/json-seq:
               schema:
                 $ref: '#/components/schemas/Log'
         '400':
@@ -1557,7 +1709,7 @@ paths:
       tags:
         - Assertions
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
       summary: Replace the model assertion
       description: |-
         Replaces the current model assertion, potentially triggering a remodel of
@@ -1588,9 +1740,9 @@ paths:
                 containing the new model assertion.
               type: object
               required:
-                - assertion
+                - new-model
               properties:
-                assertion:
+                new-model:
                   type: string
                   description: A string containing the full, signed model assertion.
                   example: |
@@ -1607,7 +1759,7 @@ paths:
               remodelRequest:
                 summary: A typical JSON request to set a new model.
                 value:
-                  assertion: |-
+                  new-model: |-
                     type: model
                     authority-id: generic
                     series: 16
@@ -1651,7 +1803,8 @@ paths:
       summary: Get the current serial assertion
       description: |-
         Retrieves the current serial assertion for the system. The serial assertion
-        is a statement used to bind a device identity to it's public key, provided by the store.
+        is a statement used to bind a device identity to its public key, provided
+        by the store.
       externalDocs:
         description: Read more about serial assertions on the Ubuntu Core documentation.
         url: https://documentation.ubuntu.com/core/reference/assertions/serial/
@@ -1683,7 +1836,7 @@ paths:
       tags:
         - Assertions
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
       summary: Perform an action on the serial assertion
       description: |-
         Performs an asynchronous action on the current serial assertion by sending a
@@ -1725,8 +1878,8 @@ paths:
   /v2/notices:
     get:
       tags:
+        - InterfaceOpenAccess
         - Notices
-        - OpenAccess
         - Synchronous
       summary: Retrieve system notices
       description: |-
@@ -1894,8 +2047,8 @@ paths:
   /v2/notices/{id}:
     get:
       tags:
+        - InterfaceOpenAccess
         - Notices
-        - OpenAccess
         - Synchronous
       summary: Retrieve a specific system notice
       description: Retrieves a single notice by its unique ID.
@@ -1957,7 +2110,7 @@ paths:
     post:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Quotas
       summary: Manage quota groups
       description: Create, modify, or remove a quota group.
@@ -2059,7 +2212,7 @@ paths:
   /v2/snapctl:
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snaps
         - Synchronous
       summary: Run snapctl command
@@ -2123,12 +2276,18 @@ paths:
                   stderr:
                     type: string
                     description: Data written to stderr by the command.
+                  change-id:
+                    type: string
+                    description: |-
+                      If the command initiated an asynchronous operation, this field contains
+                      the change ID that can be used to track the operation's progress. If the
+                      command did not initiate an asynchronous operation, this field is null.
         '400':
           $ref: '#/components/responses/BadRequest'
   /v2/snaps:
     get:
       tags:
-        - OpenAccess
+        - InterfaceOpenAccess
         - Snaps
         - Synchronous
       summary: List installed snaps
@@ -2165,7 +2324,7 @@ paths:
     post:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snaps
       summary: Manage snaps
       description: |-
@@ -2236,6 +2395,11 @@ paths:
                   enum:
                     - per-snap
                     - all-snaps
+                validation-sets:
+                  type: array
+                  items:
+                    type: string
+                  description: A list of validation sets to enforce when performing the refresh action.
           multipart/form-data:
             schema:
               type: object
@@ -2302,7 +2466,7 @@ paths:
           type: string
     get:
       tags:
-        - OpenAccess
+        - InterfaceOpenAccess
         - Snaps
         - Synchronous
       summary: Get details for an installed snap
@@ -2321,7 +2485,7 @@ paths:
     post:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snaps
       summary: Manage a specific snap
       description: Perform an action (install, refresh, remove, etc.) on a single, specific snap.
@@ -2379,7 +2543,7 @@ paths:
   /v2/snaps/{name}/conf:
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snaps
         - Synchronous
       summary: Get snap configuration
@@ -2413,7 +2577,7 @@ paths:
     put:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snaps
       summary: Set snap configuration
       description: Set the configuration details for an installed snap. Use 'system' as the name to set system options.
@@ -2483,7 +2647,7 @@ paths:
     post:
       tags:
         - Asynchronous
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snapshots
       summary: Manipulate or import a snapshot
       description: Performs an action on a snapshot set, such as restoring, checking, forgetting, or importing from a data stream.
@@ -2538,7 +2702,7 @@ paths:
   /v2/snapshots/{set-id}/export:
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Snapshots
         - Synchronous
       summary: Export a snapshot set
@@ -2573,7 +2737,7 @@ paths:
   /v2/system/system-recovery-keys:
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
         - System
       summary: Get system recovery key
@@ -2599,7 +2763,7 @@ paths:
           $ref: '#/components/responses/BadRequest'
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
         - System
       summary: Manage system recovery keys
@@ -2652,7 +2816,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Systems
         - Asynchronous
         - Synchronous
@@ -2692,7 +2856,7 @@ paths:
           type: string
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Systems
         - Synchronous
       summary: Get details for a specific recovery system
@@ -2711,7 +2875,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Systems
       summary: Perform an action on a specific recovery system
       description: Perform an action on the recovery system identified by its label. The required parameters in the request body depend on the specified action.
@@ -2728,23 +2892,65 @@ paths:
                 - $ref: '#/components/schemas/SystemActionReboot'
                 - $ref: '#/components/schemas/SystemActionInstall'
                 - $ref: '#/components/schemas/SystemActionRemove'
-                - $ref: '#/components/schemas/SystemActionCheckPassphrase'
-                - $ref: '#/components/schemas/SystemActionCheckPin'
+                - $ref: '#/components/schemas/SystemActionCheckPassphraseQuality'
+                - $ref: '#/components/schemas/SystemActionCheckPinQuality'
                 - $ref: '#/components/schemas/SystemActionFixEncryptionSupport'
       responses:
         '200':
-          description: The action was successfully initiated (for synchronous actions).
+          description: The action or step was handled synchronously.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - type
+                  - status-code
+                  - status
+                  - result
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - sync
+                    description: The response type.
+                  status-code:
+                    type: integer
+                    enum:
+                      - 200
+                    description: The HTTP status code of the response.
+                  status:
+                    type: string
+                    enum:
+                      - OK
+                    description: The status of the response.
+                  result:
+                    description: |-
+                      The result of the synchronous operation, specific to each endpoint, action, or step:
+                        - `null` for actions `do` and `reboot`;
+                        - the generated recovery key for action `install` with step `generate-recovery-key`;
+                        - the quality assessment of the passphrase or PIN for actions `check-passphrase-quality` and
+                          `check-pin-quality`; and
+                        - the updated system details for action `fix-encryption-support`.
+                    anyOf:
+                      - $ref: '#/components/schemas/SystemActionInstallGenerateRecoveryKeyResponse'
+                      - $ref: '#/components/schemas/SystemActionCheckAuthQualityResponse'
+                      - $ref: '#/components/schemas/SystemDetails'
+                      - type: object
+                        nullable: true
+                        enum:
+                          - null
         '202':
-          description: The asynchronous action (e.g., install, remove) was accepted and is in progress.
           $ref: '#/components/responses/Accepted'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
   /v2/system-info:
     get:
       tags:
-        - OpenAccess
+        - InterfaceOpenAccess
         - Synchronous
         - Systems
       summary: Get system information
@@ -2778,7 +2984,7 @@ paths:
   /v2/users:
     get:
       tags:
-        - Root
+        - RootAccess
         - Synchronous
         - Users
       summary: Get user accounts
@@ -2801,7 +3007,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
     post:
       tags:
-        - Root
+        - RootAccess
         - Synchronous
         - Users
       summary: Manage users
@@ -2858,7 +3064,7 @@ paths:
   /v2/validation-sets:
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
         - Validation Sets
       summary: Get all enabled validation sets
@@ -2898,7 +3104,7 @@ paths:
         example: myset1
     get:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
         - Validation Sets
       summary: Get a specific validation set
@@ -2917,7 +3123,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
         - Validation Sets
       summary: Manage a specific validation set
@@ -3025,7 +3231,7 @@ paths:
           $ref: '#/components/responses/BadRequest'
     post:
       tags:
-        - AuthenticationRequired
+        - AuthenticatedAccess
         - Synchronous
         - Warnings
       summary: Respond to warnings
@@ -3187,12 +3393,15 @@ components:
                 enum:
                   - error
               result:
-                oneOf:
+                anyOf:
+                  - $ref: '#/components/schemas/AuthQualityError'
                   - $ref: '#/components/schemas/ConfdbError'
                   - $ref: '#/components/schemas/MalformedRequestError'
                   - $ref: '#/components/schemas/NoSSHKeysError'
                   - $ref: '#/components/schemas/UserNotFoundError'
                   - $ref: '#/components/schemas/SnapNotInstalledError'
+                  - $ref: '#/components/schemas/PromptingInvalidFieldsError'
+                  - $ref: '#/components/schemas/PromptingReplyNotMatchRequestError'
     Conflict:
       description: Conflict. The request conflicts with the current state of the server.
       content:
@@ -3216,7 +3425,9 @@ components:
                 enum:
                   - error
               result:
-                $ref: '#/components/schemas/ConflictError'
+                oneOf:
+                  - $ref: '#/components/schemas/ConflictError'
+                  - $ref: '#/components/schemas/PromptingRuleConflictError'
     Forbidden:
       description: |-
         Forbidden. The server understood the request but refuses to authorize it
@@ -3270,7 +3481,9 @@ components:
                 enum:
                   - error
               result:
-                $ref: '#/components/schemas/InternalServerError'
+                oneOf:
+                  - $ref: '#/components/schemas/InternalServerError'
+                  - $ref: '#/components/schemas/PromptingNotRunningError'
     MethodNotAllowed:
       description: The requested method is not allowed.
       content:
@@ -3324,7 +3537,105 @@ components:
                   - $ref: '#/components/schemas/NotFoundError'
                   - $ref: '#/components/schemas/UserNotFoundError'
                   - $ref: '#/components/schemas/SnapNotInstalledError'
+                  - $ref: '#/components/schemas/PromptingPromptNotFoundError'
+                  - $ref: '#/components/schemas/PromptingRuleNotFoundError'
+    ServiceUnavailable:
+      description: |-
+        Service Unavailable. The server is not ready to handle the request.
+        This is likely because snapd is attempting to restart, so the request should
+        be retried.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status-code:
+                type: integer
+                enum:
+                  - 503
+              status:
+                type: string
+                enum:
+                  - Service Unavailable
+              type:
+                type: string
+                enum:
+                  - error
+              result:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A human-readable error message.
+                    example: prompting subsystem has already been closed
   schemas:
+    AuthQualityEntropyMetrics:
+      type: object
+      title: AuthQualityEntropyMetrics
+      description: Entropy measurements and thresholds for a supplied passphrase or PIN.
+      required:
+        - entropy-bits
+        - min-entropy-bits
+        - optimal-entropy-bits
+      properties:
+        entropy-bits:
+          type: integer
+          minimum: 0
+          description: The calculated entropy of the passphrase or PIN in bits.
+        min-entropy-bits:
+          type: integer
+          minimum: 0
+          description: The minimum required entropy for the passphrase or PIN in bits.
+        optimal-entropy-bits:
+          type: integer
+          minimum: 0
+          description: The recommended minimum entropy for the passphrase or PIN in bits.
+    AuthQualityError:
+      oneOf:
+        - type: object
+          required:
+            - kind
+            - message
+            - value
+          properties:
+            kind:
+              type: string
+              enum:
+                - invalid-pin
+                - invalid-passphrase
+              description: The supplied PIN or passphrase did not pass all quality checks.
+            message:
+              type: string
+              description: A human-readable error message explaining why the PIN or passphrase did not pass quality checks.
+            value:
+              description: Machine-readable details about the failure.
+              allOf:
+                - $ref: '#/components/schemas/AuthQualityEntropyMetrics'
+                - type: object
+                  required:
+                    - reasons
+                  properties:
+                    reasons:
+                      type: array
+                      description: A list of reasons indicating which quality checks failed.
+                      items:
+                        type: string
+                        enum:
+                          - low-entropy
+        - type: object
+          additionalProperties: false
+          required:
+            - kind
+            - message
+          properties:
+            kind:
+              type: string
+              enum:
+                - unsupported
+              description: The target system does not support the authentication mode.
+            message:
+              type: string
+              description: A human-readable error message explaining that the target system does not support the authentication mode.
     ConfdbError:
       type: object
       description: An error occured while interacting with confdb.
@@ -3429,6 +3740,155 @@ components:
         message:
           type: string
           example: no snapshot set with the given ID
+    PromptingInvalidFieldsError:
+      type: object
+      required:
+        - message
+        - kind
+        - value
+      properties:
+        message:
+          type: string
+          description: A human-readable error message explaining the error.
+          example: 'invalid interface: "audio-playback"'
+        kind:
+          type: string
+          description: A machine-readable string identifying the error type.
+          enum:
+            - interfaces-requests-invalid-fields
+        value:
+          type: object
+          description: A map from field name to more information about the invalid value.
+          additionalProperties:
+            type: object
+            description: Details about an invalid value for a field.
+            required:
+              - reason
+            properties:
+              reason:
+                type: string
+                enum:
+                  - parse-error
+                  - unsupported-value
+              value:
+                oneOf:
+                  - type: array
+                    description: The list of unsupported values which were received for this field.
+                    items:
+                      type: string
+                  - type: string
+                    description: The invalid value received for this field.
+              supported:
+                type: array
+                description: The list of supported values for this field.
+                items:
+                  type: string
+    PromptingNotRunningError:
+      type: object
+      required:
+        - message
+        - kind
+      properties:
+        message:
+          type: string
+          description: A human-readable error message explaining the error.
+          enum:
+            - AppArmor Prompting is not running
+        kind:
+          type: string
+          description: A machine-readable string identifying the error type.
+          enum:
+            - apparmor-prompting-not-running
+    PromptingReplyNotMatchRequestError:
+      type: object
+      required:
+        - message
+        - kind
+        - value
+      properties:
+        message:
+          type: string
+          description: A human-readable error message explaining the error.
+          example: 'permissions in reply constraints do not include all requested permissions [read]: [write]'
+        kind:
+          type: string
+          description: A machine-readable string identifying the error type.
+          enum:
+            - interfaces-requests-reply-not-match-request
+        value:
+          type: object
+          description: Information about the reply field(s) which did not match the request.
+          properties:
+            path-pattern:
+              type: object
+              required:
+                - requested-path
+                - replied-pattern
+              properties:
+                requested-path:
+                  type: string
+                  example: /home/ubuntu/Documents/file.txt
+                replied-pattern:
+                  type: string
+                  example: /home/ubuntu/Pictures/**/*.txt
+            permissions:
+              type: object
+              required:
+                - requested-permissions
+                - replied-permissions
+              properties:
+                requested-permissions:
+                  type: array
+                  items:
+                    type: string
+                replied-permissions:
+                  type: array
+                  items:
+                    type: string
+    PromptingRuleConflictError:
+      type: object
+      required:
+        - message
+        - kind
+        - value
+      properties:
+        message:
+          type: string
+          description: A human-readable error message explaining the conflict.
+          example: 'cannot add rule: a rule with conflicting path pattern and permission already exists in the rule database'
+        kind:
+          type: string
+          description: A machine-readable string identifying the error type.
+          enum:
+            - interfaces-requests-rule-conflict
+        value:
+          type: object
+          description: Additional structured data about the conflict.
+          required:
+            - conflicts
+          properties:
+            conflicts:
+              type: array
+              description: Information about the existing rules which conflict with the new rule.
+              items:
+                type: object
+                required:
+                  - conflicting-id
+                  - permission
+                  - variant
+                properties:
+                  conflicting-id:
+                    type: string
+                    description: The ID of the conflicting rule.
+                    example: 00000000000001B2
+                  permission:
+                    type: string
+                    description: The permission for which the rule conflicts.
+                    example: read
+                  variant:
+                    type: string
+                    description: The path pattern variant which conflicts.
+                    example: /home/ubuntu/Pictures/**/*.jpg
     SnapNotInstalledError:
       type: object
       description: The snap does not exist on the system.
@@ -3655,7 +4115,7 @@ components:
               account-id: canonical
               authority-id: canonical
               display-name: Canonical
-              sign-key-sha3-384: '-CvQKAwRQ5h3Ffn10FILJoEZUXOv6km9FwA80-Rcj-f-6jadQ89VRswHNiEB9Lxk'
+              sign-key-sha3-384: -CvQKAwRQ5h3Ffn10FILJoEZUXOv6km9FwA80-Rcj-f-6jadQ89VRswHNiEB9Lxk
               timestamp: '2016-04-01T00:00:00.0Z'
               type: account
               username: canonical
@@ -3664,7 +4124,7 @@ components:
               account-id: generic
               authority-id: canonical
               display-name: Generic
-              sign-key-sha3-384: '-CvQKAwRQ5h3Ffn10FILJoEZUXOv6km9FwA80-Rcj-f-6jadQ89VRswHNiEB9Lxk'
+              sign-key-sha3-384: -CvQKAwRQ5h3Ffn10FILJoEZUXOv6km9FwA80-Rcj-f-6jadQ89VRswHNiEB9Lxk
               timestamp: '2017-07-27T00:00:00.0Z'
               type: account
               username: generic
@@ -3731,7 +4191,7 @@ components:
           description: A log of events that occurred during the change.
     ConfdbControlAction:
       type: object
-      description: Request to delegate or withdraw an operator's remote access to confdb views.
+      description: Request to delegate or withdraw an operator's control over confdb views.
       required:
         - action
         - operator-id
@@ -4123,6 +4583,18 @@ components:
         - snap-run-inhibit
         - interfaces-requests-prompt
         - interfaces-requests-rule-update
+    PIN:
+      type: string
+      title: PIN
+      format: password
+      minLength: 1
+      maxLength: 256
+      pattern: ^[0-9]+$
+    Passphrase:
+      type: string
+      title: Passphrase
+      format: password
+      minLength: 1
     Plug:
       type: object
       description: Detailed information about a plug.
@@ -4181,6 +4653,40 @@ components:
           type: integer
           description: The total number of units for the task.
           example: 3
+    PromptingActionAsk:
+      type: object
+      description: The schema the API uses for the 'ask' action of /v2/interfaces/requests.
+      required:
+        - action
+        - interface
+        - pid
+      properties:
+        action:
+          type: string
+          description: The action to perform on the interfaces requests endpoint.
+          enum:
+            - ask
+        interface:
+          type: string
+          description: The interface for which to ask permission.
+          enum:
+            - audio-record
+        pid:
+          type: integer
+          format: int32
+          minimum: 1
+          description: The PID of the process for which to request access.
+    PromptingConstraintsAudioRecord:
+      type: object
+      description: Details about the applicability of the new rule to requests.
+      required:
+        - permissions
+      properties:
+        permissions:
+          type: object
+          description: A map from permission name to the information about that permission.
+          additionalProperties:
+            $ref: '#/components/schemas/PromptingPermissionEntry'
     PromptingConstraintsCamera:
       type: object
       description: Details about the applicability of the new rule to requests.
@@ -4206,6 +4712,24 @@ components:
           type: object
           description: A map from permission name to the information about that permission.
           additionalProperties:
+            $ref: '#/components/schemas/PromptingPermissionEntry'
+    PromptingPatchConstraintsAudioRecord:
+      type: object
+      description: |-
+        Details about the applicability of the modified rule to requests.
+
+        Any fields which are omitted are left unchanged from the existing rule.
+      properties:
+        permissions:
+          type: object
+          description: |-
+            A map from permission name to the information about that permission.
+
+            Any permissions omitted from this map are left unchanged from the existing rule.
+
+            To remove a permission from the existing rule, map the permission name to null.
+          additionalProperties:
+            nullable: true
             $ref: '#/components/schemas/PromptingPermissionEntry'
     PromptingPatchConstraintsCamera:
       type: object
@@ -4346,12 +4870,35 @@ components:
           type: string
           description: The interface associated with the prompt.
           enum:
-            - home
+            - audio-record
             - camera
+            - home
         constraints:
           oneOf:
+            - $ref: '#/components/schemas/PromptingPromptConstraintsAudioRecord'
             - $ref: '#/components/schemas/PromptingPromptConstraintsCamera'
             - $ref: '#/components/schemas/PromptingPromptConstraintsHome'
+    PromptingPromptConstraintsAudioRecord:
+      type: object
+      description: Represents the constraints associated with a prompt for the audio-record interface.
+      required:
+        - requested-permissions
+        - available-permissions
+      properties:
+        requested-permissions:
+          type: array
+          description: The permissions for which access is requested.
+          items:
+            type: string
+            enum:
+              - access
+        available-permissions:
+          type: array
+          description: The complete list of permissions for the audio-record interface.
+          items:
+            type: string
+            enum:
+              - access
     PromptingPromptConstraintsCamera:
       type: object
       description: Represents the constraints associated with a prompt for the camera interface.
@@ -4383,7 +4930,13 @@ components:
       properties:
         path:
           type: string
-          description: The path for which access is requested.
+          description: |
+            The path for which access is requested.
+
+            Any characters which are considered special in reply path patterns will
+            be escaped by a backslash ('\') character. That way, the "path" field in the prompt
+            can be used directly as the "path-pattern" field in a reply and exactly
+            match the requested path.
           example: /home/ubuntu/Downloads/image.png
         requested-permissions:
           type: array
@@ -4448,8 +5001,22 @@ components:
           example: 7h30m
         constraints:
           oneOf:
+            - $ref: '#/components/schemas/PromptingReplyConstraintsAudioRecord'
             - $ref: '#/components/schemas/PromptingReplyConstraintsCamera'
             - $ref: '#/components/schemas/PromptingReplyConstraintsHome'
+    PromptingReplyConstraintsAudioRecord:
+      type: object
+      description: Represents the constraints associated with a reply to a prompt for the audio-record interface.
+      required:
+        - permissions
+      properties:
+        permissions:
+          type: array
+          description: The permissions applied to requests to access microphones via the audio-record interface.
+          items:
+            type: string
+            enum:
+              - access
     PromptingReplyConstraintsCamera:
       type: object
       description: Represents the constraints associated with a reply to a prompt for the camera interface.
@@ -4518,10 +5085,12 @@ components:
           type: string
           description: The interface for which the rule applies.
           enum:
+            - audio-record
             - camera
             - home
         constraints:
           oneOf:
+            - $ref: '#/components/schemas/PromptingRuleConstraintsAudioRecord'
             - $ref: '#/components/schemas/PromptingRuleConstraintsCamera'
             - $ref: '#/components/schemas/PromptingRuleConstraintsHome'
     PromptingRuleActionAdd:
@@ -4547,6 +5116,7 @@ components:
               description: The interface for which to add the rule.
             constraints:
               oneOf:
+                - $ref: '#/components/schemas/PromptingConstraintsAudioRecord'
                 - $ref: '#/components/schemas/PromptingConstraintsCamera'
                 - $ref: '#/components/schemas/PromptingConstraintsHome'
     PromptingRuleActionPatch:
@@ -4566,6 +5136,7 @@ components:
           properties:
             constraints:
               oneOf:
+                - $ref: '#/components/schemas/PromptingPatchConstraintsAudioRecord'
                 - $ref: '#/components/schemas/PromptingPatchConstraintsCamera'
                 - $ref: '#/components/schemas/PromptingPatchConstraintsHome'
     PromptingRuleActionRemove:
@@ -4592,6 +5163,17 @@ components:
               description: The interface for which to remove rules.
     PromptingRuleActionRemoveByID:
       $ref: '#/components/schemas/PromptingRuleActionRemoveById'
+    PromptingRuleConstraintsAudioRecord:
+      type: object
+      description: Details about the applicability of the existing rule to requests.
+      required:
+        - permissions
+      properties:
+        permissions:
+          type: object
+          description: A map linking the permission name to its respective information.
+          additionalProperties:
+            $ref: '#/components/schemas/PromptingPermissionRuleEntry'
     PromptingRuleConstraintsCamera:
       type: object
       description: Details about the applicability of the existing rule to requests.
@@ -4600,7 +5182,7 @@ components:
       properties:
         permissions:
           type: object
-          description: A map linking the permission name to it's respective information.
+          description: A map linking the permission name to its respective information.
           additionalProperties:
             $ref: '#/components/schemas/PromptingPermissionRuleEntry'
     PromptingRuleConstraintsHome:
@@ -4615,7 +5197,7 @@ components:
           description: Path glob matching filepaths for which the rule applies.
         permissions:
           type: object
-          description: A map linking the permission name to it's respective information.
+          description: A map linking the permission name to its respective information.
           additionalProperties:
             $ref: '#/components/schemas/PromptingPermissionRuleEntry'
     Publisher:
@@ -4930,10 +5512,16 @@ components:
         name:
           type: string
           description: The name of the category.
-    SystemActionCheckPassphrase:
+    SystemActionCheckAuthQualityResponse:
+      allOf:
+        - $ref: '#/components/schemas/AuthQualityEntropyMetrics'
+        - type: object
+      title: SystemActionCheckAuthQualityResponse
+      description: Response body containing the quality assessment of the provided passphrase or PIN for actions `check-passphrase-quality` and `check-pin-quality`.
+    SystemActionCheckPassphraseQuality:
       type: object
-      title: SystemActionCheckPassphrase
-      description: Payload to check the quality of a given passphrase.
+      title: SystemActionCheckPassphraseQuality
+      description: Payload to check the quality of a given passphrase. The target system must support passphrase authentication, indicated by the 'passphrase-auth' entry in `storage-encryption.features` returned by `GET /v2/systems/{label}`. Otherwise, snapd returns a 400 Bad Request error with result kind `unsupported`.
       required:
         - action
         - passphrase
@@ -4941,15 +5529,15 @@ components:
         action:
           type: string
           enum:
-            - check-passphrase
+            - check-passphrase-quality
         passphrase:
-          type: string
-          format: password
+          allOf:
+            - $ref: '#/components/schemas/Passphrase'
           description: The passphrase to validate.
-    SystemActionCheckPin:
+    SystemActionCheckPinQuality:
       type: object
-      title: SystemActionCheckPin
-      description: Payload to check the quality of a given PIN.
+      title: SystemActionCheckPinQuality
+      description: Payload to check the quality of a given PIN. The target system must support PIN authentication, indicated by the 'pin-auth' entry in `storage-encryption.features` returned by `GET /v2/systems/{label}`. Otherwise, snapd returns a 400 Bad Request error with result kind `unsupported`.
       required:
         - action
         - pin
@@ -4957,10 +5545,10 @@ components:
         action:
           type: string
           enum:
-            - check-pin
+            - check-pin-quality
         pin:
-          type: string
-          format: password
+          allOf:
+            - $ref: '#/components/schemas/PIN'
           description: The PIN to validate.
     SystemActionCreate:
       type: object
@@ -5014,7 +5602,7 @@ components:
     SystemActionFixEncryptionSupport:
       type: object
       title: SystemActionFixEncryptionSupport
-      description: Payload to apply a corrective action to fix storage encryption support.
+      description: Payload to apply a corrective action to fix storage encryption support. Action `fix-encryption-support` requires an initial GET request to the same system (`GET /v2/systems/{label}`), which runs the initial pre-install check and creates an in-memory pre-install check context. Each iteration of the `fix-encryption-support` action applies the requested fix and runs a subsequent pre-install check, using that context, so multiple actions can be performed in sequence. Another GET request to the same system (`GET /v2/systems/{label}`) replaces this context and resets the action sequence. The context is also lost if snapd restarts or the system reboots.
       required:
         - action
         - fix-action
@@ -5025,11 +5613,11 @@ components:
             - fix-encryption-support
         fix-action:
           type: string
-          description: The specific fix to apply.
+          description: The specific fix to apply. An empty string maps to `ActionNone` in the secboot library. Otherwise, it must be an action reported by the most recent pre-install check. Actions should be attempted in the order in which they appear in the `actions` array for the relevant item in `SystemDetails.storage-encryption.availability-check-errors`.
         args:
           type: object
-          additionalProperties:
-            type: string
+          minProperties: 1
+          additionalProperties: true
           description: A map of key-value arguments for the fix action.
     SystemActionInstall:
       type: object
@@ -5050,8 +5638,11 @@ components:
             - setup-storage-encryption
             - generate-recovery-key
             - finish
+            - preseed
       oneOf:
         - type: object
+          description: Sets up the system's storage encryption.
+          title: setup-storage-encryption
           required:
             - step
           properties:
@@ -5060,16 +5651,38 @@ components:
               enum:
                 - setup-storage-encryption
             on-volumes:
-              type: array
-              items:
-                type: string
-              description: A list of volume labels to operate on.
-            volumes-auth:
               type: object
+              description: A map of the volumes to operate on, keyed by volume name.
               additionalProperties:
-                type: string
-              description: A map of volume labels to their authentication credentials (e.g., passphrase or PIN).
+                $ref: '#/components/schemas/GadgetVolume'
+            volumes-auth:
+              $ref: '#/components/schemas/VolumesAuth'
+            keyboard-config:
+              type: object
+              description: Keyboard configuration selected at install time, used to configure the keymap on first boot (e.g. plymouth passphrase/PIN prompt). This field is required when 'volumes-auth' is set. Values must form a valid XKB configuration.
+              properties:
+                layout:
+                  type: string
+                  description: The keyboard layout to use (for example, 'us', 'uk', or 'eg').
+                  example: us
+                model:
+                  type: string
+                  description: The keyboard model to use.
+                  example: pc105
+                variant:
+                  type: string
+                  description: The keyboard variant to use.
+                  example: dvorak
+                options:
+                  type: array
+                  items:
+                    type: string
+                  description: A list of additional keyboard options to use.
+                  example:
+                    - ctrl:nocaps
         - type: object
+          description: Generates a recovery key for the system. Complete the `setup-storage-encryption` step before this step.
+          title: generate-recovery-key
           required:
             - step
           properties:
@@ -5078,6 +5691,8 @@ components:
               enum:
                 - generate-recovery-key
         - type: object
+          description: Finishes the installation by writing missing volume content, setting up the bootloader, and installing the kernel. When complete, the installed system is ready to reboot.
+          title: finish
           required:
             - step
           properties:
@@ -5086,10 +5701,10 @@ components:
               enum:
                 - finish
             on-volumes:
-              type: array
-              items:
-                type: string
-              description: A list of volume labels to operate on.
+              type: object
+              description: A map of the volumes to operate on, keyed by volume name.
+              additionalProperties:
+                $ref: '#/components/schemas/GadgetVolume'
             optional-install:
               type: object
               properties:
@@ -5106,6 +5721,31 @@ components:
                   items:
                     type: string
                   description: A list of specific optional components to install.
+        - type: object
+          description: Preseeds the installed system. Call this step after the `finish` step completes and before rebooting.
+          title: preseed
+          required:
+            - step
+            - target-root
+          properties:
+            step:
+              type: string
+              enum:
+                - preseed
+            target-root:
+              type: string
+              description: The path to the rootfs of the mounted target system for the `preseed` step.
+    SystemActionInstallGenerateRecoveryKeyResponse:
+      type: object
+      title: SystemActionInstallGenerateRecoveryKeyResponse
+      description: Response body containing the generated recovery key for step `generate-recovery-key` of action `install`.
+      required:
+        - recovery-key
+      properties:
+        recovery-key:
+          type: string
+          description: A 16-byte number represented as 8 5-digit zero-extended base-10 numbers (each with range of 00000-65535) which may be separated by an optional '-'.
+          example: 61665-00531-54469-09783-47273-19035-40077-28287
     SystemActionReboot:
       type: object
       title: SystemActionReboot
@@ -5196,6 +5836,133 @@ components:
             model:
               type: string
               example: ubuntu-core-24-amd64
+    SystemDetails:
+      type: object
+      title: SystemDetails
+      description: Detailed information about a specific recovery system.
+      properties:
+        current:
+          type: boolean
+          description: Whether this is the currently running system.
+        label:
+          type: string
+          description: The unique label identifying the recovery system.
+        brand:
+          type: object
+          title: StoreAccount
+          properties:
+            id:
+              type: string
+            username:
+              type: string
+            display-name:
+              type: string
+            validation:
+              type: string
+        model:
+          type: object
+          description: A map of the model assertion's headers.
+          additionalProperties: true
+        actions:
+          type: array
+          description: A list of actions that can be performed on this system.
+          items:
+            type: object
+            title: SystemActionInfo
+            properties:
+              title:
+                type: string
+              mode:
+                type: string
+        available-optional:
+          type: object
+          properties:
+            snaps:
+              type: array
+              items:
+                type: string
+              description: A list of optional snaps available for installation.
+            components:
+              type: object
+              description: A map of snap names to the optional components available for installation.
+              additionalProperties:
+                type: array
+                items:
+                  type: string
+        volumes:
+          type: object
+          description: A map of the storage volumes defined by the system's gadget snap, keyed by volume name.
+          additionalProperties:
+            $ref: '#/components/schemas/GadgetVolume'
+        storage-encryption:
+          type: object
+          title: StorageEncryptionInfo
+          description: Information about the system's storage encryption capabilities.
+          properties:
+            support:
+              type: string
+              enum:
+                - disabled
+                - available
+                - defective
+                - unavailable
+              description: The current support status for storage encryption.
+            storage-safety:
+              type: string
+              description: The required storage safety level.
+              example: encrypted
+            encryption-type:
+              type: string
+              enum:
+                - cryptsetup
+                - cryptsetup-with-inline-crypto-engine
+              description: The type of encryption.
+            unavailable-reason:
+              type: string
+              description: The reason why storage encryption is unavailable or defective. When a single availability check error is detected, `unavailable-reason` reports the error message; when multiple errors are detected, it reports the number of errors (e.g. 'availability check identified 2 errors'). During pre-install, must be populated if `availability-check-errors` is non-empty.
+            availability-check-errors:
+              type: array
+              description: A list of errors detected during the pre-install check, as determined by the secboot library.
+              items:
+                type: object
+                title: PreinstallErrorDetails
+                required:
+                  - kind
+                  - message
+                properties:
+                  kind:
+                    type: string
+                    description: The kind of the error as classified by the secboot library.
+                  message:
+                    type: string
+                    description: A human readable description of the error.
+                  args:
+                    type: object
+                    additionalProperties: true
+                    description: Additional information relating to the error, as constructed by the secboot library during classification.
+                  actions:
+                    type: array
+                    items:
+                      type: string
+                    description: The available actions for the error kind, as mapped by the secboot library. Actions are listed in the order they should be attempted.
+            features:
+              type: array
+              items:
+                type: string
+                enum:
+                  - passphrase-auth
+                  - pin-auth
+              description: |-
+                A list of supported encryption features:
+                - 'passphrase-auth' indicates that passphrase-based authentication is supported;
+                - 'pin-auth' indicates that PIN-based authentication is supported.
+            requirements:
+              type: array
+              items:
+                type: string
+                enum:
+                  - volumes-auth
+              description: A list of requirements that must be met for storage encryption to be supported. 'volumes-auth' indicates that volumes authentication using a PIN or passphrase is required, likely because hardware root of trust (HWROT) is missing.
     SystemInfo:
       type: object
       description: Detailed information about the snapd server's configuration and environment.
@@ -5404,6 +6171,53 @@ components:
         url: https://snapcraft.io/docs/timer-string-format
       pattern: ^[a-zA-Z0-9,:~\/-]+$
       example: mon-wed,fri,9:00-11:00/2
+    VolumesAuth:
+      type: object
+      title: VolumesAuth
+      required:
+        - mode
+      description: Options for the volumes authentication mechanism (passphrase or PIN). If omitted, no authentication mechanism is used. If `storage-encryption.requirements` in SystemDetails contains 'volumes-auth', this field is required.
+      properties:
+        mode:
+          type: string
+          enum:
+            - passphrase
+            - pin
+          description: The authentication mode to use for the volumes. The selected must be supported by the system and returned in `storage-encryption.features` in SystemDetails ('passphrase-auth' for passphrase, 'pin-auth' for PIN).
+      oneOf:
+        - type: object
+          title: passphrase
+          additionalProperties: false
+          required:
+            - mode
+            - passphrase
+          properties:
+            mode:
+              type: string
+              enum:
+                - passphrase
+            passphrase:
+              $ref: '#/components/schemas/Passphrase'
+            kdf-type:
+              type: string
+              enum:
+                - argon2i
+                - argon2id
+                - pbkdf2
+              description: The key derivation function to use for passphrase authentication. If omitted, snapd defaults to 'argon2id'.
+        - type: object
+          title: pin
+          additionalProperties: false
+          required:
+            - mode
+            - pin
+          properties:
+            mode:
+              type: string
+              enum:
+                - pin
+            pin:
+              $ref: '#/components/schemas/PIN'
     User:
       type: object
       description: Represents a user account on the system.
@@ -5479,6 +6293,36 @@ components:
           type: string
           description: Duration string indicating how much time since this warning was last shown that it should be shown again.
           example: 30m
+    PromptingPromptNotFoundError:
+      type: object
+      required:
+        - message
+        - kind
+      properties:
+        message:
+          type: string
+          description: A human-readable error message explaining the error.
+          example: cannot find prompt with the given ID for the given user
+        kind:
+          type: string
+          description: A machine-readable string identifying the error type.
+          enum:
+            - interfaces-requests-prompt-not-found
+    PromptingRuleNotFoundError:
+      type: object
+      required:
+        - message
+        - kind
+      properties:
+        message:
+          type: string
+          description: A human-readable error message explaining the error.
+          example: cannot find rule with the given ID
+        kind:
+          type: string
+          description: A machine-readable string identifying the error type.
+          enum:
+            - interfaces-requests-rule-not-found
     PromptingRuleActionRemoveById:
       type: object
       description: The schema the API uses for the 'remove' action of /v2/interfaces/rules/{id}.
@@ -5490,107 +6334,114 @@ components:
           description: The action to perform on the rule with the given ID.
           enum:
             - remove
-    SystemDetails:
+    GadgetVolume:
       type: object
-      title: SystemDetails
-      description: Detailed information about a specific recovery system.
+      title: GadgetVolume
+      description: A storage volume defined by the system's gadget snap.
       properties:
-        current:
-          type: boolean
-          description: Whether this is the currently running system.
-        label:
+        schema:
           type: string
-          description: The unique label identifying the recovery system.
-        brand:
-          type: object
-          title: StoreAccount
-          properties:
-            id:
-              type: string
-            username:
-              type: string
-            display-name:
-              type: string
-            validation:
-              type: string
-        model:
-          type: object
-          description: A map of the model assertion's headers.
-          additionalProperties: true
-        actions:
+          description: The partition table schema of the volume, either 'gpt' or 'mbr'.
+        bootloader:
+          type: string
+          description: The bootloader used by the volume.
+        id:
+          type: string
+          description: The 2-hex digit disk ID or the GUID of the GPT.
+        partial:
           type: array
-          description: A list of actions that can be performed on this system.
+          items:
+            type: string
+          description: A list of volume properties that are only partially described in the gadget and that need to be filled in by an installer.
+        structure:
+          type: array
+          description: The structures (partitions and other areas) defined within the volume.
           items:
             type: object
-            title: SystemActionInfo
-            properties:
-              title:
-                type: string
-              mode:
-                type: string
-        available-optional:
-          type: object
-          properties:
-            snaps:
-              type: array
-              items:
-                type: string
-              description: A list of optional snaps available for installation.
-            components:
-              type: array
-              items:
-                type: string
-              description: A list of optional components available for installation.
-        volumes:
-          type: array
-          description: A list of storage volumes defined by the system's gadget snap.
-          items:
-            type: object
-            title: VolumeInfo
+            title: VolumeStructure
+            description: A single structure within a volume, representing a partition, a Master Boot Record (MBR), or any other contiguous range within the volume.
             properties:
               name:
                 type: string
-                description: The name of the volume.
+                description: The name of the structure.
+              filesystem-label:
+                type: string
+                description: The filesystem label of the structure.
+              offset:
+                type: integer
+                nullable: true
+                description: The starting offset of the structure in bytes.
+              offset-write:
+                type: object
+                nullable: true
+                description: Describes a 32-bit address, within the volume, at which the offset of the current structure will be written.
+                properties:
+                  relative-to:
+                    type: string
+                    description: Names the structure relative to which the location of the address write will be calculated.
+                  offset:
+                    type: integer
+                    description: A 32-bit value, expressed in bytes.
+              min-size:
+                type: integer
+                description: The minimum size of the structure in bytes.
+              size:
+                type: integer
+                description: The size of the structure in bytes.
               type:
                 type: string
-                description: The filesystem type.
-              size:
+                description: The type of the structure, which can be an MBR partition, 36-char GUID partition, comma separated <mbr>,<guid> for hybrid partition schemes, or 'bare' for structures that are not partitions. 'mbr' is accepted for backwards compatibility and the structure is treated as if it had the role 'mbr'.
+              role:
                 type: string
-                description: The size of the volume.
-        storage-encryption:
-          type: object
-          title: StorageEncryptionInfo
-          description: Information about the system's storage encryption capabilities.
-          properties:
-            support:
-              type: string
-              enum:
-                - disabled
-                - available
-                - defective
-                - unavailable
-              description: The current support status for storage encryption.
-            storage-safety:
-              type: string
-              description: The required storage safety level (e.g., 'encrypted').
-            type:
-              type: string
-              description: The type of encryption (e.g., 'luks2').
-            unavailable-reason:
-              type: string
-              description: The reason why encryption is unavailable or defective.
-            availability-check-errors:
-              type: array
-              items:
+                description: The role of the structure. Can be 'mbr', 'system-data', 'system-boot', 'system-boot-image', 'system-boot-select' or 'system-recovery-select'.
+              id:
                 type: string
-              description: A list of errors encountered during the availability check.
-            features:
-              type: array
-              items:
+                description: The GPT partition ID. For comparison purposes, it should always be uppercase.
+              filesystem:
                 type: string
-                enum:
-                  - passphrase-auth
-              description: A list of supported encryption features.
+                description: The filesystem used by the structure. Can be 'vfat', 'vfat-{16,32}', 'ext4', or 'none' for bare structures. 'vfat' is a synonym for 'vfat-32'.
+              content:
+                type: array
+                nullable: true
+                description: The files or images written into the structure.
+                items:
+                  type: object
+                  title: VolumeContent
+                  description: The files within a filesystem described by the structure or a raw image for a bare structure.
+                  properties:
+                    source:
+                      type: string
+                      description: The data of the partition relative to the gadget base directory.
+                    target:
+                      type: string
+                      description: The location of the data inside the root filesystem.
+                    image:
+                      type: string
+                      description: The image, relative to the gadget base directory, to be used for a bare structure.
+                    offset:
+                      type: integer
+                      nullable: true
+                      description: The offset the image is written at.
+                    size:
+                      type: integer
+                      description: The declared size of the image, in bytes. When empty, the size is determined from the actual size of the image file.
+                    unpack:
+                      type: boolean
+                      description: Whether the image is unpacked.
+              update:
+                type: object
+                title: VolumeUpdate
+                properties:
+                  edition:
+                    type: integer
+                  preserve:
+                    type: array
+                    nullable: true
+                    items:
+                      type: string
+              device:
+                type: string
+                description: The device the structure is assigned to, when set by an installer.
   parameters:
     UserId:
       name: user-id
