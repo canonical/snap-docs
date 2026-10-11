@@ -19,8 +19,8 @@ To install the prerequisites:
 
    make install
 
-This will create a virtual environment (``.sphinx/venv``) and install
-dependency software (``.sphinx/requirements.txt``) within it.
+This will create a virtual environment (``.venv``) and install dependency
+software from ``requirements.txt`` within it.
 
 View the documentation
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -43,5 +43,4 @@ The ``run`` target is therefore very convenient when preparing to submit a
 change to the documentation.
 
 .. LINKS
-.. _`Documentation starter pack`: https://github.com/canonical/sphinx-docs-starter-pack/tree/main
-
+.. _`Sphinx Stack`: https://github.com/canonical/sphinx-stack
