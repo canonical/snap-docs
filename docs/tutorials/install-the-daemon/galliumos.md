@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install the snapd package on GalliumOS through the Synaptic package manager or from Xfce Terminal using standard APT commands.
+---
+
 (interfaces-installing-snap-on-galliumos)=
 # Install snap on GalliumOS
 

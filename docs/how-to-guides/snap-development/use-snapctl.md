@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Use snapctl within snaps to manage configuration, confdb, components, health, interfaces, services, mounts, models, and refreshes.
+---
+
 (how-to-guides-manage-snaps-use-snapctl)=
 # Use snapctl
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for environment variables available to snap applications, including paths, data directories, revisions, libraries, and desktop support.
+---
+
 (reference-development-environment-variables)=
 # Environment variables
 

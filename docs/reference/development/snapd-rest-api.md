@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for the snapd REST API, including endpoints for managing snaps, system configuration, assertions, interfaces, changes, and users.
+---
+
 (reference-development-snapd-rest-api)=
 # SnapD REST API
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand the system snap directory, where installed snap packages are mounted, and how its files, revisions, and storage are organised.
+---
+
 (interfaces-system-snap-directory)=
 # System snap directory
 

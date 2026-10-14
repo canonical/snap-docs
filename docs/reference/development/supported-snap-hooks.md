@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for supported snap hooks, including lifecycle, configuration, interface, refresh, installation, and removal hooks.
+---
+
 (reference-development-supported-snap-hooks)=
 # Supported snap hooks
 

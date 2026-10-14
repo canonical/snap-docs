@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: View, set, retrieve, and unset configuration options for installed snaps, including nested values, JSON output, and validated updates.
+---
+
 (how-to-guides-work-with-snaps-configure-snaps)=
 # Configure snaps
 

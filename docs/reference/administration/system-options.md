@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for snap system options, including device, network, refresh, proxy, logging, and user account configuration.
+---
+
 (reference-operations-system-options)=
 # System options
 

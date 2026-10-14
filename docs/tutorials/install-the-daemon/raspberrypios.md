@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on Raspberry Pi OS with APT, reboot your device, install the core snap, and test it with hello-world.
+---
+
 (interfaces-installing-snap-on-raspbian)=
 # Install snap on Raspberry Pi OS
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for the gadget snap, including gadget.yaml, device storage layouts, boot configuration, defaults, interfaces, and lifecycle hooks.
+---
+
 (reference-development-yaml-schemas-the-gadget-snap)=
 # The gadget snap
 

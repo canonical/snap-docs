@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for the home interface, which lets snaps access non-hidden files and directories in the user's home directory.
+---
+
 (interfaces-home-interface)=
 #  home interface
 

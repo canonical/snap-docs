@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on Debian with APT, update to the latest release, resolve feature requirements, and verify it with hello-world.
+---
+
 (tutorials-install-the-daemon-debian)=
 # Install snap on Debian
 

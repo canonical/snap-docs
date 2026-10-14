@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand snapd support for home directories outside /home, using the homedirs system option or bind mounts for snap user data.
+---
+
 (interfaces-home-outside-home)=
 # Home outside home
 

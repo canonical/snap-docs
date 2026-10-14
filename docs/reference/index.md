@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Complete reference documentation for snap packages - technical details on all snap packaging features for snap users and snap package developers, including the snapd REST API, YAML schemas, system architecture and more. 
+    description: Complete reference documentation for snap packages, including administration, development, system architecture, interfaces, APIs, and YAML schemas.
 ---
 
 (reference-index)=

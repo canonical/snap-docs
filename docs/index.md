@@ -1,8 +1,9 @@
 ---
 myst:
   html_meta:
-    description: Official snap packaging documentation - comprehensive guides for installation, configuration, security, package updates and removal management, alongside technical details on all snap packaging features for snap users and snap package developers.
+    description: Official documentation for snap packages and snapd, covering installation, configuration, security, updates, and snap development.
     google-site-verification: "ptZ-UgCb6UjBHQ60paTDvhjC36oELGPKMvOxpEJJv4g"
+    google-site-verification: "BMa0gPz8blugX1MVoyh9Xn4OFqDZzrmFrcU0dyKGJjE"
 ---
 
 (ref-index_snap-documentation)=

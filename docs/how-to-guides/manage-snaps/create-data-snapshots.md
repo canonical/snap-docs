@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Create, inspect, verify, export, import, restore, and delete snap data snapshots, with automatic retention and file exclusions.
+---
+
 (how-to-guides-manage-snaps-create-data-snapshots)=
 # Create data snapshots
 

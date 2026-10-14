@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Deepen your understanding of how snaps can run on all kinds of devices, in all kinds of environments. Learn about system options, data locations, distribution support, network requirements and more for snap users and snap package developers.
+    description: Reference documentation for administering snaps across devices and environments, including system options, data locations, distribution support, and networks.
 ---
 
 (reference-administration-index)=

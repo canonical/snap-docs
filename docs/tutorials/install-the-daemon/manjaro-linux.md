@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install or restore snap on Manjaro through Pamac or the command line, enable the socket and classic support, and test with hello-world.
+---
+
 (tutorials-install-the-daemon-manjaro-linux)=
 # Install snap on Manjaro Linux
 

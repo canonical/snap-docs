@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on AlmaLinux OS by enabling EPEL, installing the snapd package, and enabling the socket and classic snap support.
+---
+
 (tutorials-install-the-daemon-almalinux-os)=
 # Install snap on AlmaLinux OS
 

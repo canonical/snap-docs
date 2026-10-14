@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Comprehensive glossary of snap and snapd terminology, including definitions for common technical terms and concepts used in snapcraft.
+---
+
 (reference-operations-glossary)=
 # Glossary
 

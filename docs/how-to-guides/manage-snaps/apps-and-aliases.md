@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Run snap applications, inspect available commands, manage default and manual aliases, and choose preferred aliases when commands conflict.
+---
+
 (how-to-guides-work-with-snaps-apps-and-aliases)=
 # Apps and aliases
 

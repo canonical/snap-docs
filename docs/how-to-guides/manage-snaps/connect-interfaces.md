@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Inspect snap interfaces and connections, then connect, disconnect, and restore automatic access between snap plugs and system or snap slots.
+---
+
 (how-to-guides-work-with-snaps-connect-interfaces)=
 # Connect interfaces
 

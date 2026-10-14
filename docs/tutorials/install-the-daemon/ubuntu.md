@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to identify your Ubuntu version and install snap on versions or flavours where it is not included by default, then test it with hello-world.
+---
+
 (tutorials-install-the-daemon-ubuntu)=
 # Install snap on Ubuntu
 

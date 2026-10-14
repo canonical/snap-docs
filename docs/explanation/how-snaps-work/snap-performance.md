@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Snap performance analysis, including snap debug timing and SquashFS performance and compression.
+    description: Understand snap performance, including timing install and refresh operations, analysing SquashFS performance, and comparing compression algorithms.
 ---
 
 (explanation-how-snaps-work-snap-performance)=

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for the system-files interface, which grants snaps access to specified system files and directories, including privileged data.
+---
+
 (interfaces-system-files-interface)=
 #  system-files interface
 

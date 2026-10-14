@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on Rocky Linux by enabling EPEL, installing and activating the snapd package, and enabling classic support.
+---
+
 (tutorials-install-the-daemon-rocky-linux)=
 # Rocky Linux
 

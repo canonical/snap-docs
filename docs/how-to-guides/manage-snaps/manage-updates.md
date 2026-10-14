@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Schedule automatic snap refreshes, pause or resume updates, manage metered connections, run manual updates, and revert snaps to earlier revisions.
+---
+
 (how-to-guides-work-with-snaps-manage-updates)=
 # Manage updates
 
@@ -219,7 +225,7 @@ next: today at 17:39 GMT
 
 The first line in the above output shows the value of the *timer* system option. This defines how and when a refresh should be scheduled.
 
-To see which snaps are going to be updated with the next _refresh_, use the additional `--list` argument:
+To see which snaps are going to be updated with the next *refresh*, use the additional `--list` argument:
 
 ```
 $ snap refresh --list
@@ -297,5 +303,4 @@ vlc 3.0.6 from VideoLAN✓ refreshed
 A previously used snap that was reverted from will display *disabled* in the Notes column of the output.
 
 > **Reverting to a previous version of *snapd*** </br>
-The snapd snap manages the snap packaging system, and is therefore a special case if you wish to revert it, or downgrade the currently running version. It must be reverted on its own, and there cannot be any pending changes for other snaps in the pipeline.
-
+> The snapd snap manages the snap packaging system, and is therefore a special case if you wish to revert it, or downgrade the currently running version. It must be reverted on its own, and there cannot be any pending changes for other snaps in the pipeline.

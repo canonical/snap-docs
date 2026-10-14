@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on CentOS 7, 8, or 9 Stream using EPEL, resolve missing dependencies, and enable the socket and classic support.
+---
+
 (interfaces-installing-snap-on-centos)=
 # Install snap on CentOS
 
@@ -39,7 +45,7 @@ Problem: package snapd-2.42.1-1.el8.x86_64 requires snapd-selinux = 2.42.1-1.el8
 but none of the providers can be installed.
 ```
 
-In such an event, rather than waiting for EPEL packages to be updated, you can enable the [continuous release (CR)](https://wiki.centos.org/AdditionalResources(2f)Repositories(2f)CR.html) repository. This repository contains packages destined for the next point release of CentOS and should satisfy any missing version mismatch dependencies.
+In such an event, rather than waiting for EPEL packages to be updated, you can enable the [continuous release (CR)](<https://wiki.centos.org/AdditionalResources(2f)Repositories(2f)CR.html>) repository. This repository contains packages destined for the next point release of CentOS and should satisfy any missing version mismatch dependencies.
 
 If you're interested in understanding how these packages are built, see  {ref}`Building a snap RPM for Red Hat Enterprise Linux <interfaces-building-snap-rpms-on-rhel>`.
 

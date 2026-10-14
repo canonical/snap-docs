@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Access the snapd REST API through its UNIX socket, authenticate requests, handle JSON responses and errors, and use client libraries.
+---
+
 (how-to-guides-manage-snaps-use-the-rest-api)=
 # Use the REST API
 

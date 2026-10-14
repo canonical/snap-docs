@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: "Learn how to set up your local environment, build the docs, then test and submit contributions to Snap documentation."
+    description: "Learn how to set up your local environment, build the docs, then test and submit your contributions to snap documentation."
 ---
 
 (local-development)=

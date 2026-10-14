@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand snap channels and tracks, including their purpose, risk levels, branches, channel closure, and release selection behavior.
+---
+
 (explanation-how-snaps-work-channels-and-tracks)=
 # Channels and tracks
 
@@ -56,13 +62,13 @@ To install Firefox from its *insider* track, for example, use the following comm
 snap install firefox --channel=esr/stable
 ```
 
-If you already have Firefox installed, you can switch channel with the ``snap refresh`` command:
+If you already have Firefox installed, you can switch channel with the `snap refresh` command:
 
 ```
 snap refresh firefox --channel=esr/stable
 ```
 
-Developers must currently make a request for tracks to be added to their snap via the [#store-requests](https://forum.snapcraft.io/c/store-requests) forum category. Releases are verified and checked to ensure that reasonable user expectations are being  met. For example, only _3.2.*_ versions are accepted into a _3.2_ track.
+Developers must currently make a request for tracks to be added to their snap via the [#store-requests](https://forum.snapcraft.io/c/store-requests) forum category. Releases are verified and checked to ensure that reasonable user expectations are being  met. For example, only _3.2.\*_ versions are accepted into a _3.2_ track.
 
 ## Risk-levels
 
@@ -105,7 +111,7 @@ channel with a more stable risk-level.
 
 > ⓘ For brevity,  `--stable`, `--candidate`, `--beta` and `--edge` can be used instead of `--channel=<risk-level>`
 
-After installation, the risk-level being tracked can be changed with the use of the ``switch`` command option:
+After installation, the risk-level being tracked can be changed with the use of the `switch` command option:
 
 ```
 sudo snap switch --channel=stable vlc
@@ -168,4 +174,3 @@ Rev.    Uploaded              Arches    Version    Channels
 26      2016-05-31T07:02:32Z  all       6.1        latest/edge,latest/stable
 24      2016-04-19T15:37:06Z  all       6          latest/beta,latest/candidate,latest/edge,latest/stable
 ```
-

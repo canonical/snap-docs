@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Extend snap functionality with API access, internal tools, and customised environments for your applications and devices. Learn how to use the SnapD REST API, snapctl, test snapd fixes, debug snaps, use snap try and in-development features.
+    description: How-to guides for extending snap functionality with API access, snapctl, Secret portal, snap try, testing snapd fixes, debugging, and in-development features.
 ---
 
 (how-to-snap-development)=

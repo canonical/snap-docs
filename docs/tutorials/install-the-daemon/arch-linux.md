@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap from the Arch User Repository, enable its socket, enable AppArmor, enable classic support, and test with hello-world.
+---
+
 (tutorials-install-the-daemon-arch-linux)=
 # Install snap on Arch Linux
 

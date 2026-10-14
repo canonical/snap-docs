@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for the personal-files interface, which grants snaps privileged access to specified files and directories, including hidden ones.
+---
+
 (interfaces-personal-files-interface)=
 #  personal-files interface
 
