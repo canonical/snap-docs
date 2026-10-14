@@ -23,6 +23,22 @@ In a future release, the experimental feature is graduated to be permanently ena
 
 Currently, [gate-auto-refresh-hook](https://documentation.ubuntu.com/core/explanation/refresh-control) is planned to be removed. Please share your use case for the feature at [forum](https://forum.snapcraft.io/t/planned-updates-to-snapd-experimental-features) so we can consider it prior to removal.
 
+## Previous experimental features
+
+The following table lists features that were previously experimental.
+
+| Name                                                                              | Graduated/Removed       | Release            |
+| :-------------------------------------------------------------------------------- | :---------------------- | :----------------- |
+| robust-mount-namespace-updates | Graduated | 2.67 |
+| snapd-snap | Graduated | 2.67 |
+| gpio-chardev-interface | Removed | 2.69 |
+| per-user-mount-namespace | Removed | 2.76 |
+| [layouts](https://ubuntu.com/docs/snapcraft/9/how-to/crafting/use-layouts/) | Graduated | 2.77 |
+| classic-preserves-xdg-runtime-dir | Graduated | 2.77 |
+| {ref}`dbus-activation <interfaces-dbus-interface>` | Graduated | 2.77 |
+| {ref}`refresh-app-awareness <explanation-how-snaps-work-refresh-awareness>` | Graduated | 2.77 |
+| {ref}`quota-groups <how-to-guides-manage-snaps-use-resource-quotas>` | Graduated | 2.78 |
+
 ## Current experimental features
 
 The following table lists all the features considered experimental.
