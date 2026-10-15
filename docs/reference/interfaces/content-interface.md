@@ -28,6 +28,8 @@ By default, when multiple directories are shared from a producer snap, or when m
 
 Read, write and target should start with either ``$SNAP``, ``$SNAP_DATA`` or ``$SNAP_COMMON`` to refer to the designated directory. See {ref}`Environment variables <reference-development-environment-variables>` for details on where these point to on the filesystem.
 
+Slot paths declared under the `source` section can additionally reference `$SNAP_INSTANCE_NAME`, but only within a path that starts with `$SNAP_DATA` or `$SNAP_COMMON`. This is useful for sharing a separate, per-instance directory with consumers of a {ref}`parallel-installed <interfaces-parallel-installs>` producer snap. See [Sharing per-instance data](#sharing-per-instance-data) below. Requires _snapd_ 2.79+.
+
 The _content identifier_ specified by the consuming snap (plug) must match the _content_ attribute of the producer snap (slot).
 
 At a very basic level, the content interface enables one directory, file or socket to appear in a place where another snap can access it.
@@ -121,6 +123,41 @@ $SNAP/usr/local/bin/<executable-name>
 When more than one slot is connected to the same plug, the plug directory for the new connection will be incremented using the same mechanism as with the `source` attribute described above (`<directory>`, `<directory>-2`, `<directory>-3`, `<directory>-x`).
 
 It is recommended to only expose a single `read` path using this configuration.
+
+(sharing-per-instance-data)=
+### Sharing per-instance data
+
+_Requires snapd 2.79+._
+
+When a slot's `read` or `write` paths are declared under the `source` section, and a path starts with `$SNAP_DATA` or `$SNAP_COMMON`, it may also reference `$SNAP_INSTANCE_NAME`. This allows a {ref}`parallel-installed <interfaces-parallel-installs>` producer snap to share a separate directory for each of its instances.
+
+**producer/snapcraft.yaml**:
+```yaml
+slots:
+  _slot_name_:
+    interface: content
+    content: assets
+    source:
+      read:
+        - $SNAP_DATA/assets/$SNAP_INSTANCE_NAME
+```
+
+**consumer/snapcraft.yaml**:
+```yaml
+plugs:
+  _plug_name_:
+    interface: content
+    content: assets
+    target: $SNAP_DATA/assets
+```
+
+If multiple instances of a producer such as `my-producer`, `my-producer_inst1` and `my-producer_inst2` are connected to the consumer's plug, the consumer sees each producer's content under its own instance name:
+
+```
+$SNAP_DATA/assets/my-producer/...
+$SNAP_DATA/assets/my-producer_inst1/...
+$SNAP_DATA/assets/my-producer_inst2/...
+```
 
 ## Read-only content sharing
 
