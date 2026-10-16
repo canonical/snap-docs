@@ -7,7 +7,7 @@ myst:
 (explanation-how-snaps-work-confdb-configuration-mechanism)=
 # Confdb configuration mechanism
 
-*Confdb* provides an assertion-backed alternative to individual {ref}`snap-specific configuration <how-to-guides-manage-snaps-set-system-options>`. It uses an external [confdb-schema](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/) assertion to separate the configuration data from the snap installation. This allows for advanced configuration functionality, including:
+*Confdb* is an assertion-backed alternative to individual {ref}`snap-specific configuration <how-to-guides-manage-snaps-set-system-options>`. It uses an external [confdb-schema](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/) assertion to separate the configuration data from the snap installation. This allows for advanced configuration functionality, including:
 
 * device onboarding and management
 * cross-snap configuration
@@ -26,7 +26,7 @@ Settings are exposed via _views_. Views allow for both granular access control a
 ![Architectural overview, showing users and snaps interacting with separate confdb databags through granular views](/images/confdb-architecture.png)
 **Figure: Architectural overview, showing users and snaps interacting with separate confdb databags through granular views.**
 
-The `views` header in the [confdb-schema assertion](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#confdb-schema-assertion-fields) contains named views. Each view contains rules that map “request” paths to “storage” paths.
+The `views` header in the [confdb-schema assertion](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#confdb-schema-assertion-fields) contains sets of rules exposing a "view" onto the configuration space. Each view rule map a `request` path to a `storage` path.
 
 Users and snaps can access the _request_ path, while the _storage_ path defines the layout in storage.
 
@@ -241,7 +241,7 @@ Confdb supports the same commands and options as the {ref}`original configuratio
 
 The confdb interface plug can have one other attribute, `role`, which is optional and can only take a value of `custodian`.
 
-`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. This applies to an exact account, schema and view combination, so a custodian for one view does not satisfy the requirement for another view in the same schema. For every non-system confdb view, at least one custodian must be installed and connected for the data to be accessible. Snaps cannot be custodians of system views, but they can still define `observe-view-<plug>` hooks on those views (hooks are described in detail below).
+`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. This applies to an exact account, schema, and view combination, so a custodian for one view does not satisfy the requirement for another view in the same schema. For every non-system confdb view, at least one custodian must be installed and connected for the data to be accessible. Snaps cannot be custodians of system views, but they can still define `observe-view-<plug>` hooks on those views (hooks are described in detail below).
 
 One of the key aspects of the custodian role relates to ephemeral data which we’ll cover in the next section.
 
@@ -272,7 +272,7 @@ Confdb supports 5 types of [hooks](https://documentation.ubuntu.com/snapcraft/st
 
 `load-view-<plug>` and `query-view-<plug>` are scheduled during read operations, while `change-view-<plug>`, `save-view-<plug>` and `observe-view-<plug>` are relevant only to writes.
 
-For a non-system confdb, if an access might reach a storage value marked ephemeral, or a container with nested ephemeral values, at least one connected custodian for the exact view must define the corresponding `load-view-<plug>` hook for a read or `save-view-<plug>` hook for a write. Other custodians for that view do not need to define the hook. The other hooks are optional.
+The `load-view-<plug>` and `save-view-<plug>` hooks are optional unless the user can access data marked as `ephemeral`. Accessed paths are checked at run-time against the storage schema for any `ephemeral` schema types along or under the path. If ephemeral data may be impacted and the appropriate hooks are not defined for at least one connected custodian then the access is rejected.
 
 During a read of the confdb data:
 1. snapd first reads the configuration data it stores internally and creates a transaction object to carry it.
