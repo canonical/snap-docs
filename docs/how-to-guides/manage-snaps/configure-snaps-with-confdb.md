@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Define and sign confdb schemas, then configure shared snap data through views, plugs, hooks, and granular access controls.
+---
+
 (how-to-guides-manage-snaps-configure-snaps-with-confdb)=
 # Configure snaps with confdb
 

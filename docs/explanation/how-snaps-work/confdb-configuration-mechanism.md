@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand how confdb schema assertions separate configuration data from snap installation, enabling cross-snap settings, access control, and device onboarding.
+---
+
 (explanation-how-snaps-work-confdb-configuration-mechanism)=
 # Confdb configuration mechanism
 
