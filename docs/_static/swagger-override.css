@@ -89,6 +89,48 @@
     display: none;
 }
 
+.swagger-ui .wrapper {
+    max-width: 100% !important;
+    padding: 0 5%;
+}
+
+.swagger-ui .model {
+    word-break: normal !important;
+    white-space: normal !important;
+}
+
+.swagger-ui .model-hint {
+    max-width: 280px;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+.swagger-ui .model-box {
+    box-sizing: border-box;
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.swagger-ui .model-box {
+    padding: 0 0 0 10px !important; /* Reduces default padding */
+}
+
+.swagger-ui table.model tbody tr td:first-of-type {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.swagger-ui .model-box table.model table.model table.model {
+    min-width: 400px;
+}
+
+.swagger-ui table.responses-table {
+    table-layout: fixed;
+}
+
 /* Easier to read in in dark theme. */
 @media not print {
     body[data-theme="dark"] {
