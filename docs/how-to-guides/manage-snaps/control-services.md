@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: List, start, stop, restart, enable, disable, and inspect snap service logs at user and system scope for individual services or all services in a snap.
+---
+
 (how-to-guides-manage-snaps-control-services)=
 # Control services
 

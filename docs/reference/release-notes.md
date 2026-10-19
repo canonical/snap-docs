@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Snapd release notes. Review new features, bug fixes, and changes across recent stable, beta, and earlier snapd releases.
+---
+
 (reference-release-notes)=
 # Release notes
 

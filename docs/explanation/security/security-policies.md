@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand snap security policies and interfaces, including application confinement, resource access controls, and protection for users.
+---
+
 (explanation-security-security-policies)=
 # Security policies
 

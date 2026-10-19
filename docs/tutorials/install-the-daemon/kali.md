@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on a Kali Linux system installation, enable snapd and AppArmor services, and test it with hello-world.
+---
+
 (interfaces-installing-snap-on-kali)=
 # Install snap on Kali Linux
 

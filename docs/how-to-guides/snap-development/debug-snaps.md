@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Debug confined snaps with shells, strace, developer mode, diagnostics, policy-violation logs, AppArmor, seccomp, and device access checks.
+---
+
 (how-to-guides-fix-common-issues-debug-snaps)=
 # Debug snaps
 

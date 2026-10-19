@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for requesting and reviewing snap aliases, interface auto-connections, and tracks through the Snap Store process.
+---
+
 (interfaces-process-for-aliases-auto-connections-and-tracks)=
 # Process for aliases, auto-connections and tracks
 

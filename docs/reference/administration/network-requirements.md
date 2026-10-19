@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for snapd and snapcraft network requirements, including hosts and ports for installing, updating, building, and publishing snaps.
+---
+
 (reference-administration-network-requirements)=
 # Network requirements
 

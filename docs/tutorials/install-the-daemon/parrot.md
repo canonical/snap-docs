@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on versions of Parrot Security OS older than 4.1; later releases already include snap by default.
+---
+
 (interfaces-installing-snap-on-parrot-security-os)=
 # Install snap on Parrot Security OS
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for the removable-media interface, which grants snaps read and write access to mounted removable storage.
+---
+
 (interfaces-removable-media-interface)=
 #  removable-media interface
 

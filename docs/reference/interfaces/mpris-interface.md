@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for the mpris interface, which lets snaps control media players through the Media Player Remote Interfacing Specification.
+---
+
 (interfaces-mpris-interface)=
 #  mpris interface
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Reference documentation for the content interface, which lets producer snaps share code, data, libraries, and sockets with consumer snaps.
+---
+
 (interfaces-content-interface)=
 #  content interface
 

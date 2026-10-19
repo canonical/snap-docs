@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand snap revisions, the unique identifiers assigned to snap uploads, including how to view them, how they are installed, and how to revert them.
+---
+
 (explanation-how-snaps-work-revisions)=
 # Revisions
 

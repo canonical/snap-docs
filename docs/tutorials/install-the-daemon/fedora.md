@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on Fedora, enable classic snap support, test with hello-world, and troubleshoot squashfs mount or Silverblue link issues.
+---
+
 (tutorials-install-the-daemon-fedora)=
 # Install snap on Fedora
 

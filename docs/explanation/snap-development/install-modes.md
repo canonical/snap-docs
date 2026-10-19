@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand snap install modes, including classic, devmode, jailmode, and dangerous options for testing, troubleshooting, and development.
+---
+
 (interfaces-install-modes)=
 # Install modes
 

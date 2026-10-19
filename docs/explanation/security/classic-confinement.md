@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand classic confinement, the most permissive snap confinement level, which grants applications broad system access and requires Snap Store vetting.
+---
+
 (explanation-security-classic-confinement)=
 # Classic confinement
 

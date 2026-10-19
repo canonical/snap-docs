@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand refresh awareness, which manages automatic snap updates for running desktop applications with in-place or deferred updates and notifications.
+---
+
 (explanation-how-snaps-work-refresh-awareness)=
 # Refresh awareness
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand how XDG Desktop Portals let confined snaps securely access host resources such as files, URLs, notifications, screenshots, and screencasts.
+---
+
 (interfaces-xdg-desktop-portals)=
 # XDG Desktop Portals
 

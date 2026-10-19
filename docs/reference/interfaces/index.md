@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Every snap interface in a single place. Learn about the interfaces available to snap users and snap package developers, including how they work, how to use them, and how to manage them.
+    description: Browse every snap interface and learn how snap users and developers can connect, manage, and use system resources securely.
 ---
 
 (ref-index_interfaces)=

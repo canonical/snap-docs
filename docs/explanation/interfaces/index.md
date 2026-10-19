@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Explanations of how the snap interface system works, including how interfaces are used to manage access to resources, and how interface hooks can be used to control what happens when an interface is used.
+    description: Explanations of how the snap interface system works, including how interfaces manage access to resources and how interface hooks control connections.
 ---
 
 (explanation-interfaces-index)=

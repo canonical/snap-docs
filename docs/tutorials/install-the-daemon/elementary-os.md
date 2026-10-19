@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on elementary OS from Terminal with APT, refresh login paths after installation, and verify it with hello-world.
+---
+
 (tutorials-install-the-daemon-elementary-os)=
 # Install snap on Elementary OS
 

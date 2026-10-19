@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Explanatory and conceptual guides for snap packages - discussion and clarification of key topics for snap users and snap package developers, including how snaps work, interface connections, update management and security.
+    description: Explanatory and conceptual guides for snap packages, covering how snaps work, interfaces, updates, and security for users and developers.
 ---
 
 (explanation-how-snaps-work-index)=

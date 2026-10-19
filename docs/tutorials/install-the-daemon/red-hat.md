@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on Red Hat Enterprise Linux with EPEL, enable the socket and classic support, and refresh system paths.
+---
+
 (interfaces-installing-snap-on-red-hat)=
 # Install snap on Red Hat 
 

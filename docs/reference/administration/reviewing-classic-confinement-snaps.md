@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for the classic confinement review process, including publisher vetting, technical review, and supported use cases.
+---
+
 (interfaces-reviewing-classic-confinement-snaps)=
 # Reviewing classic confinement snaps
 

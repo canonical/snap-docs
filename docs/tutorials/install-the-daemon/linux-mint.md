@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on Linux Mint by disabling the nosnap preference, installing it through Software Manager or APT, and testing it with hello-world.
+---
+
 (tutorials-install-the-daemon-linux-mint)=
 # Install snap on Linux Mint
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for the snap format and snap.yaml metadata, including package structure, hooks, interfaces, layouts, and desktop files.
+---
+
 (reference-development-yaml-schemas-the-snap-format)=
 # The snap format
 
@@ -237,7 +243,7 @@ apps:
 
 ```
 
-<a name="hooks"/></a>
+<a name="hooks"></a>
 
 ## Hooks
 

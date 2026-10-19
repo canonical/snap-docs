@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand how snap confinement isolates applications, protects your system, and controls access to files, networks, and devices through interfaces.
+---
+
 (explanation-security-snap-confinement)=
 # Snap confinement
 

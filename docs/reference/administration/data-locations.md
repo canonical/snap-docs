@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for Data locations in Snap and snapd, covering configuration, behavior, requirements, and practical implementation details.
+---
+
 (interfaces-data-locations)=
 # Data locations
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Learn how to install snap on openSUSE by adding the snappy repository, importing its key, enabling services, and fixing refresh issues.
+---
+
 (tutorials-install-the-daemon-opensuse)=
 # Install snap on openSUSE
 

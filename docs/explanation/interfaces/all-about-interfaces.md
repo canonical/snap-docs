@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand snap interfaces, which give confined snaps access to system resources and other snaps using plugs and slots, either automatically or manually.
+---
+
 (explanation-interfaces-all-about-interfaces)=
 # All about interfaces
 

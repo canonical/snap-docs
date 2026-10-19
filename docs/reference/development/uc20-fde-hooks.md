@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Implement full-disk encryption for Ubuntu Core with the fde-setup hook and fde-reveal-key helper.
+    description: Reference documentation for full-disk encryption hooks on Ubuntu Core 20+, including fde-setup and fde-reveal-key for non-standard platforms.
 ---
 
 (reference-development-uc20-fde-hooks)=

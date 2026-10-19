@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for the dbus interface, which lets snaps communicate over D-Bus using well-known names on the system or session bus.
+---
+
 (interfaces-dbus-interface)=
 #  dbus interface
 

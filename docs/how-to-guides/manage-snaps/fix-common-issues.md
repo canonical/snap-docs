@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Resolve common snap and snapd issues with network access, daemon connectivity, slow downloads, missing binaries, home directories, and initialisation errors.
+---
+
 (how-to-guides-fix-common-issues-index)=
 # Fix common issues
 

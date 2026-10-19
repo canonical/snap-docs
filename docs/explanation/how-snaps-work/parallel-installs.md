@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Understand parallel installs, which run isolated instances of the same snap with separate names, data, configuration, services, apps, aliases, and interfaces.
+---
+
 (interfaces-parallel-installs)=
 # Parallel installs
 

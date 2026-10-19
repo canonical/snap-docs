@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Complete reference for snap's system architecture, including snapd, the Snap Store, Linux security modules, interfaces, and services.
+---
+
 (reference-operations-system-architecture)=
 # System architecture
 
