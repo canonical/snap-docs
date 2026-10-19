@@ -532,7 +532,7 @@ Once the change is complete, snapd has written the following onto the target sys
 - the base snap
 - the gadget snap
 - the bootloader configuration
-- the modeenv, and
+- the `modeenv`, and
 - the disk-unlock keys.
 
 The system is now ready to reboot and install Ubuntu with TPM-FDE, but it is highly recommended to preseed it first.
