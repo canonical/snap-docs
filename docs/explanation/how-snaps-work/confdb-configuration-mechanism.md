@@ -241,7 +241,7 @@ Confdb supports the same commands and options as the {ref}`original configuratio
 
 The confdb interface plug can have one other attribute, `role`, which is optional and can only take a value of `custodian`.
 
-`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. This applies to an exact account, schema, and view combination, so a custodian for one view does not satisfy the requirement for another view in the same schema. For every non-system confdb view, at least one custodian must be installed and connected for the data to be accessible. Snaps cannot be custodians of system views, but they can still define `observe-view-<plug>` hooks on those views (hooks are described in detail below).
+`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. This applies to an exact account, schema, and view combination, so a custodian for one view does not satisfy the requirement for another view in the same schema. For every non-system confdb view, at least one custodian must be installed and connected for the data to be accessible. Snaps cannot be custodians of system views, but they can still define `observe-view-<plug>` hooks on those views. See the [Hooks section](#hooks) for further details.
 
 One of the key aspects of the custodian role relates to ephemeral data which we’ll cover in the next section.
 
