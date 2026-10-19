@@ -1,38 +1,44 @@
 ---
 myst:
   html_meta:
-    description: Use the snapd REST API to install Ubuntu with hardware-backed Full Disk Encryption, including pre-install checks, error recovery, and PIN or passphrase setup.
+    description: Use the snapd REST API to integrate TPM-FDE into a custom Ubuntu installer, including pre-install checks and fixes, PIN or passphrase setup, and preseeding.
 ---
 
-(how-to-guides-install-with-tpm-fde)=
+(how-to-guides-installer-with-tpm-fde)=
+# Integrate TPM-FDE into a custom Ubuntu installer using the snapd REST API
 
-# Use the REST API to install Ubuntu with TPM-FDE
+This guide shows you how to integrate [hardware-backed Full Disk Encryption](https://ubuntu.com/desktop/docs/en/latest/explanation/hardware-backed-disk-encryption/#hardware-backed-disk-encryption) (TPM-FDE) into a custom Ubuntu installer using the snapd REST API.
 
-This guide shows you how to use the snapd REST API to install Ubuntu with [hardware-backed Full Disk Encryption](https://ubuntu.com/desktop/docs/en/latest/explanation/hardware-backed-disk-encryption/#hardware-backed-disk-encryption) (TPM-FDE).
+Refer to the {ref}`snapd REST API reference<reference-development-snapd-rest-api>` for a list of all API actions and endpoints. For general instructions, refer to the {ref}`guide on how to use the REST API<how-to-guides-manage-snaps-use-the-rest-api>`.
 
-Refer to the {ref}`snapd REST API reference<reference-development-snapd-rest-api>` for a list of all actions and endpoints. For general instructions, refer to the {ref}`guide on how to use the REST API<how-to-guides-manage-snaps-use-the-rest-api>`.
+Follow the steps in order. Some steps are optional. If you skip an optional step, continue with the next applicable one.
 
-This guide is aimed at developers building a GUI-based custom Ubuntu installer that supports TPM-FDE. While the API can be called directly, this guide assumes that a GUI exists between the API calls and the end user.
+## Prerequisites
 
-The steps below must be followed in order:
+To follow this guide, your installer must have access to a recovery system seed available to snapd. A recovery system seed is the set of files that describes the Ubuntu system to be installed. It includes:
+- a [model assertion](https://documentation.ubuntu.com/core/reference/assertions/model/) describing the Ubuntu system to install; and
+- the essential snaps making up that system, including the [base](https://documentation.ubuntu.com/snapcraft/stable/reference/base), {ref}`kernel<reference-development-yaml-schemas-the-kernel-snap>`, {ref}`gadget<reference-development-yaml-schemas-the-gadget-snap>`, and {ref}`snapd<ref-glossary_snapd>` snaps.
 
-1. [get target system's label](#get-system-label) if you do not know it already;
-1. [perform pre-install checks](#perform-pre-install-checks);
-1. if there are recoverable errors, [perform pre-install fixes](#perform-pre-install-fixes);
-1. [add a PIN or passphrase](#add-pin-or-passphrase) or, if the system allows it, set up the storage encryption without authentication;
-1. [generate a recovery key](#generate-recovery-key); this step is optional, but highly recommended;
-1. [finish the installation](#finish-the-installation); and
-1. for optimization purposes, [preseed the target system](#preseed-the-target-system-before-first-boot).
+To get Canonical's reference model for the Ubuntu release used in this guide, run:
+```sh
+snap known model --remote series=16 brand-id=canonical model=ubuntu-classic-2610-amd64
+```
+
+For more information, see:
+- [Create a model](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/create-a-model/)
+- [Create a recovery system from the API](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/create-a-recovery-system-from-the-api/)
+- [Ubuntu Core storage layout](https://documentation.ubuntu.com/core/explanation/core-elements/storage-layout/)
 
 ## Get system label
 
-To install Ubuntu with TPM-FDE, you first need to identify the system where it will be installed. In the snapd REST API, systems are identified with a label.
+Each recovery system is identified by a unique label, corresponding to its directory in the installer seed. Normally, this directory is `/var/lib/snapd/seed/systems/<label>/`. 
 
-To find the label of the system where you want to install Ubuntu with TPM-FDE, make a `GET` request to `/v2/systems`. This request will return a synchronous response (`200 OK`).
+To get the system label, make a `GET` request to `/v2/systems`. Snapd will return a synchronous response (`200 OK`) with a list of all the available systems, including their labels. For example:
 
-The response body will include a `result` object with a list of available systems. Each system will include a `label`. For example:
 
-```json
+```{code-block} json
+:caption: Response body, `result`
+
 {
   ...
   "systems": [
@@ -52,19 +58,18 @@ The response body will include a `result` object with a list of available system
 }
 ```
 
-Once you know the system label, you can [perform the pre-install checks](#perform-pre-install-checks).
+Select the appropriate label to [perform the pre-install checks](#perform-pre-install-checks).
 
 ## Perform pre-install checks
 
-To perform the pre-install checks, use the system's label to make a `GET` request to `/v2/systems/{label}`. This request will return a synchronous response (`200 OK`).
-
-The response body will include a `result` object with the system details. The nested object `storage-encryption` will include details about the system's storage encryption capabilities. It will state whether encryption is available. If it is not available, it will also include a list of errors and whether they can be fixed.
+To perform the pre-install checks, use the system label to make a `GET` request to `/v2/systems/{label}`. Snapd will return a synchronous response (`200 OK`) with the system details. The `storage-encryption` object describes the target system's storage encryption capabilities. It will state whether encryption is available. If it is not available, it will list the errors and the actions that can fix them.
 
 ### Encryption is available
 
-If encryption is available, `storage-encryption` will include the system's features and requirements, but no errors. For example:
+If encryption is available, `storage-encryption` will include the target system's features and requirements, and no errors. For example:
 
-```json
+```{code-block} json
+:caption: Response body, `result`
 {
   ...
   "storage-encryption": {
@@ -78,13 +83,14 @@ If encryption is available, `storage-encryption` will include the system's featu
 }
 ```
 
-Since there are no errors, you can proceed with the installation. The requirements and features of the system will be used in the next step, [add a PIN or passphrase](#add-a-pin-or-passphrase).
+Since there are no errors, the installation can proceed. The features and requirements of the target system will be relevant when you set up the its storage encryption. Skip ahead to the [Set up storage encryption section](#set-up-storage-encryption).
 
 ### Encryption is unavailable due to recoverable errors
 
 If encryption is unavailable due to recoverable errors, `storage-encryption` will include `unavailable-reason` and `availability-check-errors`. For example:
 
-```json
+```{code-block} json
+:caption: Response body, `result`
 {
   ...
   "storage-encryption": {
@@ -109,39 +115,103 @@ If encryption is unavailable due to recoverable errors, `storage-encryption` wil
 }
 ```
 
-In this example, the system has a TPM 2.0 device that is disabled in the firmware. This error can be resolved by executing the actions listed in the `actions` array, in the order in which they are presented. See the [section on how to perform pre-install fixes](#perform-pre-install-fixes) for guidelines and further details.
+In this example, the target system has a TPM 2.0 device that is disabled in the firmware. This error can be resolved by executing the fix actions listed in the `actions` array, in the order in which they are presented. See the [Perform pre-install fix actions section](#perform-pre-install-fix-actions) for guidelines and further details.
 
-The initial `GET` request to `/v2/systems/{label}` runs pre-install checks and creates an in-memory pre-install check context, which will be used while fixing the errors. Another `GET` request to the same endpoint replaces that context, resetting the action sequence. The context is also lost if snapd restarts or the system reboots.
+The initial `GET` request to `/v2/systems/{label}` runs pre-install checks and creates an in-memory context that will be used while fixing the errors. Another `GET` request to the same endpoint replaces that context, resetting the sequence of fix actions. The context is also lost if snapd restarts or the system reboots.
 
-### Encryption is unavailable
+The table below lists error kinds that snapd might return, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.
 
-If the system does not support encryption, `storage-encryption` will include `unavailable-reason`, but no `availability-check-errors`. For example:
+```{dropdown} Recoverable error kinds
+| Error kind                                          | Suggested message to present to the user                                                                                                                 | Example fix action(s)                                                      |
+|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| `efi-variable-access`                         | Error occurred when accessing an EFI variable.                                                                                                 | `contact-oem`                                                            |
+| `tpm-device-failure`                          | The TPM device has failed an internal self check.                                                                                              | `reboot`, `contact-oem`                                                  |
+| `tpm-device-disabled`                         | There is a TPM device that is currently disabled.                                                                                              | PPI-based enable/clear actions, `reboot-to-fw-settings`                  |
+| `tpm-hierarchies-owned`                       | One or more TPM hierarchy is currently owned, either because it has an authorization value or policy set.                                      | PPI/`clear-tpm` variants, `reboot-to-fw-settings`                        |
+| `tpm-device-lockout-locked-out`               | The TPM's lockout hierarchy is currently unavailable because it is locked out.                                                                 | PPI-based clear actions, `reboot-to-fw-settings`                         |
+| `insufficient-tpm-storage`                    | Insufficient storage space available to support FDE along with reprovisioning in the future.                                                   | PPI/`clear-tpm` variants, `reboot-to-fw-settings`                        |
+| `no-suitable-pcr-bank`                        | It is not possible to select a suitable PCR bank. This could be because some mandatory PCR values are inconsistent with the TCG log.           | `reboot-to-fw-settings`, `contact-oem`                                   |
+| `running-in-vm`                               | The current environment is a virtual machine.                                                                                                  | `proceed` only (if eligible)                                             |
+| `insufficient-dma-protection`                 | I/O DMA remapping was disabled during the current boot cycle.                                                                                  | `reboot-to-fw-settings`, `contact-oem`, `proceed` (if eligible)          |
+| `no-kernel-iommu`                             | The OS kernel was not built with DMA remapping support, or some configuration has resulted in it being disabled.                               | `reboot-to-fw-settings`, `contact-os-vendor`, `proceed` (if eligible)    |
+| `host-security`                               | Problem with the system security that is not represented by a more specific error kind.                                                        | `contact-oem`                                                            |
+| `tpm-pcr-unusable`                            | An error in the way that the platform firmware performs measurements such that the PCR becomes unusable.                                       | `contact-oem`                                                            |
+| `addon-drivers-present`                       | Drivers running from value-added-retailer components were detected.                                                                            | `proceed` only (if eligible)                                             |
+| `sys-prep-applications-present`               | System preparation applications were detected to be running before the operating system.                                                       | `proceed` only (if eligible)                                             |
+| `absolute-present`                            | Absolute was detected to be executing before the initial OS loader.                                                                            | `reboot-to-fw-settings`, `contact-oem`                                   |
+| `invalid-secure-boot-mode`                    | The secure boot mode is invalid.                                                                                                               | `reboot-to-fw-settings`, `proceed` (only if `enabled: true, mode: user`) |
+| `weak-secure-boot-algorithms-detected`        | Either pre-OS components were authenticated with weak Authenticode digests, or CAs with weak public keys were used to authenticate components. | `proceed` only (if eligible)                                             |
+| `pre-os-secure-boot-auth-by-enrolled-digests` | Pre-OS components were authenticated by matching their Authenticode digest to an entry in `db`.                                                | `proceed` only (if eligible)                                             |
+| `no-hardware-root-of-trust`                   | The platform's UEFI firmware is not verified nor measured by a hardware root of trust.                                                         | `proceed` only (if eligible)                                             |
+```
 
-```json
+### Encryption is unavailable due to non-recoverable errors
+
+If `storage-encryption` includes `unavailable-reason` but not `availability-check-errors` or if `availability-check-errors` is empty,
+the target system does not support encryption as defined in the recovery system seed. For example:
+
+```{code-block} json
+:caption: Response body, `result`
 {
   ...
   "storage-encryption": {
     "support": "unavailable",
-    "features": ["passphrase-auth", "pin-auth"],
     "storage-safety": "prefer-encrypted",
     "unavailable-reason": "cannot use encryption with the gadget, disabling encryption: gadget does not support encrypted data: required partition with system-save role is missing",
-    "requirements": ["volumes-auth"]
   },
   ...
 }
 ```
 
-In this example, encryption is not possible because the gadget lacks a system-save partition. This is a fatal error that cannot be resolved by the API. No further steps are applicable until the gadget is replaced.
+In this example, encryption is not possible because the gadget lacks a system-save partition. This is a fatal error that cannot be resolved by snapd. No further steps are applicable until the gadget is replaced.
 
-## Perform pre-install fixes
+If `storage-encryption` includes `availability-check-errors`, but none of the errors includes fix actions, the target system also does not support encryption as defined in the recovery system seed. For example:
 
-```{important}
-Pre-install recovery actions can only be performed after an initial pre-install check. See [the section on how to perform pre-install checks](#perform-pre-install-checks) for more details.
+```{code-block} json
+:caption: Response body, `result`
+{
+  ...
+  "storage-encryption": {
+    "support": "unavailable",
+    "storage-safety": "prefer-encrypted",
+    "unavailable-reason": "no suitable TPM2 device is available",
+    "availability-check-errors": [
+      {
+        "kind": "no-suitable-tpm2-device",
+        "message": "no suitable TPM2 device is available"
+      }
+    ]
+  }
+  ...
+}
 ```
 
-If [encryption is unavailable due to recoverable errors](#encryption-is-unavailable-due-to-recoverable-errors), you can fix them by performing the actions listed in the `actions` array of each error (listed in `availability-check-errors`). These fix actions should be performed in the same order in which they appear in that array.
+In this example, the target system's machine does not have a TPM 2.0 device suitable for TPM-FDE. This is a fatal error that cannot be resolved by snapd. No further steps are applicable until the hardware is replaced.
 
-Some fix actions can be performed by making a `POST` request to `/v2/systems/{label}`. The request body must indicate that the API action `fix-encryption-support` is being executed and the specific fix action to apply. For example:
+The table below lists error kinds that snapd might return, with a suggested message to show the user. The list is not exhaustive: snapd can return error kinds that the table does not include. Treat it as a starting point, rather than a specification.
+
+```{dropdown} Non-recoverable error kinds
+| Error kind                      | Suggested message to present to the user                                                                                              |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `internal-error`          | Unexpected internal error occurred.                                                                                         |
+| `system-not-efi`          | The current host system is not an EFI system.                                                                               |
+| `no-suitable-tpm2-device` | The device has no suitable TPM2 device.                                                                                     |
+| `measured-boot`           | Error with the TCG log or some other error detected from the TCG log that is not represented by a more specific error kind. |
+| `tpm-command-failed`      | An error occurred whilst executing a TPM command.                                                                           |
+| `invalid-tpm-response`    | The response from the TPM is invalid, which makes it impossible to obtain a response code.                                  |
+| `tpm-communication`       | An error occurred at the transport layer when executing a TPM command.                                                      |
+| `unsupported-platform`    | The current host platform is not compatible with FDE.                                                                       |
+```
+
+## Perform pre-install fix actions
+
+```{note}
+Pre-install fix actions can only be performed after an initial pre-install check. See the [Perform pre-install checks section](#perform-pre-install-checks) for details.
+```
+
+If [encryption is unavailable due to recoverable errors](#encryption-is-unavailable-due-to-recoverable-errors), you can fix them by performing the fix actions listed in the `actions` array of each error in `availability-check-errors`. The order of the errors and their corresponding fix actions should be respected. 
+
+To perform a fix action with snapd, make a `POST` request to `/v2/systems/{label}` with `action` set to `fix-encryption-support` and `fix-action` set to the first entry in the error's `actions` array. For example, to enable the TPM via the firmware, send this request body:
 
 ```json
 {
@@ -150,9 +220,10 @@ Some fix actions can be performed by making a `POST` request to `/v2/systems/{la
 }
 ```
 
-If successful, this request will return a synchronous response (`200 OK`). The response body will include a `result` object with the system details. The nested object `storage-encryption` will be updated and might show different errors. For example:
+If successful, snapd will return a synchronous response (`200 OK`) with the updated system details, which might include a different list of errors. For example:
 
-```json
+```{code-block} json
+:caption: Response body, `result`
 {
   ...
   "storage-encryption": {
@@ -173,25 +244,23 @@ If successful, this request will return a synchronous response (`200 OK`). The r
 }
 ```
 
-In this example, the recommended fix action is to reboot the system. Since it requires manual intervention from the user, this fix action cannot be executed by the snapd API.
+In this example, the recommended fix action is to reboot the system. Since this requires manual intervention from the user, this fix action cannot be executed by snapd. 
 
-If a fix action that cannot be executed by the snapd API is requested through `fix-encryption-support`, a synchronous response (`200 OK`) with the system details will still be returned. The nested object `storage-encryption` will include the following `unavailable-reason` and `availability-check-errors`:
+Any fix action that requires a system reboot discards the pre-install check context created by the initial `GET` request to `/v2/systems/{label}`. After the target system reboots, make a new `GET` request to the same endpoint to create a new pre-install check context. Follow these steps again to fix any lingering errors. Keep in mind that fix actions should be performed in the same order in which they appear in the `actions` array.
 
-```json
-{
-  ...
-  "unavailable-reason": "not encrypting device storage as checking TPM gave: specified action is not implemented directly by this package",
-  "availability-check-errors": [
-    {
-      "kind": "unexpected-action",
-      "message": "specified action is not implemented directly by this package"
-    }
-  ],
-  ...
-}
+If snapd cannot perform an action, it will return a synchronous response (`200 OK`) with the system details and updated `availability-check-errors`. The table below lists error kinds that snapd might return in that situation, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.
+
+```{dropdown} Error kinds returned if a fix action cannot be performed
+| Error kind                | Suggested message to present to the user                                                                                              | Example fix action(s) |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------|--------------------|
+| `shutdown-required` | System shutdown is required to complete a previous action.                                                                  | `shutdown`         |
+| `reboot-required`   | System reboot is required to complete a previous action.                                                                    | `reboot`           |
+| `unexpected-action` | The provided action is unexpected because it is either not supported or not associated with the previously returned errors. | none               |
+| `invalid-argument`  | One or more of the supplied arguments are of an invalid type or value.                                                      | none               |
+| `action-failed`     | The provided action did not succeed.                                                                                        | none               |
 ```
 
-If this response is encountered, make a new `POST` request to `/v2/systems/{label}`, requesting the execution of the API action `fix-encryption-support` and with `fix-action` set to `""`:
+Some of these errors, such as `unexpected-action`, `invalid-argument`, and `action-failed`, offer no further fix actions. If you encounter one, make a new `POST` request to `/v2/systems/{label}` with the following request body:
 
 ```json
 {
@@ -200,19 +269,87 @@ If this response is encountered, make a new `POST` request to `/v2/systems/{labe
 }
 ```
 
-The empty string tells the snapd API that no fix action should be executed. This request will return a synchronous response (`200 OK`) with the system details as they were before calling the unexpected fix action.
+Setting `fix-action` to an empty string tells snapd not to perform another fix action. Snapd will return a synchronous response (`200 OK`) with the system details from before the previous action was attempted.
 
-Some actions that require the user's intervention, such as `reboot`, will restart the pre-install check context created by the initial `GET` request to `/v2/systems/{label}`. After rebooting or shutting down, a new `GET` request to the same endpoint must be made, creating a new pre-install check context. Follow these steps again to fix any lingering errors. Keep in mind that fix actions should be executed in the same order in which they appear in the `actions` array of the corresponding error in `availability-check-errors`.
+Continue checking and resolving errors until the system details show that [encryption is available](#encryption-is-available). The installation can then proceed.
 
-Once the system details show that [encryption is available](#encryption-is-available), you are ready to install Ubuntu with TPM-FDE.
+### Arguments accepted by fix actions
 
-## Add a PIN or passphrase
+Most fix actions neither require nor accept arguments. There are two exceptions: `proceed` and `clear-tpm`.
 
-After completing the pre-install checks, you can prepare the installation of Ubuntu with TPM-FDE by setting up the system's storage encryption. Depending on the system's characteristics, adding a PIN or passphrase might be required to install Ubuntu with TPM-FDE.
+The following example shows errors for which `proceed` is a possible fix action:
 
-To determine whether the system supports, or even requires, a PIN or passphrase, look at the fields `requirements` and `features` of the nested `storage-encryption` object in the system details. For example:
+```{code-block} json
+:caption: Response body, `result.storage-encryption.availability-check-errors`
+[
+  {
+    "kind": "addon-drivers-present",
+    "message": "detected drivers running from value-added-retailer components",
+    "actions": ["proceed"]
+  },
+  {
+    "kind": "weak-secure-boot-algorithms-detected",
+    "message": "components were authenticated using weak Authenticode digests or weak public keys",
+    "actions": ["proceed"]
+  }
+]
+```
+
+If the fix action `proceed` is executed without arguments, snapd will ignore all errors at once. This is not recommended, as it gives the user no visibility into which errors are being ignored. To ignore one error at a time, make a `POST` request to `/v2/systems/{label}`, passing `error-kinds` in `args`:
 
 ```json
+{
+  "action": "fix-encryption-support",
+  "fix-action": "proceed",
+  "args": {
+    "error-kinds": ["<error-kind>"]
+  }
+}
+```
+Replace `<error-kind>` with the kind of the error to ignore, as reported in `availability-check-errors` (for example, `addon-drivers-present`). It is recommended to list one error at a time.
+
+The fix action `clear-tpm` normally does not accept arguments. However, if you attempt it against a TPM that has an auth value set in the TPM lockout hierarchy, you must supply that auth value. This can happen, for example, if the following error is returned:
+
+```{code-block} json
+:caption: Response body, one entry of `result.storage-encryption.availability-check-errors`
+{
+  "kind": "tpm-hierarchies-owned",
+  "message": "error with TPM2 device: one or more of the TPM hierarchies is already owned",
+  "args": {
+    "with-auth-value": [1073741834]
+  },
+  "actions": [
+    "clear-tpm-via-firmware",
+    "enable-and-clear-tpm-via-firmware",
+    "clear-tpm",
+    "reboot-to-fw-settings"
+  ]
+}
+```
+
+If `clear-tpm-via-firmware` and `enable-and-clear-tpm-via-firmware` cannot be performed or do not fix the issue, attempt `clear-tpm`. Make a `POST` request to `/v2/systems/{label}` and pass the TPM lockout hierarchy auth value, base64-encoded, in `args`:
+
+```json
+{
+  "action": "fix-encryption-support",
+  "fix-action": "clear-tpm",
+  "args": {
+    "auth-value": "<base64-auth-value>"
+  }
+}
+```
+Replace `<base64-auth-value>` with the base64-encoded auth value. This value is chosen when the hierarchy's authorization is set and snapd cannot discover it. 
+
+In all other cases `clear-tpm` must be requested without an `args` field.
+
+## Set up storage encryption
+
+After completing the pre-install checks, you can prepare the installation of Ubuntu with TPM-FDE by setting up the target system's storage encryption.
+
+Depending on the target system's characteristics, adding a PIN or passphrase might be supported or even required. To determine whether the target system supports or requires a PIN or passphrase, look at the fields `requirements` and `features` in the system details. For example:
+
+```{code-block} json
+:caption: Response body, `result.storage-encryption`
 {
   ...
   "features": ["passphrase-auth", "pin-auth"],
@@ -221,9 +358,13 @@ To determine whether the system supports, or even requires, a PIN or passphrase,
 }
 ```
 
-If `volumes-auth` is present in `requirements`, at least one authentication method (PIN or passphrase) must be set up. Only authentication methods listed under `features` can be used. In this example, both PIN and passphrase are supported.
+In this example, the target system supports both PIN and passphrase as authentication methods. Since `volumes-auth` is present in `requirements`, at least one authentication method must be set. 
 
-If `volumes-auth` is not present in `requirements`, setting a PIN or passphrase is optional, provided that the system supports it. You can set up the system's storage encryption without an authentication method by making a `POST` request to `/v2/systems/{label}`. The request body must indicate that you want to execute the API action `install`, step `setup-storage-encryption`, without `volumes-auth`. For example:
+If `volumes-auth` is not present in `requirements`, setting a PIN or passphrase is optional. The `features` field will tell you whether the target system supports one or both.
+
+### Without an authentication method
+
+If the target system does not require an authentication method, you can set up the storage encryption without it. Make a `POST` request to `/v2/systems/{label}` with `action` set to `install`, `step` set to `setup-storage-encryption`, and `on-volumes` describing the volumes to encrypt. For example:
 
 ```json
 {
@@ -236,21 +377,38 @@ If `volumes-auth` is not present in `requirements`, setting a PIN or passphrase 
   }
 }
 ```
+In this example, `on-volumes` is illustrative. Replace it with the description of the volumes your installer created.
 
-### Check PIN or passphrase quality
+If successful, snapd will return an asynchronous response (`202 Accepted`). The response body will include a change ID. You can check the change progress by making a `GET` request to `/v2/changes/{id}`. Once it completes, the storage is encrypted and you can move on to the [Generate recovery key section](#generate-recovery-key). 
 
-Before configuring the PIN or passphrase, the installer should check that it meets the minimum quality requirements. To check the PIN or passphrase quality, make a `POST` request to `/v2/systems/{label}`. The request body must indicate that you want to execute either the `check-pin-quality` or `check-passphrase-quality` API action and include the respective PIN or passphrase. For example:
+### With a PIN or passphrase
+
+Before setting up a PIN or passphrase, your installer should check whether it meets the minimum quality requirements. This check is optional but highly recommended, as it avoids errors when setting up the PIN or passphrase.
+
+#### Check PIN or passphrase quality
+
+To check the quality of a PIN, make a `POST` request to `/v2/systems/{label}` with `action` set to `check-pin-quality` and `pin` set to the PIN provided by the user:
 
 ```json
 {
   "action": "check-pin-quality",
-  "pin": "123456"
+  "pin": "<pin>" 
 }
 ```
 
-If the PIN or passphrase does not meet the minimum requirements (as is the case in this example) or is not supported, this request will return an error (`400 Bad Request`). The response body will include a `result` object with details. For example:
+To check the quality of a passphrase, make a `POST` request to `/v2/systems/{label}` with `action` set to `check-passphrase-quality` and `passphrase` set to the passphrase provided by the user:
 
 ```json
+{
+  "action": "check-passphrase-quality",
+  "passphrase": "<passphrase>"
+}
+```
+
+If the PIN or passphrase does not meet the minimum requirements or is not supported, snapd will return an error (`400 Bad Request`) and provide details about the failure For example:
+
+```{code-block} json
+:caption: Response body, `result`
 {
   "kind": "invalid-pin",
   "message": "PIN did not pass quality checks",
@@ -262,10 +420,12 @@ If the PIN or passphrase does not meet the minimum requirements (as is the case 
   }
 }
 ```
+If a passphrase is tested instead, `kind` will be `invalid-passphrase`.
 
-If the PIN or passphrase is supported and meets the minimum requirements, this request will return a synchronous response (`200 OK`). The response body will include a `result` object with details about the assessment. For example:
+If the PIN or passphrase is supported and meets the minimum requirements, snapd will return a synchronous response (`200 OK`) with the entropy metrics. For example:
 
-```json
+```{code-block} json
+:caption: Response body, `result`
 {
   "entropy-bits": 48,
   "min-entropy-bits": 40,
@@ -273,11 +433,18 @@ If the PIN or passphrase is supported and meets the minimum requirements, this r
 }
 ```
 
-Once the PIN or passphrase meets the minimum requirements, it can be configured for the Ubuntu installation.
+The minimum and optimal entropy bits differ for PINs and passphrases, and might change in the future.
 
-### Configure PIN or passphrase
+Once the PIN or passphrase meets the minimum requirements, it can be added to the storage encryption setup.
 
-To configure a PIN or passphrase, make a `POST` request to `/v2/systems/{label}`. The request body must indicate that you want to execute the API action `install`, step `setup-storage-encryption`. For example:
+#### Add PIN or passphrase
+
+To add a PIN, make a `POST` request to `/v2/systems/{label}` with `action` set to `install` and `step` set to `setup-storage-encryption`. The request body must also include:
+- `on-volumes`, describing the volumes to encrypt; 
+- `volumes-auth` with the PIN; and 
+- `keyboard-config`, describing the keyboard configuration selected by the user. 
+
+For example:
 
 ```json
 {
@@ -290,7 +457,7 @@ To configure a PIN or passphrase, make a `POST` request to `/v2/systems/{label}`
   },
   "volumes-auth": {
     "mode": "pin",
-    "pin": "123456"
+    "pin": "<pin>"
   },
   "keyboard-config": {
     "model": "pc105",
@@ -298,10 +465,21 @@ To configure a PIN or passphrase, make a `POST` request to `/v2/systems/{label}`
   }
 }
 ```
+In this example, `on-volumes` is illustrative. Replace it with the description of the volumes your installer created. `keyboard-config` is also illustrative. Set it to the keyboard layout the user selected.
 
-When setting up a PIN or a passphrase during installation, `keyboard-config` must be defined. Snapd uses this configuration to ensure that the same keyboard layout is available when entering the PIN or passphrase on first boot.
+To add a passphrase instead, replace `volumes-auth` in the request body above with one including the user's passphrase:
+```json
+{
+  "volumes-auth": {
+    "mode": "passphrase",
+    "passphrase": "<passphrase>"
+  }
+}
+```
 
-If successful, this will return an asynchronous response (`202 Accepted`). The response body will include a change ID. Wait until the process is complete before moving to the next step. You can check its progress by making a `GET` request to `/v2/changes/{id}`.
+When adding a PIN or passphrase to the storage encryption setup, `keyboard-config` must be defined. Snapd uses this configuration to ensure that the same keyboard layout is available when the user enters the PIN or passphrase on first boot.
+
+If successful, snapd will return an asynchronous response (`202 Accepted`). The response body will include a change ID. You can check its progress by making a `GET` request to `/v2/changes/{id}`. Once it completes, the storage is encrypted and you can move to the next step.
 
 ## Generate recovery key
 
@@ -316,19 +494,22 @@ To generate a recovery key, make a `POST` request to `/v2/systems/{label}`, with
 }
 ```
 
-This request will return a synchronous response (`200 OK`). The response body will include a `result` object with the recovery key. For example:
+Snapd will return a synchronous response (`200 OK`) with the recovery key. For example:
 
-```json
+```{code-block} json
+:caption: Response body, `result`
 {
   "recovery-key": "12345-67890-12345-67890-12345-67890-12345-67890"
 }
 ```
 
-Present the recovery key to the user with a clear indication that they should write it down and store it safely. The user should become aware that, in the event of hardware damage, their data might be lost without the recovery key.
+```{attention}
+Present the recovery key to the user and tell them clearly that, in the event of hardware failure, they might lose their data without it.
+```
 
-## Finish the installation
+## Write the boot chain onto the target system
 
-To finish the installation of Ubuntu with TPM-FDE, make a `POST` request to `/v2/systems/{label}`. The request body must indicate that you want to execute the API action `install`, step `finish`. For example:
+To write the boot chain onto the volumes created and encrypted in the previous steps, make a `POST` request to `/v2/systems/{label}` with `action` set to `install`, `step` set to `finish`, and `on-volumes` describing those volumes. For example:
 
 ```json
 {
@@ -341,30 +522,46 @@ To finish the installation of Ubuntu with TPM-FDE, make a `POST` request to `/v2
   }
 }
 ```
+In this example, `on-volumes` is illustrative. Reuse the `on-volumes` value from the storage encryption setup.
 
-If successful, this will return an asynchronous response (`202 Accepted`). The response body will include a change ID. Wait until the process is complete before moving to the next step. You can check its progress by making a `GET` request to `/v2/changes/{id}`.
+If successful, snapd will return an asynchronous response (`202 Accepted`). The response body will include a change ID. Wait until the change is complete before moving to the next step. You can check its progress by making a `GET` request to `/v2/changes/{id}`.
+
+Once the change is complete, snapd has written the following onto the target system's volumes:
+- the gadget content
+- the kernel snap
+- the base snap
+- the gadget snap
+- the bootloader configuration
+- the modeenv, and
+- the disk-unlock keys.
+
+The system is now ready to reboot and install Ubuntu with TPM-FDE, but it is highly recommended to preseed it first.
 
 ## Preseed the target system before first boot
 
-Preseeding the already installed target system before the first boot is optional, but highly recommended. This makes the first boot faster and detects potential failures earlier.
+Preseeding the target system before the first boot is optional, but highly recommended. It makes the first boot faster and detects potential failures early.
 
-To preseed the target system, make a `POST` request to `/v2/systems/{label}`. The request body must indicate that you want to execute the API action `install`, step `preseed`. Set `target-root` to the path where the installer mounted the target system's decrypted system-data filesystem. For example:
-
-```json
-{
-  "action": "install",
-  "step": "preseed",
-  "target-root": "/run/mnt/ubuntu-data"
-}
-```
-
-To align with the existing preseeding workflow, the following mount points must be created before preseeding:
-
+Before preseeding, create the following mount points to match the existing preseeding workflow:
 - `/dev`
 - `/proc`
 - `/sys`
 - `/sys/kernel/security`
 
-Due to existing checks within snapd's preseeding implementation, `/sys` and `/sys/kernel/security` must be mounted independently.
+Snapd's preseeding checks require `/sys` and `/sys/kernel/security` to be mounted independently.
 
-Additionally, to prepare for preseeding, bind-mount the installer environment's seed directory into `<target-root>/var/lib/snapd/seed`.
+Also, bind-mount the installer environment's seed directory into `<target-root>/var/lib/snapd/seed`.
+
+To preseed the target system, make a `POST` request to `/v2/systems/{label}` with `action` set to `install`, `step` set to `preseed`, and `target-root` set to the mount point of the installer target system's decrypted system-data filesystem:
+
+```json
+{
+  "action": "install",
+  "step": "preseed",
+  "target-root": "<target-root>"
+}
+```
+
+If successful, snapd will return an asynchronous response (`202 Accepted`). The response body will include a change ID. Wait until the change is complete before moving to the next step. You can check its progress by making a `GET` request to `/v2/changes/{id}`. 
+
+When preseeding is complete, the target system is ready to reboot and install Ubuntu with TPM-FDE.
+
