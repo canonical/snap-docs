@@ -1,7 +1,13 @@
+---
+myst:
+  html_meta:
+    description: Understand how confdb schema assertions separate configuration data from snap installation, enabling cross-snap settings, access control, and device onboarding.
+---
+
 (explanation-how-snaps-work-confdb-configuration-mechanism)=
 # Confdb configuration mechanism
 
-*Confdb* is a configuration mechanism that replaces individual {ref}`snap-specific configuration <how-to-guides-manage-snaps-set-system-options>` with an external [confdb-schema](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/) assertion, separating the configuration data from the snap installation. This allows for advanced configuration functionality, including:
+*Confdb* is an assertion-backed alternative to individual {ref}`snap-specific configuration <how-to-guides-manage-snaps-set-system-options>`. It uses an external [confdb-schema](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/) assertion to separate the configuration data from the snap installation. This allows for advanced configuration functionality, including:
 
 * device onboarding and management
 * cross-snap configuration
@@ -20,7 +26,7 @@ Settings are exposed via _views_. Views allow for both granular access control a
 ![Architectural overview, showing users and snaps interacting with separate confdb databags through granular views](/images/confdb-architecture.png)
 **Figure: Architectural overview, showing users and snaps interacting with separate confdb databags through granular views.**
 
-The `view` field in the  [confdb-schema assertion](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#confdb-schema-assertion-fields) is a set of mappings from “request” paths to “storage” paths.
+The `views` header in the [confdb-schema assertion](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#confdb-schema-assertion-fields) contains sets of rules exposing a "view" onto the configuration space. Each view rule map a `request` path to a `storage` path.
 
 Users and snaps can access the _request_ path, while the _storage_ path defines the layout in storage.
 
@@ -28,11 +34,11 @@ The separation of the *request* path from the *storage* path provides the isolat
 
 ### Confdb view requests
 
-When making a request, an administrator (or a snap accessing a configuration), must specify both a view and a request path.
+When making a request, an administrator (or a snap accessing a configuration) must specify a view. A request path is required for writes and optional for reads; if the request path is omitted on a read, the request is matched against all readable rules in the view.
 
-An attempt is then made to match the request path against a path in the view's rules. If a rule’s path contains a matching prefix then the corresponding storage path is used to retrieve a value.
+A rule matches when the supplied request is equal to, or is a prefix of, the rule's request path. The corresponding storage path is then used to retrieve a value.
 
-If more than one rule matches the request, then the result is aggregated from all of the values.
+All matching readable rules are evaluated. If more than one rule matches the request, the result is aggregated from all of the values.
 
 Multiple views can have the same “request” field, but different “storage”, facilitating backwards compatibility when transitioning to a new layout.
 
@@ -54,9 +60,9 @@ views:
   state:
     rules:
       -
-      request: snaps.firefox.status
-      storage: v1.snaps.firefox.status
-      access: read
+        request: snaps.firefox.status
+        storage: v1.snaps.firefox.status
+        access: read
 
 [...]
 ```
@@ -78,9 +84,9 @@ Instead of enumerating every possible combination, we can use a placeholder to m
 [...]
     rules:
       -
-      request: snaps.{name}.status
-      storage: v1.snaps.{name}.status
-      access: read
+        request: snaps.{name}.status
+        storage: v1.snaps.{name}.status
+        access: read
 [...]
 ```
 
@@ -104,12 +110,12 @@ To add more configuration paths for snaps, either add more rules or, if possible
   state:
     rules:
       -
-      request: snaps.{name}
-      storage: v1.snaps.{name}
-      access: read
-      content:
-        - storage: status
-        - storage: revision
+        request: snaps.{name}
+        storage: v1.snaps.{name}
+        access: read
+        content:
+          - storage: status
+          - storage: revision
 
 [...]
 ```
@@ -141,7 +147,7 @@ $ snap get system/snaps/state snaps
 
 ##### Evolving configuration
 
-All the rule mappings defined above have the same “request” and “storage” paths. As snapd maps request paths to storage paths, let’s say a user or snap is interested in knowing the system’s (in this case, snapd’s) status. To take advantage of confdb’s features for evolving configuration schemas and re-organising namespaces, we could add the following rule:
+All the rule mappings defined above preserve the same structure after adding the `v1` storage prefix. As snapd maps request paths to storage paths, let’s say a user or snap is interested in knowing the system’s (in this case, snapd’s) status. To take advantage of confdb’s features for evolving configuration schemas and re-organising namespaces, we could add the following rule:
 
 ```yaml
 ...
@@ -181,8 +187,6 @@ $ snap get system/snaps/state
   "system-status": "enabled"
 }
 ```
-
-Requests are compared to rule prefixes until a match occurs which means an empty request matches every rule.
 
 ##### Namespaces
 
@@ -231,13 +235,13 @@ $ snapctl get --view :snaps-state snaps.firefox.status
 enabled
 ```
 
-Confdb supports the same commands and options as the {ref}`original configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. This includes unsetting data using `snapctl unset --view ...` or by using `snapctl set --view` with a `\!` prefixed to the request path.
+Confdb supports the same commands and options as the {ref}`original configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. This includes unsetting data using `snapctl unset --view ...` or by using `snapctl set --view` with `!` suffixed to the request path, for example `snapctl set --view :snaps-state snaps.firefox.status!`.
 
 ### Custodians
 
 The confdb interface plug can have one other attribute, `role`, which is optional and can only take a value of `custodian`.
 
-`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. Custodians are responsible for a subset of the configuration data. As such, at least one custodian must be installed and connected for the data to be accessible.
+`custodian` declares that the snap has a special role in managing the data accessed through the referenced view. This applies to an exact account, schema, and view combination, so a custodian for one view does not satisfy the requirement for another view in the same schema. For every non-system confdb view, at least one custodian must be installed and connected for the data to be accessible. Snaps cannot be custodians of system views, but they can still define `observe-view-<plug>` hooks on those views. See the [Hooks section](#hooks) for further details.
 
 One of the key aspects of the custodian role relates to ephemeral data which we’ll cover in the next section.
 
@@ -268,7 +272,7 @@ Confdb supports 5 types of [hooks](https://documentation.ubuntu.com/snapcraft/st
 
 `load-view-<plug>` and `query-view-<plug>` are scheduled during read operations, while `change-view-<plug>`, `save-view-<plug>` and `observe-view-<plug>` are relevant only to writes.
 
-The `save-view`/`load-view` hooks are mandatory if the path being accessed either maps to ephemeral data or may contain nested data (i.e., marked as ephemeral in the storage schema). The other hooks are optional.
+The `load-view-<plug>` and `save-view-<plug>` hooks are optional unless the user can access data marked as `ephemeral`. Accessed paths are checked at run-time against the storage schema for any `ephemeral` schema types along or under the path. If ephemeral data may be impacted and the appropriate hooks are not defined for at least one connected custodian then the access is rejected.
 
 During a read of the confdb data:
 1. snapd first reads the configuration data it stores internally and creates a transaction object to carry it.
@@ -281,13 +285,13 @@ Writes to confdb data operate in a similar fashion to reads:
 1. Snapd creates a transaction object, storing the intended changes to the confdb data.
 1. The first hooks to be scheduled are the `change-view-<plug>` hooks. These hooks provide an opportunity for custodian snaps to modify the data before it’s committed or even to reject it entirely. This is useful if the snaps must maintain complex invariants that can’t be expressed as [schema types and constraints](https://documentation.ubuntu.com/core/reference/assertions/confdb-schema/#schema-types).
 1. Data modification is done with `snapctl set --view` command in the usual manner.
-   To help snaps distinguish between uncommitted and pristine data, a `--pristine` flag can be used with `snapctl get --view`:
+   To help snaps distinguish between uncommitted and pristine data, a `--previous` flag can be used with `snapctl get --view`:
 
    ```
    $ snapctl get --view :plug-name path.modified
    <new_data>
 
-   $ snapctl get --view --pristine :plug-name path.modified
+   $ snapctl get --view --previous :plug-name path.modified
    <old_data>
    ```
 
@@ -297,6 +301,6 @@ Writes to confdb data operate in a similar fashion to reads:
    $ snapctl fail <reason>
    ```
 
-1. Once all `change-view-<plug>` hooks have run, the `save-view-<plug>` run in the same order (i.e., ordered by snap name). If any hook should fail, the transaction would be cancelled. Any `save-view-<plug>` hooks that had been invoked would be invoked again with pristine data, in order to help custodian snaps maintain consistency among the various versions of the configuration data.
+1. Once all `change-view-<plug>` hooks have run, the `save-view-<plug>` hooks run in the same order (i.e., ordered by snap name). If a `save-view-<plug>` hook fails, the transaction is cancelled. The failing hook and any previously completed `save-view-<plug>` hooks are invoked again with pristine data, in reverse invocation order, to help custodian snaps maintain consistency among the various versions of the configuration data. Errors from these rollback runs are ignored, and the original failure is reported.
 
-1. Finally, snapd schedules `observe-view-<plug>` hooks, which is the only type of confdb hook that can be defined by a non-custodian snap. This hook simply notifies snaps plugging views affected by the write that configuration data relevant to them may have changed. The failure of these hooks does not prevent the committing of the changes, as non-custodians are not allowed to reject them. Once those hooks run (successfully or not), the changes are committed by snapd.
+1. After all `save-view-<plug>` hooks succeed, snapd commits the transaction and then schedules `observe-view-<plug>` hooks. This is the only type of confdb hook scheduled for non-custodian plugs, although custodian plugs can also receive it. The hook notifies snaps plugging views affected by the write that configuration data relevant to them may have changed. The snap that initiated the write does not receive its own observe hook. Errors from all observe hooks are ignored and cannot roll back the already committed transaction.

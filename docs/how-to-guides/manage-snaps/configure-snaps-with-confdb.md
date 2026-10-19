@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Define and sign confdb schemas, then configure shared snap data through views, plugs, hooks, and granular access controls.
+---
+
 (how-to-guides-manage-snaps-configure-snaps-with-confdb)=
 # Configure snaps with confdb
 
@@ -223,7 +229,7 @@ The interface plug specifies an `account` and a `view` which together identify t
 
 Custodian snaps have a special role when accessing ephemeral data. They're responsible for saving or loading this data to an external source outside of snapd.
 
-The data that snapd stores for ephemeral configuration is only a cached, non-authoritative version of the external data. At least one custodian snap must be installed in the system for a particular confdb-schema.
+The data that snapd stores for ephemeral configuration is only a cached, non-authoritative version of the external data. At least one custodian snap must be installed and connected for each non-system confdb view.
 
 The first snap will act as the custodian for both views as well as allowing configuration of the Wi-Fi network, so let’s configure it accordingly:
 
@@ -252,7 +258,7 @@ As an example, we’ll say that the SSID must be prefixed with our company’s n
 Our `change-view-network-wifi-admin` hook looks like this:
 
 ```shell
-#!/bin/bash -xe
+#!/bin/bash -x
 
 # prefix the SSID with "acme", if not already present
 value=$(snapctl get --view :network-wifi-admin acme.ssid)
@@ -303,11 +309,11 @@ snap connect reader-snap:network-wifi-state
 Now we’re ready to start setting data, we’ll use `snap run --shell` to mimic the snaps interacting with confdb:
 
 ```shell
-$ sudo snap run --shell custodian-snap.sh
+$ sudo snap run --shell custodian-snap
 # snapctl set --view :network-wifi-admin acme.ssid=some-ssid acme.password=super-secret
 # exit
 
-$ sudo snap run --shell reader-snap.sh
+$ sudo snap run --shell reader-snap
 # snapctl get --view :network-wifi-state acme.ssid
 acme-some-ssid
 # exit
@@ -332,8 +338,8 @@ $ snap change 123
 Status  Spawn  Ready  Summary
 Done    ...    ...    Clears the ongoing confdb transaction from state (on error)
 Done    ...    ...    Run hook change-view-network-wifi-admin of snap "custodian-snap"
-Done    ...    ...    Run hook observe-view-network-wifi-state of snap "reader-snap"
 Done    ...    ...    Commit changes to confdb (<account-id>/network/wifi-admin)
+Done    ...    ...    Run hook observe-view-network-wifi-state of snap "reader-snap"
 Done    ...    ...    Clears the ongoing confdb transaction from state
 
 
@@ -377,12 +383,12 @@ to
 Assuming we have then recreated and signed the assertion, we can see that read access to that field is now limited.
 
 ```console
-$ sudo snap run --shell custodian-snap.sh
+$ sudo snap run --shell custodian-snap
 # snapctl get --view :network-wifi-admin acme.password
 super-secret
 # exit
 
-$ snap run --shell custodian-snap.sh
+$ snap run --shell custodian-snap
 # snapctl get --view :network-wifi-admin acme.password
 cannot get "acme.password" through <account-id>/network/wifi-admin: unauthorized access
 # exit
