@@ -11,7 +11,7 @@ This guide shows you how to integrate [hardware-backed Full Disk Encryption](htt
 
 Refer to the {ref}`snapd REST API reference<reference-development-snapd-rest-api>` for a list of all API actions and endpoints. For general instructions, refer to the {ref}`guide on how to use the REST API<how-to-guides-manage-snaps-use-the-rest-api>`.
 
-Follow the steps in order. Some steps are optional. If you skip an optional step, continue with the next applicable one.
+Follow the steps in order. Some steps are optional.
 
 ## Prerequisites
 
@@ -27,7 +27,8 @@ snap known model --remote series=16 brand-id=canonical model=ubuntu-classic-2610
 For more information, see:
 - [Create a model](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/create-a-model/)
 - [Create a recovery system from the API](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/create-a-recovery-system-from-the-api/)
-- [Ubuntu Core storage layout](https://documentation.ubuntu.com/core/explanation/core-elements/storage-layout/)
+
+To learn about the layout of a recovery system seed, see also [Ubuntu Core storage layout](https://documentation.ubuntu.com/core/explanation/core-elements/storage-layout/).
 
 ## Get system label
 
