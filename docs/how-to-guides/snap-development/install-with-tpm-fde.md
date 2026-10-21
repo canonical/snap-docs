@@ -21,7 +21,7 @@ To follow this guide, your installer must have access to a recovery system seed 
 
 To get Canonical's reference model for the Ubuntu release used in this guide, run:
 ```sh
-snap known model --remote series=16 brand-id=canonical model=ubuntu-classic-2610-amd64
+snap known model --remote series=16 brand-id=canonical model=ubuntu-classic-2604-amd64
 ```
 
 For more information, see:
@@ -123,27 +123,27 @@ The initial `GET` request to `/v2/systems/{label}` runs pre-install checks and c
 The table below lists error kinds that snapd might return, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.
 
 ```{dropdown} Recoverable error kinds
-| Error kind                                          | Suggested message to present to the user                                                                                                                 | Example fix action(s)                                                      |
-|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| `efi-variable-access`                         | Error occurred when accessing an EFI variable.                                                                                                 | `contact-oem`                                                            |
-| `tpm-device-failure`                          | The TPM device has failed an internal self check.                                                                                              | `reboot`, `contact-oem`                                                  |
-| `tpm-device-disabled`                         | There is a TPM device that is currently disabled.                                                                                              | PPI-based enable/clear actions, `reboot-to-fw-settings`                  |
-| `tpm-hierarchies-owned`                       | One or more TPM hierarchy is currently owned, either because it has an authorization value or policy set.                                      | PPI/`clear-tpm` variants, `reboot-to-fw-settings`                        |
-| `tpm-device-lockout-locked-out`               | The TPM's lockout hierarchy is currently unavailable because it is locked out.                                                                 | PPI-based clear actions, `reboot-to-fw-settings`                         |
-| `insufficient-tpm-storage`                    | Insufficient storage space available to support FDE along with reprovisioning in the future.                                                   | PPI/`clear-tpm` variants, `reboot-to-fw-settings`                        |
-| `no-suitable-pcr-bank`                        | It is not possible to select a suitable PCR bank. This could be because some mandatory PCR values are inconsistent with the TCG log.           | `reboot-to-fw-settings`, `contact-oem`                                   |
-| `running-in-vm`                               | The current environment is a virtual machine.                                                                                                  | `proceed` only (if eligible)                                             |
-| `insufficient-dma-protection`                 | I/O DMA remapping was disabled during the current boot cycle.                                                                                  | `reboot-to-fw-settings`, `contact-oem`, `proceed` (if eligible)          |
-| `no-kernel-iommu`                             | The OS kernel was not built with DMA remapping support, or some configuration has resulted in it being disabled.                               | `reboot-to-fw-settings`, `contact-os-vendor`, `proceed` (if eligible)    |
-| `host-security`                               | Problem with the system security that is not represented by a more specific error kind.                                                        | `contact-oem`                                                            |
-| `tpm-pcr-unusable`                            | An error in the way that the platform firmware performs measurements such that the PCR becomes unusable.                                       | `contact-oem`                                                            |
-| `addon-drivers-present`                       | Drivers running from value-added-retailer components were detected.                                                                            | `proceed` only (if eligible)                                             |
-| `sys-prep-applications-present`               | System preparation applications were detected to be running before the operating system.                                                       | `proceed` only (if eligible)                                             |
-| `absolute-present`                            | Absolute was detected to be executing before the initial OS loader.                                                                            | `reboot-to-fw-settings`, `contact-oem`                                   |
-| `invalid-secure-boot-mode`                    | The secure boot mode is invalid.                                                                                                               | `reboot-to-fw-settings`, `proceed` (only if `enabled: true, mode: user`) |
-| `weak-secure-boot-algorithms-detected`        | Either pre-OS components were authenticated with weak Authenticode digests, or CAs with weak public keys were used to authenticate components. | `proceed` only (if eligible)                                             |
-| `pre-os-secure-boot-auth-by-enrolled-digests` | Pre-OS components were authenticated by matching their Authenticode digest to an entry in `db`.                                                | `proceed` only (if eligible)                                             |
-| `no-hardware-root-of-trust`                   | The platform's UEFI firmware is not verified nor measured by a hardware root of trust.                                                         | `proceed` only (if eligible)                                             |
+| Error kind                                    | Suggested message to present to the user                                                                                                       | Example fix action(s)                                                                   |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| `efi-variable-access`                         | Error occurred when accessing an EFI variable.                                                                                                 | `contact-oem`                                                                           |
+| `tpm-device-failure`                          | The TPM device has failed an internal self check.                                                                                              | `reboot`, `contact-oem`                                                                 |
+| `tpm-device-disabled`                         | There is a TPM device that is currently disabled.                                                                                              | `reboot-to-fw-settings`, `enable-tpm-via-firmware`, `enable-and-clear-tpm-via-firmware` |
+| `tpm-hierarchies-owned`                       | One or more TPM hierarchy is currently owned, either because it has an authorization value or policy set.                                      | `reboot-to-fw-settings`, `clear-tpm-via-firmware`, `enable-and-clear-tpm-via-firmware`  |
+| `tpm-device-lockout-locked-out`               | The TPM's lockout hierarchy is currently unavailable because it is locked out.                                                                 | `reboot-to-fw-settings`, `clear-tpm-via-firmware`, `enable-and-clear-tpm-via-firmware`  |
+| `insufficient-tpm-storage`                    | Insufficient storage space available to support FDE along with reprovisioning in the future.                                                   | `reboot-to-fw-settings`, `clear-tpm-via-firmware`, `enable-and-clear-tpm-via-firmware`  |
+| `no-suitable-pcr-bank`                        | It is not possible to select a suitable PCR bank. This could be because some mandatory PCR values are inconsistent with the TCG log.           | `reboot-to-fw-settings`, `contact-oem`                                                  |
+| `running-in-vm`                               | The current environment is a virtual machine.                                                                                                  | `proceed`                                                                               |
+| `insufficient-dma-protection`                 | I/O DMA remapping was disabled during the current boot cycle.                                                                                  | `reboot-to-fw-settings`, `contact-oem`, `proceed`                                       |
+| `no-kernel-iommu`                             | The OS kernel was not built with DMA remapping support, or some configuration has resulted in it being disabled.                               | `reboot-to-fw-settings`, `contact-os-vendor`, `proceed`                                 |
+| `host-security`                               | Problem with the system security that is not represented by a more specific error kind.                                                        | `contact-oem`                                                                           |
+| `tpm-pcr-unusable`                            | An error in the way that the platform firmware performs measurements such that the PCR becomes unusable.                                       | `contact-oem`                                                                           |
+| `addon-drivers-present`                       | Drivers running from value-added-retailer components were detected.                                                                            | `proceed`                                                                               |
+| `sys-prep-applications-present`               | System preparation applications were detected to be running before the operating system.                                                       | `proceed`                                                                               |
+| `absolute-present`                            | Absolute was detected to be executing before the initial OS loader.                                                                            | `reboot-to-fw-settings`, `contact-oem`, `proceed`                                       |
+| `invalid-secure-boot-mode`                    | The secure boot mode is invalid.                                                                                                               | `reboot-to-fw-settings`                                                                 |
+| `weak-secure-boot-algorithms-detected`        | Either pre-OS components were authenticated with weak Authenticode digests, or CAs with weak public keys were used to authenticate components. | `proceed`                                                                               |
+| `pre-os-secure-boot-auth-by-enrolled-digests` | Pre-OS components were authenticated by matching their Authenticode digest to an entry in `db`.                                                | `proceed`                                                                               |
+| `no-hardware-root-of-trust`                   | The platform's UEFI firmware is not verified nor measured by a hardware root of trust.                                                         | `proceed`                                                                               |
 ```
 
 ### Encryption is unavailable due to non-recoverable errors
@@ -192,8 +192,8 @@ In this example, the target system's machine does not have a TPM 2.0 device suit
 The table below lists error kinds that snapd might return, with a suggested message to show the user. The list is not exhaustive: snapd can return error kinds that the table does not include. Treat it as a starting point, rather than a specification.
 
 ```{dropdown} Non-recoverable error kinds
-| Error kind                      | Suggested message to present to the user                                                                                              |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Error kind                | Suggested message to present to the user                                                                                    |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | `internal-error`          | Unexpected internal error occurred.                                                                                         |
 | `system-not-efi`          | The current host system is not an EFI system.                                                                               |
 | `no-suitable-tpm2-device` | The device has no suitable TPM2 device.                                                                                     |
@@ -252,13 +252,14 @@ Any fix action that requires a system reboot discards the pre-install check cont
 If snapd cannot perform an action, it will return a synchronous response (`200 OK`) with the system details and updated `availability-check-errors`. The table below lists error kinds that snapd might return in that situation, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.
 
 ```{dropdown} Error kinds returned if a fix action cannot be performed
-| Error kind                | Suggested message to present to the user                                                                                              | Example fix action(s) |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------|--------------------|
-| `shutdown-required` | System shutdown is required to complete a previous action.                                                                  | `shutdown`         |
-| `reboot-required`   | System reboot is required to complete a previous action.                                                                    | `reboot`           |
-| `unexpected-action` | The provided action is unexpected because it is either not supported or not associated with the previously returned errors. | none               |
-| `invalid-argument`  | One or more of the supplied arguments are of an invalid type or value.                                                      | none               |
-| `action-failed`     | The provided action did not succeed.                                                                                        | none               |
+| Error kind          | Suggested message to present to the user                                                                                    | Example fix action(s) |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| `shutdown-required` | System shutdown is required to complete a previous action.                                                                  | `shutdown`            |
+| `reboot-required`   | System reboot is required to complete a previous action.                                                                    | `reboot`              |
+| `unexpected-action` | The provided action is unexpected because it is either not supported or not associated with the previously returned errors. | none                  |
+| `invalid-argument`  | One or more of the supplied arguments are of an invalid type or value.                                                      | none                  |
+| `action-failed`     | The provided action did not succeed.                                                                                        | none                  |
+| `missing-argument`  | Not enough action arguments provided.                                                                                       | none                  |
 ```
 
 Some of these errors, such as `unexpected-action`, `invalid-argument`, and `action-failed`, offer no further fix actions. If you encounter one, make a new `POST` request to `/v2/systems/{label}` with the following request body:
