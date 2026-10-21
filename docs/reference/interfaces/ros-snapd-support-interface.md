@@ -8,6 +8,10 @@ The `ros-snapd-support` interface allows the snaps [`ros-snapd`](https://snapcra
 {ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`: no\
 {ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`: yes
 
+```{note}
+The `ros-snapd-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 <h3 id='heading--endpoint-access'>Endpoint access permissions</h3>
 <ul>
 <li>/v2/apps</li>

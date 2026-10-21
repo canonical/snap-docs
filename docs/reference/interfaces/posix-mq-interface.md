@@ -11,6 +11,10 @@ The `posix-mq` interface enables inter-process communication (IPC) messages to b
 | **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`** | **no** by default | **yes** with snaps from the same publisher |
 | **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`** | **no** for plugs | **yes** for slots |
 
+```{note}
+The `posix-mq` plug and slot are unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same message queues.
+```
+
 **Attributes**:
 
  * **`posix-mq`** (slot and plug)</br>
@@ -61,4 +65,3 @@ The following definition will create a _posix-mq_ interface with read-only permi
 The test code can be found in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/posix_mq_test.go
 
 The source code for the interface is in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/posix_mq.go
-

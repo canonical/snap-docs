@@ -9,6 +9,10 @@ See {ref}`Interface management <how-to-guides-work-with-snaps-connect-interfaces
 
 **Auto-connect**: no
 
+```{note}
+The `nomad-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 ### Code examples
 
 The test code can be found in the snapd repository:</br>https://github.com/canonical/snapd/blob/master/interfaces/builtin/nomad_support_test.go

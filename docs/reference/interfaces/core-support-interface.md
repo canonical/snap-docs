@@ -5,6 +5,10 @@
 
 **Auto-connect**: no
 
+```{note}
+This interface is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 Deprecated since snap version _2.24_.
 
 

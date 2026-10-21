@@ -9,6 +9,10 @@ This interface can write to all physical memory when the kernel is compiled with
 
 **Auto-connect**: no
 
+```{note}
+The `physical-memory-control` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
+```
+
 Requires snapd version _2.21+_.
 
 

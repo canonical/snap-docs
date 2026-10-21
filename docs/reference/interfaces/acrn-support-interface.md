@@ -11,6 +11,10 @@ The `acrn` interface  allows access to, and control of, user virtual machines us
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: no</br>
 
+```{note}
+Snaps that declare an `acrn-support` plug are not supported as {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 ### Code examples
 
 The following (third-party) repository contains recipes to create snap packages for ACRN: https://github.com/gvancuts/acrn-snap

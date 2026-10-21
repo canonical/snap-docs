@@ -11,6 +11,10 @@ Only the Steam snap may establish this interface.
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
+```{note}
+The `steam-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 
 ### Code examples
 

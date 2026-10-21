@@ -9,6 +9,10 @@ The slot is intended to be implemented by a gadget snap and is not provided by t
 **Attributes**:
  * `path` (slot): path to device partition e.g. `/dev/mmcblk0p1`
 
+```{caution}
+This interface controls a resource shared by the whole system. Snaps that use it can be installed as parallel instances, but every instance acts on the same system resource and snapd does not coordinate between them. Make sure each instance manages different resources, or run only one instance at a time. See {ref}`interfaces-parallel-installs-shared-resources`.
+```
+
 Requires snapd version *2.43+*.
 
 To use a disk partition, the snap developer must add `plugs: [ raw-volume ]` to a snap's [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml). The snap user can then access a specific disk partition with an {ref}`interface connection <explanation-interfaces-all-about-interfaces>`.

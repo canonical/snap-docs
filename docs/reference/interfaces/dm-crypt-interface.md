@@ -15,6 +15,10 @@ The `dm-crypt`  interface enables the following access functions to  [dm-crypt](
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
+```{note}
+The `dm-crypt` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
+```
+
 Often, _dm-crypt_ is statically linked into the kernel (`CONFIG_DM_CRYPT=y`). This is expected when working with custom kernels on projects where disk encryption is required.
 
 ### Code examples

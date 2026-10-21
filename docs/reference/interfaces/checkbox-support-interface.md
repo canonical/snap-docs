@@ -11,6 +11,10 @@ The interface is allowed to run on both core and classic systems, so that certif
 
 **Auto-connect**: no
 
+```{note}
+The `checkbox-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 ### Code examples
 
 The source code for this interface is in the *snapd* repository:

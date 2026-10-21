@@ -6,6 +6,10 @@
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes
 
+```{note}
+The `docker-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 **Attributes:**
    * `privileged-containers` (plug): true|false (defaults to ``false``)
 

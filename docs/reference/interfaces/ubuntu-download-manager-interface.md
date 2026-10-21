@@ -5,4 +5,8 @@
 
 **Auto-connect**: yes
 
+```{note}
+The `ubuntu-download-manager` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
+
 

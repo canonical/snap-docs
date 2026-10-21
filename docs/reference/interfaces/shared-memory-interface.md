@@ -13,6 +13,10 @@ Requires snapd version *2.54+* .
 | **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`** | **no** by default | **yes** when `private` is enabled, or with snaps from the same publisher |
 | **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`** | **no** for plugs | **yes** for slots |
 
+```{note}
+The `shared-memory` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The `shared-memory` plug is supported for parallel instances only if it sets `private: true`.
+```
+
 **Attributes**:
 
  * `shared-memory` (slot and plug):

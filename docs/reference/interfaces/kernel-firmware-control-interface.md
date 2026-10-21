@@ -9,6 +9,10 @@ The ` kernel-firmware-control` interface permits the setting of a custom  [kerne
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
+```{caution}
+This interface controls a resource shared by the whole system. Snaps that use it can be installed as parallel instances, but every instance acts on the same system resource and snapd does not coordinate between them. Make sure each instance manages different resources, or run only one instance at a time. See {ref}`interfaces-parallel-installs-shared-resources`.
+```
+
 Requires snapd version _2.62+_.
 
 <h3 id='heading-code'>Code examples</h3>

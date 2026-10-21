@@ -8,6 +8,10 @@ The `hugepages-control` interface allows controlling [HugePages](https://www.ker
 
 **Auto-connect**: no
 
+```{caution}
+This interface controls a resource shared by the whole system. Snaps that use it can be installed as parallel instances, but every instance acts on the same system resource and snapd does not coordinate between them. Make sure each instance manages different resources, or run only one instance at a time. See {ref}`interfaces-parallel-installs-shared-resources`.
+```
+
 This interface assumes that _huge pages_ are mounted at either:
 - `/dev/hugepages` (Debian, Ubuntu)
 - `/run/hugepages` (various other distributions)

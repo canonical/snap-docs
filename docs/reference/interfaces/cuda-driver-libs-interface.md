@@ -10,6 +10,10 @@ The `cuda-driver-libs` interface permits access to CUDA acceleration on Nvidia G
 
 **Auto-connect**: no
 
+```{note}
+The `cuda-driver-libs` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
+```
+
 <h3 id='heading-code'>Code examples</h3>
 
 The source code for this interface is in the *snapd* repository:

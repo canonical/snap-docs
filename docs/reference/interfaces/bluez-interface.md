@@ -10,4 +10,8 @@ For example, a game with a _bluez_ plug could connect to the system's _bluez_ sl
 
 **Auto-connect**: no
 
+```{note}
+The `bluez` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
+
 

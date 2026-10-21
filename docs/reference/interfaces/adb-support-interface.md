@@ -12,6 +12,10 @@
 
 **Auto-connect**: no
 
+```{note}
+The `adb-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 
 Requires snapd version _2.36+_.
 
@@ -21,4 +25,3 @@ The adb-support interface is used in the _guiscrcpy_ snap: <https://github.com/s
 
 The source code for this interface is in the *snapd* repository:
 <https://github.com/canonical/snapd/blob/master/interfaces/builtin/adb_support.go>
-

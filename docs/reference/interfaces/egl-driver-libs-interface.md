@@ -9,6 +9,10 @@ The `egl-driver-libs` interface permits access to EGL the graphics sub-system.
 
 **Auto-connect**: no
 
+```{note}
+The `egl-driver-libs` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
+```
+
 ### Code examples
 
 The source code for this interface is in the *snapd* repository:

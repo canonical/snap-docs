@@ -5,6 +5,9 @@
 
 **Auto-connect**: no
 
-Requires snapd version _2.20+_.
+```{note}
+The `openvswitch-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
+Requires snapd version _2.20+_.
 

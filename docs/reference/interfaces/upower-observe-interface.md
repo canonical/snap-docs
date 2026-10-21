@@ -5,4 +5,7 @@
 
 **Auto-connect**: yes
 
+```{note}
+The `upower-observe` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
 

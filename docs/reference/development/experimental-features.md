@@ -55,7 +55,7 @@ The following table lists all the features considered experimental.
 | Name | Feature Flag | Date Introduced | Enabled by Default | Notes |
 | :--- | :----------- | :-------------- | :----------------- | :---- |
 | {ref}`Hotplug <interfaces-hotplug-support>` | hotplug | Jul 2018 (snapd 2.34) | NO | It controls the availability of dynamically creating slots based on system hardware. Currently only serial ports are supported (serial-port interface). |
-| {ref}`ParallelInstances <interfaces-parallel-installs>` | parallel-instances | Jun 2018 (snapd 2.34) | NO | It controls the availability installing a snap multiple times. Layouts are not working properly with parallel installs due to problems with persistent mounts. |
+| {ref}`Parallel installs <interfaces-parallel-installs>` | parallel-instances | Jun 2018 (snapd 2.34)   | YES (snapd 2.79)   | Some interfaces and app properties are not supported on parallel instances. See {ref}`interfaces-parallel-installs-unsupported`. |
 | HiddenSnapDataHomeDir | hidden-snap-folder | Aug 2020 (snapd 2.46) | NO | It controls whether snap data is stored in ~/.snap/data instead of ~/snap. |
 | UserDaemons | user-daemons | Aug 2020 (snapd 2.46)   | NO | It controls the availability of user mode service support. Snapcraft needs to enable the `daemon-scope` setting. |
 | MoveSnapHomeDir | move-snap-home-dir | Jul 2022 (snapd 2.57) | NO | It controls whether snap user data under ~/snap (or ~/.snap/data) can be moved to ~/Snap.|

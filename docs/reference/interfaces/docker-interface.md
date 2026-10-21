@@ -19,6 +19,10 @@ See {ref}`Interface management <how-to-guides-work-with-snaps-connect-interfaces
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
+```{note}
+The `docker` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
+
 For distribution via the [Snap store ](https://snapcraft.io/store), consumers of this interface require an approved {ref}`snap declaration <interfaces-process-for-aliases-auto-connections-and-tracks>`.
 
 ### Example implementation

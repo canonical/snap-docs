@@ -6,4 +6,7 @@
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 
+```{note}
+The `fwupd` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
 

@@ -7,4 +7,8 @@ When used on [Ubuntu Core](https://ubuntu.com/core/docs), the _udisks2_ interfac
 
 **Auto-connect**: no
 
+```{note}
+The `udisks2` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
+
 

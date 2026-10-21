@@ -14,6 +14,10 @@ Requires snapd version _2.23+_.
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
+```{note}
+The `classic-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 ### Code examples
 
 The test code can be found in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/classic_support_test.go
