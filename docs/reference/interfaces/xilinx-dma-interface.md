@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: xilinx-dma interface
+---
+
 (interfaces-xilinx-dma)=
 #  xilinx-dma interface
 
@@ -7,6 +13,10 @@ The `xilinx-dma` interface allows access to [Xilinx](https://en.wikipedia.org/wi
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
+
+```{note}
+The `xilinx-dma` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
+```
 
 ### Code examples
 

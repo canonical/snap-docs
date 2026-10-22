@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: fwupd interface
+---
+
 (interfaces-fwupd-interface)=
 #  fwupd interface
 
@@ -6,4 +12,7 @@
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 
+```{note}
+The `fwupd` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
 

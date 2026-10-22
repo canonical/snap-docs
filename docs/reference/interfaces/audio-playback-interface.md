@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: audio-playback interface
+---
+
 (interfaces-audio-playback-interface)=
 #  audio-playback interface
 
@@ -34,6 +40,10 @@ snap connect vlc:audio-playback
 
 **Auto-connect**: yes
 
+```{note}
+The `audio-playback` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
+
 <h3 id='heading-code'>Code examples</h3>
 
 The snapcraft.yaml for [VLC](https://github.com/videolan/vlc) includes audio-playback configuration:
@@ -41,4 +51,3 @@ The snapcraft.yaml for [VLC](https://github.com/videolan/vlc) includes audio-pla
 
 The source code for this interface is in the *snapd* repository:
 <https://github.com/canonical/snapd/blob/master/interfaces/builtin/audio_playback.go>
-

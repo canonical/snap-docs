@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: upower-observe interface
+---
+
 (interfaces-upower-observe-interface)=
 #  upower-observe interface
 
@@ -5,4 +11,7 @@
 
 **Auto-connect**: yes
 
+```{note}
+The `upower-observe` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
 

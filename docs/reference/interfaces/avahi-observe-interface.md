@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: avahi-observe interface
+---
+
 (interfaces-avahi-observe-interface)=
 #  avahi-observe interface
 
@@ -5,4 +11,7 @@
 
 **Auto-connect**: no
 
+```{note}
+The `avahi-observe` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+```
 

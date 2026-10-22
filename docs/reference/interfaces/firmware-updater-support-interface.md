@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: firmware-updater-support interface
+---
+
 (ref-firmware-updater-support-interface_firmware-updater-support-interface)=
 #  firmware-updater-support interface
 
@@ -7,6 +13,10 @@ The `firmware-updater-support` interface allows a snap to operate as the Firmwar
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
+
+```{note}
+The `firmware-updater-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
 ### Code examples
 

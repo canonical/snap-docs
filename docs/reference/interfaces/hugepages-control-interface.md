@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: hugepages-control interface
+---
+
 (interfaces-hugepages-control-interface)=
 #  hugepages-control interface
 
@@ -7,6 +13,10 @@ The `hugepages-control` interface allows controlling [HugePages](https://www.ker
 ## Developer details
 
 **Auto-connect**: no
+
+```{caution}
+This interface controls a resource shared by the whole system. Snaps that use it can be installed as parallel instances, but every instance acts on the same system resource and snapd does not coordinate between them. Make sure each instance manages different resources, or run only one instance at a time. See {ref}`Snaps that are unsupported as parallel instances <interfaces-parallel-installs-shared-resources>` for details..
+```
 
 This interface assumes that _huge pages_ are mounted at either:
 - `/dev/hugepages` (Debian, Ubuntu)

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: nomad-support interface
+---
+
 (interfaces-nomad-support)=
 #  nomad-support interface
 
@@ -8,6 +14,10 @@ See {ref}`Interface management <how-to-guides-work-with-snaps-connect-interfaces
 ## Developer details
 
 **Auto-connect**: no
+
+```{note}
+The `nomad-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
 ### Code examples
 

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: ros-snapd-support interface
+---
+
 (interfaces-ros-snapd-support)=
 #  ros-snapd-support interface
 
@@ -7,6 +13,10 @@ The `ros-snapd-support` interface allows the snaps [`ros-snapd`](https://snapcra
 
 {ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`: no\
 {ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`: yes
+
+```{note}
+The `ros-snapd-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
 <h3 id='heading--endpoint-access'>Endpoint access permissions</h3>
 <ul>

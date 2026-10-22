@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: checkbox-support interface
+---
+
 (ref-checkbox-support-interface_checkbox-support-interface)=
 #  checkbox-support interface
 
@@ -10,6 +16,10 @@ The interface is allowed to run on both core and classic systems, so that certif
 ## Developer details 
 
 **Auto-connect**: no
+
+```{note}
+The `checkbox-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
 ### Code examples
 

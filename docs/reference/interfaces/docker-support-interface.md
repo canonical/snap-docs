@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: docker-support interface
+---
+
 (interfaces-docker-support-interface)=
 #  docker-support interface
 
@@ -5,6 +11,10 @@
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes
+
+```{note}
+The `docker-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
 **Attributes:**
    * `privileged-containers` (plug): true|false (defaults to ``false``)

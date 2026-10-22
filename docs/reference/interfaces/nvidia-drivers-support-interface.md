@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: nvidia-drivers-support interface
+---
+
 (interfaces-nvidia-drivers-support-interface)=
 #  nvidia-drivers-support interface
 
@@ -13,9 +19,12 @@ This interface permits the [nvidia-assemble](https://snapcraft.io/nvidia-assembl
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
+```{note}
+The `nvidia-drivers-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
+
 ### Code examples
 
 The test code can be found in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/nvidia_drivers_support_test.go
 
 The source code for the interface is in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/nvidia_drivers_support.go
-

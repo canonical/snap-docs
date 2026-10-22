@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: microceph-support interface
+---
+
 (interfaces-microceph-support)=
 #  microceph-support interface
 
@@ -7,6 +13,10 @@ The `microceph-support` interface permits the [microceph](https://snapcraft.io/m
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
+
+```{note}
+The `microceph-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
 ### Code examples
 

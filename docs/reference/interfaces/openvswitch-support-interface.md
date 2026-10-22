@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: openvswitch-support interface
+---
+
 (interfaces-openvswitch-support-interface)=
 #  openvswitch-support interface
 
@@ -5,6 +11,9 @@
 
 **Auto-connect**: no
 
-Requires snapd version _2.20+_.
+```{note}
+The `openvswitch-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
+```
 
+Requires snapd version _2.20+_.
 

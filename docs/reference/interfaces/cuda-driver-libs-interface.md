@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: cuda-driver-libs interface
+---
+
 (interfaces-cuda-driver-libs)=
 #  cuda-driver-libs interface
 
@@ -9,6 +15,10 @@ The `cuda-driver-libs` interface permits access to CUDA acceleration on Nvidia G
 ## Developer details
 
 **Auto-connect**: no
+
+```{note}
+The `cuda-driver-libs` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
+```
 
 <h3 id='heading-code'>Code examples</h3>
 

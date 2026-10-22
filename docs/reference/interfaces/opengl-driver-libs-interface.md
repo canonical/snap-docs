@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: opengl-driver-libs interface
+---
+
 (ref-opengl-driver-libs-interface_opengl-driver-libs-interface)=
 #  opengl-driver-libs interface
 
@@ -9,6 +15,10 @@ For further details on interfaces, see {ref}`How to connect interfaces <explanat
 
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
+
+```{note}
+The `opengl-driver-libs` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
+```
 
 ### Code examples
 
