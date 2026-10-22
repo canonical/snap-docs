@@ -17,7 +17,7 @@ myst:
   * `bus` (plug): D-Bus bus to use for providing snap
 
 ```{note}
-The `dbus` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `dbus` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 Snaps that want to communicate via a well-known D-Bus connection name need to have matching `bus` and `name` attributes and then be connected via `snap connect`. Snaps specifying `bus: system` will have a default D-Bus bus policy that allows `root` to own the name and anyone to send to a destination that matches the well-known name (eg, `org.foo.bar`). Once connected, the consuming snap may communicate with the providing snap via:

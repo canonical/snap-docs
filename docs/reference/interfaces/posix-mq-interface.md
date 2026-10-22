@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: posix-mq interface
+---
+
 (interfaces-posix-mq-interface)=
 #  posix-mq interface
 
@@ -12,7 +18,7 @@ The `posix-mq` interface enables inter-process communication (IPC) messages to b
 | **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`** | **no** for plugs | **yes** for slots |
 
 ```{note}
-The `posix-mq` plug and slot are unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same message queues.
+The `posix-mq` plug and slot are {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same message queues.
 ```
 
 **Attributes**:

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: shared-memory interface
+---
+
 (interfaces-shared-memory-interface)=
 #  shared-memory interface
 
@@ -14,7 +20,7 @@ Requires snapd version *2.54+* .
 | **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`** | **no** for plugs | **yes** for slots |
 
 ```{note}
-The `shared-memory` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The `shared-memory` plug is supported for parallel instances only if it sets `private: true`.
+The `shared-memory` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The `shared-memory` plug is supported for parallel instances only if it sets `private: true`.
 ```
 
 **Attributes**:

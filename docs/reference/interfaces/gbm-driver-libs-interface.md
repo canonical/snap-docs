@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: gbm-driver-libs interface
+---
+
 (ref-gbm-driver-libs-interface_gbm-driver-libs-interface)=
 #  gbm-driver-libs interface
 
@@ -11,7 +17,7 @@ For further details on interfaces, see {ref}`How to connect interfaces <explanat
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `gbm-driver-libs` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The client driver symlink exported by the slot cannot distinguish between instances.
+The `gbm-driver-libs` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The client driver symlink exported by the slot cannot distinguish between instances.
 ```
 
 ### Code examples

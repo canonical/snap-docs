@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: docker-support interface
+---
+
 (interfaces-docker-support-interface)=
 #  docker-support interface
 
@@ -7,7 +13,7 @@
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes
 
 ```{note}
-The `docker-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `docker-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 **Attributes:**

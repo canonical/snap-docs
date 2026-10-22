@@ -11,7 +11,7 @@ Parallel installs enable you to run multiple instances of the same snap on the s
 
 Parallel installs are enabled by default from snapd 2.79. Earlier versions of snapd treated them as an experimental feature that had to be enabled explicitly.
 
-Not every snap can be installed as a parallel instance. Snaps that use unsupported interfaces or app properties are rejected when installed with an instance key. See {ref}`interfaces-parallel-installs-unsupported` for details.
+Not every snap can be installed as a parallel instance. Snaps that use unsupported interfaces or app properties are rejected when installed with an instance key. See {ref}`Snaps that are unsupported as parallel instances <interfaces-parallel-installs-unsupported>` for details.
 
 To disable parallel installs, set the `experimental.parallel-instances` system option to `false`:
 
@@ -19,7 +19,7 @@ To disable parallel installs, set the `experimental.parallel-instances` system o
 sudo snap set system experimental.parallel-instances=false
 ```
 
-With parallel installs disabled, *snap install* fails when given an instance key.
+With parallel installs disabled, `snap install` fails when given an instance key.
 
 The native package of snapd 2.79 ships a new mount unit, crucial for the correct behavior of parallel instances of classic snaps. For systems that previously did not have the feature enabled and wish to use parallel instances of classic snaps, we recommend rebooting the system after updating the native package to a version >=2.79.
 
@@ -102,7 +102,7 @@ Slots provided by a parallel instance are never used for automatic connections. 
 sudo snap connect <consumer-snap>:<plug> <provider-snap>_<instance-key>:<slot>
 ```
 
-Some interfaces are not supported on parallel instances. See {ref}`interfaces-parallel-installs-unsupported` for details.
+Some interfaces are not supported on parallel instances. See {ref}`Snaps that are unsupported as parallel instances  <interfaces-parallel-installs-unsupported>` for details.
 
 ### Services
 
@@ -243,7 +243,7 @@ However, due to security concerns, user data locations are *not* similarly adjus
 | XDG_RUNTIME_DIR  | /run/user/<uid>/snap.hello-world    | /run/user/<uid>/snap.hello-world_foo   |
 
 (interfaces-parallel-installs-unsupported)=
-## Snaps that cannot be installed as parallel instances
+## Snaps that are unsupported as parallel instances
 
 Certain snaps, due to their nature, can never be parallel installed:
 - snapd

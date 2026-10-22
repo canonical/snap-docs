@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: modem-manager interface
+---
+
 (interfaces-modem-manager-interface)=
 #  modem-manager interface
 
@@ -6,7 +12,7 @@
 **Auto-connect**: no
 
 ```{note}
-The `modem-manager` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `modem-manager` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 

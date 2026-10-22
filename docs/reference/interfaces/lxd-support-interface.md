@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: lxd-support interface
+---
+
 (interfaces-lxd-support-interface)=
 #  lxd-support interface
 
@@ -10,7 +16,7 @@
 **Transitional**: yes
 
 ```{note}
-The `lxd-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `lxd-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 **Attributes**:

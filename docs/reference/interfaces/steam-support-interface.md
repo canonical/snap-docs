@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: steam-support interface
+---
+
 (interfaces-steam-support-interface)=
 #  steam-support interface
 
@@ -12,7 +18,7 @@ Only the Steam snap may establish this interface.
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `steam-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `steam-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 

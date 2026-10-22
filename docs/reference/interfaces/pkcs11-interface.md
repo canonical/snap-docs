@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: pkcs11 interface
+---
+
 (interfaces-pkcs11)=
 #  pkcs11 interface
 
@@ -10,7 +16,7 @@ The `pkcs11` interface enables the [PKCS#11 Cryptographic Token Interface Standa
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `pkcs11` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `pkcs11` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 ### Code examples

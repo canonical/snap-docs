@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: pipewire interface
+---
+
 (interfaces-pipewire-interface)=
 #  pipewire interface
 
@@ -8,7 +14,7 @@ The `pipewire` interface allows full access to the user's pipewire socket, for t
 **{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: no</br>
 
 ```{note}
-The `pipewire` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `pipewire` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 ## **Path Access**

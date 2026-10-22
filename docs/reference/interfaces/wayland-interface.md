@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: wayland interface
+---
+
 (interfaces-wayland-interface)=
 #  wayland interface
 
@@ -7,7 +13,7 @@
 **Transitional**: yes
 
 ```{note}
-The `wayland` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `wayland` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 See The desktop interfaces for further details.

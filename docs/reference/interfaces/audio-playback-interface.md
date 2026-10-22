@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: audio-playback interface
+---
+
 (interfaces-audio-playback-interface)=
 #  audio-playback interface
 
@@ -35,7 +41,7 @@ snap connect vlc:audio-playback
 **Auto-connect**: yes
 
 ```{note}
-The `audio-playback` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `audio-playback` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 <h3 id='heading-code'>Code examples</h3>

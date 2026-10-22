@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: classic-support interface
+---
+
 (interfaces-classic-support-interface)=
 #  classic-support interface
 
@@ -15,7 +21,7 @@ Requires snapd version _2.23+_.
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `classic-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `classic-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 ### Code examples

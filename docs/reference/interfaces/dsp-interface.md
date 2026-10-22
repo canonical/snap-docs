@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: dsp interface
+---
+
 (interfaces-dsp-interface)=
 #  dsp interface
 
@@ -10,7 +16,7 @@ The `dsp` interface allows for the control of digital signal processors (DSPs) o
 **Auto-connect**: no
 
 ```{note}
-The `dsp` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
+The `dsp` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
 ```
 
 This interface allows privileged access to hardware and kernel drivers related to the digital signal processor and thus is only allowed on specific devices providing the slot via a gadget and is also not auto-connected.

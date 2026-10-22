@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: opengles-driver-libs interface
+---
+
 (ref-opengles-driver-libs-interface_opengles-driver-libs-interface)=
 #  opengles-driver-libs interface
 
@@ -11,7 +17,7 @@ For further details on interfaces, see {ref}`How to connect interfaces <explanat
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `opengles-driver-libs` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
+The `opengles-driver-libs` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
 ```
 
 ### Code examples

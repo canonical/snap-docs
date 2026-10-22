@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: kernel-module-load interface
+---
+
 (interfaces-kernel-module-load-interface)=
 #  kernel-module-load interface
 
@@ -12,7 +18,7 @@ See also the {ref}`kernel-module-control interface <interfaces-kernel-module-con
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{caution}
-This interface controls a resource shared by the whole system. Snaps that use it can be installed as parallel instances, but every instance acts on the same system resource and snapd does not coordinate between them. Make sure each instance manages different resources, or run only one instance at a time. See {ref}`interfaces-parallel-installs-shared-resources`.
+This interface controls a resource shared by the whole system. Snaps that use it can be installed as parallel instances, but every instance acts on the same system resource and snapd does not coordinate between them. Make sure each instance manages different resources, or run only one instance at a time. See {ref}`Snaps that are unsupported as parallel instances <interfaces-parallel-installs-shared-resources>` for details..
 ```
 
 **Attributes**:

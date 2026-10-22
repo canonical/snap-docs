@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: microstack-support interface
+---
+
 (interfaces-microstack-support-interface)=
 #  microstack-support interface
 
@@ -16,7 +22,7 @@ Virtual machines rely on KVM for virtualisation acceleration and the vhost frame
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `microstack-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `microstack-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 This interface allows MicroStack to operate by allowing the necessary system calls to be used by the following services:

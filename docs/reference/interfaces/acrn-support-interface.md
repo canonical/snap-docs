@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: acrn-support interface
+---
+
 (interfaces-acrn-support-interface)=
 #  acrn-support interface
 
@@ -12,7 +18,7 @@ The `acrn` interface  allows access to, and control of, user virtual machines us
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: no</br>
 
 ```{note}
-Snaps that declare an `acrn-support` plug are not supported as {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `acrn-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 ### Code examples

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: greengrass-support interface
+---
+
 (interfaces-greengrass-support-interface)=
 #  greengrass-support interface
 
@@ -7,7 +13,7 @@
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes
 
 ```{note}
-The `greengrass-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `greengrass-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 Requires snapd version _2.26+_.

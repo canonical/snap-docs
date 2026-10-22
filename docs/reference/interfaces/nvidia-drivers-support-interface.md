@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: nvidia-drivers-support interface
+---
+
 (interfaces-nvidia-drivers-support-interface)=
 #  nvidia-drivers-support interface
 
@@ -14,7 +20,7 @@ This interface permits the [nvidia-assemble](https://snapcraft.io/nvidia-assembl
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `nvidia-drivers-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `nvidia-drivers-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 ### Code examples

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: fpga interface
+---
+
 (interfaces-fpga-interface)=
 #  fpga interface
 
@@ -10,7 +16,7 @@ The `fpga` interface allows access to the [FPGA subsystem](https://www.kernel.or
 **Allow-installation**: yes
 
 ```{note}
-The `fpga` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
+The `fpga` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. Instances would perform conflicting operations on the same system resources.
 ```
 
 Devices:

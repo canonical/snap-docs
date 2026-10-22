@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: egl-driver-libs interface
+---
+
 (interfaces-egl-driver-libs)=
 #  egl-driver-libs interface
 
@@ -10,7 +16,7 @@ The `egl-driver-libs` interface permits access to EGL the graphics sub-system.
 **Auto-connect**: no
 
 ```{note}
-The `egl-driver-libs` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
+The `egl-driver-libs` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The library source files exported by the slot cannot distinguish between instances.
 ```
 
 ### Code examples

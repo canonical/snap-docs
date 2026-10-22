@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: kubernetes-support interface
+---
+
 (interfaces-kubernetes-support-interface)=
 #  kubernetes-support interface
 
@@ -7,7 +13,7 @@
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes
 
 ```{note}
-The `kubernetes-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `kubernetes-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 Requires snapd version _2.25+_.

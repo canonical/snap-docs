@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: core-support interface
+---
+
 (interfaces-core-support-interface)=
 #  core-support interface
 
@@ -6,7 +12,7 @@
 **Auto-connect**: no
 
 ```{note}
-This interface is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+This interface is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 Deprecated since snap version _2.24_.

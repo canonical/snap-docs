@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: auditd-support interface
+---
+
 (interfaces-auditd-support)=
 #  auditd-support interface
 
@@ -9,7 +15,7 @@ The `auditd-support` interface permits snaps to operate as the [`auditd`](https:
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `auditd-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `auditd-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 Unlike other `*-support` interfaces, there is no single official `auditd` snap for which this interface was intended to be used. Instead, snap packagers who wish to ship their own snap containing `auditd` or serving the role of `auditd` may request installation and connection of this interface.

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: multipass-support interface
+---
+
 (interfaces-multipass-support-interface)=
 #  multipass-support interface
 
@@ -7,7 +13,7 @@
 **{ref}`Super-privileged <reference-operations-interfaces-super-privileged-interfaces>`**: yes</br>
 
 ```{note}
-The `multipass-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `multipass-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 

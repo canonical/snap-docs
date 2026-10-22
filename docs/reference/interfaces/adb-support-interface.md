@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: adb-support interface
+---
+
 (interfaces-adb-support-interface)=
 #  adb-support interface
 
@@ -13,7 +19,7 @@
 **Auto-connect**: no
 
 ```{note}
-The `adb-support` plug is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`.
+The `adb-support` plug is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`.
 ```
 
 

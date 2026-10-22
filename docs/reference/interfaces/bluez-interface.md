@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: bluez interface
+---
+
 (interfaces-bluez-interface)=
 #  bluez interface
 
@@ -11,7 +17,7 @@ For example, a game with a _bluez_ plug could connect to the system's _bluez_ sl
 **Auto-connect**: no
 
 ```{note}
-The `bluez` slot is unsupported for {ref}`parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
+The `bluez` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
 
 
