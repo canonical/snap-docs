@@ -509,9 +509,9 @@ Snapd will return a synchronous response (`200 OK`) with the recovery key. For e
 Present the recovery key to the user and tell them clearly that, in the event of hardware failure, they might lose their data without it.
 ```
 
-## Write the boot chain onto the target system
+## Make the target system bootable
 
-To write the boot chain onto the volumes created and encrypted in the previous steps, make a `POST` request to `/v2/systems/{label}` with `action` set to `install`, `step` set to `finish`, and `on-volumes` describing those volumes. For example:
+To make the target system bootable, send a `POST` request to `/v2/systems/{label}` with `action` set to `install`, `step` set to `finish`, and `on-volumes` describing those volumes. For example:
 
 ```json
 {
