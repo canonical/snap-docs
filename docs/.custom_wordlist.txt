@@ -3,6 +3,7 @@ acrn
 allquotas
 alsa
 API
+Ambarella
 apparmor
 [Aa]utostart
 auditd
@@ -50,6 +51,7 @@ damon
 databag
 databags
 DBus
+denylisting
 dev
 Devmode
 devmode
@@ -118,6 +120,7 @@ ifacemgr
 iio
 initramfs
 initrd
+inotify
 interfacea
 Intersphinx
 io
@@ -146,6 +149,7 @@ libgpiod
 libs
 libsecret
 libsecrets
+libvirtd
 listmount
 LLMs
 loopback
@@ -167,6 +171,7 @@ mpris
 Multipass
 multipath
 multipathd
+mysnap
 nanbield
 netlink
 Netlink
@@ -210,6 +215,7 @@ pulseaudio
 pwm
 Pygments
 QEMU
+qseecom
 readthedocs
 Rediraffe
 Reexec
@@ -248,6 +254,7 @@ spi
 Spotify
 squashfuse
 statmount
+stderr
 stdin
 stdout
 [Ss]trace
@@ -291,6 +298,7 @@ unmounting
 unnasserted
 unpackaged
 unsandboxed
+unsets
 [Uu]nsquashing
 Unsetting
 unsetting
@@ -307,6 +315,7 @@ versoins
 vfat
 vhost
 vid
+videolan
 vlc
 VLC's
 VMs
