@@ -26,20 +26,6 @@ SNAP_COMMON=/var/snap/<snap>/common
 
 ## Snap specific environment variables
 
-Each snap runs in a custom environment specifically made for it. To get an overview of the variables in it, you can open a shell as the snap and run the `env` command.
-
-```
-$ snap run --shell <snap>.<command>
-$ env
-XDG_VTNR=1
-SSH_AGENT_PID=5543
-XDG_SESSION_ID=2
-SNAP_USER_COMMON=/home/<user>/snap/<snap>/common
-SNAP_LIBRARY_PATH=/var/lib/snapd/lib/gl:
-SNAP_COMMON=/var/snap/<snap>/common
-[...]
-```
-
 ### <pre>SNAP</pre>
 
 Directory where the snap is mounted. This is where all the files in your snap are visible in the filesystem.
