@@ -89,6 +89,56 @@
     display: none;
 }
 
+/* Let Swagger use the page width while keeping consistent side gutters. */
+.swagger-ui .wrapper {
+    max-width: 100% !important;
+    padding: 0 5%;
+}
+
+/* Keep schema text wrapping at normal word boundaries. */
+.swagger-ui .model {
+    word-break: normal !important;
+    white-space: normal !important;
+}
+
+/* Wrap the hidden schema URL hint so it cannot create horizontal overflow. */
+.swagger-ui .model-hint {
+    max-width: 280px;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+/* Bound schema content to its parent and scroll horizontally when needed. */
+.swagger-ui .model-box {
+    box-sizing: border-box;
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Keep a small inset between the schema content and its box edge. */
+.swagger-ui .model-box {
+    padding: 0 0 0 10px !important;
+}
+
+/* Keep property names compact without breaking them across lines. */
+.swagger-ui table.model tbody tr td:first-of-type {
+    width: 1%;
+    white-space: nowrap;
+}
+
+/* Preserve readable width for deep schemas; the parent model box scrolls. */
+.swagger-ui .model-box table.model table.model table.model {
+    min-width: 400px;
+}
+
+/* Keep the response table inside its operation panel. */
+.swagger-ui table.responses-table {
+    table-layout: fixed;
+}
+
 /* Easier to read in in dark theme. */
 @media not print {
     body[data-theme="dark"] {
