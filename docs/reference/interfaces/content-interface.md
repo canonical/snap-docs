@@ -34,6 +34,8 @@ By default, when multiple directories are shared from a producer snap, or when m
 
 Read, write and target should start with either ``$SNAP``, ``$SNAP_DATA`` or ``$SNAP_COMMON`` to refer to the designated directory. See {ref}`Environment variables <reference-development-environment-variables>` for details on where these point to on the filesystem.
 
+Paths declared in a slot's `source` attribute can also reference `$SNAP_INSTANCE_NAME`, but only within a path that starts with `$SNAP_DATA` or `$SNAP_COMMON`. This is useful for sharing a separate, per-instance directory with consumers of a {ref}`parallel-installed <interfaces-parallel-installs>` producer snap. See {ref}`Parallel installed content providers <interfaces-content-interface-parallel-installs>` below. Requires _snapd_ 2.79+.
+
 The _content identifier_ specified by the consuming snap (plug) must match the _content_ attribute of the producer snap (slot).
 
 At a very basic level, the content interface enables one directory, file or socket to appear in a place where another snap can access it.
@@ -57,7 +59,7 @@ With the following example, directories from the producer snap are shared in cor
 
 ```yaml
 slots:
-  _slot_name_:
+  <slot_name>:
     interface: content
     content: my-binaries
     source:
@@ -69,7 +71,7 @@ slots:
 **consumer/snapcraft.yaml**:
 ```yaml
 plugs:
-  _plug_name_:
+  <plug_name>:
     interface: content
     content: my-binaries
     target: $SNAP/connected-content
@@ -95,6 +97,43 @@ $SNAP/connected-content/bin-2/<executable-name>
 
 Directory names are preserved after a reboot.
 
+(interfaces-content-interface-parallel-installs)=
+#### Parallel installed content providers
+
+_Requires snapd 2.79+._
+
+When a slot's `source` attribute declares paths starting with `$SNAP_DATA` or `$SNAP_COMMON` and with `$SNAP_INSTANCE_NAME` as the final path element, it allows a consumer snap to get a separate directory for each instance of the {ref}`parallel-installed <interfaces-parallel-installs>` producer snap.
+
+**producer/snapcraft.yaml**:
+```yaml
+slots:
+  <slot_name>:
+    interface: content
+    content: assets
+    source:
+      read:
+        - $SNAP_DATA/assets/$SNAP_INSTANCE_NAME
+```
+
+**consumer/snapcraft.yaml**:
+```yaml
+plugs:
+  <plug_name>:
+    interface: content
+    content: assets
+    target: $SNAP_DATA/assets
+```
+
+If multiple instances of producer snap such as `my-producer`, `my-producer_inst1` and `my-producer_inst2` are all connected to the consumer's plug, the consumer sees each producer's content under its own instance name:
+
+```
+$SNAP_DATA/assets/my-producer/...
+$SNAP_DATA/assets/my-producer_inst1/...
+$SNAP_DATA/assets/my-producer_inst2/...
+```
+
+Since `$SNAP_INSTANCE_NAME` is only known at content provider snap installation time, it can only be used when sharing data from writable locations, such as `$SNAP_DATA` or `$SNAP_COMMON`.
+
 ### Using the <code>read</code> and <code>write</code> attributes
 
 Without the `source` attribute, content from the producer snap is mounted at the **exact path** indicated in the consumer snap:
@@ -102,7 +141,7 @@ Without the `source` attribute, content from the producer snap is mounted at the
 **producer/snapcraft.yaml**:
 ```yaml
 slots:
-  _slot_name_:
+  <slot_name>:
     interface: content
     content: my-binaries
     read:
@@ -112,7 +151,7 @@ slots:
 **consumer/snapcraft.yaml**:
 ```yaml
 plugs:
-  _plug_name_:
+  <plug_name>:
     interface: content
     content: my-binaries
     target: $SNAP/usr/local/bin
@@ -139,7 +178,7 @@ When the following two interfaces are connected, the *consumer* snap can invoke 
 **producer/snapcraft.yaml**:
 ```yaml
 slots:
-  _slot_name_:
+  <slot_name>:
     interface: content
     content: my-binaries
     read:
@@ -149,7 +188,7 @@ slots:
 **consumer/snapcraft.yaml**:
 ```yaml
 plugs:
-  _plug_name_:
+  <plug_name>:
     interface: content
     content: my-binaries
     target: $SNAP/usr/local/bin
@@ -259,7 +298,7 @@ Sharing writable files (from _snapd 2.19.1_):
 **producer/snapcraft.yaml**:
 ```yaml
 slots:
-  _slot_name_:
+  <slot_name>:
     interface: content
     content: writable-data
     write:
@@ -269,7 +308,7 @@ slots:
 **consumer/snapcraft.yaml:**
 ```yaml
 plugs:
-  _plug_name_:
+  <plug_name>:
     interface: content
     content: writable-data
     target: $SNAP_DATA
@@ -280,7 +319,7 @@ Sharing UNIX sockets (from _snapd 2.19.1_):
 **producer/snapcraft.yaml**:
 ```yaml
 slots:
-  _slot_name_:
+  <slot_name>:
     interface: content
     content: socket-directory
     write:
@@ -290,7 +329,7 @@ slots:
 **consumer/snapcraft.yaml**:
 ```yaml
 plugs:
-  _plug_name_:
+  <plug_name>:
     interface: content
     content: socket-directory
     target: $SNAP_DATA
