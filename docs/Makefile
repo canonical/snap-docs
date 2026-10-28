@@ -27,6 +27,7 @@ help:
 	@echo "-------------------------------------------------------------"
 	@echo "* watch, build and serve the documentation:  make run"
 	@echo "* only build:                                make html"
+	@echo "* run maintenance script tests:              make test"
 	@echo "* only serve:                                make serve"
 	@echo "* clean built doc files:                     make clean-doc"
 	@echo "* clean full environment:                    make clean"
@@ -42,7 +43,7 @@ help:
 	@echo "-------------------------------------------------------------"
 	@echo
 
-.PHONY: help full-help html epub pdf linkcheck spelling spellcheck woke \
+.PHONY: help full-help html epub pdf linkcheck spelling spellcheck woke test \
         vale pa11y run serve install pa11y-install   \
         vale-install pdf-prep pdf-prep-force clean clean-doc \
         update lint-md
@@ -103,6 +104,9 @@ clean-doc:
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
 	exit 0
+
+test: install
+	@. $(VENV); python3 -m unittest discover -s tests -v
 
 pa11y: pa11y-install html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
