@@ -93,6 +93,7 @@ The following column names are used:
 | {ref}`hardware-observe <interfaces-hardware-observe-interface>` | access hardware information | System, Hardware | no |
 | {ref}`hardware-random-control <interfaces-hardware-random-control-interface>` | provide entropy to hardware random number generator | System, Hardware | no |
 | {ref}`hardware-random-observe <interfaces-hardware-random-observe-interface>` | use hardware-generated random numbers | System, Hardware | no |
+| {ref}`hdmi-cec <interfaces-hdmi-cec-interface>` | access HDMI CEC devices | Hardware, Developer | no |
 | {ref}`hidraw <interfaces-hidraw-interface>` | access hidraw devices | System | no |
 | {ref}`home <interfaces-home-interface>` | access non-hidden files in the home directory | Storage, Personal data | yes on classic (traditional distributions), no otherwise |
 | {ref}`hostname-control <interfaces-hostname-control-interface>` | allows configuring the system hostname | Network | no |
