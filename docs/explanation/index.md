@@ -34,6 +34,8 @@ Learn about how snaps use standard Linux security policies to isolate themselves
 * {ref}`Security policies <explanation-security-security-policies>`: How we use AppArmor, Seccomp and cgroups to secure snaps.
 * {ref}`Snap confinement <explanation-security-snap-confinement>`: Learn more about Snap's various degrees of isolation.
 * {ref}`Assertions <explanation-security-assertions>`: Digitally signed documents used to verify all snap artefacts.
+* {ref}`Signing keys <explanation-security-signing-keys>`: Where assertion signing keys are held, and why it matters.
+* {ref}`Sign assertions with an HSM <explanation-security-sign-assertions-with-an-hsm>`: Hold a signing key on a hardware device.
 * {ref}`Snapd release process <explanation-security-snapd-release-process>`: How and when we update the snapd package.
 
 
