@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: network-manager interface
+    description: Reference documentation for the network-manager interface, which lets snaps configure and observe networking via NetworkManager.
 ---
 
 (interfaces-network-manager-interface)=

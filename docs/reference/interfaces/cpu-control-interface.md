@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: cpu-control interface
+    description: Reference documentation for the cpu-control interface, which lets snaps configure CPU tunables such as frequency scaling and governor settings.
 ---
 
 (interfaces-cpu-control-interface)=

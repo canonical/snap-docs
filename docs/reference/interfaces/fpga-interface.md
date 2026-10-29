@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: fpga interface
+    description: Reference documentation for the fpga interface, which lets snaps access and control the Linux kernel's FPGA subsystem on supported hardware.
 ---
 
 (interfaces-fpga-interface)=

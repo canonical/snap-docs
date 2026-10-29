@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: nomad-support interface
+    description: Reference documentation for the nomad-support interface, which lets snaps access cpuset CPU and memory management for HashiCorp Nomad.
 ---
 
 (interfaces-nomad-support)=

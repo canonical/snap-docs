@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: pkcs11 interface
+    description: Reference documentation for the pkcs11 interface, which lets snaps use the PKCS#11 Cryptographic Token Interface Standard with exposed tokens.
 ---
 
 (interfaces-pkcs11)=

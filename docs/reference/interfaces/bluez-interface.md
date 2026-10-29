@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: bluez interface
+    description: Reference documentation for the bluez interface, which lets snaps access Bluetooth devices registered through the bluez service.
 ---
 
 (interfaces-bluez-interface)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: network-setup-control interface
+    description: Reference documentation for the network-setup-control interface, which lets snaps read and write Netplan network configuration files.
 ---
 
 (interfaces-network-setup-control-interface)=
