@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: acrn-support interface
+    description: Reference documentation for acrn-support, which lets snaps access and control ACRN user virtual machines, primarily on Ubuntu Core.
 ---
 
 (interfaces-acrn-support-interface)=
@@ -28,4 +28,3 @@ The following (third-party) repository contains recipes to create snap packages 
 The test code can be found in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/acrn_support_test.go
 
 The source code for the interface is in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/acrn_support.go
-

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: media-hub interface
+    description: Reference documentation for the media-hub interface, which lets snaps operate as the media-hub service for managing media playback on the system.
 ---
 
 (interfaces-media-hub-interface)=

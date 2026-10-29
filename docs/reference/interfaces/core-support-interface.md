@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: core-support interface
+    description: Reference documentation for core-support, a deprecated interface that lets the core snap set special internal permissions on the system.
 ---
 
 (interfaces-core-support-interface)=
@@ -16,5 +16,4 @@ This interface is {ref}`unsupported for parallel instances <interfaces-parallel-
 ```
 
 Deprecated since snap version _2.24_.
-
 

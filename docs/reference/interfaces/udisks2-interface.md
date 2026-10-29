@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: udisks2 interface
+    description: Reference documentation for the udisks2 interface, which lets snaps access storage on the device via the UDisks2 service.
 ---
 
 (interfaces-udisks2-interface)=

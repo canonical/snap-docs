@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: microstack-support interface
+    description: Reference documentation for the microstack-support interface, which lets snaps access multiple services required by the Microstack OpenStack deployment.
 ---
 
 (interfaces-microstack-support-interface)=

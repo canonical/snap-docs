@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: mount-control interface
+    description: Reference documentation for the mount-control interface, which lets snaps create and manage transient and persistent filesystem mount points.
 ---
 
 (interfaces-mount-control-interface)=

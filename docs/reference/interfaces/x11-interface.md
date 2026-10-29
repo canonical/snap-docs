@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: x11 interface
+    description: Reference documentation for the x11 interface, which lets snaps interact with, or run as, an X11 display server on the device.
 ---
 
 (interfaces-x11-interface)=

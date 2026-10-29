@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: kernel-module-load interface
+    description: Reference documentation for the kernel-module-load interface, which lets snaps load or deny loading of specific kernel modules.
 ---
 
 (interfaces-kernel-module-load-interface)=

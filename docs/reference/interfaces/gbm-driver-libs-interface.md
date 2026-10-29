@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: gbm-driver-libs interface
+    description: Reference documentation for the gbm-driver-libs interface, which lets snaps expose Generic Buffer Management (GBM) driver libraries to the system.
 ---
 
 (ref-gbm-driver-libs-interface_gbm-driver-libs-interface)=

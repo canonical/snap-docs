@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: kernel-module-control interface
+    description: Reference documentation for the kernel-module-control interface, which lets snaps insert, remove, and query kernel modules with privileged access.
 ---
 
 (interfaces-kernel-module-control-interface)=

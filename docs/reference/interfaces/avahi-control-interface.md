@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: avahi-control interface
+    description: Reference documentation for the avahi-control interface, which lets snaps control local network service discovery via the mDNS/DNS-SD protocol suite.
 ---
 
 (interfaces-avahi-control-interface)=

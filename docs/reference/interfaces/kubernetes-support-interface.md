@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: kubernetes-support interface
+    description: Reference documentation for the kubernetes-support interface, which lets snaps operate as the Kubernetes service and run application containers.
 ---
 
 (interfaces-kubernetes-support-interface)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: gpio-control interface
+    description: Reference documentation for the gpio-control interface, which lets snaps access all aspects of GPIO pins with restricted, super-privileged access.
 ---
 
 (interfaces-gpio-control-interface)=

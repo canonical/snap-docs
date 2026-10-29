@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: xilinx-dma interface
+    description: Reference documentation for the xilinx-dma interface, which lets snaps access Xilinx DMA IP from a connected PCIe card, typically on Ubuntu Core.
 ---
 
 (interfaces-xilinx-dma)=

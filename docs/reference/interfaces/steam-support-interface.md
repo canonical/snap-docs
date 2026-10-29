@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: steam-support interface
+    description: Reference documentation for the steam-support interface, which only the Steam snap can use to configure pressure-vessel containers.
 ---
 
 (interfaces-steam-support-interface)=
@@ -29,4 +29,3 @@ The source code for the Steam snap: https://github.com/canonical/steam-snap
 The test code can be found in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/steam_support_test.go
 
 The source code for the interface is in the snapd repository: https://github.com/canonical/snapd/blob/master/interfaces/builtin/steam_support.go
-

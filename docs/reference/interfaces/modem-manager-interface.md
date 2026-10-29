@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: modem-manager interface
+    description: Reference documentation for the modem-manager interface, which lets snaps configure, observe, and use modems via the ModemManager service.
 ---
 
 (interfaces-modem-manager-interface)=
