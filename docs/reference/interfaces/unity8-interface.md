@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: unity8 interface
+    description: Reference documentation for the unity8 interface, which lets snaps access data from Unity 8 desktop applications (in active development).
 ---
 
 (interfaces-unity8-interface)=

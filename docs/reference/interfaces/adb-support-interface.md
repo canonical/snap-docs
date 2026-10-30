@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: adb-support interface
+    description: Reference documentation for the adb-support interface, which lets snaps operate the Android Debug Bridge service with privileged access to Android devices.
 ---
 
 (interfaces-adb-support-interface)=

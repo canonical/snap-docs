@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: docker-support interface
+    description: Reference documentation for the docker-support interface, which lets snaps operate as the Docker daemon, for internal use by the Docker snap.
 ---
 
 (interfaces-docker-support-interface)=

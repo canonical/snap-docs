@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: egl-driver-libs interface
+    description: Reference documentation for the egl-driver-libs interface, which lets snaps access the EGL graphics subsystem (interface under development).
 ---
 
 (interfaces-egl-driver-libs)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: shared-memory interface
+    description: Reference documentation for the shared-memory interface, which lets snaps communicate with another snap via a predefined shared-memory path in /dev/shm.
 ---
 
 (interfaces-shared-memory-interface)=

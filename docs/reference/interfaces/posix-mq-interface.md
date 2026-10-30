@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: posix-mq interface
+    description: Reference documentation for the posix-mq interface, which lets snaps send and receive messages between snaps using POSIX message queues.
 ---
 
 (interfaces-posix-mq-interface)=

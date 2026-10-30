@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: opengl-driver-libs interface
+    description: Reference documentation for the opengl-driver-libs interface, which lets snaps expose OpenGL driver libraries to the system.
 ---
 
 (ref-opengl-driver-libs-interface_opengl-driver-libs-interface)=

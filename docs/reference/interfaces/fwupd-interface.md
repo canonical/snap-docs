@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: fwupd interface
+    description: Reference documentation for the fwupd interface, which lets snaps operate as the fwupd service with privileged access to update UEFI firmware.
 ---
 
 (interfaces-fwupd-interface)=

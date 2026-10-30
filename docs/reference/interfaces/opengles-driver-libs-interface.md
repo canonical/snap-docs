@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: opengles-driver-libs interface
+    description: Reference documentation for the opengles-driver-libs interface, which lets snaps expose OpenGLES driver libraries to the system.
 ---
 
 (ref-opengles-driver-libs-interface_opengles-driver-libs-interface)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: pipewire interface
+    description: Reference documentation for the pipewire interface, which lets snaps access the user's PipeWire socket for audio and video handling.
 ---
 
 (interfaces-pipewire-interface)=
