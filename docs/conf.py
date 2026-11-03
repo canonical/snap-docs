@@ -429,7 +429,8 @@ rediraffe_redirects = "redirects.txt"
 
 html_js_files = [
     "js/bundle.js",
-    "js/rtd-flyout-overwrite.js"
+    "js/rtd-flyout-overwrite.js",
+    "js/issue-links.js",
 ]
 
 
@@ -440,11 +441,10 @@ html_js_files = [
 # .. include:: /reuse/substitutions.txt
 # """
 
-# Feedback button at the top; enabled by default
+# Feedback button at the top; enabled by default.
 #
-# TODO: To disable the button, uncomment this.
-
-# disable_feedback_button = True
+# Disabled because we have a custom button linking to GitHub's template chooser.
+disable_feedback_button = True
 
 
 # Your manpage URL
@@ -488,4 +488,3 @@ if os.path.exists('./reuse/substitutions.yaml'):
 
 # Suppress missing xref warnings, as these are generated for targets automatically
 suppress_warnings = ['myst.xref_missing']
-
