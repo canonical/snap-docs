@@ -6,8 +6,8 @@ body:
   - type: textarea
     id: details
     attributes:
-      label: What is the documentation issue?
-      description: Describe the question or issue you encountered.
+      label: Add a description
+      description: Describe the question or issue with the Snap documentation.
     validations:
       required: true
   - type: input
