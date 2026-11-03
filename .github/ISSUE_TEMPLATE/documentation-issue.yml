@@ -1,7 +1,7 @@
 name: Documentation issue
 description: Report issue related to the snap documentation
 title: "docs: TYPE YOUR QUESTION HERE"
-labels: ["snap documentation"]
+labels: ["documentation"]
 body:
   - type: textarea
     id: details
