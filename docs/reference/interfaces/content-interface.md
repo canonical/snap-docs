@@ -34,7 +34,7 @@ By default, when multiple directories are shared from a producer snap, or when m
 
 Read, write and target should start with either ``$SNAP``, ``$SNAP_DATA`` or ``$SNAP_COMMON`` to refer to the designated directory. See {ref}`Environment variables <reference-development-environment-variables>` for details on where these point to on the filesystem.
 
-Paths declared in a slot's `source` attribute can also reference `$SNAP_INSTANCE_NAME`, but only within a path that starts with `$SNAP_DATA` or `$SNAP_COMMON`. This is useful for sharing a separate, per-instance directory with consumers of a {ref}`parallel-installed <interfaces-parallel-installs>` producer snap. See {ref}`Parallel installed content providers <interfaces-content-interface-parallel-installs>` below. Requires _snapd_ 2.79+.
+Paths declared in a slot's `source` attribute can also reference `$SNAP_INSTANCE_NAME`, but only within a path that starts with `$SNAP_DATA` or `$SNAP_COMMON`. This is useful for sharing a separate, per-instance directory with consumers of a {ref}`parallel-installed <interfaces-parallel-installs>` producer snap. See the {ref}`Parallel installed content providers section <interfaces-content-interface-parallel-installs>` below. Requires _snapd_ 2.79+.
 
 The _content identifier_ specified by the consuming snap (plug) must match the _content_ attribute of the producer snap (slot).
 
