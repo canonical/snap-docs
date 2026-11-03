@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report snapd bugs
+    url: https://bugs.launchpad.net/snapd/+filebug
+    about: Please report snapd bugs here
+  - name: Report bugs related to specific snaps
+    url: https://ubuntu.com/project/docs/contributors/qa-and-testing/report-a-bug/#how-to-report-bugs
+    about: Please use `snap report-issue <snap-name>`
+
