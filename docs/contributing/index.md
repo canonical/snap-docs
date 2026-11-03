@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Contribute to the snap documentation by reporting issues and submitting pull requests for corrections, clarifications, and technical improvements.
+---
+
 (contribute-to-our-docs)=
 # Contribute to our docs
 
