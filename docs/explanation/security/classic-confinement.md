@@ -55,9 +55,9 @@ When a classic snap is executed on the host system, snapd will perform the follo
 
 2. The [AppArmor](https://ubuntu.com/server/docs/security-apparmor) profile will be loaded in complain mode.
 
-   This can be ascertained by running `apparmor_status` and find the relevant profiles listed in the complain section of the output, for examples `snap.XXX.hook.configure` and `snap.XXX.snapcraft`.
+   This can be confirmed by running `apparmor_status`, which lists the relevant profiles in the complain section of the output, such as `snap.XXX.hook.configure` and `snap.XXX.snapcraft`.
 
-3. For classic snaps, the permissive Seccomp profile will be parsed. This can be ascertained by running `grep Seccomp /proc/PID/status`, with the value of `0` indicating the process does not currently use any Seccomp filtering.
+3. For classic snaps, the permissive Seccomp profile will be parsed. This can be confirmed by running `grep Seccomp /proc/PID/status`, with the value of `0` indicating the process does not currently use any Seccomp filtering.
 
 4. Load the dynamic library dependencies in the following order – staged packages, `/snap/<base>` (with the relevant base specified in snap.yaml derived from the developer edited snapcraft.yaml), and then the libraries in the host environment.
 
