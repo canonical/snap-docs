@@ -9,7 +9,7 @@ myst:
 
 Parallel installs enable you to run multiple instances of the same snap on the same system. Each instance is completely isolated from all other instances, including its name, configuration, interface connections, data locations, services, applications and aliases.
 
-Parallel installs are enabled by default from snapd 2.79. Earlier versions of snapd treated them as an experimental feature that had to be enabled explicitly.
+Parallel installs are **enabled by default** from snapd 2.79. Earlier versions of snapd treated them as an experimental feature that had to be enabled explicitly.
 
 Not every snap can be installed as a parallel instance. Snaps that use unsupported interfaces or app properties are rejected when installed with an instance key. See {ref}`Snaps that are unsupported as parallel instances <interfaces-parallel-installs-unsupported>` for details.
 
@@ -21,7 +21,7 @@ sudo snap set system experimental.parallel-instances=false
 
 With parallel installs disabled, `snap install` fails when given an instance key.
 
-The native package of snapd 2.79 ships a new mount unit, crucial for the correct behavior of parallel instances of classic snaps. For systems that previously did not have the feature enabled and wish to use parallel instances of classic snaps, we recommend rebooting the system after updating the native package to a version >=2.79.
+The native package of snapd 2.79 ships new mount units, crucial for the correct behavior of parallel instances of classic snaps. For systems that previously did not have the feature enabled and wish to use parallel instances of classic snaps, we recommend rebooting the system after updating the native package to a version >=2.79.
 
 ## Installing multiple instances
 
@@ -363,9 +363,40 @@ Some supported interfaces grant control over a resource that is shared by the wh
 
 ## Classic confinement
 
-Snaps with {ref}`classic confinement <explanation-security-classic-confinement>` can be installed as parallel instances, but may require some setup on the part of the user, depending on the snap. Check the relevant snap's documentation for more details.
+Snaps with {ref}`classic confinement <explanation-security-classic-confinement>` can be installed as parallel instances, but may require some setup on the part of the user.
 
-As mentioned in {ref}`the beginning description of parallel instances <interfaces-parallel-installs>`, for correct behavior of parallel instances of classic snaps, systems that previously did not have parallel instances enabled yet had at least one snap installed should reboot their system after updating the native package to snapd >=2.79. 
+Starting with 2.79, the snapd native package (deb, rpm, etc.) ships additional mount units: `var-snap.mount` and, either `snap.mount` (on Ubuntu, Debian) or `var-lib-snapd-snap.mount` (on Fedora, Arch, openSUSE and others). The mount units are required to be active before using or installing parallel instances of classic snaps. The units help establish the mount hierarchy needed for ensuring that the automatically created `/snap/hello-world_foo/` to `/snap/hello-world/` mappings do not interfere with the host's mount namespace. On some systems, the `var-snap.mount` unit may need to be manually enabled for activation during boot. The `snap.mount` or `var-lib-snapd-snap.mount` units should auto-activate during boot if some snaps are already installed, or upon installation of a first snap. 
+
+Unit statuses can be confirmed by querying systemd, like so:
+
+* Ubuntu, Debian
+  ```
+  $ systemctl is-active snap.mount
+  active
+  $ systemctl is-active var-snap.mount
+  active
+  $ systemctl is-enabled var-snap.mount
+  enabled
+  ```
+* Fedora, Arch, openSUSE and others
+  ```
+  $ systemctl is-active var-lib-snapd-snap.mount
+  active
+  $ systemctl is-active var-snap.mount
+  active
+  $ systemctl is-enabled var-snap.mount
+  enabled
+  ```
+
+To enable and immediately start the `var-snap.mount` unit, run:
+
+``
+systemctl enable --now var-snap.mount
+``
+
+As mentioned in {ref}`the beginning description of parallel instances <interfaces-parallel-installs>`, for correct behavior of parallel instances of classic snaps, systems that previously did not have parallel instances enabled yet had at least one snap installed should reboot their system after updating the native package to snapd >=2.79, and optionally enabling the mount units.
+
+The mount units are only needed for supporting parallel installed classic snaps, and are otherwise not required to be active for non classic snaps. For this reason, the mount units are also not present on Ubuntu Core systems.
 
 ## Current limitations
 
