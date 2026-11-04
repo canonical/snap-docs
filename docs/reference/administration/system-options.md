@@ -97,11 +97,11 @@ Use `snap get` to retrieve the list of custom certificates:
 snap get system pki.certs.custom
 ```
 
+Any custom certificate change requires restarting the snap for it to see the updated system certificates.
+
 > ⓘ Available only on Ubuntu Core.
 
 > ⓘ Available since snapd _2.79_.
-
-> ⓘ Any custom certificate change requires a restart of a snap for it to see the updated system certificates.
 
 ## system refresh
 
