@@ -99,7 +99,7 @@ snap get system pki.certs.custom
 
 > ⓘ Available only on Ubuntu Core.
 
-> ⓘ Available since snapd _2.75_.
+> ⓘ Available since snapd _2.79_.
 
 > ⓘ Any custom certificate change requires a restart of a snap for it to see the updated system certificates.
 
