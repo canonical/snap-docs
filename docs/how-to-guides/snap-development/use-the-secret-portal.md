@@ -7,11 +7,11 @@ This {ref}`portal<interfaces-xdg-desktop-portals>` allows applications to get a 
 
 In the following  section, we will build a snap to demonstrate a fully working Secret portal example.
 
-### Prerequisites
+## Prerequisites
 
 Make sure that your OS supports the secret-portal. `xdg-desktop-portal` version must be equal or greater than 1.5.0. On Ubuntu, it is supported on Ubuntu 20.04 onwards. 
 
-### Building the snap
+## Building the snap
 
 The most common way to manage secrets in Linux environments is with [libsecret](https://gnome.pages.gitlab.gnome.org/libsecret/).
 
@@ -47,7 +47,7 @@ The snap can be built with the `snapcraft pack` command. See [Craft a snap](http
 
 When installing the snap, note that , as for the other xdg-desktop-portals, the desktop {ref}`interface must be plugged<how-to-guides-work-with-snaps-connect-interfaces>` to use the secret-portal.
 
-### Verifying the behavior 
+## Verifying the behavior 
 
 Install the secret-tool from the archive (sudo apt install libsecret-tools). We now have two different instances of the secret-tool:
 
