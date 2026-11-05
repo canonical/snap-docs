@@ -76,10 +76,10 @@ Enables custom certificate management with the following options (replace `<name
 - **pki.certs.custom.\<name>.name**: changes the registered certificate name after the certificate content has been set
 - **pki.certs.custom.\<name>.state**: sets the certificate state to `blocked` or `accepted`. If not explicitly set, the default state is `accepted`. Setting the state to `unset` removes the certificate
 
-The following example sets the certificate content, changes the certificate name, and blocks the certificate:
+The following example sets the certificate content from a PEM-encoded certificate file, changes the certificate name, and blocks the certificate:
 
 ```
-snap set system pki.certs.custom.<name>.content=<payload>
+snap set system pki.certs.custom.<name>.content="$(cat my-root.crt)"
 snap set system pki.certs.custom.<name>.name=new-name
 snap set system pki.certs.custom.<name>.state=blocked
 ```
@@ -97,9 +97,11 @@ Use `snap get` to retrieve the list of custom certificates:
 snap get system pki.certs.custom
 ```
 
+Any custom certificate change requires restarting the snap for it to see the updated system certificates.
+
 > ⓘ Available only on Ubuntu Core.
 
-> ⓘ Available since snapd _2.75_.
+> ⓘ Available since snapd _2.79_.
 
 ## system refresh
 
