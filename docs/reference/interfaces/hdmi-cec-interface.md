@@ -21,7 +21,7 @@ Connect the plug to the implicit system slot with:
 snap connect controller-snap:hdmi-cec :hdmi-cec
 ```
 
-The interface grants access to Linux CEC device nodes such as `/dev/cec0`, as well as legacy platform-specific nodes including `/dev/hdmicec`, `/dev/CEC`, `/dev/aocec`, `/dev/mxc_hdmi_cec`, `/dev/tegra_cec`, and Raspberry Pi's `/dev/vchiq`.
+The interface grants access to Linux CEC device nodes such as `/dev/cec0`, as well as legacy platform-specific nodes including `/dev/hdmicec`, `/dev/CEC`, `/dev/aocec`, `/dev/mxc_hdmi_cec` and `/dev/tegra_cec`.
 It also permits the CEC sysfs discovery and metadata access needed by CEC libraries and selected legacy backends.
 The available node depends on the hardware, kernel, and enabled driver; not every system provides all of these paths.
 
