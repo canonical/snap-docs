@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: hdmi-cec interface
+---
+
 (interfaces-hdmi-cec-interface)=
 # hdmi-cec interface
 
