@@ -21,7 +21,7 @@ sudo snap set system experimental.parallel-instances=false
 
 With parallel installs disabled, `snap install` fails when given an instance key.
 
-The native package of snapd 2.79 ships new mount units, crucial for the correct behavior of parallel instances of classic snaps. For systems that previously did not have the feature enabled and wish to use parallel instances of classic snaps, we recommend rebooting the system after updating the native package to a version >=2.79.
+The native package of snapd 2.79 ships new mount units, crucial for the correct behavior of parallel instances of classic snaps. If you plan to use parallel instances of classic snaps, see the Classic confinement section below for the required setup.
 
 ## Installing multiple instances
 
@@ -365,7 +365,9 @@ Some supported interfaces grant control over a resource that is shared by the wh
 
 Snaps with {ref}`classic confinement <explanation-security-classic-confinement>` can be installed as parallel instances, but may require some setup on the part of the user.
 
-Starting with 2.79, the snapd native package (deb, rpm, etc.) ships additional mount units: `var-snap.mount` and, either `snap.mount` (on Ubuntu, Debian) or `var-lib-snapd-snap.mount` (on Fedora, Arch, openSUSE and others). The mount units are required to be active before using or installing parallel instances of classic snaps. The units help establish the mount hierarchy needed for ensuring that the automatically created `/snap/hello-world_foo/` to `/snap/hello-world/` mappings do not interfere with the host's mount namespace. On some systems, the `var-snap.mount` unit may need to be manually enabled for activation during boot. The `snap.mount` or `var-lib-snapd-snap.mount` units should auto-activate during boot if some snaps are already installed, or upon installation of a first snap. 
+Starting with 2.79, the snapd native package (deb, rpm, etc.) ships additional mount units: `var-snap.mount` and either `snap.mount` (on Ubuntu, Debian) or `var-lib-snapd-snap.mount` (on Fedora, Arch, openSUSE and others). The mount units are required to be active before installing parallel instances of classic snaps. The units help establish the mount hierarchy needed for ensuring that the automatically created `/snap/hello-world_foo/` to `/snap/hello-world/` mappings do not interfere with the host's mount namespace. The `var-snap.mount` unit may need to be manually enabled for activation during boot. The `snap.mount` or `var-lib-snapd-snap.mount` units should auto-activate during boot if some snaps are already installed, or upon installation of a first snap.
+
+Note that the mount units are not shipped or installed by the snapd snap. Users who get snapd 2.79 through the snapd snap still need the 2.79+ native package for the mount units to be available on their systems.
 
 Unit statuses can be confirmed by querying systemd, like so:
 
@@ -388,13 +390,13 @@ Unit statuses can be confirmed by querying systemd, like so:
   enabled
   ```
 
-To enable and immediately start the `var-snap.mount` unit, run:
+To enable the `var-snap.mount` unit, run:
 
-``
-systemctl enable --now var-snap.mount
-``
+```
+sudo systemctl enable var-snap.mount
+```
 
-As mentioned in {ref}`the beginning description of parallel instances <interfaces-parallel-installs>`, for correct behavior of parallel instances of classic snaps, systems that previously did not have parallel instances enabled yet had at least one snap installed should reboot their system after updating the native package to snapd >=2.79, and optionally enabling the mount units.
+As mentioned in {ref}`the overview of parallel instances <interfaces-parallel-installs>`, systems that previously did not have parallel instances enabled but had at least one snap installed need extra care for classic snaps. After updating the native package to snapd >=2.79 and enabling the `var-snap.mount` unit, **reboot the system**.
 
 The mount units are only needed for supporting parallel installed classic snaps, and are otherwise not required to be active for non classic snaps. For this reason, the mount units are also not present on Ubuntu Core systems.
 
