@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: Contribute to the snap documentation by reporting issues and submitting pull requests for corrections, clarifications, and technical improvements.
+---
+
 (contribute-to-our-docs)=
 # Contribute to our docs
 
@@ -9,23 +15,12 @@ Contributing to documentation can be a fantastic way to get started as a contrib
 
 We hope to make it as easy as possible to contribute. If you need help at all with the contribution process, please let us know!
 
-
-## Publishing and hosting
-
-The documentation for _snap_ is
-[hosted in GitHub](https://github.com/canonical/snap-docs) and
-rendered, via [Read the Docs](https://about.readthedocs.com/), to [https://snapcraft.io/docs/](https://snapcraft.io/docs/).
-
-We use the [Sphinx documentation generator](https://www.sphinx-doc.org/) to create our documentation, which is written in [MyST Markdown](https://mystmd.org/) and built from [Canonical's Sphinx Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack).
-
-For further details, see the [Starter Pack documentation](https://canonical-starter-pack.readthedocs-hosted.com/stable/).
-
 ## The Open Documentation Academy
 
 The SnapD project is a proud member of the
-[Canonical Open Documentation Academy](https://github.com/canonical/open-documentation-academy)
+[Canonical Open Documentation Academy](https://documentation.academy/)
 (CODA). If you are new to making open source contributions, or new to technical
-writing and want to boost your skills -- or both! -- we will be glad to help.
+writing and want to boost your skills -- or both! -- we will be glad to help. You can find open issues on the [CODA dashboard](https://canonical.github.io/coda-dashboard/).
 
 ## Contributions we accept
 
@@ -57,7 +52,7 @@ Examples of changes that require an issue are things like:
 We reserve the right to reject any contribution at our own discretion where:
 
 **The outline of proposed work has not already been agreed by a maintainer.**
-: To protect maintainers' limited time, we do not accept unsolicited contributions. A PR must be tied to a valid and agreed issue unless it only makes a small change. Submitting an issue after a PR doesn't *guarantee* that we will then accept the PR. 
+: A PR must be tied to a valid and agreed issue unless it only makes a small change. Submitting an issue after a PR doesn't *guarantee* that we will then accept the PR. 
 
 **The pull request far exceeds the scope of what was agreed.**
 : "Scope creep" makes it much harder to review and accept changes. If a pull request becomes too large, we may ask you to break it into multiple smaller PRs. Stick to the scope of the original issue as much as you can -- if you discover more changes need to be made, discuss them in the PR or the original issue. A new PR can be submitted with the extra fixes.
@@ -69,7 +64,7 @@ We reserve the right to reject any contribution at our own discretion where:
 : We don't want any part of our documentation to look or feel like it was produced by AI. Therefore, if what you submitted cannot be easily distinguished from AI output, it does not meet our contribution requirements.
 
 **The issue the pull request is addressing was assigned to someone else.**
-: We want to make this a safe place for contributors to work on issues in their own time and without pressure. Please treat others as you'd want to be treated. If you like an issue someone else is working on, let us know and we'll create a similar one for you.
+: We want to make this a safe place for contributors to work on issues. Please treat others as you'd want to be treated. If you like an issue someone else is working on, let us know and we'll create a similar one for you.
 
 ## AI policy
 
@@ -99,6 +94,16 @@ We want to be open and transparent with our users about the way in which AI is o
 3. **Accessibility**: Issues marked as "good first issues" and "Open Documentation Academy" are *specifically* created and intended for people new to Open Source to get started in a safe place. These issues are easy to complete, well-described, and self-contained for new contributors to learn from. These issues are not for AI.
 
 4. **Responsibility**: Make sure that even if you use AI, you are still adding value based on your own personal skills and competency. You must understand what you're submitting, even if you used an LLM to help you.
+
+## Publishing and hosting
+
+The documentation for _snap_ is
+[hosted in GitHub](https://github.com/canonical/snap-docs) and
+rendered, via [Read the Docs](https://about.readthedocs.com/), to [https://snapcraft.io/docs/](https://snapcraft.io/docs/).
+
+We use the [Sphinx documentation generator](https://www.sphinx-doc.org/) to create our documentation, which is written in [MyST Markdown](https://mystmd.org/) and built from [Canonical's Sphinx Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack).
+
+For further details, see the [Starter Pack documentation](https://canonical-starter-pack.readthedocs-hosted.com/stable/).
 
 ## Thank you!
 
