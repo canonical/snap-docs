@@ -13,7 +13,13 @@ Parallel installs are enabled by default from snapd 2.79. Earlier versions of sn
 
 Not every snap can be installed as a parallel instance. Snaps that use unsupported interfaces or app properties are rejected when installed with an instance key. See {ref}`Snaps that are unsupported as parallel instances <interfaces-parallel-installs-unsupported>` for details.
 
-If you develop a snap, see {ref}`Support parallel installs <how-to-guides-snap-development-support-parallel-installs>` for guidance on avoiding conflicts and testing instance support.
+If you maintain a snap, see {ref}`Support parallel installs <how-to-guides-snap-development-support-parallel-installs>` for guidance on avoiding conflicts and testing instance support.
+
+For versions of snapd < 2.79, you can enable parallel instances with
+
+```
+sudo snap set system experimental.parallel-instances=true
+```
 
 To disable parallel installs, set the `experimental.parallel-instances` system option to `false`:
 
