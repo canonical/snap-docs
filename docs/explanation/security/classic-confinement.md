@@ -71,4 +71,4 @@ When a classic snap is executed on the host system, snapd will perform the follo
 | Seccomp           | Strict filtering          | No filtering                            |
 | `LD_LIBRARY_PATH` | Depends                   | Empty                                   |
 | Library loading   | Staged packages</br> Base | Staged packages</br>Base                |
-| Binary execution  | Staged packages</br> Base | Stage packages</br>Base</br>Host system |
+| Binary execution  | Staged packages</br> Base | Staged packages</br>Base</br>Host system |
