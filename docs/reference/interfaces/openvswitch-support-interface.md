@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: openvswitch-support interface
+    description: Reference documentation for the openvswitch-support interface, which lets snaps enable kernel-level support required to run Open vSwitch.
 ---
 
 (interfaces-openvswitch-support-interface)=

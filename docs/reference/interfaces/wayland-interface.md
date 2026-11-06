@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: wayland interface
+    description: Reference documentation for the wayland interface, which lets snaps access display compositors that support the Wayland protocol.
 ---
 
 (interfaces-wayland-interface)=

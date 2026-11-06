@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: microceph-support interface
+    description: Reference documentation for the microceph-support interface, which lets snaps operate as the MicroCeph service used by the MicroCeph snap.
 ---
 
 (interfaces-microceph-support)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: docker interface
+    description: Reference documentation for the docker interface, which lets snaps access the Docker socket to interact with the Docker daemon.
 ---
 
 (interfaces-docker-interface)=

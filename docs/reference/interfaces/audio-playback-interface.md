@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: audio-playback interface
+    description: Reference documentation for the audio-playback interface, which lets snaps play sounds and music through the system audio service, such as PulseAudio.
 ---
 
 (interfaces-audio-playback-interface)=

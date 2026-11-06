@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: hdmi-cec interface
+    description: Reference for the hdmi-cec interface, which lets snaps send and receive HDMI Consumer Electronics Control (CEC) messages through a system CEC adapter.
 ---
 
 (interfaces-hdmi-cec-interface)=

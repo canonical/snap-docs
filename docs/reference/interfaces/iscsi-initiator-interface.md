@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: iscsi-initiator interface
+    description: Reference documentation for the iscsi-initiator interface, which lets snaps discover, connect to, and manage iSCSI targets for block storage access.
 ---
 
 (ref-iscsi-initiator-interface_iscsi-initiator-interface)=

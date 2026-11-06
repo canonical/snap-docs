@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: unity8-calendar interface
+    description: Reference documentation for the unity8-calendar interface, which lets snaps read and change events in the Unity 8 global calendar.
 ---
 
 (interfaces-unity8-calendar-interface)=

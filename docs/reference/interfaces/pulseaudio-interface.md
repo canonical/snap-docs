@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: pulseaudio interface
+    description: Reference documentation for the pulseaudio interface, which lets snaps access the PulseAudio sound server for playback and recording (deprecated).
 ---
 
 (interfaces-pulseaudio-interface)=

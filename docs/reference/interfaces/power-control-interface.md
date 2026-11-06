@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: power-control interface
+    description: Reference documentation for the power-control interface, which lets snaps read and set system power settings such as suspend and wakeup behaviour.
 ---
 
 (interfaces-power-control-interface)=
