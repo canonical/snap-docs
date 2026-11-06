@@ -63,12 +63,12 @@ When a classic snap is executed on the host system, snapd will perform the follo
 
    If not found, search through the host system using the system's `/etc/ld.so.cache`. Classic snaps should not have a `$LD_LIBRARY_PATH` configured as part of their runtime environment.
 
-| Feature           | Strict                    | Classic                                  |
-| ----------------- | ------------------------- | ---------------------------------------- |
-| Mount namespace   | private                   | none                                     |
-| cgroups           | Yes                       | No                                       |
-| AppArmor          | Enforce mode              | Complain mode                            |
-| Seccomp           | Strict filtering          | No filtering                             |
-| `LD_LIBRARY_PATH` | Depends                   | Empty                                    |
-| Library loading   | Staged packages</br> Base | Staged packages</br>Base                 |
-| Binary execution  | Staged packages</br> Base | Staged packages</br>Base</br>Host system |
+| Feature           | Strict                    | Classic                                    |
+| ----------------- | ------------------------- | ------------------------------------------ |
+| Mount namespace   | private                   | none                                       |
+| cgroups           | Yes                       | No                                         |
+| AppArmor          | Enforce mode              | Complain mode                              |
+| Seccomp           | Strict filtering          | No filtering                               |
+| `LD_LIBRARY_PATH` | Depends                   | Empty                                      |
+| Library loading   | Staged packages</br> Base | Staged packages</br> Base                  |
+| Binary execution  | Staged packages</br> Base | Staged packages</br> Base</br> Host system |
