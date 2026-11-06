@@ -9,7 +9,7 @@ myst:
 
 Classic confinement is the most permissive level of {ref}`snap confinement <explanation-security-snap-confinement>`, equivalent to the full system access that traditional, unsandboxed packages have. Unlike strict confinement, classic confinement allows a snap to access the host system directly.
 
-This enables developers to publish apps that need more access than snapd interfaces and permissions allow. However, classic confinement comes at a very high maintenance cost. Since classic snaps are not isolated from the host system, developers must ensure that each binary and library uses the libraries, interpreters, and dependenceis shipped in the snap rather than those in the host system. For details on crafting snaps with classic confinement, see [Classic confinement](https://ubuntu.com/docs/snapcraft/latest/explanation/classic-confinement/) in the Snapcraft documentation.
+This enables developers to publish apps that need more access than snapd interfaces and permissions allow. However, classic confinement comes at a very high maintenance cost. Since classic snaps are not isolated from the host system, developers must ensure that each binary and library uses the libraries, interpreters, and dependencies shipped in the snap rather than those in the host system. For details on crafting snaps with classic confinement, see [Classic confinement](https://ubuntu.com/docs/snapcraft/latest/explanation/classic-confinement/) in the Snapcraft documentation.
 
 This page provides explanations and examples of what happens during installation and at runtime with snaps packaged using classic confinement.
 
