@@ -65,7 +65,7 @@ When a classic snap is executed on the host system, snapd will perform the follo
 
 | Feature           | Strict                    | Classic                                    |
 | ----------------- | ------------------------- | ------------------------------------------ |
-| Mount namespace   | private                   | none                                       |
+| Mount namespace   | Private                   | None                                       |
 | cgroups           | Yes                       | No                                         |
 | AppArmor          | Enforce mode              | Complain mode                              |
 | Seccomp           | Strict filtering          | No filtering                               |
