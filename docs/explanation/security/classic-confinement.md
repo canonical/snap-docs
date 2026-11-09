@@ -7,12 +7,11 @@ myst:
 (explanation-security-classic-confinement)=
 # Classic confinement
 
-Classic confinement is the most permissive level of {ref}`snap confinement <explanation-security-snap-confinement>`, equivalent to the full system access that traditional, unsandboxed packages have.
+Classic confinement is the most permissive level of {ref}`snap confinement <explanation-security-snap-confinement>`, equivalent to the full system access that traditional, unsandboxed packages have. Unlike strict confinement, classic confinement allows a snap to access the host system directly.
 
-It's often used as a stop-gap measure to enable developers to publish apps that need more access than snapd interfaces and permissions allow.
+Classic confinement has a very high maintenance cost. Since classic snaps are not isolated from the host system, developers must ensure that all binaries and libraries in their snap use the libraries, interpreters, and dependencies shipped in the snap rather than those in the host system. Before attempting to craft a classic snap, check wether its use case appears in {ref}`the list of supported categories<interfaces-reviewing-classic-confinement-snaps-supported>`. For details on crafting snaps with classic confinement, see [Classic confinement](https://ubuntu.com/docs/snapcraft/latest/explanation/classic-confinement/) in the Snapcraft documentation.
 
 This page provides explanations and examples of what happens during installation and at runtime with snaps packaged using classic confinement.
-
 
 ## Rationale
 
@@ -22,7 +21,6 @@ Apps can be packaged as classic snaps for a variety of reasons. Primarily, this 
 
 Apps packaged as classic snaps behave similar to software provided and installed through the host's package manager, like Aptitude (`apt`) or Red Hat Package Manager (`rpm`).
 
-
 ## Security
 
 From a security standpoint, classic snaps are inherently riskier than standard snaps, as they lack the protections and guardrails offered by sandboxing. A malicious author could easily compromise a system by incorporating a compromising payload into a classic snap. And as Canonical finds is frequently the case, not all requests for classic confinement are necessary. Some authors misunderstand the snap build process, interfaces, or filesystem, and with some tweaking their snap is made to work without classic confinement.
@@ -30,7 +28,6 @@ From a security standpoint, classic snaps are inherently riskier than standard s
 Canonical must therefore audit and vet all classic snaps prior to distribution on any store. Without approval from the Store team, a classic snap can't be distributed. The review process that determines the eligibility and appropriateness as a classic snap is outlined in {ref}`Submit your snap for review <interfaces-reviewing-classic-confinement-snaps>`.
 
 Canonical only manages risk for its own infrastructure and channels. If a user obtains a classic snap through unofficial channels and they understand the risks, they can manually install it.
-
 
 ## Install-time process
 
@@ -58,19 +55,20 @@ When a classic snap is executed on the host system, snapd will perform the follo
 
 2. The [AppArmor](https://ubuntu.com/server/docs/security-apparmor) profile will be loaded in complain mode.
 
-    This can be ascertained by running `apparmor_status` and find the relevant profiles listed in the complain section of the output, for examples `snap.XXX.hook.configure` and `snap.XXX.snapcraft`.
+   This can be confirmed by running `apparmor_status`, which lists the relevant profiles in the complain section of the output, such as `snap.XXX.hook.configure` and `snap.XXX.snapcraft`.
 
-3. For classic snaps, the permissive Seccomp profile will be parsed. This can be ascertained by running `grep Seccomp /proc/PID/status`, with the value of `0` indicating the process does not currently use any Seccomp filtering.
+3. For classic snaps, the permissive Seccomp profile will be parsed. This can be confirmed by running `grep Seccomp /proc/PID/status`, with the value of `0` indicating the process does not currently use any Seccomp filtering.
 
 4. Load the dynamic library dependencies in the following order – staged packages, `/snap/<base>` (with the relevant base specified in snap.yaml derived from the developer edited snapcraft.yaml), and then the libraries in the host environment.
 
-    If not found, search through the host system using the system's `/etc/ld.so.cache`. Classic snaps should not have a `$LD_LIBRARY_PATH` configured as part of their runtime environment.
+   If not found, search through the host system using the system's `/etc/ld.so.cache`. Classic snaps should not have a `$LD_LIBRARY_PATH` configured as part of their runtime environment.
 
-Feature | Strict | Classic
--|-|-
-Mount namespace | private | none
-cgroups | Yes | No
-AppArmor | Enforce mode | Complain mode
-Seccomp | Strict filtering | No filtering
-`LD_LIBRARY_PATH` | Depends | Empty
-Library loading | Staged packages</br> Base | Staged packages</br>Base</br>Host system
+| Feature           | Strict                    | Classic                                    |
+| ----------------- | ------------------------- | ------------------------------------------ |
+| Mount namespace   | Private                   | None                                       |
+| cgroups           | Yes                       | No                                         |
+| AppArmor          | Enforce mode              | Complain mode                              |
+| Seccomp           | Strict filtering          | No filtering                               |
+| `LD_LIBRARY_PATH` | Depends                   | Empty                                      |
+| Library loading   | Staged packages</br> Base | Staged packages</br> Base                  |
+| Binary execution  | Staged packages</br> Base | Staged packages</br> Base</br> Host system |

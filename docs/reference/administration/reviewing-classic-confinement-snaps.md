@@ -37,6 +37,7 @@ Because classic confinement snaps run without restrictions, use of classic confi
 
 Classic requests generally fall under a number of categories. Below lists categories that developers may consult for things that are known to be allowed/disallowed use of classic confinement. @reviewers may consult these lists when processing classic requests. If something falls outside of these lists, then the requirements must be gathered by a senior reviewer and discussed with an architect (after which, it can be added to the lists).
 
+(interfaces-reviewing-classic-confinement-snaps-supported)=
 #### Supported
 * compilers
 * debug tools
