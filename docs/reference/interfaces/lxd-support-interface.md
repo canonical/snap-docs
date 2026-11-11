@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: lxd-support interface
+    description: Reference documentation for the lxd-support interface, which lets snaps operate as the LXD service for the upstream LXD project.
 ---
 
 (interfaces-lxd-support-interface)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: ubuntu-download-manager interface
+    description: Reference documentation for the ubuntu-download-manager interface, which lets snaps operate as, or interact with, the Ubuntu download manager.
 ---
 
 (interfaces-ubuntu-download-manager-interface)=

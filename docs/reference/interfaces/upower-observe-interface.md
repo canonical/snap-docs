@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: upower-observe interface
+    description: Reference documentation for the upower-observe interface, which lets snaps read power device history and statistics from the UPower service.
 ---
 
 (interfaces-upower-observe-interface)=

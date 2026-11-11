@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: maliit interface
+    description: Reference documentation for the maliit interface, which lets snaps operate as the Maliit service, commonly used for on-screen keyboards.
 ---
 
 (interfaces-maliit-interface)=

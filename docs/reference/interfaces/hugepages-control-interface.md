@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: hugepages-control interface
+    description: Reference documentation for the hugepages-control interface, which lets snaps control Linux HugePages memory block management.
 ---
 
 (interfaces-hugepages-control-interface)=

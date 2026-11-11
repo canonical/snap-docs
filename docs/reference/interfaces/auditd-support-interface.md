@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: auditd-support interface
+    description: Reference documentation for the auditd-support interface, which lets snaps operate as the auditd service for Linux audit logging.
 ---
 
 (interfaces-auditd-support)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: raw-volume interface
+    description: Reference documentation for the raw-volume interface, which lets snaps access a specific disk partition provided by a gadget snap.
 ---
 
 (interfaces-raw-volume-interface)=

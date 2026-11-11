@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: nvme-control interface
+    description: Reference documentation for the nvme-control interface, which lets snaps manage NVMe controllers and namespaces via in-kernel NVMe interfaces.
 ---
 
 (ref-nvme-control-interface_nvme-control-interface)=
