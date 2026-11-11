@@ -58,7 +58,7 @@ Use snap-provided paths instead of constructing them from the hard-coded snap na
 | System data shared across all revisions and all instances | `$SNAP_COMMON` |
 | User data for this revision only | `$SNAP_USER_DATA` |
 | User data shared across all revisions of this instance only | `$SNAP_USER_COMMON` |
-| Per-user runtime files (instance-specific) | `$XDG_RUNTIME_DIR` |
+| Per-user runtime files (instance-specific for strict snaps) | `$XDG_RUNTIME_DIR` |
 
 For example, a user application can keep its database in:
 
@@ -74,14 +74,7 @@ For classic snaps, use the snap data variables for instance-local state and audi
 
 For each shared resource, either configure each instance to use a separate resource, provide explicit coordination between instances, or document that only one instance can run at a time. An interface being supported does not mean snapd coordinates access to its resources.
 
-Review everything your application owns outside its snap data directories. Common areas of concern include:
-
-* **Network services**: TCP and UDP listening addresses and ports.
-* **Inter-process communication**: Unix sockets, abstract sockets, shared-memory paths, and semaphores.
-* **External resources**: Databases, remote accounts, API queues, and service registrations that your application connects to.
-* **System resources**: hardware devices, mounted filesystems, and firewall rules.
-
-See {ref}`Current limitations<interfaces-parallel-installs-shared-resources>` for details on specific features.
+Review everything your application owns outside its snap data directories and see {ref}`Current limitations<interfaces-parallel-installs-shared-resources>` for details on specific features.
 
 (support-parallel-instances-test-snap)=
 ## Test your snap for correct behavior with parallel instances
