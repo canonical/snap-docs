@@ -134,7 +134,7 @@ See {ref}`Home directories outside of ‘/home’ <interfaces-home-outside-home>
 
 ## system interface
 
-Permits specific interfaces options to be changed . The only option currently supported is interface {ref}`auto-connection <explanation-interfaces-interface-auto-connection>`.
+Permits specific interfaces' options to be changed. Currently, only the {ref}`x11 interface<interfaces-x11-interface>` and option {ref}`auto-connection <explanation-interfaces-interface-auto-connection>` are supported.
 
 - **interface.allow-auto-connection**: configure auto-connection rules for the interface, options are `{false|true|verified}`.
   * `false` or `true` controls whether auto-connections are permitted.
