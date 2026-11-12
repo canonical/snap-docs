@@ -13,6 +13,14 @@ Parallel installs are **enabled by default** from snapd 2.79. Earlier versions o
 
 Not every snap can be installed as a parallel instance. Snaps that use unsupported interfaces or app properties are rejected when installed with an instance key. See {ref}`Snaps that are unsupported as parallel instances <interfaces-parallel-installs-unsupported>` for details.
 
+If you maintain a snap, see {ref}`Support parallel instances <how-to-guides-snap-development-support-parallel-instances>` for guidance on avoiding conflicts and testing instance support.
+
+For versions of snapd < 2.79, you can enable parallel instances with
+
+```
+sudo snap set system experimental.parallel-instances=true
+```
+
 To disable parallel installs, set the `experimental.parallel-instances` system option to `false`:
 
 ```
@@ -253,6 +261,7 @@ Certain snaps, due to their nature, can never be parallel installed:
 
 All other snaps are subject to feature checking. Snapd checks every snap installed with an instance key and rejects it if it uses a feature that cannot work with more than one instance.
 
+(interfaces-parallel-installs-unsupported-table)=
 ### Unsupported interfaces
 
 Some interfaces give the snap exclusive ownership of a system-wide resource, such as a well-known D-Bus name. Others allow operations on shared hardware or kernel state that would conflict if performed by more than one instance. A snap cannot be installed as a parallel instance (unless specified with an explicit bypass flag; see {ref}`Installing an unsupported snap anyway <interfaces-parallel-installs-bypass>`) if it declares a plug or slot for one of these interfaces on an unsupported side:
@@ -328,7 +337,7 @@ When an instance cannot be installed, the error names the plug or slot responsib
 ```
 cannot install snap "network-manager_foo" as parallel instance: slot "service" with interface "network-manager" is not supported for parallel instances: owning a unique global resource cannot have parallel instances
 ```
-
+(interfaces-parallel-installs-unsupported-app-properties)=
 ### Unsupported app properties
 
 A snap is unsupported as a parallel instance if any of its apps set one of the following properties in `snap.yaml`:
@@ -430,6 +439,7 @@ The mount units are only needed for supporting parallel installed classic snaps,
 The mount units are not shipped with nor installed by the snapd snap. Users of the snapd 2.79 snap still need the 2.79+ native package for the mount units to be available on their systems.
 ```
 
+(parallel-installs-current-limitations)=
 ## Current limitations
 
 There are a few limitations with parallel installs that will be addressed in subsequent `snapd` releases.
@@ -485,11 +495,12 @@ The default AppArmor profile allows instance specific access only. Applications 
 
 The `shared-memory` interface is only supported on parallel instances for plugs with the `private` attribute set to `true`, which gives each instance its own private `/dev/shm`. Slot-side parallel installations with `shared-memory` are not supported. Note that some interfaces such as `mir` allow a wider access to `/dev/shm`. Such a snap would need to be updated to made instance aware.
 
+(interfaces-parallel-installs-sockets)=
 #### Socket activation
 
 Snaps can use `listen-stream` socket definitions of three kinds: a network address, or an `AF_UNIX` socket addressed by either a filesystem path or an abstract name. Each behaves differently with parallel installs:
 
-* **Network sockets** (for example a bare `<port>`) are not adjusted for parallel installs. Instances trying to bind to the same address and port collide in the same way described above under Ports. Since the address is hard-coded, using `AF_INET`/`AF_INET6` socket activation is not recommended for snaps that want to support parallel installs.
+* **Network sockets** (for example a bare `<port>`) are not adjusted for parallel installs. Instances trying to bind to the same address and port collide in the same way described above under Ports. Since the address is hard-coded, using `AF_INET`/`AF_INET6` socket activation is not recommended for snaps that want to Support parallel instances.
 * **`AF_UNIX` filesystem-path sockets** using `$SNAP_DATA`, `$SNAP_COMMON` or `$XDG_RUNTIME_DIR` for system daemons, or `$SNAP_USER_DATA`, `$SNAP_USER_COMMON` or `$XDG_RUNTIME_DIR` for user daemons, are automatically expanded to instance-specific locations, so the clients can use the appropriate path, for example `/var/snap/hello-world_foo/common/name.socket`.
 * **`AF_UNIX` abstract sockets** must be declared with a `@snap.<snap-name>.` prefix. When generating the systemd socket unit for a snap instance, snapd automatically remaps this prefix to `@snap.<instance-name>.`, so each instance listens on its own abstract address without colliding with other instances. Clients must connect using the instance-qualified address, for example `@snap.hello-world_foo.socket` rather than `@snap.hello-world.socket`.
 
