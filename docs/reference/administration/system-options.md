@@ -433,6 +433,11 @@ The following `snap set` command could be used to change the `gateway4` address 
 snap set system system.network.netplan.network.ethernets.enp0s2.gateway4=10.0.2.1
 ```
 
+To change the WiFi SSID and password after the initial setup, use:
+
+```
+snap set system system.network.netplan.network.wifis.access-points="<ssid>".password="<password>"
+
 See [Netplan reference](https://netplan.io/reference) for details on the key and value pairs used for network configuration.
 
 > ⓘ Available since snapd _2.55.4_ and only on Ubuntu Core.
