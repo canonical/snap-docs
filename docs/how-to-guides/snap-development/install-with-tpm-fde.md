@@ -5,7 +5,7 @@ myst:
 ---
 
 (how-to-guides-installer-with-tpm-fde)=
-# Integrate TPM-FDE into a custom Ubuntu installer using the snapd REST API
+# Integrate TPM-FDE into a custom Ubuntu installer
 
 This guide shows you how to integrate [hardware-backed Full Disk Encryption](https://ubuntu.com/desktop/docs/en/latest/explanation/hardware-backed-disk-encryption/#hardware-backed-disk-encryption) (TPM-FDE) into a custom Ubuntu installer using the snapd REST API.
 
@@ -39,6 +39,7 @@ To get the system label, make a `GET` request to `/v2/systems`. Snapd will retur
 
 ```{code-block} json
 :caption: Response body, `result`
+:emphasize-lines: 7
 
 {
   ...
@@ -71,6 +72,8 @@ If encryption is available, `storage-encryption` will include the target system'
 
 ```{code-block} json
 :caption: Response body, `result`
+:emphasize-lines: 5, 8
+
 {
   ...
   "storage-encryption": {
@@ -92,6 +95,8 @@ If encryption is unavailable due to recoverable errors, `storage-encryption` wil
 
 ```{code-block} json
 :caption: Response body, `result`
+:emphasize-lines: 7-18
+
 {
   ...
   "storage-encryption": {
@@ -122,7 +127,6 @@ The initial `GET` request to `/v2/systems/{label}` runs pre-install checks and c
 
 The table below lists error kinds that snapd might return, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.
 
-```{dropdown} Recoverable error kinds
 | Error kind                                    | Suggested message to present to the user                                                                                                       | Example fix action(s)                                                                                                   |
 |-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | `efi-variable-access`                         | Error occurred when accessing an EFI variable.                                                                                                 | `contact-oem`                                                                                                           |
@@ -144,7 +148,6 @@ The table below lists error kinds that snapd might return, with a suggested mess
 | `weak-secure-boot-algorithms-detected`        | Either pre-OS components were authenticated with weak Authenticode digests, or CAs with weak public keys were used to authenticate components. | `proceed`                                                                                                               |
 | `pre-os-secure-boot-auth-by-enrolled-digests` | Pre-OS components were authenticated by matching their Authenticode digest to an entry in `db`.                                                | `proceed`                                                                                                               |
 | `no-hardware-root-of-trust`                   | The platform's UEFI firmware is not verified nor measured by a hardware root of trust.                                                         | `proceed`                                                                                                               |
-```
 
 ### Encryption is unavailable due to non-recoverable errors
 
@@ -153,6 +156,8 @@ the target system does not support encryption as defined in the recovery system 
 
 ```{code-block} json
 :caption: Response body, `result`
+:emphasize-lines: 6
+
 {
   ...
   "storage-encryption": {
@@ -170,6 +175,8 @@ If `storage-encryption` includes `availability-check-errors`, but none of the er
 
 ```{code-block} json
 :caption: Response body, `result`
+:emphasize-lines: 7-10
+
 {
   ...
   "storage-encryption": {
@@ -191,7 +198,6 @@ In this example, the target system's machine does not have a TPM 2.0 device suit
 
 The table below lists error kinds that snapd might return, with a suggested message to show the user. The list is not exhaustive: snapd can return error kinds that the table does not include. Treat it as a starting point, rather than a specification.
 
-```{dropdown} Non-recoverable error kinds
 | Error kind                | Suggested message to present to the user                                                                                    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | `internal-error`          | Unexpected internal error occurred.                                                                                         |
@@ -202,7 +208,6 @@ The table below lists error kinds that snapd might return, with a suggested mess
 | `invalid-tpm-response`    | The response from the TPM is invalid, which makes it impossible to obtain a response code.                                  |
 | `tpm-communication`       | An error occurred at the transport layer when executing a TPM command.                                                      |
 | `unsupported-platform`    | The current host platform is not compatible with FDE.                                                                       |
-```
 
 ## Perform pre-install fix actions
 
@@ -225,6 +230,8 @@ If successful, snapd will return a synchronous response (`200 OK`) with the upda
 
 ```{code-block} json
 :caption: Response body, `result`
+:emphasize-lines: 8-14
+
 {
   ...
   "storage-encryption": {
@@ -251,7 +258,6 @@ Any fix action that requires a system reboot discards the pre-install check cont
 
 If snapd cannot perform an action, it will return a synchronous response (`200 OK`) with the system details and updated `availability-check-errors`. The table below lists error kinds that snapd might return in that situation, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.
 
-```{dropdown} Error kinds returned after a fix action is attempted
 | Error kind          | Suggested message to present to the user                                                                                    | Example fix action(s) |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | `shutdown-required` | System shutdown is required to complete a previous action.                                                                  | `shutdown`            |
@@ -260,7 +266,6 @@ If snapd cannot perform an action, it will return a synchronous response (`200 O
 | `invalid-argument`  | One or more of the supplied arguments are of an invalid type or value.                                                      | none                  |
 | `action-failed`     | The provided action did not succeed.                                                                                        | none                  |
 | `missing-argument`  | Not enough action arguments provided.                                                                                       | none                  |
-```
 
 Some of these errors, such as `unexpected-action`, `invalid-argument`, and `action-failed`, offer no further fix actions. If you encounter one, make a new `POST` request to `/v2/systems/{label}` with the following request body:
 
@@ -283,6 +288,7 @@ The following example shows errors for which `proceed` is a possible fix action:
 
 ```{code-block} json
 :caption: Response body, `result.storage-encryption.availability-check-errors`
+
 [
   {
     "kind": "addon-drivers-present",
@@ -299,7 +305,9 @@ The following example shows errors for which `proceed` is a possible fix action:
 
 If the fix action `proceed` is executed without arguments, snapd will ignore all errors at once. This is not recommended, as it gives the user no visibility into which errors are being ignored. To ignore one error at a time, make a `POST` request to `/v2/systems/{label}`, passing `error-kinds` in `args`:
 
-```json
+```{code-block} json
+:emphasize-lines: 4-6
+
 {
   "action": "fix-encryption-support",
   "fix-action": "proceed",
@@ -314,6 +322,8 @@ The fix action `clear-tpm` normally does not accept arguments. However, if you a
 
 ```{code-block} json
 :caption: Response body, one entry of `result.storage-encryption.availability-check-errors`
+
+
 {
   "kind": "tpm-hierarchies-owned",
   "message": "error with TPM2 device: one or more of the TPM hierarchies is already owned",
@@ -331,7 +341,9 @@ The fix action `clear-tpm` normally does not accept arguments. However, if you a
 
 If `clear-tpm-via-firmware` and `enable-and-clear-tpm-via-firmware` cannot be performed or do not fix the issue, attempt `clear-tpm`. Make a `POST` request to `/v2/systems/{label}` and pass the TPM lockout hierarchy auth value, base64-encoded, in `args`:
 
-```json
+```{code-block} json
+:emphasize-lines: 4-6
+
 {
   "action": "fix-encryption-support",
   "fix-action": "clear-tpm",
@@ -411,6 +423,7 @@ If the PIN or passphrase does not meet the minimum requirements or is not suppor
 
 ```{code-block} json
 :caption: Response body, `result`
+
 {
   "kind": "invalid-pin",
   "message": "PIN did not pass quality checks",
@@ -428,6 +441,7 @@ If the PIN or passphrase is supported and meets the minimum requirements, snapd 
 
 ```{code-block} json
 :caption: Response body, `result`
+
 {
   "entropy-bits": 48,
   "min-entropy-bits": 40,
