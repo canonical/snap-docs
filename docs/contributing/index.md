@@ -15,13 +15,6 @@ Contributing to documentation can be a fantastic way to get started as a contrib
 
 We hope to make it as easy as possible to contribute. If you need help at all with the contribution process, please let us know!
 
-## The Open Documentation Academy
-
-The SnapD project is a proud member of the
-[Canonical Open Documentation Academy](https://documentation.academy/)
-(CODA). If you are new to making open source contributions, or new to technical
-writing and want to boost your skills -- or both! -- we will be glad to help. You can find open issues on the [CODA dashboard](https://canonical.github.io/coda-dashboard/).
-
 ## Contributions we accept
 
 We especially value contributions that improve the documentation's clarity,
@@ -65,6 +58,13 @@ We reserve the right to reject any contribution at our own discretion where:
 
 **The issue the pull request is addressing was assigned to someone else.**
 : We want to make this a safe place for contributors to work on issues. Please treat others as you'd want to be treated. If you like an issue someone else is working on, let us know and we'll create a similar one for you.
+
+## The Open Documentation Academy
+
+The SnapD project is a proud member of the
+[Canonical Open Documentation Academy](https://documentation.academy/)
+(CODA). If you are new to making open source contributions, or new to technical
+writing and want to boost your skills -- or both! -- we will be glad to help. You can find open issues on the [CODA dashboard](https://canonical.github.io/coda-dashboard/).
 
 ## AI policy
 
