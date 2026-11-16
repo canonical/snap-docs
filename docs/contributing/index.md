@@ -103,7 +103,7 @@ rendered, via [Read the Docs](https://about.readthedocs.com/), to [https://snapc
 
 We use the [Sphinx documentation generator](https://www.sphinx-doc.org/) to create our documentation, which is written in [MyST Markdown](https://mystmd.org/) and built from [Canonical's Sphinx Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack).
 
-For further details, see the [Starter Pack documentation](https://canonical-starter-pack.readthedocs-hosted.com/stable/).
+For further details, see the [Sphinx Stack documentation](https://canonical-starter-pack.readthedocs-hosted.com/stable/).
 
 ## Thank you!
 
