@@ -175,7 +175,7 @@ If `storage-encryption` includes `availability-check-errors`, but none of the er
 
 ```{code-block} json
 :caption: Response body, `result`
-:emphasize-lines: 7-10
+:emphasize-lines: 7-12
 
 {
   ...
