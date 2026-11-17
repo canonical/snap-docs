@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: plymouth-replace interface
+    description: Reference documentation for the plymouth-replace interface, which lets snaps transition smoothly from the Ubuntu Core boot splash to a graphical interface.
 ---
 
 (interfaces-plymouth-replace-interface)=
@@ -13,7 +13,7 @@ from the graphical boot splash screen on an Ubuntu Core device.
 **Auto-connect**: no<br/>
 **Super-privileged**: yes
 
-Requires snapd version _2.80+_.
+Requires snapd version _2.79+_.
 
 ## Developer details
 
