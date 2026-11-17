@@ -170,6 +170,7 @@ The following column names are used:
 | {ref}`physical-memory-observe <interfaces-physical-memory-observe-interface>` | read memory used by any process | System, Memory, Kernel | no |
 | {ref}`pipewire <interfaces-pipewire-interface>` | access the PipeWire server | Audio, Media, Video | no |
 | {ref}`pkcs11 <interfaces-pkcs11>` |  enables the cryptographic token interface standard to be used | Security, Super privileged | no |
+| {ref}`plymouth-replace <interfaces-plymouth-replace-interface>` | flicker-free transition from the boot splash screen | Ubuntu Core, Super privileged | no |
 | {ref}`polkit <interfaces-polkit-interface>` | access to the polkit authorisation manager | Security, System, Super privileged | no |
 | {ref}`polkit-agent <interfaces-polkit-agent-interface>` | permits applications to register as _polkit_ agents | Security, System, Super privileged | no |
 | {ref}`posix-mq <interfaces-posix-mq-interface>` | enables inter-process communication (IPC) messages | Super privileged, IPC | no by default, yes with snaps from the same publisher |
