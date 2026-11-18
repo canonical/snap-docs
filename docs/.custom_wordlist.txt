@@ -5,6 +5,7 @@ alsa
 API
 Ambarella
 apparmor
+Authenticode
 [Aa]utostart
 auditd
 backend
@@ -23,6 +24,7 @@ bpf
 Broadcom
 bugfix
 Canonical's
+CAs
 CDN
 CDNs
 [Cc]group
@@ -223,6 +225,7 @@ reexec
 remoteproc
 repo
 Repology
+reprovisioning
 requesters
 resampling
 retryable
