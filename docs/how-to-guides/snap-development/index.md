@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: How-to guides for extending snap functionality with API access, snapctl, Secret portal, snap try, testing snapd fixes, debugging, and in-development features.
+    description: How-to guides for extending snap functionality with API access, snapctl, parallel instances, Secret portal, snap try, testing snapd fixes, debugging, and in-development features.
 ---
 
 (how-to-snap-development)=
@@ -12,6 +12,7 @@ Extend snap functionality with API access, internal tools, and customised enviro
 * {ref}`Use the REST API <how-to-guides-manage-snaps-use-the-rest-api>`: how to access the snapd REST API.
 * {ref}`Integrate TPM-FDE into a custom Ubuntu installer using the snapd REST API <how-to-guides-installer-with-tpm-fde>`: use the snapd REST API to build a custom installer.
 * {ref}`Use snapctl <how-to-guides-manage-snaps-use-snapctl>`: use the snapctl tool within a snap application.
+* {ref}`Support parallel instances <how-to-guides-snap-development-support-parallel-instances>`: how to ensure your snap behaves properly with parallel instances.
 * {ref}`Use the Secret portal <how-to-guides-use-the-secret-portal>`: how to use the Secret portal
 * {ref}`Test snapd fixes <how-to-guides-fix-common-issues-test-snapd-fixes>`: test out the latest release of the snap daemon.
 * {ref}`Debug snaps <how-to-guides-fix-common-issues-debug-snaps>`: solve issues with snapped application and generate a snapd diagnostic report.
@@ -27,6 +28,7 @@ Extend snap functionality with API access, internal tools, and customised enviro
 Use the REST API <use-the-rest-api>
 Integrate TPM-FDE into an installer <install-with-tpm-fde>
 Use snapctl <use-snapctl>
+Support parallel instances <support-parallel-instances>
 Use the Secret portal <use-the-secret-portal>
 Test snapd fixes <test-snapd-fixes>
 Debug snaps <debug-snaps>
