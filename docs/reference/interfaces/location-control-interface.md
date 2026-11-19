@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: location-control interface
+    description: Reference documentation for location-control, which lets a snap operate as a location service with privileged configuration, observation, and use.
 ---
 
 (interfaces-location-control-interface)=
@@ -14,5 +14,4 @@ myst:
 ```{note}
 The `location-control` slot is {ref}`unsupported for parallel instances <interfaces-parallel-installs-unsupported>`. The slot owns a unique system-wide resource that instances would conflict over.
 ```
-
 

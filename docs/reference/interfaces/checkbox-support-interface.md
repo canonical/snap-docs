@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: checkbox-support interface
+    description: Reference documentation for checkbox-support, which lets Canonical Checkbox mostly bypass sandboxing; it is under development and not generally available.
 ---
 
 (ref-checkbox-support-interface_checkbox-support-interface)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: network-control interface
+    description: Reference documentation for the network-control interface, which lets snaps configure networking and network namespaces via ip netns.
 ---
 
 (interfaces-network-control-interface)=

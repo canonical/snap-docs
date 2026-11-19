@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: online-accounts-service interface
+    description: Reference documentation for the online-accounts-service interface, which lets snaps access the Online Accounts service to manage user account credentials.
 ---
 
 (interfaces-online-accounts-service-interface)=

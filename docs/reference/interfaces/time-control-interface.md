@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: time-control interface
+    description: Reference documentation for the time-control interface, which lets snaps change and query the system date and time via systemd-timedated.
 ---
 
 (interfaces-time-control-interface)=

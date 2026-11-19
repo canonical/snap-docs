@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: firewall-control interface
+    description: Reference documentation for the firewall-control interface, which lets snaps control the system's network firewall configuration and rules.
 ---
 
 (interfaces-firewall-control-interface)=

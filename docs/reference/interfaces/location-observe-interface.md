@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: location-observe interface
+    description: Reference documentation for the location-observe interface, which lets snaps access the device's current physical location.
 ---
 
 (interfaces-location-observe-interface)=

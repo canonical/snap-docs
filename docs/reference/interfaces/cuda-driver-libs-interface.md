@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: cuda-driver-libs interface
+    description: Reference documentation for the cuda-driver-libs interface, which lets snaps access CUDA acceleration on Nvidia GPUs (interface under development).
 ---
 
 (interfaces-cuda-driver-libs)=

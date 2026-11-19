@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: dm-multipath interface
+    description: Reference documentation for the dm-multipath interface, which lets snaps manage device-mapper multipath maps via the multipathd daemon.
 ---
 
 (ref-dm-multipath-interface_dm-multipath-interface)=

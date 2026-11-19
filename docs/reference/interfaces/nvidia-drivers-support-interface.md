@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: nvidia-drivers-support interface
+    description: Reference documentation for the nvidia-drivers-support interface, restricted to Ubuntu Core kernel snaps for NVIDIA driver assembly and loading.
 ---
 
 (interfaces-nvidia-drivers-support-interface)=

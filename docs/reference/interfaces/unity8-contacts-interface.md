@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: unity8-contacts interface
+    description: Reference documentation for the unity8-contacts interface, which lets snaps read and change contacts in the Unity 8 global contacts list.
 ---
 
 (interfaces-unity8-contacts-interface)=

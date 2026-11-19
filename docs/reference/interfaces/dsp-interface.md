@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: dsp interface
+    description: Reference documentation for the dsp interface, which lets snaps control digital signal processors on specific devices such as Ambarella hardware.
 ---
 
 (interfaces-dsp-interface)=

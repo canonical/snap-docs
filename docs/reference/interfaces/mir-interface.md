@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: mir interface
+    description: Reference documentation for the mir interface, which lets snaps operate as the Mir display service for compositing graphical applications.
 ---
 
 (interfaces-mir-interface)=

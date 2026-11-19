@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: timeserver-control interface
+    description: Reference documentation for the timeserver-control interface, which lets snaps set system time synchronisation servers via systemd-timedated.
 ---
 
 (interfaces-timeserver-control-interface)=
