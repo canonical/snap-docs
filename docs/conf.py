@@ -372,6 +372,17 @@ linkcheck_ignore = [
     # fingerprint-based bot protection); verified the page works fine with
     # a plain curl request.
     r"https://gitlab\.gnome\.org/Archive/gconf",
+    # developers.redhat.com returns 403 for linkcheck's client (WAF blocks
+    # requests that spoof a browser user-agent without the full set of
+    # accompanying browser headers); verified the pages work fine with a
+    # plain curl request.
+    r"https://developers\.redhat\.com/blog/2018/11/15/introducing-codeready-linux-builder/",
+    r"https://developers\.redhat\.com/blog/2018/11/15/rhel8-introducing-appstreams/",
+    r"https://developers\.redhat\.com/products/rhel/overview",
+    # nxp.com returns 404 for linkcheck's client (same browser-UA-spoofing
+    # WAF behaviour as above); verified the page works fine with a plain
+    # curl request.
+    r"https://www\.nxp\.com/design/design-center/development-boards-and-designs/8MMINILPD4-EVK",
     ]
 
 
