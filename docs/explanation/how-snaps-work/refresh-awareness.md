@@ -14,7 +14,7 @@ If a refresh occurs while an affected desktop application is running, **refresh 
 Refresh awareness requires snapd _2.57+_
 
 ```{note}
-{ref}`Service management <how-to-guides-manage-snaps-control-services>` is not affected, as services are started and stopped manually as part of the refresh process, unless a specific _endure_ value has been embedded into the snap by the snap developer. See [snapcraft.yaml refresh-mode](https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml/#apps.%3Capp-name%3E.refresh-mode) for further details.
+{ref}`Service management <how-to-guides-manage-snaps-control-services>` is not affected, as services are started and stopped manually as part of the refresh process, unless a specific _endure_ value has been embedded into the snap by the snap developer. See [snapcraft.yaml refresh-mode](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#apps.%3Capp-name%3E.refresh-mode) for further details.
 ```
 
 ## In-place updates

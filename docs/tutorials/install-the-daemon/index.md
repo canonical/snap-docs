@@ -23,7 +23,7 @@ The snap daemon (snapd) is pre-installed and ready to go on the following:
 |--|--|
 | [KDE Neon](https://neon.kde.org/) | [Manjaro](https://manjaro.org/) |
 [Solus](https://getsol.us/) | [Ubuntu](https://ubuntu.com/) 18.04 and above |
- | Most [Ubuntu flavours](https://wiki.ubuntu.com/DerivativeTeam/Derivatives#Official_Ubuntu_Flavors) | [Zorin OS](https://zorinos.com/) |
+ | Most [Ubuntu flavours](https://ubuntu.com/desktop/flavors) | [Zorin OS](https://zorinos.com/) |
 
 
 ## Without snap

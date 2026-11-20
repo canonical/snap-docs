@@ -7,7 +7,7 @@ myst:
 (how-to-guides-fix-common-issues-index)=
 # Fix common issues
 
-Snaps run on, and are built for, a diverse and constantly evolving set of {ref}`operating systems <tutorials-install-the-daemon-index>` and [embedded devices](https://ubuntu.com/core/docs/supported-platforms#heading--supported).
+Snaps run on, and are built for, a diverse and constantly evolving set of {ref}`operating systems <tutorials-install-the-daemon-index>` and [embedded devices](https://documentation.ubuntu.com/core/reference/testing-platforms/).
 
 The vast majority of our users and developers experience very few issues, but any technology this complex and diverse will likely encounter some issues and incompatibilities.
 

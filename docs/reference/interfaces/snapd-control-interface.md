@@ -3,7 +3,7 @@
 
 The `snapd-control` interface enables snap management, such as snap installation, removal and refresh-control by communicating with the snapd daemon.
 
-Due to its ability to permit the installation any snap at potentially any confinement level, `snapd-control` is primarily intended to be used by [brand store](https://core.docs.ubuntu.com/en/build-store/#brand-stores) owners as they will typically already have full access to their devices.
+Due to its ability to permit the installation any snap at potentially any confinement level, `snapd-control` is primarily intended to be used by [brand store](https://documentation.ubuntu.com/core/explanation/stores/store-overview/) owners as they will typically already have full access to their devices.
 
 Consequently, consumers of this interface require {ref}`approval <interfaces-process-for-aliases-auto-connections-and-tracks>` for distribution via the Snap Store, and this approval is only likely to be given under strict and specific circumstances.
 

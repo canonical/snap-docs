@@ -11,7 +11,7 @@ The performance of a running application should not be affected by its snap envi
 
 But monitoring specific snap operations, alongside installation and distribution performance, can help with both snap _packaging_ and _configuration_ decisions, and also help to discover potential performance issues outside of an application's control. Several such approaches are outlined below.
 
-On devices running Ubuntu Core, a [kernel boot parameter](https://ubuntu.com/core/docs/kernel-boot-parameters#heading--bootchart) can be used to generate a bootchart showing system startup times and performance.
+On devices running Ubuntu Core, a [kernel boot parameter](https://documentation.ubuntu.com/core/reference/kernel-boot-parameters/#ubuntu-core-bootchart) can be used to generate a bootchart showing system startup times and performance.
 
 ## Snap debug timing
 
@@ -232,7 +232,7 @@ SquashFS decompression occurs when a snap is first run on a system and its perfo
 Snaps can use one of two different types of compression, either `xz` or `lzo`, with the majority of snaps defaulting to `xz`. These algorithms were chosen for their compression ratios and speed when used with snaps that differ in the number of files they contain, and their size.
 
 ```{note}
-See [snapcraft.yaml compression](https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml/#compression) for schema details on how to build a snap using compression.
+See [snapcraft.yaml compression](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#compression) for schema details on how to build a snap using compression.
 ```
 
 Chromium, for example, contains over 300MB across almost 1000 files and it takes significantly longer to access every file than it does to launch the application. In this case, the xz compression format is the slowest by more than double the next slowest format, gzip. This is shown in the following “box chart”, where each test was run 10 times across 6 different compression options. Each test itself is an aggregate of times for installation, running the application twice, and hashing every file in the SquashFS archive:

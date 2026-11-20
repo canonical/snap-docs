@@ -238,7 +238,7 @@ redirects = {
    "architectures": "https://documentation.ubuntu.com/snapcraft/stable/reference/architectures/",
    "build-and-staging-dependencies": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-dependencies/",
    "build-configuration": "https://documentation.ubuntu.com/snapcraft/stable/reference/processes/snap-build-process/",
-   "choosing-a-security-model": "https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/anatomy-of-snapcraft-yaml/#confinement",
+   "choosing-a-security-model": "https://documentation.ubuntu.com/snapcraft/stable/explanation/snapcraft-yaml/#confinement",
    "creating-snapcraft-yaml": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
    "creating-your-developer-account": "https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/authenticate/",
    "releasing-to-the-snap-store": "https://documentation.ubuntu.com/snapcraft/latest/how-to/publishing/publish-a-snap/",
@@ -284,7 +284,7 @@ redirects = {
    "flutter-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/flutter_plugin/",
    "go-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/go_plugin/",
    "make-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/make_plugin/",
-   "matter-sdk-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/matter_sdk_plugin/",
+   "matter-sdk-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/", # Matter SDK plugin was removed from snapcraft
    "maven-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/maven_plugin/",
    "meson-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/meson_plugin/",
    "npm-plugin": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/npm_plugin/",
@@ -295,7 +295,7 @@ redirects = {
    "crystal-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/crystal_plugin/",
    "waf-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/",
    "writing-local-plugins": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/",
-   "ros2-shared-memory-in-snaps": "https://canonical-robotics.readthedocs-hosted.com/en/latest/how-to-guides/packaging/ros-2-shared-memory-in-snaps/",
+   "ros2-shared-memory-in-snaps": "https://ubuntu.com/robotics/docs/en/latest/how-to-guides/packaging/ros-2-shared-memory-in-snaps/",
    "release-notes-snapcraft-3-0": "https://documentation.ubuntu.com/snapcraft/stable/release-notes/",
    "build-options": "https://documentation.ubuntu.com/snapcraft/stable/reference/build-environment-options/",
    "the-cmake-plugin/8621": "https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/cmake_plugin/",
@@ -327,7 +327,7 @@ redirects = {
    "release-notes-snapcraft-4-8": "https://documentation.ubuntu.com/snapcraft/stable/release-notes/",
    "linters": "https://documentation.ubuntu.com/snapcraft/stable/reference/linters/",
    "gtk4-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk4-app/",
-   "ros-distributions-with-no-extensions": "https://canonical-robotics.readthedocs-hosted.com/en/latest/how-to-guides/packaging/ros-distributions-with-no-extensions/",
+   "ros-distributions-with-no-extensions": "https://ubuntu.com/robotics/docs/en/latest/how-to-guides/packaging/ros-distributions-with-no-extensions/",
    "qt5-kde-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-qt5-kde-app/",
    "catkin-tools-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/catkin_tools_plugin/",
    "cross-compile-an-autotools-project": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-cross-compiled-app/",
@@ -337,7 +337,7 @@ redirects = {
    "env-injector": "https://documentation.ubuntu.com/snapcraft/stable/how-to/extensions/use-the-env-injector-extension/",
    "snapcraft-tutorials": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/",
    "explanation-architectures": "https://documentation.ubuntu.com/snapcraft/stable/explanation/architectures/",
-   "ros-troubleshooting": "https://canonical-robotics.readthedocs-hosted.com/en/latest/references/snapcraft/faq/",
+   "ros-troubleshooting": "https://ubuntu.com/robotics/docs/en/latest/references/snapcraft/faq/",
    "gtk3-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk3-app/",
    "gtk2-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/craft-a-gtk2-app/",
    "desktop-applications": "https://documentation.ubuntu.com/snapcraft/stable/how-to/integrations/", # desktop page was removed, but redirects to integrations page
@@ -354,13 +354,54 @@ redirects = {
 
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://github.com/canonical/ACME/*"
+    "https://github.com/canonical/ACME/*",
+    # crates.io's crate pages are a JS SPA that always return 404 at the
+    # HTTP/server level, even for crates that exist (verified with serde,
+    # tokio, libsecret), so they can't be reliably checked.
+    r"https://crates\.io/crates/.*",
+    # private forum group; 404s for non-members, but is a valid link for the
+    # intended audience.
+    r"https://forum\.snapcraft\.io/groups/reviewers",
+    # requires authentication; 403s for anonymous requests.
+    r"https://ci\.debian\.net/packages/s/snapd/",
+    # gitlab.manjaro.org has a documented history of frequent, recurring
+    # outages (per Manjaro's own status.manjaro.org uptime monitoring), so
+    # intermittent failures here are expected rather than a dead link.
+    r"https://gitlab\.manjaro\.org/.*",
+    # gitlab.gnome.org returns 406 for linkcheck's client (likely TLS/UA
+    # fingerprint-based bot protection); verified the page works fine with
+    # a plain curl request.
+    r"https://gitlab\.gnome\.org/Archive/gconf",
+    # developers.redhat.com returns 403 for linkcheck's client (WAF blocks
+    # requests that spoof a browser user-agent without the full set of
+    # accompanying browser headers); verified the pages work fine with a
+    # plain curl request.
+    r"https://developers\.redhat\.com/blog/2018/11/15/introducing-codeready-linux-builder/",
+    r"https://developers\.redhat\.com/blog/2018/11/15/rhel8-introducing-appstreams/",
+    r"https://developers\.redhat\.com/products/rhel/overview",
+    # nxp.com returns 404 for linkcheck's client (same browser-UA-spoofing
+    # WAF behaviour as above); verified the page works fine with a plain
+    # curl request.
+    r"https://www\.nxp\.com/design/design-center/development-boards-and-designs/8MMINILPD4-EVK",
     ]
 
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 
-linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
+linkcheck_anchors_ignore_for_url = [
+    r"https://github\.com/.*",
+    # JS-rendered Swagger/ReDoc page; anchor is a client-side route, never
+    # present in static HTML, so linkcheck can never verify it.
+    r"https://snapcraft\.io/docs/reference/development/snapd-rest-api/.*",
+    # GitLab wikis render as a client-side Vue app; heading anchors are only
+    # injected by JavaScript and are never present in the static HTML that
+    # linkcheck fetches (verified the anchor exists in the raw .md source).
+    r"https://gitlab\.com/.*/wikis/.*",
+    # matrix.to is a client-side-only router; the entire fragment after
+    # '#/' is a client-side route (including the leading '#' of the Matrix
+    # room alias), never a real HTML anchor.
+    r"https://matrix\.to/.*",
+]
 
 # give linkcheck multiple tries on failure
 # linkcheck_timeout = 30

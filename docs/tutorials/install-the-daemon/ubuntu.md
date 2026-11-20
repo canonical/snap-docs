@@ -9,7 +9,7 @@ myst:
 
 Snap is pre-installed and ready to go on all recent releases of Ubuntu.
 
-This means, if you're running [Ubuntu 16.04 LTS (Xenial Xerus)](https://www.ubuntu.com/) or later, including [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) and [Ubuntu 23.04 (Lunar Lobster)](https://releases.ubuntu.com/lunar/), you don't need to do anything.
+This means, if you're running [Ubuntu 16.04 LTS (Xenial Xerus)](https://www.ubuntu.com/) or later, including [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) and [Ubuntu 23.04 (Lunar Lobster)](https://old-releases.ubuntu.com/releases/lunar/), you don't need to do anything.
 
 If you need to know which version of Ubuntu you're running, open **Settings** and select the **About** page. Alternatively, from the command line, type `lsb_release -a`.
 

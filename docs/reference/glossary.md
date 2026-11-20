@@ -93,7 +93,7 @@ A *Dedicated Snap Store* (formerly known as a *Brand Store* ) allows vendors run
 
 It can inherit selected packages from other snap stores, and host a set of snaps specific to a brand and device models, and be either open to all developers or a specific list.
 
-See [Store overview](https://core.docs.ubuntu.com/en/build-store/#brand-stores) in our Ubuntu Core documentation for more details.
+See [Store overview](https://documentation.ubuntu.com/core/explanation/stores/store-overview/) in our Ubuntu Core documentation for more details.
 
 ### devmode
 

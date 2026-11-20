@@ -17,7 +17,7 @@ Follow the steps in order. Some steps are optional.
 
 To follow this guide, your installer must have access to a recovery system seed available to snapd. A recovery system seed is the set of files that describes the Ubuntu system to be installed. It includes:
 - a [model assertion](https://documentation.ubuntu.com/core/reference/assertions/model/) describing the Ubuntu system to install; and
-- the essential snaps making up that system, including the [base](https://documentation.ubuntu.com/snapcraft/stable/reference/base), {ref}`kernel<reference-development-yaml-schemas-the-kernel-snap>`, {ref}`gadget<reference-development-yaml-schemas-the-gadget-snap>`, and {ref}`snapd<ref-glossary_snapd>` snaps.
+- the essential snaps making up that system, including the [base](https://documentation.ubuntu.com/snapcraft/stable/reference/bases/), {ref}`kernel<reference-development-yaml-schemas-the-kernel-snap>`, {ref}`gadget<reference-development-yaml-schemas-the-gadget-snap>`, and {ref}`snapd<ref-glossary_snapd>` snaps.
 
 To get Canonical's reference model for the Ubuntu release used in this guide, run:
 ```sh

@@ -164,7 +164,7 @@ The hook is executed before starting snap services (if it has any) and before th
 
 This hook is supported in Ubuntu Core 20 and subsequent releases.
 
-See [Installation process](https://ubuntu.com/core/docs/uc20/installation-process#heading--install-device) in the Ubuntu Core documentation for more details.
+See [Installation process](https://documentation.ubuntu.com/core/explanation/how-installation-works/#the-install-device-hook) in the Ubuntu Core documentation for more details.
 
 <span id="heading--interface"></span>
 ## The interface hooks

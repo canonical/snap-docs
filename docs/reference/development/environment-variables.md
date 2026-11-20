@@ -77,9 +77,9 @@ Typical value: `/var/snap/hello-world/common`
 
 **This variable is only exposed on {ref}`Ubuntu Core <ref-glossary_ubuntu-core>` systems.**
 
-It points to a snap-specific location on the ubuntu-save partition where the snap is allowed to store persistent files (like certificates or configuration files) that will survive a [factory reset](https://ubuntu.com/core/docs/recovery-modes#heading--factory) of the Ubuntu Core device.
+It points to a snap-specific location on the ubuntu-save partition where the snap is allowed to store persistent files (like certificates or configuration files) that will survive a [factory reset](https://documentation.ubuntu.com/core/explanation/recovery-modes/#factory-reset) of the Ubuntu Core device.
 
-See [ubuntu-save](https://ubuntu.com/core/docs/storage-layout#heading--save) in the Ubuntu Core documentation for more details on storage layout with this specific partition.
+See [ubuntu-save](https://documentation.ubuntu.com/core/explanation/core-elements/storage-layout/#the-ubuntu-save-partition) in the Ubuntu Core documentation for more details on storage layout with this specific partition.
 
 Requires _snapd_ 2.57+.
 

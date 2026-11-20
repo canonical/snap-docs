@@ -9,7 +9,7 @@ myst:
 
 On Arch Linux, *snap* can be installed from the [Arch User Repository (AUR)](https://aur.archlinux.org/packages/snapd/).
 
-The [manual build process](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages) is the Arch-supported install method for AUR packages, and you'll need the [prerequisites](https://wiki.archlinux.org/index.php/Arch_User_Repository#Prerequisites) installed before you can install any AUR package. You can then install snap with the following:
+The [manual build process](https://wiki.archlinux.org/title/Arch_User_Repository#Installing_and_upgrading_packages) is the Arch-supported install method for AUR packages, and you'll need the [prerequisites](https://wiki.archlinux.org/title/Arch_User_Repository#Getting_started) installed before you can install any AUR package. You can then install snap with the following:
 
 ```
 git clone https://aur.archlinux.org/snapd.git

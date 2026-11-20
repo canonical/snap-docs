@@ -290,7 +290,7 @@ Mounts under `SNAP_COMMON` (`/var/snap/<snap-name>/common`) are not affected by 
 
 The `snapctl reboot` command can be used to control reboot behaviour from the gadget `install-device hook` during UC20+ **install mode**.
 
-See the [UC20+ installation process](https://ubuntu.com/core/docs/uc20/installation-process#heading--install-device) documentation for further details.
+See the [UC20+ installation process](https://documentation.ubuntu.com/core/explanation/how-installation-works/#the-install-device-hook) documentation for further details.
 
 ## Refresh control (from the UC20+ gate-auto-refresh hook)
 

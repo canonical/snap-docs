@@ -9,7 +9,7 @@ myst:
 
 ## Definitions
 
-- Reviewers are in the [@reviewers](https://forum.snapcraft.io/groups/reviewers) forum group
+- Reviewers are in the [@reviewers](https://forum.snapcraft.io/groups/reviewers) private forum group (access restricted)
 - Architects are those responsible for the design of snapd.
 - Votes are in favor (+1), against (-1), abstain (+0)
 - Voting period is one week
