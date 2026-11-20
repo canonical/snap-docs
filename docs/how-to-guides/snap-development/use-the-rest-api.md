@@ -68,7 +68,7 @@ Authorisation is provided by sending a Macaroon with the HTTP authorisation head
 Authorization: Macaroon root="serialized-store-macaroon",discharge="discharge-for-macaroon-authentication"
 ```
 
-If available, [Polkit](https://www.freedesktop.org/wiki/Software/polkit/) can also be used for authentication. The client may choose to allow user interaction for authentication, e.g. showing a graphical dialogue. This is done by setting an HTTP header (defaults to false):
+If available, [Polkit](https://polkit.pages.freedesktop.org/polkit/) can also be used for authentication. The client may choose to allow user interaction for authentication, e.g. showing a graphical dialogue. This is done by setting an HTTP header (defaults to false):
 
 ```
 X-Allow-Interaction: true

@@ -98,7 +98,7 @@ Snapd is also being developed in a FIPS variant - not yet generally available - 
 
 In both variants, cryptographically secure randomness is sourced from the operating system via the Linux kernel’s randomness interfaces (for example getrandom(2)), which provide entropy to user-space cryptographic libraries.
 
-[Information about FIPS on Ubuntu 22.04]: https://ubuntu.com/security/certifications/docs/2204/fips#p-99917-updates-and-preview
+[Information about FIPS on Ubuntu 22.04]: https://documentation.ubuntu.com/security/docs/compliance/fips/fips-overview/#ubuntu-22-04-lts-jammy-jellyfish
 
 ### Snap Store cryptography
 
