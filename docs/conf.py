@@ -383,6 +383,8 @@ linkcheck_ignore = [
     # WAF behaviour as above); verified the page works fine with a plain
     # curl request.
     r"https://www\.nxp\.com/design/design-center/development-boards-and-designs/8MMINILPD4-EVK",
+    # Intel QAT page works locally, but returns 403 to the CI linkcheck runner.
+    r"https://www\.intel\.com/content/www/us/en/products/details/processors/xeon/features/quick-assist-technology\.html",
     ]
 
 
