@@ -44,7 +44,7 @@ Both `SNAP_USER_COMMON` and `SNAP_USER_DATA` only become available after a snap 
 (interfaces-data-locations_ubuntu-core-persisted-data)=
 ### Ubuntu Core
 
-On Ubuntu Core, the **`SNAP_SAVE_DATA`** environment variable within a snap's environment points to a snap-specific location on the [ubuntu-save](https://ubuntu.com/core/docs/uc20/inside#heading--layouts) volume. This is used to store data that can be accessed during recovery or after re-installation of Ubuntu Core.
+On Ubuntu Core, the **`SNAP_SAVE_DATA`** environment variable within a snap's environment points to a snap-specific location on the [ubuntu-save](https://documentation.ubuntu.com/core/explanation/core-elements/inside-ubuntu-core/#volume-layouts) volume. This is used to store data that can be accessed during recovery or after re-installation of Ubuntu Core.
 
 For example, in the reference Ubuntu Core 22 image, from within the _hello-world_ snap, `SNAP_SAVE_DATA` has the following value:
 

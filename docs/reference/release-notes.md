@@ -413,9 +413,9 @@ As part of this release cycle, our `ubuntu-image` and validation-sets documentat
 
 *Released 6th June 2024*
 
-Snap-based [Ubuntu Core](https://ubuntu.com/core) devices will benefit from many of our the features for this release, including support for [Offline remodelling](https://ubuntu.com/core/docs/uc20/remodelling#heading--offline), the use of {ref}`Validation sets <explanation-how-snaps-work-validation-sets>` in the [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) and setting a custom port for SSH.
+Snap-based [Ubuntu Core](https://ubuntu.com/core) devices will benefit from many of our the features for this release, including support for [Offline remodelling](https://documentation.ubuntu.com/core/explanation/remodeling/#offline-remodeling), the use of {ref}`Validation sets <explanation-how-snaps-work-validation-sets>` in the [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) and setting a custom port for SSH.
 
-There’s also a new `snap sign` [`--chain`](https://ubuntu.com/core/docs/system-user#heading--generating-auto) argument in this release, that can be used to aggregate all the assertions required to create a new system user.
+There’s also a new `snap sign` [`--chain`](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/add-a-system-user/#generating-auto-import-assert) argument in this release, that can be used to aggregate all the assertions required to create a new system user.
 
 (ref-release-notes_snapd-2-62-release-notes)=
 ## Snapd 2.62 release notes

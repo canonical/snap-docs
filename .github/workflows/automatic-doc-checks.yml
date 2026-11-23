@@ -14,6 +14,9 @@ on:
       woke-result:
         description: "Result of the inclusive language check"
         value: ${{ jobs.docchecks.outputs.result_woke }}
+      linkcheck-result:
+        description: "Result of the link check"
+        value: ${{ jobs.docchecks.outputs.result_linkcheck }}
 
   workflow_dispatch:
     # Manual trigger
@@ -30,6 +33,7 @@ jobs:
     outputs:
       result_spelling: ${{ steps.spellcheck-step.outcome }}
       result_woke: ${{ steps.woke-step.outcome }}
+      result_linkcheck: ${{ steps.linkcheck-step.outcome }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -59,4 +63,14 @@ jobs:
           working-directory: 'docs'
           install-target: 'install'
           woke-target: 'woke'
+          makefile: 'use-default'
+
+      - name: Link Check
+        id: linkcheck-step
+        if: success() || failure()
+        uses: canonical/documentation-workflows/linkcheck@main
+        with:
+          working-directory: 'docs'
+          install-target: 'install'
+          linkcheck-target: 'linkcheck'
           makefile: 'use-default'

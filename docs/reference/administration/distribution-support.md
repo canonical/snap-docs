@@ -21,7 +21,6 @@ Distributions that have reached their end-of-life are excluded from the list.
 [![Ubuntu 20.04 package](https://repology.org/badge/version-for-repo/ubuntu_20_04/snapd.svg)](https://repology.org/project/snapd/versions)
 [![Ubuntu 22.04 package](https://repology.org/badge/version-for-repo/ubuntu_22_04/snapd.svg)](https://repology.org/project/snapd/versions)
 [![Ubuntu 24.04 package](https://repology.org/badge/version-for-repo/ubuntu_24_04/snapd.svg)](https://repology.org/project/snapd/versions)
-[![Ubuntu 24.10 package](https://repology.org/badge/version-for-repo/ubuntu_24_10/snapd.svg)](https://repology.org/project/snapd/versions)
 [![Ubuntu 25.04 package](https://repology.org/badge/version-for-repo/ubuntu_25_04/snapd.svg)](https://repology.org/project/snapd/versions)
 
 Due to distribution policy snapd is not regularly updated to the latest available version. Snapd re-execution is supported on Ubuntu. The versions listed above are usually only relevant before the installation of the first snap. Outside of unusual circumstances, the Ubuntu package is synchronized from Debian. This process stops once an upcoming Ubuntu release is entering feature freeze.
@@ -38,7 +37,7 @@ Due to distribution policy snapd is not regularly updated to the latest availabl
 Resources for developers:
  - [Salsa (Debian gitlab repository)](https://tracker.debian.org/pkg/snapd)
  - [Tracker (package status)](https://tracker.debian.org/pkg/snapd)
- - [Continuous integration](https://ci.debian.net/packages/s/snapd/)
+ - [Continuous integration](https://ci.debian.net/packages/s/snapd/) (requires authentication)
 - [2.61.1 update thread](https://forum.snapcraft.io/t/debian-package-of-snapd-is-out-of-date-2-61-1/38515)
 
 ## Fedora

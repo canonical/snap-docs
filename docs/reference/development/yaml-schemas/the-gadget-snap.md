@@ -64,9 +64,9 @@ Values in `defaults:` (other than `system:`) are not consumed and do not become 
 The gadget defines valid size ranges with two parameters:
 
 * `min-size` is the lower bound for the size
-* `size` is the upper bound. Currently, it is also the default size applied on UC auto-installations and for partitions created by [ubuntu-image](https://discourse.ubuntu.com/t/35216)
+* `size` is the upper bound. Currently, it is also the default size applied on UC auto-installations and for partitions created by [ubuntu-image](https://documentation.ubuntu.com/core/how-to-guides/image-creation/use-ubuntu-image/#image-size)
 
-See [Calculate partition sizes](https://ubuntu.com/core/docs/partition-sizes) for more details.
+See [Calculate partition sizes](https://documentation.ubuntu.com/core/how-to-guides/image-creation/calculate-partition-sizes/) for more details.
 
 ### The volumes mapping sub-section
 

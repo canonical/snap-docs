@@ -34,7 +34,7 @@ To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 ```
 
-This will create the confined environment of the Snap, execute the [command-chain](https://documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-yaml/#assumes) and then run `bash` inside that environment.
+This will create the confined environment of the Snap, execute the [command-chain](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#assumes) and then run `bash` inside that environment.
 
 You can then investigate which files your snap has access to by running commands such as `ls` and `cat`.
 
