@@ -57,7 +57,7 @@ mkdir -p "$SNAP_USER_COMMON"
 exec "$SNAP/bin/<app-name>" --database "$SNAP_USER_COMMON/state.db"
 ```
 
-See {ref}`Snap environment, data and namespace`<interfaces-parallel-installs-environment> for a complete list of environment variables.
+See {ref}`Snap environment, data and namespace <interfaces-parallel-installs-environment>` for a complete list of environment variables.
 
 For classic snaps, use the snap data variables for instance-specific state and check how you access the user's home directory and other host paths. See {ref}`Classic confinement <parallel-installs-classic-confinement>` and {ref}`Parallel installs <interfaces-parallel-installs>` for further details.
 
