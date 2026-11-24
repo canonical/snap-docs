@@ -128,6 +128,7 @@ The following column names are used:
 | {ref}`maliit <interfaces-maliit-interface>` | use an on-screen keyboard | Developer | no |
 | {ref}`media-control <interfaces-media-control-interface>` | access media control devices and Video4Linux (V4L) devices | Hardware, Developer, Media, Video | no |
 | {ref}`media-hub <interfaces-media-hub-interface>` | access snaps providing the media-hub interface | Developer, Media | yes |
+| {ref}`mediatek-accel <interfaces-mediatek-accel-interface>` | access to the hardware accelerators (APU, VPU, MDP) on MediaTek Genio devices | System | no |
 |  {ref}`microceph <interfaces-microceph>` |  permits access to the MicroCeph socket, which is used internally by the microceph snap | Super privileged, Container | no |
 | {ref}`microceph-support <interfaces-microceph-support>` | permits the microceph snap to operate as the MicroCeph service | Super privileged, Container | no |
 | {ref}`microovn <interfaces-microovn-interface>` | used only by the MicroOVN snap for socket access | Network, Super privileged | no |

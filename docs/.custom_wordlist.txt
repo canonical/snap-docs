@@ -86,6 +86,7 @@ fwupd
 GConf
 gconf
 gdbserver
+Genio
 getent
 github
 gitlab
