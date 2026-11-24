@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: firmware-updater-support interface
+    description: Reference documentation for the firmware-updater-support interface, which lets snaps operate as the Firmware Updater to manage device firmware updates.
 ---
 
 (ref-firmware-updater-support-interface_firmware-updater-support-interface)=

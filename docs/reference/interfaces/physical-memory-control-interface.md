@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: physical-memory-control interface
+    description: Reference documentation for the physical-memory-control interface, which lets snaps write to the physical address space via /dev/mem.
 ---
 
 (interfaces-physical-memory-control-interface)=

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: storage-framework-service interface
+    description: Reference documentation for the storage-framework-service interface, which lets snaps operate as, or interact with, the Storage Framework.
 ---
 
 (interfaces-storage-framework-service-interface)=

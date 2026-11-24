@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: block-devices interface
+    description: Reference documentation for the block-devices interface, which lets snaps perform privileged operations on raw disk block devices.
 ---
 
 (interfaces-block-devices-interface)=

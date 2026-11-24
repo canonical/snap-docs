@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: ros-snapd-support interface
+    description: Reference documentation for the ros-snapd-support interface, which lets snaps use snapd's apps control API for the ros-snapd and ros2-snapd snaps.
 ---
 
 (interfaces-ros-snapd-support)=

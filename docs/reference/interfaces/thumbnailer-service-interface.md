@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: thumbnailer-service interface
+    description: Reference documentation for the thumbnailer-service interface, which lets snaps interact with the system Thumbnailer DBus service for media thumbnails.
 ---
 
 (interfaces-thumbnailer-service-interface)=

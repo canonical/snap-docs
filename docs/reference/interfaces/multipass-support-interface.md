@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: multipass-support interface
+    description: Reference documentation for the multipass-support interface, which lets snaps operate as the Multipass virtual machine management service.
 ---
 
 (interfaces-multipass-support-interface)=

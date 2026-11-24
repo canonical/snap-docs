@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: desktop interface
+    description: Reference documentation for the desktop interface, which lets snaps access basic graphical desktop resources such as Wayland.
 ---
 
 (interfaces-desktop-interface)=

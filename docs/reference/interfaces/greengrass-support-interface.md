@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: greengrass-support interface
+    description: Reference documentation for the greengrass-support interface, which enables Amazon Greengrass services and Lambda functions and is restricted to that project.
 ---
 
 (interfaces-greengrass-support-interface)=
@@ -17,5 +17,4 @@ The `greengrass-support` plug is {ref}`unsupported for parallel instances <inter
 ```
 
 Requires snapd version _2.26+_.
-
 

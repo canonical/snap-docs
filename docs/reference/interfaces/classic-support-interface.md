@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: classic-support interface
+    description: Reference documentation for the classic-support interface, which lets snaps set special permissions equivalent to device ownership, used only on Ubuntu Core.
 ---
 
 (interfaces-classic-support-interface)=

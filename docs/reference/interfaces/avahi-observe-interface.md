@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: avahi-observe interface
+    description: Reference documentation for the avahi-observe interface, which lets snaps discover services on a local network via the mDNS/DNS-SD protocol suite.
 ---
 
 (interfaces-avahi-observe-interface)=

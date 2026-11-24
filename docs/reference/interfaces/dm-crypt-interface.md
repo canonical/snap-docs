@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: dm-crypt interface
+    description: Reference documentation for the dm-crypt interface, which lets snaps set up and manage dm-crypt encrypted external block storage devices.
 ---
 
 (interfaces-dm-crypt-interface)=

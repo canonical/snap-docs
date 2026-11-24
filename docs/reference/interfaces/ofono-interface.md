@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: ofono interface
+    description: Reference documentation for the ofono interface, which lets snaps configure, observe, and use oFono telephony devices with privileged access.
 ---
 
 (interfaces-ofono-interface)=
