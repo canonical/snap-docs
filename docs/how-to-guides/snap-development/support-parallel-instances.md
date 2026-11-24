@@ -105,10 +105,6 @@ Inspect `snap connections` for each instance. Confirm correct hook execution and
 
 Refresh one instance to a newer build, then revert. Confirm that hooks, data migrations and connections do not attempt to alter the other instance.
 
-**Desktop integration**
-
-Launch both instances in the same desktop session, including when one is already running.
-
 **Removal**
 
 Remove either instance and confirm that the other's data, services, launchers and shared-resource registrations still work.
