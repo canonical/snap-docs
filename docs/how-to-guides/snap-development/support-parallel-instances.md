@@ -32,7 +32,7 @@ Be aware that advanced users have a mechanism to bypass the support checks; see 
 (support-parallel-instances-use-environment-variables)=
 ## Use the snapd-provided environment variables
 
-To make sure that multiple instances of your snap can run in parallel, all apps, hooks, and scripts must refer to the right instance. That requires using the correct environment variables. Snapd provides variables to identify an instance of the snap, as well as path variables pointing to the files it needs to access. Note that the instance key is optional and, even when it is not provided, `SNAP_INSTANCE_NAME` refers to the installed snap's name.
+To make sure that multiple instances of your snap can run in parallel, all apps, hooks, and scripts must refer to the right instance. That requires using the correct environment variables. Snapd provides variables to identify an instance of the snap, as well as path variables pointing to the files it needs to access.
 
 ### Identify the running instance
 
@@ -43,7 +43,7 @@ For the full list of runtime variables and example values, see {ref}`Snap enviro
 | Variable | Use case |
 | --- | --- |
 | `SNAP_NAME` | Use when you need the store name of your snap |
-| `SNAP_INSTANCE_NAME` | Use whenever referring to the snap (unless you need to refer to the snap store name) |
+| `SNAP_INSTANCE_NAME` | Use whenever referring to the instance of a snap |
 | `SNAP_INSTANCE_KEY` | Use to determine if the snap is running as an instance; it will be empty if the snap is not a parallel installed instance |
 
 ### Use instance-specific paths
