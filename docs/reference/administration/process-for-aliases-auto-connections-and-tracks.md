@@ -67,7 +67,7 @@ Requests for classic confinement are not subject to these exceptions.
 
 There are some groups that have been considered trusted in the ecosystem for a long time. These groups include:
 
-* Snapcrafters, publishing to the snapcrafter account
+* Snapcrafters, publishing to the snapcrafters account
 * [Ubuntu core-dev](https://launchpad.net/~ubuntu-core-dev)
 
 We want to add other groups that already have a high level of trustworthiness in the ecosystem to this list. These groups will likely include other Ubuntu developers and Debian maintainers. However, we still need to define a consistent and reliable way to prove this group membership and establish all the possible rules around it.
@@ -76,7 +76,7 @@ We want to add other groups that already have a high level of trustworthiness in
 
 Snaps in the global store are expected to meet the highest quality standards, be updated at the same cadence as the upstream project and stay free of vulnerabilities over time. Failing to meet these standards may result in requests being denied. In the same way, missing this maintenance commitment will result in auto-connections being removed initially and potentially snaps being removed from all stable channels if the situation is not addressed in a reasonable period of time.
 
-In order to guarantee that snaps in the global store stay healthy over time, we encourage publishers to automate the snap maintenance as much as possible. Whilst this won’t be enforced in the short term, we believe that the right direction going forward will likely be asking snap publishers to add automations to:
+In order to guarantee that snaps in the global store stay healthy over time, we encourage publishers to automate the snap maintenance as much as possible. Whilst this won’t be enforced in the short term, we believe that the right direction going forward will likely be asking snap publishers to add automated processes to:
 
 * Fix security issues in the application code or in their dependencies.
 * Keep the snap up to date with the latest upstream releases
@@ -96,7 +96,7 @@ This is especially important for requests for auto-connection, as they override 
 
 Depending on the answers to these questions, reviewers may decide not to grant a given auto-connection even if all the other criteria are fulfilled.
 
-If needed, the reviewer may ask other reviewers, architects and long-standing members of the community for their input. The reviewer will evaluate and balance all the different reasonings to make a decision. This is more likely to be required when the publisher vetting is done via the well-known projects exception route.
+If needed, the reviewer may ask other reviewers, architects and long-standing members of the community for their input. The reviewer will evaluate and balance all the different arguments to make a decision. This is more likely to be required when the publisher vetting is done via the well-known projects exception route.
 
 ### Exceptions
 
