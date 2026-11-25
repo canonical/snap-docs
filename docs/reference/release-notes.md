@@ -19,40 +19,40 @@ This page outlines the release notes of all recent versions of Snapd, summarisin
 
 ## Older releases
 
-* {ref}`Snapd 2.78 <ref-release-notes_snapd-2-78-release-notes>` (3 November 2026)
-* {ref}`Snapd 2.77 <ref-release-notes_snapd-2-77-release-notes>` (2 October 2026)
-* {ref}`Snapd 2.76 <ref-release-notes_snapd-2-76-release-notes>` (11 August 2026)
-* {ref}`Snapd 2.75 <ref-release-notes_snapd-2-75-release-notes>` (23 April 2026)
-* {ref}`Snapd 2.74 <ref-release-notes_snapd-2-74-release-notes>` (19 March 2026)
-* {ref}`Snapd 2.73 <ref-release-notes_snapd-2-73-release-notes>` (9 January 2026)
-* {ref}`Snapd 2.72 <ref-release-notes_snapd-2-72-release-notes>` (21 October 2025)
-* {ref}`Snapd 2.71 <ref-release-notes_snapd-2-71-release-notes>` (20 August 2025)
-* {ref}`Snapd 2.70 <ref-release-notes_snapd-2-70-release-notes>` (8 July 2025)
+* {ref}`Snapd 2.78 <ref-release-notes_snapd-2-78-release-notes>`
+* {ref}`Snapd 2.77 <ref-release-notes_snapd-2-77-release-notes>`
+* {ref}`Snapd 2.76 <ref-release-notes_snapd-2-76-release-notes>`
+* {ref}`Snapd 2.75 <ref-release-notes_snapd-2-75-release-notes>`
+* {ref}`Snapd 2.74 <ref-release-notes_snapd-2-74-release-notes>`
+* {ref}`Snapd 2.73 <ref-release-notes_snapd-2-73-release-notes>`
+* {ref}`Snapd 2.72 <ref-release-notes_snapd-2-72-release-notes>`
+* {ref}`Snapd 2.71 <ref-release-notes_snapd-2-71-release-notes>`
+* {ref}`Snapd 2.70 <ref-release-notes_snapd-2-70-release-notes>`
 * {ref}`Snapd 2.69 <ref-release-notes_snapd-2-69-release-notes>` (not released; superseded by Snapd 2.70)
-* {ref}`Snapd 2.68 <ref-release-notes_snapd-2-68-release-notes>` (17 June 2025)
-* {ref}`Snapd 2.67 <ref-release-notes_snapd-2-67-release-notes>` (7 March 2025)
-* {ref}`Snapd 2.66.1 <ref-release-notes_snapd-2-66-release-notes>` (26 November 2024)
+* {ref}`Snapd 2.68 <ref-release-notes_snapd-2-68-release-notes>`
+* {ref}`Snapd 2.67 <ref-release-notes_snapd-2-67-release-notes>`
+* {ref}`Snapd 2.66 <ref-release-notes_snapd-2-66-release-notes>`
 * {ref}`Snapd 2.65 <ref-release-notes_snapd-2-65-release-notes>`
 * {ref}`Snapd 2.64 <ref-release-notes_snapd-2-64-release-notes>`
-* {ref}`Snapd 2.63 <ref-release-notes_snapd-2-63-release-notes>` (23 May 2024)
-* {ref}`Snapd 2.62 <ref-release-notes_snapd-2-62-release-notes>` (15 Apr 2024)
-* {ref}`Snapd 2.61 <ref-release-notes_snapd-2-61-release-notes>` (4 Mar 2024)
-* {ref}`Snapd 2.60.3 <ref-release-notes_snapd-2-60-release-notes>` (Sep 02)
-* {ref}`Snapd 2.59 <ref-release-notes_snapd-2-59-release-notes>` (Mar 27)
-* {ref}`Snapd 2.58 <ref-release-notes_snapd-2-58-release-notes>` (Jan 09)
-* {ref}`Snapd 2.56 <ref-release-notes_snapd-2-56-release-notes>` (Jun 06)
-* {ref}`Snapd 2.55 <ref-release-notes_snapd-2-55-release-notes>` (Apr 20)
-* {ref}`Snapd 2.54.2 <ref-release-notes_snapd-2-54-release-notes>` (Jan 24)
-* {ref}`Snapd 2.51 <ref-release-notes_snapd-2-51-release-notes>` (June 7)
-* {ref}`Snapd 2.50 <ref-release-notes_snapd-2-50-release-notes>` (June 2)
-* {ref}`Snapd 2.49 <ref-release-notes_snapd-2-49-release-notes>` (Mar 04)
-* {ref}`Snapd 2.48 <ref-release-notes_snapd-2-48-release-notes>` (Nov 30)
-* {ref}`Snapd 2.47 <ref-release-notes_snapd-2-47-release-notes>` (Oct 21)
-* {ref}`Snapd 2.46 <ref-release-notes_snapd-2-46-release-notes>` (Sep 14)
-* {ref}`Snapd 2.45 <ref-release-notes_snapd-2-45-release-notes>` (Jul 15)
-* {ref}`Snapd 2.44 <ref-release-notes_snapd-2-44-release-notes>` (March 31)
-* {ref}`Snapd 2.43 <ref-release-notes_snapd-2-43-release-notes>` (Feb 19th)
-* {ref}`Snapd 2.42 <ref-release-notes_snapd-2-42-release-notes>` (Oct 10th)
+* {ref}`Snapd 2.63 <ref-release-notes_snapd-2-63-release-notes>`
+* {ref}`Snapd 2.62 <ref-release-notes_snapd-2-62-release-notes>`
+* {ref}`Snapd 2.61 <ref-release-notes_snapd-2-61-release-notes>`
+* {ref}`Snapd 2.60.3 <ref-release-notes_snapd-2-60-release-notes>`
+* {ref}`Snapd 2.59 <ref-release-notes_snapd-2-59-release-notes>`
+* {ref}`Snapd 2.58 <ref-release-notes_snapd-2-58-release-notes>`
+* {ref}`Snapd 2.56 <ref-release-notes_snapd-2-56-release-notes>`
+* {ref}`Snapd 2.55 <ref-release-notes_snapd-2-55-release-notes>`
+* {ref}`Snapd 2.54.2 <ref-release-notes_snapd-2-54-release-notes>`
+* {ref}`Snapd 2.51 <ref-release-notes_snapd-2-51-release-notes>`
+* {ref}`Snapd 2.50 <ref-release-notes_snapd-2-50-release-notes>`
+* {ref}`Snapd 2.49 <ref-release-notes_snapd-2-49-release-notes>`
+* {ref}`Snapd 2.48 <ref-release-notes_snapd-2-48-release-notes>`
+* {ref}`Snapd 2.47 <ref-release-notes_snapd-2-47-release-notes>`
+* {ref}`Snapd 2.46 <ref-release-notes_snapd-2-46-release-notes>`
+* {ref}`Snapd 2.45 <ref-release-notes_snapd-2-45-release-notes>`
+* {ref}`Snapd 2.44 <ref-release-notes_snapd-2-44-release-notes>`
+* {ref}`Snapd 2.43 <ref-release-notes_snapd-2-43-release-notes>`
+* {ref}`Snapd 2.42 <ref-release-notes_snapd-2-42-release-notes>`
 * {ref}`Snapd 2.34.3 <ref-release-notes_snapd-2-34-3-release-notes>`
 * {ref}`Snapd 2.33 <ref-release-notes_snapd-2-33-release-notes>`
 * {ref}`Snapd 2.32 <ref-release-notes_snapd-2-32-release-notes>`
@@ -102,7 +102,9 @@ This release was delayed because snapd was updated to the core26 base. That base
 (ref-release-notes_snapd-2-78-release-notes)=
 ## Snapd 2.78
 
-The 2.78 release focuses on full-disk-encryption reprovisioning, component-aware seed refresh, and several new interfaces.
+*Released on 3 November 2026.*
+
+This release contains the 26.10 update content.
 
 ### FDE
 
@@ -152,15 +154,23 @@ The 2.78 release focuses on full-disk-encryption reprovisioning, component-aware
 
 ### Experimental features
 
-**Graduated:**
+#### Graduated
 
-* **quota-groups:** resource limits for snaps are now available without setting the experimental flag.
+- **quota-groups:** resource limits for snaps are now available without setting the experimental flag.
 
-**Enabled by default:**
+#### Enabled by default
 
-* **refresh-app-awareness-ux:** enabled by default.
+- **refresh-app-awareness-ux:** enabled by default.
 
-*Released to stable on 3 November 2026.*
+For the release plan and complete list of changes, please refer to the [full release notes](https://forum.snapcraft.io/t/the-snapd-roadmap/1973).
+
+### Test feedback
+
+Feel free to share your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast-track investigations, please include details about your system, the snapd version(s), and steps to reproduce the issue.
+
+### Security reports
+
+Please report security vulnerabilities in private. The [snapd security policy](https://github.com/canonical/snapd/blob/master/SECURITY.md) describes what qualifies and how to report it.
 
 ### Changelog
 
@@ -211,9 +221,11 @@ The 2.78 release focuses on full-disk-encryption reprovisioning, component-aware
 (ref-release-notes_snapd-2-77-release-notes)=
 ## Snapd 2.77
 
-Snapd 2.77's beta and candidate were tested successfully, but a blocking regression was found before the stable release: an undo of `unlink-component` could fail once a snap revision was already discarded. This issue was fixed in snapd 2.77.1, which became the first stable release in the 2.77.x series.
+*Released to candidate on 20 August 2026*
 
-*We discovered a regression that will be addressed in snapd 2.77.1: https://github.com/canonical/snapd/pull/17492.*
+This release contains the 26.10 image content.
+
+*We discovered a regression that was addressed in snapd 2.77.1: https://github.com/canonical/snapd/pull/17492.*
 
 ### Changelog
 
@@ -352,7 +364,8 @@ Snapd 2.77's beta and candidate were tested successfully, but a blocking regress
 
 ### Snapd 2.77.1
 
-The 2.77.1 release fixes the blocking regression found in 2.77 and carries the 26.10 FDE reprovisioning work. The snapd Debian package (2.77.1+ubuntu26.10.1) was released for Ubuntu 26.10 (Stonking).
+*Released on 2 October 2026.*
+
 
 Snapd 2.77.1 is the first stable release in the 2.77.x series, since the following blocking issue was found in 2.77:
 
@@ -402,28 +415,38 @@ Snapd 2.77.1 carries the 26.10 FDE work for reprovision and post-install handlin
 
 #### Experimental features
 
-**Graduated** (now always enabled):
+##### Graduated
 
-* **layouts:** a snap can bind-mount, symlink, or place a tmpfs inside its mount namespace
-* **classic-preserves-xdg-runtime-dir:** on classic, a snap keeps the session `XDG_RUNTIME_DIR` and can reach user-session services there
-* **refresh-app-awareness:** snapd holds a refresh while that snap's apps are running
-* **dbus-activation:** a snap app or service can be started by D-Bus activation
+These experimental features have graduated. They are now always enabled.
 
-**Enabled by default:**
+- **layouts:** a snap can bind-mount, symlink, or place a tmpfs inside its mount namespace
+- **classic-preserves-xdg-runtime-dir:** on classic, a snap keeps the session `XDG_RUNTIME_DIR` and can reach user-session services there
+- **refresh-app-awareness:** snapd holds a refresh while that snap’s apps are running
+- **dbus-activation:** a snap app or service can be started by D-Bus activation
 
-* **quota-groups:** resource limits for snaps are available without setting the experimental flag
+##### Enabled by default
 
-**In development:**
+- **quota-groups:** resource limits for snaps are available without setting the experimental flag
 
-* **confdb:** validation-sets support; fix data loss when writing to a new schema or account; run `observe-view-*` hooks after commit; sign-only external keypair backends; validate map keys in JSON config values ([LP: #2072331](https://bugs.launchpad.net/snapd/+bug/2072331))
-* **Security logging:** log administrative actions, token create and remove events, and adding, updating, or removing a snapd user; strip trailing whitespace from audit message payloads ([LP: #2160691](https://bugs.launchpad.net/snapd/+bug/2160691))
-* **Remote device management:** validate request messages, apply management messages, queue responses, and improve sequencing and redelivery
+##### In development
+
+The following are still under active development and are not yet considered stable for general use.
+
+- **confdb:** validation-sets support; fix data loss when writing to a new schema or account; run `observe-view-*` hooks after commit; sign-only external keypair backends; validate map keys in JSON config values ([LP: #2072331](https://bugs.launchpad.net/snapd/+bug/2072331))
+- **Security logging:** log administrative actions, token create and remove events, and adding, updating, or removing a snapd user; strip trailing whitespace from audit message payloads ([LP: #2160691](https://bugs.launchpad.net/snapd/+bug/2160691))
+- **Remote device management:** validate request messages, apply management messages, queue responses, and improve sequencing and redelivery
+
+#### Test Feedback
+
+Feel free to provide your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast track investigations please provide (1) details about the system, (2) snapd version(s) and (3) steps to reproduce the issue.
+
+#### Security reports
+
+Please report security vulnerabilities in private. The [snapd security policy](https://github.com/canonical/snapd/blob/master/SECURITY.md) describes what qualifies and how to report it.
 
 #### Known issues
 
 The bundled AppArmor update to 5.0.2 can cause issues on some outdated kernels. If you see issues related to network access, update your kernel to the latest version provided by your system. If you are using the EOL 25.04 version of Ubuntu, you cannot use 2.77.1 or any later version of the snapd snap. Add `SNAP_REEXEC=0` to `/etc/environment` to force using the deb package.
-
-*Released to stable on 2 October 2026.*
 
 #### Changelog
 
@@ -432,6 +455,8 @@ The bundled AppArmor update to 5.0.2 can cause issues on some outdated kernels. 
 
 (ref-release-notes_snapd-2-76-release-notes)=
 ## Snapd 2.76
+
+*Released on 1 July 2026.*
 
 ### Overview
 
@@ -509,7 +534,9 @@ The following features are under active development and included in this release
 * Improve handling of failed downloads and retain partial files for resume ([LP: #2146337](https://bugs.launchpad.net/snapd/+bug/2146337))
 * Skip redundant xdg-settings confirmation prompt when setting is already correct ([LP: #1966067](https://bugs.launchpad.net/snapd/+bug/1966067))
 
-*Released to stable on 1 July 2026.*
+### Test Feedback
+
+Feel free to provide your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast track investigations please provide (1) details about the system, (2) snapd version(s) and (3) steps to reproduce the issue.
 
 ### Changelog
 
@@ -657,7 +684,7 @@ The following features are under active development and included in this release
 
 ### Snapd 2.76.1 (Security Release)
 
-*Released to stable on 23 July 2026.*
+*Released on 23 July 2026.*
 
 * CVE-2024-5300
 * CVE-2026-8933
@@ -665,11 +692,13 @@ The following features are under active development and included in this release
 
 ### Snapd 2.76.2
 
-*Released to stable on 11 August 2026.*
+*Released on 11 August 2026.*
 
 * interfaces: steam-support, docker-support | fix mountinfo denial
 
 ### Snapd 2.76.3
+
+*Released to candidate on 20 August 2026.*
 
 The snapd 2.76.3 Debian packages were released to Jammy, Noble and Resolute.
 
@@ -690,7 +719,9 @@ Snapd 2.76.3 completes the remaining 26.04.1 FDE objectives for install and firs
 * Cross-distro: modify SELinux policy to use `init_named_socket_activation()` for allowing systemd to start snapd through socket activation; packaging: make sure that `usr/bin/snap` is built with correct build tags on debian sid
 * Ensure profiles are set up before running `prepare-{slot,plug}*` hooks
 
-*Released to candidate on 20 August 2026; not promoted to stable.*
+#### Test feedback
+
+Feel free to provide your test feedback here or directly in Launchpad. To help fast track investigations please provide (1) details about the system, (2) snapd version(s) and (3) steps to reproduce the issue.
 
 #### Changelog
 
@@ -706,7 +737,7 @@ Snapd 2.76.3 completes the remaining 26.04.1 FDE objectives for install and firs
 (ref-release-notes_snapd-2-75-release-notes)=
 ## Snapd 2.75
 
-*Not released to stable; superseded by Snapd 2.75.1.*
+*Not released, superseded by 2.75.1.*
 
 * FDE: run early boot check only once per boot
 * FDE: update secboot to revision 77bc2457cc76
@@ -773,13 +804,15 @@ Snapd 2.76.3 completes the remaining 26.04.1 FDE objectives for install and firs
 
 ### Snapd 2.75.1
 
-*Not released to stable; superseded by Snapd 2.75.2.*
+*Not released, superseded by 2.75.2.*
 
 * FDE: limit number of boot check log entries
 * Allow a logged in user to refresh private snaps during a refresh with multiple snaps
 * Use precise prune pattern for tmpfiles (CVE-2026-3888)
 
 ### Snapd 2.75.2
+
+*Released on 23 April 2026.*
 
 #### Overview
 
@@ -803,18 +836,20 @@ Snapd 2.75.2 includes the content of 2.75 and 2.75.1, which were not released.
 * squashfs: reduce memory footprint of single file extraction
 * Add `snap component` command
 
-*Released to stable on 23 April 2026.*
+#### Test feedback
+
+Feel free to provide your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast track investigations please provide (1) details about the system, (2) snapd version(s) and (3) steps to reproduce the issue.
 
 #### Changelog
 
 * Interfaces: network-setup-*| allow running python binaries from the base on UC26+
-* Cross-distro: modify SELinux policy to allow mounting on /var/snap/\<snap\>/\<rev\>
+* Cross-distro: modify SELinux policy to allow mounting on `/var/snap/\<snap\>/\<rev\>`
 * Fix potential task deadlock by considering all tasks in a lane that might be waiting for a reboot when processing delayed security backend effects
 
 (ref-release-notes_snapd-2-74-release-notes)=
 ## Snapd 2.74
 
-*Not released to stable; superseded by Snapd 2.74.1.*
+*Not released, superseded by 2.74.1*
 
 * FDE: use new activation API from secboot
 * FDE: use activation API also with non keydata keys
@@ -822,7 +857,7 @@ Snapd 2.75.2 includes the content of 2.75 and 2.75.1, which were not released.
 * FDE: support adding/removing PINs post-installation
 * FDE: support changing PINs post-installation
 * FDE: support adding a recovery key post-installation
-* FDE: provide activation status via new endpoint v2/system- info/storage-encrypted
+* FDE: provide activation status via new endpoint v2/system-info/storage-encrypted
 * FDE: support sealing and resealing using the preinstall check result
 * FDE: disable passphrase support during install
 * FDE: add keyboard configuration helpers
@@ -840,14 +875,14 @@ Snapd 2.75.2 includes the content of 2.75 and 2.75.1, which were not released.
 * core-initrd: fix plymouth missing font issue
 * core-initrd: update dependency from libteec1 to libteec2
 * core-initrd: add new dlopened libs
-* LP: #2116949 Preseeding: add support for preseeding of hybrid systems via the installer API
-* Preseeding: check whether a path is a mountpoint before remounting
+* LP: #2116949 Preseeding: add support for preseeding of hybrid systems via the installer API$
+* Preseeding: check whether a path is a mount point before remounting
 * Confdb: support tagging paths as secret in storage schemas
 * Confdb: support filtering on placeholder sub-keys
 * Confdb: support filtering in API and confdbstate
 * Confdb: support field filtering on reads
 * Confdb: support "parameters" stanza and check filters against them
-* Confdb: add support for '--with' contraints
+* Confdb: add support for '--with' constraints
 * Confdb: parsing fixes and error handling improvements
 * Assertions: restrict serials to new format in confdb-control
 * Assertions: add verify signature function
@@ -880,7 +915,7 @@ Snapd 2.75.2 includes the content of 2.75 and 2.75.1, which were not released.
 * Packaging: fix inhibition hint file being left behind on failed unlink-current-snap
 * Disallow timeouts < 1us in systemd units
 * Add snap-store to the user-daemons support overrides
-* Support for SuccessExitStatus= generation for systemd daemon
+* Support for `SuccessExitStatus=` generation for systemd daemon
 * Make standby output more verbose
 * Add prepare-serial-request hook
 * Try to discard snap mount namespaces when no processes are running during snap updates
@@ -890,13 +925,15 @@ Snapd 2.75.2 includes the content of 2.75 and 2.75.1, which were not released.
 * Interfaces: *-driver-libs | accept component paths
 * Interfaces: desktop-legacy, unity7 | remove workaround for slash filtering in ibus address
 * Interfaces: fwupd | allow writing reboot notification in /run
-* Interfaces: add 'install' coreutil to base AppArmor template
+* Interfaces: add 'install' coreutils to base AppArmor template
 * Interfaces: u2f-devices | add apparmor permissions to allow the use of the libfido2 library in snaps
 * Interfaces: u2f-devices | add support for Thetis security key
 * Interfaces: add AppArmor workaround for mmap MAP_HUGETLB
 * Interfaces: timeserver-control | manage per-link ntp settings via systemd-networkd
 
 ### Snapd 2.74.1
+
+*Released on 19 March 2026.*
 
 #### Overview
 
@@ -920,9 +957,11 @@ Snapd 2.74.1 delivers TPM-backed Full Disk Encryption (FDE) to Resolute (26.04).
 * snap: add support for `snap refresh --tracking` ([LP: #2068493](https://bugs.launchpad.net/snapd/+bug/2068493))
 * snap-confine: handle potential race when creating /tmp/snap-private-tmp when lacking systemd-tmpfiles support ([LP: #2134364](https://bugs.launchpad.net/snapd/+bug/2134364))
 
-For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146).
+For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146). You are welcome to try it out for yourself using the [Resolute Daily Installer Image](https://cdimage.ubuntu.com/daily-live/current/resolute-desktop-amd64.iso).
 
-*Released to stable on 19 March 2026.*
+#### Test feedback
+
+Feel free to provide your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast track investigations please provide (1) details about the system, (2) snapd version(s) and (3) steps to reproduce the issue.
 
 #### Changelog
 
@@ -938,10 +977,9 @@ For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progres
 (ref-release-notes_snapd-2-73-release-notes)=
 ## Snapd 2.73
 
-Snapd 2.73 was released to the stable channel on 6 January 2026, followed by the snapd 2.73 Debian packages for Jammy, Noble, Plucky, Questing, and Resolute.
+*Released on 9 January 2026.*
 
 ### Overview
-
 Snapd 2.73 does not introduce new user-facing features. Instead, it provides:
 
 * Bug fixes and robustness improvements
@@ -950,6 +988,8 @@ Snapd 2.73 does not introduce new user-facing features. Instead, it provides:
   * [TPM-backed Full Disk Encryption](https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146) (FDE)
   * [Confdb](https://snapcraft.io/docs/confdb-configuration-management) and related remote device-management capabilities
   * [AppArmor prompting](https://snapcraft.io/install/prompting-client/ubuntu) for camera access
+
+These changes are intended to improve reliability today while preparing the ground for upcoming releases.
 
 ### Notable updates
 
@@ -961,10 +1001,14 @@ Snapd 2.73 does not introduce new user-facing features. Instead, it provides:
 * Use "current" instead of revision number for icons ([LP: #1851490](https://bugs.launchpad.net/snapd/+bug/1851490))
 * Add `snapctl version` command ([LP: #2121853](https://bugs.launchpad.net/snapd/+bug/2121853))
 * Ensure no more than one partition on disk can match a gadget partition ([LP: #2127214](https://bugs.launchpad.net/snapd/+bug/2127214))
-* Prompting: do not record notices for unchanged rules on snapd startup ([LP: #2127189](https://bugs.launchpad.net/snapd/+bug/2127189))
-* snap-confine: update AppArmor profile to allow read/write to journal as workaround for snap-confine fd inheritance prevented by newer AppArmor ([LP: #2127244](https://bugs.launchpad.net/snapd/+bug/2127244))
+* Prompting: Do not record notices for unchanged rules on snapd startup ([LP: #2127189](https://bugs.launchpad.net/snapd/+bug/2127189))
+* snap-confine: Update AppArmor profile to allow read/write to journal as workaround for snap-confine fd inheritance prevented by newer AppArmor ([LP: #2127244](https://bugs.launchpad.net/snapd/+bug/2127244))
 
-*Released to stable on 9 January 2026.*
+For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146)
+
+### Test feedback
+
+Feel free to provide your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast track investigations please provide (1) details about the system, (2) snapd version(s) and (3) steps to reproduce the issue.
 
 ### Changelog
 
@@ -1009,7 +1053,7 @@ Snapd 2.73 does not introduce new user-facing features. Instead, it provides:
 * Interfaces: add support for compatibility expressions
 * Interfaces: checkbox-support | complete overhaul
 * Interfaces: define vulkan-driver-libs, cuda-driver-libs, egl-driver-libs, gbm-driver-libs, opengl-driver-libs, and opengles-driver-libs
-* Interfaces: allow snaps on classic access to nvidia graphics libraries exported by \*-driver-libs interfaces
+* Interfaces: allow snaps on classic access to nvidia graphics libraries exported by *-driver-libs interfaces
 * Interfaces: fwupd | broaden access to /boot/efi/EFI
 * Interfaces: gsettings | set dconf-service as profile for ca.desrt.dconf.Writer
 * Interfaces: iscsi-initiator, dm-multipath, nvme-control | add new interfaces
@@ -1034,13 +1078,13 @@ Snapd 2.73 does not introduce new user-facing features. Instead, it provides:
 * LP: #1851490 Use "current" instead of revision number for icons
 * LP: #2121853 Add snapctl version command
 * LP: #2127214 Ensure no more than one partition on disk can match a gadget partition
-* LP: #2127244 snap-confine: update AppArmor profile to allow read/write to journal as workaround for snap-confine fd inheritance prevented by newer AppArmor
+* LP: #2127244 snap-confine: update AppArmor profile to allow read/write to journal as workaround for snap-confine fd inheritance prevented by newer AppArmor  
 * LP: #2127766 Add new tracing mechanism with independently running strace and shim synchronization
 
 (ref-release-notes_snapd-2-72-release-notes)=
 ## Snapd 2.72
 
-The 2.72 release focuses on FDE enhancements and the more robust gpio-chardev interface.
+*Released on 21 October 2025*
 
 ### Highlights
 
@@ -1058,9 +1102,11 @@ The 2.72 release focuses on FDE enhancements and the more robust gpio-chardev in
 * Improve progress reporting for snap install/refresh ([LP: #2112626](https://bugs.launchpad.net/snapd/+bug/2112626))
 * Extend output to indicate when snap data snapshot was created during remove ([LP: #2114704](https://bugs.launchpad.net/snapd/+bug/2114704))
 
+For the release plan and complete list of changes, please refer to the [full release notes](https://forum.snapcraft.io/t/the-snapd-roadmap/1973).
+
 ### More about GPIO Chardev
 
-This release supports the kernel GPIO character device API with specific GPIO lines mediation through the new gpio-chardev interface, which offers more fine-grained control over the gpio-control interface that allowed unrestricted access to all GPIO chips when needed.
+This release supports the kernel GPIO character device API with specific GPIO lines mediation through the new gpio-chardev interface which offers more fine-grained control over the gpio-control interface that allowed unrestricted access to all GPIO chips when needed.
 
 For historical context: traditionally Snapd supported mediation of the sysfs interface for GPIO access. This sysfs kernel interface is considered legacy by upstream kernel developers (and will be removed from UC26+ kernels) and it has been replaced by a new character device API, commonly referred to as gpiod.
 
@@ -1073,18 +1119,21 @@ For more information on how to use the new interface (and migration from the old
 ***The previous release***, 2.71, concluded the Snapd contribution to TPM FDE for the 25.10 [install image](https://releases.ubuntu.com/25.10/ubuntu-25.10-desktop-amd64.iso).
 
 Progression through the 25.10 cycle up to 2.71:
-
 * 2.68.* - introduced a new key format, added support for passphrases during installation, and included various fixes.
-* 2.70 - set roles in TPM keys and fixed resealing with the v1 hook key format.
+* 2:70 - set roles in TPM keys and fixed resealing with the v1 hook key format.
 * 2.71 - added recovery key auto-repair, delivered many additional APIs needed to support installation and use of TPM-backed FDE on hybrid Ubuntu 25.10, and included further fixes.
 
 As part of this work, secboot has been improved to more extensively check whether the platform can support secure boot, which is used by one of the new Snapd APIs introduced in 2.71 and used by the installer to determine TPM FDE availability during hybrid Ubuntu installation.
 
-***This release***, along with releases 2.73 and 2.74 planned for the next cycle, extends and refines the TPM FDE hybrid Ubuntu installation and overall user experience for the Ubuntu 26.04 LTS release.
+***This release***, along with releases 2.73 and 2.74 planned for next cycle, will extend and refine the TPM FDE hybrid Ubuntu installation and overall user experience for the Ubuntu 26.04 LTS release.
+
+A lot of care goes into continually ensuring compatibility with Ubuntu Core, previous versions of Snapd and targeted hardware. Each release must pass extensive testing, including test suites for certified hardware. In addition to our own rigorous testing, we strongly advise all users to also thoroughly test all their hardware variations and inform us of potential issues or concerns as soon as possible.
 
 For a broader overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146)
 
-*Released to stable on 21 October 2025.*
+### Test feedback
+
+Feel free to provide your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast track investigations please provide (1) details about the system, (2) Snapd version(s) and (3) steps to reproduce the issue.
 
 ### Changelog
 
@@ -1164,7 +1213,7 @@ For a broader overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE 
 (ref-release-notes_snapd-2-71-release-notes)=
 ## Snapd 2.71
 
-The 2.71 release focuses on TPM-backed Full Disk Encryption support for Ubuntu 25.10.
+*Released on 20 August 2025*
 
 ### Highlights
 
@@ -1176,7 +1225,7 @@ The 2.71 release focuses on TPM-backed Full Disk Encryption support for Ubuntu 2
 * Reject system key mismatch advice when not yet seeded ([LP: #2114923](https://bugs.launchpad.net/ubuntu-desktop-provision/+bug/2114923))
 * Make removal of last active revision of a snap equal to snap remove ([LP: #2112551](https://bugs.launchpad.net/bugs/2112551))
 * Allow non-gpt in fallback mode to support RPi ([LP: #2114779](https://bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2114779))
-* Fix `snap debug connectivity` check for RISC-V ([LP: #2112544](https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/2112544))
+* Fix \`snap debug connectivity\` check for RISC-V ([LP: #2112544](https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/2112544))
 * Exclude snap/snapd/preseeding when generating preseed tarball ([LP: #2112332](https://bugs.launchpad.net/snapd/+bug/2112332))
 * Fix snap command progress reporting ([LP: #1952500](https://bugs.launchpad.net/bugs/1952500))
 * Interfaces: kerberos-tickets | add new interface ([LP: #1849346](https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1849346))
@@ -1185,15 +1234,13 @@ The 2.71 release focuses on TPM-backed Full Disk Encryption support for Ubuntu 2
 
 ### More about TPM backed FDE on Ubuntu Core and Ubuntu 25.10
 
-To support hybrid Ubuntu 25.10+ systems, a new key format was introduced. On Ubuntu Core this change is transparent to users, but it enables a transition from file-based key storage to storing keys in the LUKS2 header (with header redundancy) on core26.
+To support hybrid Ubuntu 25.10+ systems, we’ve introduced a new key format. On Ubuntu Core this change is transparent to users, but it enables us to transition from file-based key storage to storing keys in the LUKS2 header (with header redundancy) on core26.
 
 On previous versions of Ubuntu Core, once a reboot required a recovery key, the device would continue prompting for that key on every subsequent boot. This could be particularly problematic for unattended or remote devices. This behavior was improved so that after a firmware update, entering the recovery key triggers an automatic repair and restores normal unattended boot operation without further prompts.
 
-The [fwupd](https://snapcraft.io/fwupd) tool is available both as a deb and as a snap, providing a unified way to install and manage system firmware updates. Support has been added for updating the UEFI DBX (UEFI Secure Boot forbidden signatures database) without requiring a recovery key on reboot. This ensures that both hybrid Ubuntu 25.10+ and Ubuntu Core devices with Full Disk Encryption seamlessly apply DBX updates.
+The [fwupd](https://snapcraft.io/fwupd) tool is available both as a deb and as a snap providing a unified way to install and manage system firmware updates. Support has been added for updating the UEFI DBX (UEFI Secure Boot forbidden signatures database) without requiring a recovery key on reboot. This ensures that both hybrid Ubuntu 25.10+ and Ubuntu Core devices with Full Disk Encryption seamlessly apply DBX updates.
 
 For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146)
-
-*Released to stable on 20 August 2025.*
 
 ### Changelog
 
@@ -1277,7 +1324,7 @@ For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progres
 (ref-release-notes_snapd-2-70-release-notes)=
 ## Snapd 2.70
 
-The 2.70 release focuses on removing the setuid requirement from `snap-confine` and enabling `snapd.apparmor` on Fedora.
+*Released on 8 July 2025*
 
 ### Highlights
 
@@ -1294,11 +1341,9 @@ The 2.70 release focuses on removing the setuid requirement from `snap-confine` 
 
 ### More about no-setuid snap confine
 
-In an effort to increase security and have better control over the execution of privileged binaries, the snap application bootstrapping helper, snap-confine, no longer requires to be setuid root. Instead it relies on file capabilities and executes in the security context of the user who invoked it. The required capabilities are effectively a subset of all the capabilities which were previously obtained immediately when executing the privileged binary. The effective capabilities are dynamically switched at runtime, such that the helper executes with the least set of effective privileges at any given time.
+In an effort to increase the security and have better control over the execution of privileged binaries, the snap application bootstrapping helper, snap-confine, no longer requires to be setuid root. Instead it relies on file capabilities and executes in the security context of the user who invoked it. The required capabilities are effectively a subset of all the capabilities which were previously obtained immediately when executing the privileged binary. The effective capabilities are dynamically switched at runtime, such that the helper executes with the least set of effective privileges at any given time.
 
-Note that 2.70 includes all the changes in the superseded 2.69 and 2.69.1 releases.
-
-*Released to stable on 8 July 2025.*
+Please note that 2.70 includes all the changes in the superseded 2.69 and 2.69.1 releases.
 
 ### Changelog
 
@@ -1419,9 +1464,9 @@ Note that 2.70 includes all the changes in the superseded 2.69 and 2.69.1 releas
 
 ### Snapd 2.69.1
 
-The current release candidate for 2.69.1 requires a fix for [LP: #2109843](https://bugs.launchpad.net/snapd/+bug/2109843). To ensure we continue delivering the latest changes in a timely manner, we’ve decided to supersede the 2.69.1 candidate with 2.70. It will include the bug fix, additional improvements, and help align with our release plan for the 25.10 cycle.
-
 *Not released to stable; superseded by Snapd 2.70.*
+
+The current release candidate for 2.69.1 requires a fix for [LP: #2109843](https://bugs.launchpad.net/snapd/+bug/2109843). To ensure we continue delivering the latest changes in a timely manner, we’ve decided to supersede the 2.69.1 candidate with 2.70. It will include the bug fix, additional improvements, and help align with our release plan for the 25.10 cycle.
 
 * AppArmor prompting (experimental): avoid race between closing/reading socket fd
 * Fix potential validation set deadlock due to bases waiting on snaps
@@ -1431,6 +1476,38 @@ The current release candidate for 2.69.1 requires a fix for [LP: #2109843](https
 
 (ref-release-notes_snapd-2-68-release-notes)=
 ## Snapd 2.68
+
+The official release for this version was Snapd 2.68.4.
+
+### Highlights
+
+* [FDE](https://ubuntu.com/core/docs/full-disk-encryption): Add support for a new and more extensible key format and passphrases for encrypted partitions can now be specified during installation
+* {ref}`Components <how-to-guides-manage-snaps-using-components>`: Support online/offline [remodeling](https://ubuntu.com/core/docs/remodelling) and the creation of new recovery systems for models that contain components, on Ubuntu Core as well as Hybrid systems. Components are useful for distributing optional resources for a snap, such as debug symbols alongside snap binaries, and kernel modules alongside a kernel snap.
+* [Kernel Components](https://documentation.ubuntu.com/snapcraft/stable/reference/components/): Make kernel components and modules available in early boot
+* Interfaces: Added {ref}`auditd-support interface <interfaces-auditd-support>` that allows a snap to ship auditd as part of a snap and `checkbox-support` interface that allows unrestricted access to devices when testing with checkbox
+
+### Notable updates
+* Fix issue preventing hybrid systems from being seeded on first boot
+* Modify AppArmor template to allow using setpriv to run ([LP: #20729871](https://bugs.launchpad.net/snapd/+bug/2072987))
+* Disable udev backend when inside a container ([LP: #1712808](https://bugs.launchpad.net/snapd/+bug/1712808)
+* Remove auto-import udev rules not required by deb package to avoid unwanted syslog errors ([LP: #1966203](https://bugs.launchpad.net/snapd/+bug/1966203))
+* Fix progress reporting when stdout is on a tty, but stdin is not ([LP: #1886414](https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1886414))
+
+### Experimental Features
+* Removed stale `robust-mount-namespace-updates` experimental flag
+* Removed rejected `snapd-snap` experimental feature and its feature flag
+
+### Impact on Ubuntu Core using Full Disk Encryption
+
+If you are planning to test or use this snapd release and you are using full disk encryption (with both hooks and TPM), some updates to your kernel snap are needed:
+* If you maintain your own kernel snap, you will need to include the new snap-bootstrap.
+* If you are using a kernel snap maintained by Canonical, all our kernel snaps will be updated to the new version of snap-bootstrap in due course.
+
+Until all kernel snaps are updated, snapd from latest/edge cannot be used for installation or remodeling if you are using FDE. If you have not updated the kernel snap, do not report bugs you encountered when:
+* Remodeling with a snapd from latest/edge, then doing factory reset.
+* Installing fresh images with snapd from latest/edge
+
+### Changelog
 
 * FDE: add support for new and more extensible key format that is unified between TPM and FDE hook
 * FDE: add support for adding passphrases during installation
@@ -1494,15 +1571,17 @@ The current release candidate for 2.69.1 requires a fix for [LP: #2109843](https
 * Fix logger debug entries to show correct caller and file information
 * Fix issue preventing hybrid systems from being seeded on first boot
 * [LP: #1966203](https://bugs.launchpad.net/snapd/+bug/1966203) remove auto-import udev rules not required by deb package to avoid unwanted syslog errors
-* [LP: #1886414](https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1886414) fix progress reporting when stdout is on a tty, but stdin is not
+* [LP: #1886414](https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1886414) fix progress reporting when stdout is on a tty, but stdin is nots
 
 ### Snapd 2.68.1
+
+*Released to beta on 24 February 2025.*
 
 * Fix snap-confine type specifier type mismatch on armhf
 
 ### Snapd 2.68.2
 
-*Released to beta on 1 March 2025; not promoted further.*
+*Released to candidate on 12 March 2025.*
 
 * FDE: use boot mode for FDE hooks
 * FDE: add snap-bootstrap compatibility check to prevent image~19 March 2025 creation with incompatible snapd and kernel snap
@@ -1518,7 +1597,7 @@ The current release candidate for 2.69.1 requires a fix for [LP: #2109843](https
 
 ### Snapd 2.68.3
 
-The 2.68.3 release focuses on FDE passphrase support, component-aware remodeling, and new interfaces.
+*Released to candidate on 29 March 2025.*
 
 #### Highlights
 
@@ -1547,9 +1626,13 @@ If you are planning to test or use this snapd release and you are using full dis
 * If you maintain your own kernel snap, you will need to include the new snap-bootstrap.
 * If you are using a kernel snap maintained by Canonical, all Canonical kernel snaps will be updated to the new version of snap-bootstrap in due course.
 
-Until all kernel snaps are updated, snapd from latest/edge cannot be used for installation or remodeling if you are using FDE.
+Until all kernel snaps are updated, snapd from latest/edge cannot be used for installation or remodeling if you are using FDE. If you have not updated the kernel snap, do not report bugs you encountered when:
+* Remodeling with a snapd from latest/edge, then doing factory reset.
+* Installing fresh images with snapd from latest/edge
 
-*Released to beta on 1 March 2025; not promoted further.*
+However, please do report bugs if you find issues when:
+* You updated to snapd to the latest/edge.
+* You reverted from a snapd coming from latest/edge.
 
 #### Changelog
 
@@ -1559,6 +1642,8 @@ Until all kernel snaps are updated, snapd from latest/edge cannot be used for in
 
 ### Snapd 2.68.4
 
+*Released on 28 April 2025.*
+
 The release process for snapd 2.68.4 took significant time to stabilize. This update was prompted by a mistake in classic 24.XX models that required a workaround in snapd.
 
 This release includes the exact content of snapd 2.68.3, along with a couple of additional changes:
@@ -1566,7 +1651,7 @@ This release includes the exact content of snapd 2.68.3, along with a couple of 
 * Workaround for classic 24.04/24.10 models that incorrectly specify core22 instead of core24 ([LP: #2072987](https://bugs.launchpad.net/snapd/+bug/2072987))
 * Updated build dependencies
 
-*Released to stable on 28 April 2025.*
+During the 2.68.4 rollout, Ubuntu Core 24 images built with Snapd 2.68.4 and the then-current 24/stable `pc-kernel` would not function correctly until kernel version 6.8.0-58.60+1 was promoted to the stable channel. See the [original release notice](https://forum.snapcraft.io/t/snapd-2-68-4-release-update/46738/4) for the rollout context.
 
 #### Changelog
 
@@ -1575,9 +1660,9 @@ This release includes the exact content of snapd 2.68.3, along with a couple of 
 
 ### Snapd 2.68.5
 
-Snapd 2.68.5 addresses an issue where preseed files may be missing when running inside a container ([LP: #2109843](https://bugs.launchpad.net/snapd/+bug/2109843)).
+*Released on 17 June 2025.*
 
-*Released to stable on 17 June 2025.*
+Snapd 2.68.5 addresses an issue where preseed files may be missing when running inside a container ([LP: #2109843](https://bugs.launchpad.net/snapd/+bug/2109843)).
 
 #### Changelog
 
@@ -1586,21 +1671,30 @@ Snapd 2.68.5 addresses an issue where preseed files may be missing when running 
 (ref-release-notes_snapd-2-67-release-notes)=
 ## Snapd 2.67
 
-The 2.67 release focuses on registry views and broader component support.
+*Released on 11 January 2025.*
 
-### Highlights
+### Highlights:
 
-* **Registry views**: This feature has evolved beyond cross-snap configuration, now enabling custodian snaps to validate changes and store registry data outside of snapd.
-* **Components**: Standard components are now broadly usable, after the addition of the `snap components` command, support for joint install of snaps and components from local files, and tab completion. Building on standard components, kernel components have been enhanced with support for the `snapctl model` command for kernel snaps as well as other improvements to enable kernel drivers for proprietary hardware on Ubuntu Core.
+* **Registry views**
+   
+   This feature has evolved beyond cross-snap configuration, now enabling custodian snaps to validate changes and store registry data outside of snapd.
 
-### Notable bug fixes
+* **Components**
+
+  Standard components are now broadly usable, after the addition of the `snap components` command, support for joint install of snaps and components from local files, and tab completion.
+
+   Building on standard components, kernel components have been enhanced with support for the `snapctl model` command for kernel snaps as well as other improvements to enable kernel drivers for proprietary hardware on Ubuntu Core.
+
+### Notable bug fixes:
 
 * AppArmor Prompting: Fixed an issue with overlapping rules ([bug report](https://github.com/canonical/desktop-security-center/issues/74))
-* Resolved a deadlock edge case related to app awareness during refresh operations ([LP: #2084730](https://bugs.launchpad.net/snapd/+bug/2084730))
-* Addressed issues with reloading service activation units to prevent systemd errors ([LP: #2083961](https://bugs.launchpad.net/snapd/+bug/2083961))
+* Resolved a deadlock edge case related to app awareness during refresh operations ([LP2084730](https://bugs.launchpad.net/snapd/+bug/2084730))
+* Addressed issues with reloading service activation units to prevent systemd errors ([LP2083961](https://bugs.launchpad.net/snapd/+bug/2083961))
 * Fixed the generation of AppArmor profiles with incorrect revisions during concurrent refreshes of snaps using the content interface
-
-*Released to stable on 11 January 2025.*
+* Fix AppArmor permissions to allow snaps access to kernel modules and firmware on UC24, which also fixes the kernel-modules-control interface on UC24
+* Fix ‘snap run’ getent based user lookup in case of bad PATH (LP2090938 2)
+* Fix snapd using the incorrect AppArmor version during undo of an refresh
+* Extended hardware-observe interface to allow support riscv_hwprobe syscall and mount-observe interface to allow listmount and statmount syscalls
 
 ### Changelog
 
@@ -1620,12 +1714,12 @@ The 2.67 release focuses on registry views and broader component support.
 * Support for overlayfs options and allow empty what argument for tmpfs
 * Enable ubuntu-image to determine the size of the disk image to create
 * Expose 'snap debug' commands 'validate-seed' and 'seeding'
-* Add debug API option to use dedicated snap socket /run/snapd-snap.socket
+* Add debug API option to use dedicated snap socket /run/snapd-snap.socket 
 * Hide experimental features that are no longer required (accepted/rejected)
 * Mount ubuntu-save partition with no{exec,dev,suid} at install, run and factory-reset
 * Improve memory controller support with cgroup v2
 * Support ssh socket activation configurations (used by ubuntu 22.10+)
-* Fix generation of AppArmor profile with incorrect revision during multi snap refresh
+* Fix generation of AppArmor profile with incorrect revision during multi snap refresh 
 * Fix refresh app awareness related deadlock edge case
 * Fix not caching delta updated snap download
 * Fix passing non root uid, guid to initial tmpfs mount
@@ -1655,9 +1749,10 @@ The 2.67 release focuses on registry views and broader component support.
 * udisks2 interface: allow ping of the UDisks2 service
 * u2f-devices interface: add Nitrokey Passkey
 
+
 ### Snapd 2.67.1
 
-The 2.67.1 release focuses on AppArmor permission and version-handling fixes.
+*Released on 7 March 2025.*
 
 #### Notable updates
 
@@ -1665,8 +1760,6 @@ The 2.67.1 release focuses on AppArmor permission and version-handling fixes.
 * Fix 'snap run' getent based user lookup in case of bad PATH ([LP: #2090938](https://launchpad.net/bugs/2090938))
 * Fix snapd using the incorrect AppArmor version during undo of a refresh
 * Extended hardware-observe interface to allow the riscv_hwprobe syscall, and mount-observe interface to allow the listmount and statmount syscalls
-
-*Released to stable on 7 March 2025.*
 
 #### Changelog
 
@@ -1679,15 +1772,33 @@ The 2.67.1 release focuses on AppArmor permission and version-handling fixes.
 * mount-observe interface: allow listmount and statmount syscalls
 
 (ref-release-notes_snapd-2-66-release-notes)=
-## Snapd 2.66.1
+## Snapd 2.66
+
+*Released on 26 November 2024.*
+
+This release added the ability for Snapcraft 8.x to build snapd using with core22 base, and support for building a snapd variant that's [FIPS](https://en.wikipedia.org/wiki/FIPS_140-3) compliant. 
+
+Other highlights include:
+
+*  **AppArmor prompting**
+
+   In collaboration with the security and desktop teams at Canonical, this release of snapd includes the functionality required for snaps to request interface access from the user. 
+
+   For more information on this feature, including design details and how it can be tested in Ubuntu 24.10, see [Introducing Permissions Prompting](https://discourse.ubuntu.com/t/ubuntu-desktop-s-24-10-dev-cycle-part-5-introducing-permissions-prompting/47963).
+
+* **Experimental confdb support**
+
+   This release includes many updates to support _confdb_, formerly known as Registry, which will significantly improve how we handle configuration data and share that data between snaps and devices.
+
+### Snapd 2.66.1
+
+*Released on 26 November 2024.*
 
 This is the first release of the snapd snap built against core22. It includes important fixes and features worked on over the preceding months.
 
 It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting and includes a security update that impacts rare and specific mount-control plug definitions.
 
-*Released to stable on 26 November 2024.*
-
-### Changelog
+#### Changelog
 
 * AppArmor prompting (experimental): expand kernel support checks
 * AppArmor prompting (experimental): consolidate error messages and add error kinds
@@ -1739,6 +1850,8 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 
 (ref-release-notes_snapd-2-65-release-notes)=
 ## Snapd 2.65
+
+*Released to beta on 23 August 2024.*
 
 * Support building snapd using base Core22 (Snapcraft 8.x)
 * FIPS: support building FIPS complaint snapd variant that switches to FIPS mode when the system boots with FIPS enabled
@@ -1830,102 +1943,29 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 
 ### Snapd 2.65.1
 
-* Support building snapd using base Core22 (Snapcraft 8.x)
-* FIPS: support building FIPS complaint snapd variant that switches to FIPS mode when the system boots with FIPS enabled
-* AppArmor: update to latest 4.0.2 release
-* AppArmor: enable using ABI 4.0 from host parser
-* AppArmor: fix parser lookup
-* AppArmor: support AppArmor snippet priorities
-* AppArmor: allow reading cgroup memory.max file
-* AppArmor: allow using snap-exec coming from the snapd snap when starting a confined process with jailmode
-* AppArmor prompting (experimental): add checks for prompting support, include prompting status in system key, and restart snapd if prompting flag changes
-* AppArmor prompting (experimental): include prompt prefix in AppArmor rules if prompting is supported and enabled
-* AppArmor prompting (experimental): add common types, constraints, and mappings from AppArmor permissions to abstract permissions
-* AppArmor prompting (experimental): add path pattern parsing and matching
-* AppArmor prompting (experimental): add path pattern precedence based on specificity
-* AppArmor prompting (experimental): add packages to manage outstanding request prompts and rules
-* AppArmor prompting (experimental): add prompting API and notice types, which require snap-interfaces-requests-control interface
-* AppArmor prompting (experimental): feature flag can only be enabled if prompting is supported, handler service connected, and the service can be started
-* Registry views (experimental): rename from aspects to registries
-* Registry views (experimental): support reading registry views and setting/unsetting registry data using snapctl
-* Registry views (experimental): fetch and refresh registry assertions as needed
-* Registry views (experimental): restrict view paths from using a number as first character and view names to storage path style patterns
-* Snap components: support installing snaps and components from files at the same time (no REST API/CLI)
-* Snap components: support downloading components related assertions from the store
-* Snap components: support installing components from the store
-* Snap components: support removing components individually and during snap removal
-* Snap components: support kernel modules as components
-* Snap components: support for component install, pre-refresh and post-refresh hooks
-* Snap components: initial support for building systems that contain components
-* Refresh app awareness (experimental): add data field for /v2/changes REST API to allow associating each task with affected snaps
-* Refresh app awareness (experimental): use the app name from .desktop file in notifications
-* Refresh app awareness (experimental): give snap-refresh-observe interface access to /v2/snaps/{name} endpoint
-* Improve snap-confine compatibility with nvidia drivers
-* Allow re-exec when SNAP_REEXEC is set for unlisted distros to simplify testing
-* Allow mixing revision and channel on snap install
-* Generate GNU build ID for Go binaries
-* Add missing etelpmoc.sh for shell completion
-* Do not attempt to run snapd on classic when re-exec is disabled
-* Packaging/build maintenance for Debian sid, Fedora, Arch, openSuse
-* Add snap debug API command to enable running raw queries
-* Enable snap-confine snap mount directory detection
-* Replace global seccomp filter with deny rules in standard seccomp template
-* Remove support for Ubuntu Core Launcher (superseded by snap-confine)
-* Support creating pending serial bound users after serial assertion becomes available
-* Support disabling cloud-init using kernel command-line
-* In hybrid systems, apps can refresh without waiting for restarts required by essential snaps
-* Ship snap-debug-info.sh script used for system diagnostics
-* Improve error messages when attempting to run non-existent snap
-* Switch to -u UID:GID for strace-static
-* Support enabling snapd logging with snap set system debug.snapd.{log,log-level}
-* Add options system.coredump.enable and system.coredump.maxuse to support using systemd-coredump on Ubuntu Core
-* Provide documentation URL for 'snap interface <iface-name>'
+*Released to beta on 24 August 2024.*
+
 * Fix snapd riscv64 build
-* Fix restarting activated services instead of their activator units (i.e. sockets, timers)
-* Fix potential unexpected auto-refresh of snap on managed schedule
-* Fix potential segfault by guarding against kernel command-line changes on classic system
-* Fix proxy entries in /etc/environment with missing newline that caused later manual entries to not be usable
-* Fix offline remodelling by ignoring prerequisites that will otherwise be downloaded from store
-* Fix devmode seccomp deny regression that caused spamming the log instead of actual denies
-* Fix snap lock leak during refresh
-* Fix not re-pinning validation sets that were already pinned when enforcing new validation sets
-* Fix handling of unexpected snapd runtime failure
-* Fix /v2/notices REST API skipping notices with duplicate timestamps
-* Fix comparing systemd versions that may contain pre-release suffixes
-* Fix udev potentially starting before snap-device-helper is made available
-* Fix race in snap seed metadata loading
-* Fix treating cloud-init exit status 2 as error
-* Fix to prevent sending refresh complete notification if snap snap-refresh-observe interface is connected
-* Fix to queue snapctl service commands if run from the default-configure hook to ensure they get up-to-date config values
-* Fix stop service failure when the service is not actually running anymore
-* Fix parsing /proc/PID/mounts with spaces
-* Add registry interface that provides snaps access to a particular registry view
-* Add snap-interfaces-requests-control interface to enable prompting client snaps
-* steam-support interface: remove all AppArmor and seccomp restrictions to improve user experience
-* opengl interface: improve compatibility with nvidia drivers
-* home interface: autoconnect home on Ubuntu Core Desktop
-* serial-port interface: support RPMsg tty
-* display-control interface: allow changing LVDS backlight power and brightness
-* power-control interface: support for battery charging thesholds, type/status and AC type/status
-* cpu-control interface: allow CPU C-state control
-* raw-usb interface: support RPi5 and Thinkpad x13s
-* custom-device interface: allow device file locking
-* lxd-support interface: allow LXD to self-manage its own cgroup
-* network-manager interface: support MPTCP sockets
-* network-control interface: allow plug/slot access to gnutls config and systemd resolved cache flushing via D-Bus
-* network-control interface: allow wpa_supplicant dbus api
-* gpio-control interface: support gpiochip* devices
-* polkit interface: fix "rw" mount option check
-* u2f-devices interface: enable additional security keys
-* desktop interface: enable kde theming support
 
 ### Snapd 2.65.3
+
+*Released to beta on 24 August 2024.*
 
 * Fix missing aux info from store on snap setup
 * Bump squashfuse from version 0.5.0 to 0.5.2 (used in snapd deb only)
 
 (ref-release-notes_snapd-2-64-release-notes)=
 ## Snapd 2.64
+
+*Released to beta on 25 July 2024*
+
+For the 2.64 release, we updated the build process to use Ubuntu 22.04 instead of Ubuntu 16.04. This change only affected the snapd.snap, and had impact on builds for Debian, Fedora, Arch, openSUSE, or any other classic package
+
+Users should see no changes or compatibility issues, and if you are a snapd developer, this change makes building snapd easier. The latest Snapcraft releases can now be used to build a local version of the snapd package. In the long term, this will also improve our iteration speed as we’ll require fewer snapd builds, providing developers with faster feedback on their changes.
+
+As part of this release cycle, our `ubuntu-image` and validation-sets documentation also improved.
+
+### Changelog
 
 * Support building snapd using base Core22 (Snapcraft 8.x)
 * FIPS: support building FIPS complaint snapd variant that switches to FIPS mode when the system boots with FIPS enabled
@@ -1996,7 +2036,13 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-63-release-notes)=
 ## Snapd 2.63
 
-*Released to stable on 23 May 2024.*
+*Released on 23 May 2024.*
+
+Snap-based [Ubuntu Core](https://ubuntu.com/core) devices will benefit from many of our the features for this release, including support for [Offline remodelling](https://documentation.ubuntu.com/core/explanation/remodeling/#offline-remodeling), the use of {ref}`Validation sets <explanation-how-snaps-work-validation-sets>` in the [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) and setting a custom port for SSH.
+
+There’s also a new `snap sign` [`--chain`](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/add-a-system-user/#generating-auto-import-assert) argument in this release, that can be used to aggregate all the assertions required to create a new system user.
+
+### Changelog
 
 * Support for snap services to show the current status of user services (experimental)
 * Refresh app awareness: record snap-run-inhibit notice when starting app from snap that is busy with refresh (experimental)
@@ -2030,7 +2076,15 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-62-release-notes)=
 ## Snapd 2.62
 
-*Released to stable on 15 Apr 2024.*
+*Released on 15 April 2024.*
+
+The functionality to add custom device interfaces to an app is now complete, as is our create and removal functionality for Ubuntu Core recovery systems. We’ve also finally made a commitment on what minimum [system requirements](https://ubuntu.com/core/docs/system-requirements) might actually be for Ubuntu Core, even if you can’t actually buy a device with less than several gigabytes of on-board RAM.
+
+This release also included two significant additions to our documentation. Firstly, the Docker interface now includes a fully realised example implementation, and secondly, we’ve completed a new page on recovery system via the REST API, thanks to Andrew.
+
+Finally, this release included new packages for Arch Linux, Amazon Linux, Debian, Fedora, openSUSE and Solus.
+
+### Changelog
 
 * Aspects based configuration schema support (experimental)
 * Refresh app awareness support for UI (experimental)
@@ -2112,9 +2166,15 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-61-release-notes)=
 ## Snapd 2.61
 
+*Released on 3 January 2024.*
+
+This release included a lot of background work that will later be used by `confdb` (see Snapd 2.66), to help with  cross-snap configuration. This includes new rules for parsing assertions and a per-aspect field, plus a vital new ability to unset values from the command line.
+
+We also got closer to finishing our opt-in AppArmor prompting support , with some important background improvements, and created a specification for the desktop user-experience flow. Our cross-distribution support also improved with this release, with a new repository and packages for Amazon Linux , and snapd 2.61.1 releases for Debian Sid and Fedora 38, 39, Rawhide and EPEL 7, 8 and 9.
+
 ### Snapd 2.61.1
 
-*Released to stable on 03 Jan 2024.*
+*Released on 03 Jan 2024.*
 
 * Stop requiring default provider snaps on image building and first boot if alternative providers are included and available
 * Fix auth.json access for login as non-root group ID
@@ -2144,7 +2204,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 
 ### Snapd 2.61.2
 
-*Released to stable on 4 Mar 2024.*
+*Released on 4 Mar 2024.*
 
 * Fix to enable plug/slot sanitization for prepare-image
 * Fix panic when device-service.access=offline
@@ -2166,7 +2226,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-60-release-notes)=
 ## Snapd 2.60.3
 
-*Released to stable on Sep 02.*
+*Released on Sep 02 2023.*
 
 * Bugfixes
 * Use "aes-cbc-essiv:sha256" in cryptsetup on arm 32bit devices to increase speed on devices with CAAM support
@@ -2183,7 +2243,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-59-release-notes)=
 ## Snapd 2.59
 
-*Released to stable on Mar 27.*
+*Released on Mar 27 2023.*
 
 * Support setting extra kernel command line parameters via snap configuration and under a gadget allow-list
 * Support for Full-Disk-Encryption using ICE
@@ -2204,7 +2264,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-58-release-notes)=
 ## Snapd 2.58
 
-*Released to stable on Jan 09.*
+*Released on Jan 09 2023.*
 
 * `snap refresh --hold` support (https://forum.snapcraft.io/t/refresh-control/27213)
 * new `users.lockout` configuration option
@@ -2213,7 +2273,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 (ref-release-notes_snapd-2-56-release-notes)=
 ## Snapd 2.56
 
-*Released to stable on Jun 06.*
+*Released on Jun 06 2022.*
 
 * support "starred" developers
 * factory reset support for unencrypted devices
@@ -2223,13 +2283,13 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 
 ### Snapd 2.55.2
 
-A regression was discovered in the snapd 2.55.2 release shortly after it became available in the stable channel, so the stable release was reverted back to 2.54.4.
+A regression was discovered in the snapd 2.55.2 release after it became available in the stable channel, so the stable release was reverted back to 2.54.4.
 
 The bug was that when "layouts" are applied to content snap content, those layouts could be mounted in the wrong way, resulting in missing files for the snap. This caused, for example, the `newsflash` snap to fail to start. The fix shipped in 2.55.3.
 
 ### Snapd 2.55.3
 
-*Released to stable on Apr 20.*
+*Released on Apr 20 2022.*
 
 * Fix refresh layout construction (fixes Firefox crash)
 * Support for the "piboot" bootloader
@@ -2240,7 +2300,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-54-release-notes)=
 ## Snapd 2.54.2
 
-*Released to stable on Jan 24.*
+*Released on Jan 24 2022.*
 
 * New `shared-memory` interface ([topic](https://forum.snapcraft.io/t/the-shared-memory-interface/28382))
 * Allow sideload of multiple snaps via the API
@@ -2250,7 +2310,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-51-release-notes)=
 ## Snapd 2.51
 
-*Released to stable on June 7.*
+*Released on June 7 2021.*
 
 * New `swap.size` system config setting for Ubuntu Core devices
 * Full kernel command line customization for UC20 pc/grub gadgets
@@ -2268,7 +2328,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-50-release-notes)=
 ## Snapd 2.50
 
-*Released to stable on June 2.*
+*Released on June 2 2021.*
 
 * Make /etc/ssl available for snaps on Ubuntu classic ([PR](https://github.com/snapcore/snapd/pull/9819))
 * Support for DTBs from the kernel snap
@@ -2278,7 +2338,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-49-release-notes)=
 ## Snapd 2.49
 
-*Released to stable on Mar 04.*
+*Released on Mar 04 2021.*
 
 * Express encryption preferences for UC20
 * Devmode snaps in dangerous model UC20 seeds
@@ -2291,7 +2351,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-48-release-notes)=
 ## Snapd 2.48
 
-*Released to stable on Nov 30.*
+*Released on Nov 30 2020.*
 
 * Support for the "ubuntu-save" partition
 * More versatile UC20 recovery booting in "degraded" situations
@@ -2304,7 +2364,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-47-release-notes)=
 ## Snapd 2.47
 
-*Released to stable on Oct 21.*
+*Released on Oct 21 2020.*
 
 * better portal support with GLib ([PR](https://github.com/snapcore/snapd/pull/8301))
 * add cups interface and update cups-control for cups as a strict snap ([PR](https://github.com/snapcore/snapd/pull/8920))
@@ -2315,7 +2375,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-46-release-notes)=
 ## Snapd 2.46
 
-*Released to stable on Sep 14.*
+*Released on Sep 14 2020.*
 
 * uinput interface ([PR](https://github.com/snapcore/snapd/pull/8867))
 * system-source-code interface ([PR](https://github.com/snapcore/snapd/pull/8868))
@@ -2328,7 +2388,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-45-release-notes)=
 ## Snapd 2.45
 
-*Released to stable on Jul 15.*
+*Released on Jul 15 2020.*
 
 * Ubuntu Core 20 beta
 * Generic serials for third parties
@@ -2338,7 +2398,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-44-release-notes)=
 ## Snapd 2.44
 
-*Released to stable on March 31.*
+*Released on March 31 2020.*
 
 * Switch within tracks with risk-only channel specification ([old topic](https://forum.snapcraft.io/t/11769), [new topic](https://forum.snapcraft.io/t/14970))
 * Support for default tracks ([topic](https://forum.snapcraft.io/t/14970))
@@ -2348,7 +2408,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-43-release-notes)=
 ## Snapd 2.43
 
-*Released to stable on Feb 19th.*
+*Released on Feb 19 2020.*
 
 * snapctl is-connected plug|slot ([topic](https://forum.snapcraft.io/t/14144))
 * Remodel: gadget support
@@ -2359,7 +2419,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 (ref-release-notes_snapd-2-42-release-notes)=
 ## Snapd 2.42
 
-*Released to stable on Oct 10th.*
+*Released on Oct 10 2019.*
 
 * Little-Kernel bootloader support
 * Improve performance in lxd when snapfuse is used ([topic](https://forum.snapcraft.io/t/10747/6))
