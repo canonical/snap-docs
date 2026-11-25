@@ -625,7 +625,7 @@ Feel free to provide your test feedback here or directly in [Launchpad](https://
 * `RemoveMountUnitFile` now unmounts even if mount unit file is missing
 * Add explicit mount phase during single-reboot refresh to fix undo of kernel refreshes
 * Add security audit logging subsystem
-* Add base prioritized AppArmmor snippets for strictly confined or jailed snaps
+* Add base prioritized AppArmor snippets for strictly confined or jailed snaps
 * Allow `openshell` snap to use experimental `daemon-scope: user`
 * Allow configuring mount unit options based on filesystem type
 * Allow equals signs in uevent values in netlink parser
@@ -753,11 +753,11 @@ Feel free to provide your test feedback here or directly in Launchpad. To help f
 * LP: #2139664 snap-confine: remove race condition triggered by hat profile
 * LP: #2139065 skip 70-snap.*.rules when building dracut initramfs
 * LP: #2002697 error early on removal without purge if home is in NFS mount
-* LP: #2141461 Intefaces: allow snap-update-ns to read /proc/pid/auxv
+* LP: #2141461 Interfaces: allow snap-update-ns to read /proc/pid/auxv
 * LP: #2138268 Interfaces: kerberos-tickets| new interface allow access to kerberos tickets stored in /tmp
 * Interfaces: block-devices| allow Xen block devices
 * Interfaces: u2f-devices| add Tokey 3 FIDO
-* Interfaces: devlxd| new interface allowing acccess to LXD devlxd socket and APIs
+* Interfaces: devlxd| new interface allowing access to LXD devlxd socket and APIs
 * Interfaces: browser-support| allow reading pressure stall info information
 * Interfaces: network-setup-control| allow additional netplan files access
 * Interfaces: desktop| allow access kvantum, lxqt, and gtk4 configuration files
@@ -1928,7 +1928,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 * home interface: autoconnect home on Ubuntu Core Desktop
 * serial-port interface: support RPMsg tty
 * display-control interface: allow changing LVDS backlight power and brightness
-* power-control interface: support for battery charging thesholds, type/status and AC type/status
+* power-control interface: support for battery charging thresholds, type/status and AC type/status
 * cpu-control interface: allow CPU C-state control
 * raw-usb interface: support RPi5 and Thinkpad x13s
 * custom-device interface: allow device file locking
