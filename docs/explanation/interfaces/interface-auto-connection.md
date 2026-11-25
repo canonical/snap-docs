@@ -14,7 +14,7 @@ The snapd interface auto-connection mechanism has been designed to remove the ne
 - There is a need to connect snaps that are designed to work together
 - Store-set policy applies to let a given snap use an interface that would not be generally auto-connected. 
 
- See {ref}`Process for aliases, auto-connections and tracks <interfaces-process-for-aliases-auto-connections-and-tracks>` for details on how to submit an auto-connection is requested .
+ See {ref}`Store-reviews: process and criteria <interfaces-process-for-aliases-auto-connections-and-tracks>` for details on how to submit an auto-connection is requested .
 
 If a snap is installed prior to an interface being granted auto-connect permission, and permission is subsequently granted and the snap updated, when the installed snap updates, the interface will be auto-connected.
 

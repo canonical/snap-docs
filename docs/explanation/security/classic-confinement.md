@@ -25,7 +25,7 @@ Apps packaged as classic snaps behave similar to software provided and installed
 
 From a security standpoint, classic snaps are inherently riskier than standard snaps, as they lack the protections and guardrails offered by sandboxing. A malicious author could easily compromise a system by incorporating a compromising payload into a classic snap. And as Canonical finds is frequently the case, not all requests for classic confinement are necessary. Some authors misunderstand the snap build process, interfaces, or filesystem, and with some tweaking their snap is made to work without classic confinement.
 
-Canonical must therefore audit and vet all classic snaps prior to distribution on any store. Without approval from the Store team, a classic snap can't be distributed. The review process that determines the eligibility and appropriateness as a classic snap is outlined in {ref}`Submit your snap for review <interfaces-reviewing-classic-confinement-snaps>`.
+Canonical must therefore audit and vet all classic snaps prior to distribution on any store. Without approval from the Store team, a classic snap can't be distributed. Please check the {ref}`review process and criteria <interfaces-process-for-aliases-auto-connections-and-tracks>` and the {ref}`classic confinement guidelines <interfaces-reviewing-classic-confinement-snaps>` to determine the eligibility and appropriateness of classic confinement.
 
 Canonical only manages risk for its own infrastructure and channels. If a user obtains a classic snap through unofficial channels and they understand the risks, they can manually install it.
 
