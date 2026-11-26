@@ -7,7 +7,7 @@ myst:
 (interfaces-process-for-aliases-auto-connections-and-tracks)=
 # Store-reviews: process and criteria
 
-Store-reviews is how [@reviewers](https://forum.snapcraft.io/groups/reviewers) have traditionally referred to store request reviews, more specifically, reviews of privileged interface and classic confinement requests. This document defines the process and the criteria used to review these requests.
+The term *store-reviews* has traditionally been used by [@reviewers](https://forum.snapcraft.io/groups/reviewers) to refer to the review of store request, specifically those involving privileged interface and/or classic confinement. This document defines the process and the criteria used to review these requests.
 
 ## Process
 
@@ -108,14 +108,14 @@ The following permissions pose a risk for the users and/or for the ecosystem and
 
 * Auto-connection to password-manager-service (use secret portal instead)
 * Manual connection to personal-files that allow confinement escape
-  * ~/.local/share/applications
-  * ~/.local/share/mime
-  * *-support interfaces
+  * `~/.local/share/applications`
+  * `~/.local/share/mime`
+  * `*-support interfaces`
 
 #### May be granted
 
 The following permissions may be granted even if all the criteria above is not fulfilled.
 * Personal-files where the application is the clear owner of the requested files and the snap is published by the upstream
-  * ~/.<snap-name>
-  * ~/.config/<snap-name>
+  * `~/.<snap-name>`
+  * `~/.config/<snap-name>`
 

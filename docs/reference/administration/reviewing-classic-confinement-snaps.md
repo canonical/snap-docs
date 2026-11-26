@@ -37,7 +37,7 @@ Classic requests generally fall under a number of categories. Below lists catego
 
 ## Unsupported categories
 
-There are also some reasons that are well understood to not be supported and some of them have well-known workarounds:
+There are also reasons that are known to be unsupported, and the workarounds discussed below should be used where available. Any snap that falls into one or more of the following categories will always require an override from an architect to use classic confinement.
 
 * management snaps
 * 3rd party installer snaps (eg, for native packages, AppImages, Flatpaks, Snaps, etc)
