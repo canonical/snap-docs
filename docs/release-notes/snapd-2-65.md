@@ -16,7 +16,7 @@ myst:
 * AppArmor: fix parser lookup
 * AppArmor: support AppArmor snippet priorities
 * AppArmor: allow reading cgroup memory.max file
-* AppArmor: allow using snap-exec coming from the snapd snap when starting a confined process with jailmode
+* AppArmor: allow using snap-exec coming from the snapd snap when starting a confined process with `jailmode`
 * AppArmor prompting (experimental): add checks for prompting support, include prompting status in system key, and restart snapd if prompting flag changes
 * AppArmor prompting (experimental): include prompt prefix in AppArmor rules if prompting is supported and enabled
 * AppArmor prompting (experimental): add common types, constraints, and mappings from AppArmor permissions to abstract permissions
@@ -43,7 +43,7 @@ myst:
 * Allow re-exec when SNAP_REEXEC is set for unlisted distros to simplify testing
 * Allow mixing revision and channel on snap install
 * Generate GNU build ID for Go binaries
-* Add missing etelpmoc.sh for shell completion
+* Add missing `etelpmoc.sh` for shell completion
 * Do not attempt to run snapd on classic when re-exec is disabled
 * Packaging/build maintenance for Debian sid, Fedora, Arch, openSuse
 * Add snap debug API command to enable running raw queries
@@ -53,7 +53,7 @@ myst:
 * Support creating pending serial bound users after serial assertion becomes available
 * Support disabling cloud-init using kernel command-line
 * In hybrid systems, apps can refresh without waiting for restarts required by essential snaps
-* Ship snap-debug-info.sh script used for system diagnostics
+* Ship `snap-debug-info.sh` script used for system diagnostics
 * Improve error messages when attempting to run non-existent snap
 * Switch to -u UID:GID for strace-static
 * Support enabling snapd logging with snap set system debug.snapd.{log,log-level}
@@ -90,7 +90,7 @@ myst:
 * custom-device interface: allow device file locking
 * lxd-support interface: allow LXD to self-manage its own cgroup
 * network-manager interface: support MPTCP sockets
-* network-control interface: allow plug/slot access to gnutls config and systemd resolved cache flushing via D-Bus
+* network-control interface: allow plug/slot access to `gnutls` config and systemd resolved cache flushing via D-Bus
 * network-control interface: allow wpa_supplicant dbus api
 * gpio-control interface: support gpiochip* devices
 * polkit interface: fix "rw" mount option check

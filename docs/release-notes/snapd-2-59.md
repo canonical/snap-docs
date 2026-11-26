@@ -16,7 +16,7 @@ myst:
 * Support for udisks2 snap
 * Pre-download of snaps ready for refresh and automatic refresh of the snap when all apps are closed
 * New microovn interface
-* Support uboot with `CONFIG_SYS_REDUNDAND_ENV=n`
+* Support `uboot` with `CONFIG_SYS_REDUNDAND_ENV=n`
 * Make "snap-preseed --reset" re-exec when needed
 * Update the fwupd interface to support fully confined fwupd
 * The memory,cpu,thread quota options are no longer experimental

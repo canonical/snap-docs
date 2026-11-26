@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Snapd release notes. Review new features, bug fixes, and changes across recent stable, beta, and earlier snapd releases.
+    description: Snapd release notes. Review new features, bug fixes, and changes across recent stable, beta, and earlier Snapd releases.
 ---
 
 (reference-release-notes)=
@@ -19,7 +19,7 @@ This page lists the release notes of all recent versions of Snapd, summarising n
 
 Content targeting this release must be ready by 16 October 2026.
 
-This release was delayed because snapd was updated to the core26 base. That base inherited [Resolute's s390x jump to z15](https://bugs.launchpad.net/ubuntu-z-systems/+bug/2126577), which breaks snapd support for s390x z13. As a temporary solution, we are dropping snapd's move to the core26 base while we work on a solution. The beta and candidate dates have moved. The stable date is unchanged.
+This release was delayed because Snapd was updated to the core26 base. That base inherited [Resolute's s390x jump to z15](https://bugs.launchpad.net/ubuntu-z-systems/+bug/2126577), which breaks Snapd support for s390x z13. As a temporary solution, we are dropping Snapd's move to the core26 base while we work on a solution. The beta and candidate dates have moved. The stable date is unchanged.
 
 | Milestone | Status | Date |
 |---|---|---|
@@ -29,11 +29,11 @@ This release was delayed because snapd was updated to the core26 base. That base
 
 ## Release policy and schedule
 
-The snapd package updates automatically, and by default, checks for updates 4 times a day. To manually update or modify this process, see {ref}`Managing updates <how-to-guides-work-with-snaps-manage-updates>`.
+Snapd updates automatically and, by default, checks for updates 4 times a day. To manually update or modify this process, see {ref}`Managing updates <how-to-guides-work-with-snaps-manage-updates>`.
 
 {ref}`Channels <explanation-how-snaps-work-channels-and-tracks>` are used to distinguish between stable releases, which are always available from the stable channel, and beta and testing releases, which can be installed from the candidate, beta and edge channels.
 
-To install snapd from the beta channel, for example, use the following command:
+To install the snapd snap from the beta channel, for example, use the following command:
 
 ```
 sudo snap refresh snapd --beta
@@ -48,7 +48,6 @@ We greatly appreciate your contributions and support!
 
 ## Older releases
 
-* {ref}`Snapd 2.78 <release-notes_snapd-2-78>`
 * {ref}`Snapd 2.77 <release-notes_snapd-2-77>`
 * {ref}`Snapd 2.76 <release-notes_snapd-2-76>`
 * {ref}`Snapd 2.75 <release-notes_snapd-2-75>`

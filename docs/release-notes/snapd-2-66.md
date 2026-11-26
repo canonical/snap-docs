@@ -47,21 +47,21 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 * Snap components: handle refreshing components independently of snaps
 * Snap components: handle removing components when refreshing a snap that no longer defines them
 * Snap components: extend snapd Ubuntu Core installation API to allow for picking optional snaps and components to install
-* Snap components: extend kernel.yaml with "dynamic-modules", allowing kernel to define a location for kmods from component hooks
+* Snap components: extend kernel.yaml with "dynamic-modules", allowing kernel to define a location for `kmods` from component hooks
 * Snap components: renamed component type "test" to "standard"
 * Desktop IDs: support installing desktop files with custom names based on desktop-file-ids desktop interface plug attr
 * Auto-install snapd on classic systems as prerequisite for any non-essential snap install
-* Support loading AppArmor profiles on WSL2 with non-default kernel and securityfs mounted
+* Support loading AppArmor profiles on WSL2 with non-default kernel and `securityfs` mounted
 * Debian/Fedora packaging updates
 * Add snap debug command for investigating execution aspects of the snap toolchain
 * Improve snap pack error for easier parsing
 * Add support for user services when refreshing snaps
 * Add snap remove --terminate flag for terminating running snap processes
 * Support building FIPS complaint snapd deb and snap
-* Fix to not use nss when looking up for users/groups from snapd snap
+* Fix to not use `nss` when looking up for users/groups from snapd snap
 * Fix ordering in which layout changes are saved
 * Patch snapd snap dynamic linker to ignore LD_LIBRARY_PATH and related variables
-* Fix libexec dir for openSUSE Slowroll
+* Fix `libexec` dir for openSUSE Slowroll
 * Fix handling of the shared snap directory for parallel installs
 * Allow writing to /run/systemd/journal/dev-log by default
 * Avoid state lock during snap removal to avoid delaying other snapd operations
@@ -72,7 +72,7 @@ It also comes with new AppArmor version 4.0.2, which supports AppArmor prompting
 * desktop interface: add desktop-file-ids plug attr to desktop interface
 * unity7 interface: support desktop-file-ids in desktop files rule generation
 * desktop-legacy interface: support desktop-file-ids in desktop files rule generation
-* desktop-legacy interface: grant access to gcin socket location
+* desktop-legacy interface: grant access to `gcin` socket location
 * login-session-observe interface: allow introspection
 * custom-device interface: allow to explicitly identify matching device in udev tagging block
 * system-packages-doc interface: allow reading /usr/share/javascript

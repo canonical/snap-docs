@@ -303,7 +303,7 @@ redirects = {
    "linters-library": "https://documentation.ubuntu.com/snapcraft/stable/reference/linters/",
    "adding-snap-configuration": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/add-a-snap-configuration/",
    "parts-environment-variables": "https://documentation.ubuntu.com/snapcraft/stable/reference/parts/part-environment-variables/",
-    "deprecation-notice-10": "https://snapcraft.io/docs/release-notes/",
+   "deprecation-notice-10": "https://snapcraft.io/docs/release-notes/",
    "build-snaps/your-first-snap": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
    "snapcraft-setup": "https://documentation.ubuntu.com/snapcraft/stable/how-to/set-up-snapcraft/",
    "kbuild-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/",
@@ -385,6 +385,13 @@ linkcheck_ignore = [
     r"https://www\.nxp\.com/design/design-center/development-boards-and-designs/8MMINILPD4-EVK",
     # Intel QAT page works locally, but returns 403 to the CI linkcheck runner.
     r"https://www\.intel\.com/content/www/us/en/products/details/processors/xeon/features/quick-assist-technology\.html",
+    # Launchpad bugs that 404 for anonymous requests (private or hidden bugs),
+    # but are referenced by the original release notices.
+    r"https://bugs\.launchpad\.net/snapd/\+bug/2148544",
+    r"https://bugs\.launchpad\.net/stuttgart/\+bug/2095009",
+    # Daily image URL for the in-development release; it is only valid while
+    # the daily build is published.
+    r"https://cdimage\.ubuntu\.com/daily-live/current/resolute-desktop-amd64\.iso",
     ]
 
 

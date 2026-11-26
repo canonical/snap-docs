@@ -47,24 +47,24 @@ myst:
 * eMMC gadget updates (WIP): add syntax support in gadget.yaml for eMMC schema
 * Support for ephemeral recovery mode on hybrid systems
 * Support for dm-verity options in snap-bootstrap
-* Support for overlayfs options and allow empty what argument for tmpfs
+* Support for `overlayfs` options and allow empty what argument for `tmpfs`
 * Enable ubuntu-image to determine the size of the disk image to create
 * Expose 'snap debug' commands 'validate-seed' and 'seeding'
 * Add debug API option to use dedicated snap socket /run/snapd-snap.socket 
 * Hide experimental features that are no longer required (accepted/rejected)
-* Mount ubuntu-save partition with no{exec,dev,suid} at install, run and factory-reset
+* Mount ubuntu-save partition with no{exec,dev,`suid`} at install, run and factory-reset
 * Improve memory controller support with cgroup v2
 * Support ssh socket activation configurations (used by ubuntu 22.10+)
 * Fix generation of AppArmor profile with incorrect revision during multi snap refresh 
 * Fix refresh app awareness related deadlock edge case
 * Fix not caching delta updated snap download
-* Fix passing non root uid, guid to initial tmpfs mount
+* Fix passing non root uid, guid to initial `tmpfs` mount
 * Fix ignoring snaps in try mode when amending
 * Fix reloading of service activation units to avoid systemd errors
 * Fix snapd snap FIPS build on Launchpad to use Advantage Pro FIPS updates PPA
 * Make killing of snap apps best effort to avoid possibility of malicious failure loop
 * Alleviate impact of auto-refresh failure loop with progressive delay
-* Dropped timedatex in selinux-policy to avoid runtime issue
+* Dropped `timedatex` in selinux-policy to avoid runtime issue
 * Fix missing syscalls in seccomp profile
 * Modify AppArmor template to allow using SNAP_REEXEC on arch systems
 * Modify AppArmor template to allow using vim.tiny (available in base snaps)
@@ -75,11 +75,11 @@ myst:
 * custom-device interface: allow @ in custom-device filepaths
 * desktop interface: improve launch entry and systray integration with session
 * desktop-legacy interface: allow DBus access to com.canonical.dbusmenu
-* fwupd interface: allow access to nvmem for thunderbolt plugin
-* mpris interface: add plasmashell as label
+* fwupd interface: allow access to `nvmem` for thunderbolt plugin
+* mpris interface: add `plasmashell` as label
 * mount-control interface: add support for nfs mounts
 * network-{control,manager} interface: add missing dbus link rules
-* network-manager-observe interface: add getDevices methods
+* network-manager-observe interface: add `getDevices` methods
 * opengl interface: add Kernel Fusion Driver access to opengl
 * screen-inhibit-control interface: improve screen inhibit control for use on core
 * udisks2 interface: allow ping of the UDisks2 service

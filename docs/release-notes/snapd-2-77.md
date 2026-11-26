@@ -19,7 +19,7 @@ This release contains the 26.10 image content.
 * Add code to calculate canonical subject name hash
 * Add commands for debugging or accessing snap mount namespaces
 * Add helpers for listing and iterating device mediation groups
-* Add package ebpf with helpers wrapping eBPF exposed objects with dependency on github.com/cilium/ebpf
+* Add package `ebpf` with helpers wrapping eBPF exposed objects with dependency on github.com/cilium/ebpf
 * Add secondary prerequisites task that acts as the synchronization point, which ensures that a snap's prerequisites are available before it's installed
 * Add support for shell conditional syntax in envs
 * Added /usr/share/{man,help,info} to system-packages-doc
@@ -27,14 +27,14 @@ This release contains the 26.10 image content.
 * asserts: ensure that compatibility labels are strings
 * asserts: extend on-classic constraints to accept "distro/variant", "distro/*", and "distro/" under a new snap-declaration format 7
 * asserts: validate serial in newDeviceIDFromString
-* Bump github.com/canonical/go-efilib to v1.8.0 to include fixes for efivars probe
+* Bump github.com/canonical/go-efilib to v1.8.0 to include fixes for `efivars` probe
 * confdb: add validation-sets handler and fix data loss when writing to new schemas or accounts
 * confdb: fix bug on reading uneven lists
 * confdb: literal subkeys are sorted after placeholders
 * confdb: run observe-view-* hooks after commit
 * confdb: support Encode/Decode for builtins
 * confdb: support sign-only external keypair backends
-* core-initrd: add missing libbpf and systemd dlopen dependencies, and increase mount burst
+* core-initrd: add missing `libbpf` and systemd `dlopen` dependencies, and increase mount burst
 * Drop task logs for delayed effects
 * During snap removal, clear-snap task errors early if there are user mounts in snap data dirs
 * Enable reverts to trigger a seed refresh
@@ -44,7 +44,7 @@ This release contains the 26.10 image content.
 * experimental features: graduate layouts, classic-preserves-xdg-runtime-dir, refresh-app-awareness, and dbus-activation features
 * experimental features: warn when setting graduated or default-enabled experimental features and do not store settings for graduated features
 * Expose individual certs as well as c_rehash emulation
-* Extend autogen with explicit --sysconfdir
+* Extend `autogen` with explicit --sysconfdir
 * External keypair manager: add shared external key manager implementation
 * External keypair manager: refactor GPG and external keypair managers to use extKeypairMgrImpl
 * External keypair manager: support external OPENPGP signing in ExternalKeypairManager
@@ -53,7 +53,7 @@ This release contains the 26.10 image content.
 * FDE: add reprovision recovery key generation API
 * FDE: add reseal check after snapd refresh
 * FDE: allow reprovision without factory reset
-* FDE: change makebootable part of the boot package to not take install observers as parameters
+* FDE: change `makebootable` part of the boot package to not take install observers as parameters
 * FDE: extend storage-encrypted system information
 * FDE: make reprovision only seal
 * FDE: remove all tmp keyslots on error
@@ -61,19 +61,19 @@ This release contains the 26.10 image content.
 * FDE: run post install checks during auto repair
 * Filter seed-refresh based on model and seed presence
 * Fix failing snap remove when there are snapctl created mounts under snap global data dirs
-* Fix postNotices to validate before locking state
+* Fix `postNotices` to validate before locking state
 * Guard the ensure check from running on classic
 * Implement remodeling fully in terms of updates
 * Implement ShutDown for HookManager
 * Include variables SNAP_APP_NAME, and when applicable SNAP_APP_COMMON_ID, SNAP_APP_DESKTOP_FILE and SNAP_APP_BUS_NAME in snap application environments
 * interfaces: add xdg-portal-permission-store interface
 * interfaces: allow gtk css in subdirectories
-* interfaces: allow systemd networkd link property changes via D-Bus
-* interfaces: allow the systemd networkctl command
+* interfaces: allow systemd `networkd` link property changes via D-Bus
+* interfaces: allow the systemd `networkctl` command
 * interfaces: allow Wine to execute files accessed via the Document Portal
 * interfaces: apparmor-observe | add interface
 * interfaces: attempt to fix content with parallel installs
-* interfaces: devlxd | fix access for LXD containers
+* interfaces: `devlxd` | fix access for LXD containers
 * interfaces: docker | allow connecting to system-wide docker on classic
 * interfaces: grant default access to memory.high in a snap's cgroup
 * interfaces: iscsi-initiator | allow access to /var/lib/iscsi/nodes
@@ -88,12 +88,12 @@ This release contains the 26.10 image content.
 * LP: #2110510 Interfaces: allow reading of /proc/self/smaps_rollup
 * LP: #2143934 Interfaces: network-control, network-manager | allow missing resolve1 link setters
 * LP: #2160691 Security logging: strip trailing whitespace from audit netlink message payload
-* LP: #2161982 Interfaces: vsock | add interface for VM guest services
+* LP: #2161982 Interfaces: `vsock` | add interface for VM guest services
 * Make arguments of debug mount-namespace consistent with other debug commands
 * Make bootloader logging less verbose
 * Make cert manager garbage check run after symlink migration
 * Make secondary prerequisite synchronization task handle same-change retries
-* mkversion.sh: do describe in worktrees too
+* `mkversion.sh`: do describe in worktrees too
 * multi-entry snapd: merge snap and snapd binaries
 * multi-entry snapd: move debug device-cgroup implementation file under cmd/snapd/cli
 * multi-entry snapd: move snap-gpio-helper sources around before transitioning to multi-entry dispatch
@@ -117,15 +117,15 @@ This release contains the 26.10 image content.
 * Refactor base-declaration into 1st class builtin assertion
 * Refactor how the is-originating-from-snap-command advisory check works
 * Refactor prerequisites task handler to enable proper seed-refresh integration
-* Reintroduce fdstore helpers
+* Reintroduce `fdstore` helpers
 * remote device management: add task to validate request messages
 * remote device management: apply management messages, queue response messages, and improve sequencing and redelivery handling
-* Remove osutil unused AtomicWriteFollow flag
-* Remove xerrors dependency
+* Remove `osutil` unused AtomicWriteFollow flag
+* Remove `xerrors` dependency
 * Reuse existing seed-refresh implementation for free during single-path installation
 * Rework how SnapSetup.SnapPath is used
 * seccomp: allow rseq_slice_yield
-* security logging: add seclog API for administrative actions and token create/remove events
+* security logging: add `seclog` API for administrative actions and token create/remove events
 * security logging: add security logging for adding, updating and removing a snapd user
 * Set target hostname from install-mode
 * snap-confine: improve loading of BPF programs, retry on failures to collect verifier logs
@@ -205,7 +205,7 @@ Snapd 2.77.1 carries the 26.10 FDE work for reprovision and post-install handlin
 
 These experimental features have graduated. They are now always enabled.
 
-- **layouts:** a snap can bind-mount, symlink, or place a tmpfs inside its mount namespace
+- **layouts:** a snap can bind-mount, symlink, or place a `tmpfs` inside its mount namespace
 - **classic-preserves-xdg-runtime-dir:** on classic, a snap keeps the session `XDG_RUNTIME_DIR` and can reach user-session services there
 - **refresh-app-awareness:** snapd holds a refresh while that snap’s apps are running
 - **dbus-activation:** a snap app or service can be started by D-Bus activation

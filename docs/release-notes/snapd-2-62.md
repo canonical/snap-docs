@@ -36,7 +36,7 @@ Finally, this release included new packages for Arch Linux, Amazon Linux, Debian
 * Add support for AppArmor 4.0 unconfined profile mode
 * Add AppArmor based read access to /etc/default/keyboard
 * Upgrade to squashfuse 0.5.0
-* Support useradd utility to enable removing Perl dependency for UC24+
+* Support `useradd` utility to enable removing Perl dependency for UC24+
 * Support for recovery-chooser to use console-conf snap
 * Add support for --uid/--gid using strace-static
 * Add support for notices (from pebble) and expose via the snapd REST API endpoints /v2/notices and /v2/notice
@@ -55,7 +55,7 @@ Finally, this release included new packages for Arch Linux, Amazon Linux, Debian
 * Fix to ensure always setting up the device cgroup for base bare and core24+
 * Fix not copying data from newly set homedirs on revision change
 * Fix leaving behind empty snap home directories after snap is removed (resulting in broken symlink)
-* Fix to avoid using libzstd from host by adding to snapd snap
+* Fix to avoid using `libzstd` from host by adding to snapd snap
 * Fix autorefresh to correctly handle forever refresh hold
 * Fix username regex allowed for system-user assertion to not allow '+'
 * Fix incorrect application icon for notification after autorefresh completion
@@ -76,9 +76,9 @@ Finally, this release included new packages for Arch Linux, Amazon Linux, Debian
 * opengl interface: allow read access to /usr/share/nvidia
 * personal-files interface: extend to support automatic creation of missing parent directories in write paths
 * network-control interface: allow creating /run/resolveconf
-* network-setup-control and network-setup-observe interfaces: allow busctl bind as required for systemd 254+
+* network-setup-control and network-setup-observe interfaces: allow `busctl` bind as required for systemd 254+
 * libvirt interface: allow r/w access to /run/libvirt/libvirt-sock-ro and read access to /var/lib/libvirt/dnsmasq/**
-* fwupd interface: allow access to IMPI devices (including locking of device nodes), sysfs attributes needed by amdgpu and the COD capsule update directory
+* fwupd interface: allow access to IMPI devices (including locking of device nodes), sysfs attributes needed by `amdgpu` and the COD capsule update directory
 * uio interface: allow configuring UIO drivers from userspace libraries
 * serial-port interface: add support for NXP Layerscape SoC
 * lxd-support interface: add attribute enable-unconfined-mode to require LXD to opt-in to run unconfined

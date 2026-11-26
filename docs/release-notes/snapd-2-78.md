@@ -67,8 +67,6 @@ This release contains the 26.10 update content.
 
 - **refresh-app-awareness-ux:** enabled by default.
 
-For the release plan and complete list of changes, please refer to the [full release notes](https://forum.snapcraft.io/t/the-snapd-roadmap/1973).
-
 ## Test feedback
 
 Feel free to share your test feedback here or directly in [Launchpad](https://bugs.launchpad.net/snapd/+filebug). To help fast-track investigations, please include details about your system, the snapd version(s), and steps to reproduce the issue.
@@ -112,7 +110,7 @@ Please report security vulnerabilities in private. The [snapd security policy](h
 * Attempt to refresh just essential snaps when disk space check fails
 * Properly consider new and existing revisions during disk space checks
 * Add disk-reservation.size option and migrate experimental disk space checks
-* Optimize perl and python rules in apparmor template for core24+ snaps
+* Optimize `perl` and python rules in apparmor template for core24+ snaps
 * Fix same kernel occupying multiple boot partitions for Little Kernel bootloader
 * Graduate quota-groups feature
 * Enable by default refresh-app-awareness-ux feature

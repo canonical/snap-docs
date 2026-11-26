@@ -20,7 +20,7 @@ The 2.24 release focuses on new features after several 2.23 maintenance releases
 * Handle missing `snap-confine` gracefully
 * Rework internal interface API to be more flexible and extensible
 * Detect devmode by inspecting AppArmor support in the kernel
-* Allow chroot in the base template
+* Allow `chroot` in the base template
 * Fix `pi-config` and add new `sdtv_aspect`, `config_hdmi_boost`, `hdmi_force_hotplug` options
 * Interface updates: `browser-support`, `unity7`, `framebuffer`, `location-observe`, `location-control`, `mir`, `opengl`, `unity8`
 * New interfaces: `joystick`, `maliit`, `autopilot`

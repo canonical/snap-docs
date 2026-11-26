@@ -18,7 +18,7 @@ The bug was that when "layouts" are applied to content snap content, those layou
 *Released on Apr 20 2022.*
 
 * Fix refresh layout construction (fixes Firefox crash)
-* Support for the "piboot" bootloader
+* Support for the "`piboot`" bootloader
 * Interface operations are faster by using more batched operations
 * New mount-control interface ([topic](https://forum.snapcraft.io/t/the-mount-control-interface/28953))
 * New polkit interface ([topic](https://forum.snapcraft.io/t/the-polkit-interface/28408))

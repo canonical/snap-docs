@@ -11,5 +11,5 @@ myst:
 
 * Ubuntu Core 20 beta
 * Generic serials for third parties
-* Use xdg desktop portal from `snapctl user-open`
+* Use `xdg` desktop portal from `snapctl user-open`
 * Custom SSL cert support for store interactions ([topic](https://forum.snapcraft.io/t/custom-ssl-certs-for-snapd-to-the-snap-store-communication/17446)).

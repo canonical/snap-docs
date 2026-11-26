@@ -60,12 +60,12 @@ Until all kernel snaps are updated, snapd from latest/edge cannot be used for in
 * Confdb(experimental): add confdb-control assertion and feature flag
 * Refresh App Awareness(experimental): LP: #2089195 prevent possibility of incorrect notification that snap will quit and update
 * Confidential VMs: snap-bootstrap support for loading partition information from a manifest file for cloudimg-rootfs mode
-* Confidential VMs: snap-bootstrap support for setting up cloudimg-rootfs as an overlayfs with integrity protection
+* Confidential VMs: snap-bootstrap support for setting up cloudimg-rootfs as an `overlayfs` with integrity protection
 * dm-verity for essential snaps: add support for snap-integrity assertion
 * Interfaces: modify AppArmor template to allow owner read on @{PROC}/@{pid}/fdinfo/*
 * Interfaces: [LP: #2072987](https://bugs.launchpad.net/snapd/+bug/2072987) modify AppArmor template to allow using setpriv to run daemon as non-root user
-* Interfaces: add configfiles backend that ensures the state of configuration files in the filesystem
-* Interfaces: add ldconfig backend that exposes libraries coming from snaps to either the rootfs or to other snaps
+* Interfaces: add `configfiles` backend that ensures the state of configuration files in the filesystem
+* Interfaces: add `ldconfig` backend that exposes libraries coming from snaps to either the rootfs or to other snaps
 * Interfaces: [LP: #1712808](https://bugs.launchpad.net/snapd/+bug/1712808) [LP: 1865503](https://bugs.launchpad.net/snapd/+bug/1865503) disable udev backend when inside a container
 * Interfaces: add auditd-support interface that grants audit_control capability and required paths for auditd to function
 * Interfaces: add checkbox-support interface that allows unrestricted access to all devices
@@ -76,10 +76,10 @@ Until all kernel snaps are updated, snapd from latest/edge cannot be used for in
 * Interfaces: locale-control | changed to be implicit on Ubuntu Core Desktop
 * Interfaces: microstack-support | support for utilizing of AMD SEV capabilities
 * Interfaces: u2f | added missing OneSpan device product IDs
-* Interfaces: auditd-support | grant seccomp setpriority
+* Interfaces: auditd-support | grant seccomp `setpriority`
 * Interfaces: opengl interface | enable parsing of nvidia driver information files
 * Interfaces:  [LP: #2095009](https://bugs.launchpad.net/stuttgart/+bug/2095009) mount-control interface | add CIFS support
-* Allow mksquashfs 'xattrs' when packing snap types os, core, base and snapd as part of work to support non-root snap-confine
+* Allow `mksquashfs` '`xattrs`' when packing snap types os, core, base and snapd as part of work to support non-root snap-confine
 * Upstream/downstream packaging changes and build updates
 * Improve error logs for malformed desktop files to also show which desktop file is at fault
 * Provide more precise error message when overriding channels with grade during seed creation
@@ -90,9 +90,9 @@ Until all kernel snaps are updated, snapd from latest/edge cannot be used for in
 * Remove stale robust-mount-namespace-updates experimental feature flag
 * Remove snapd-snap experimental feature (rejected) and it's feature flag
 * Changed snap-bootstrap to mount base directly on /sysroot
-* Mount ubuntu-seed mounted as no-{suid,exec,dev}
+* Mount ubuntu-seed mounted as no-{`suid`,exec,dev}
 * Mapping volumes to disks: add support for volume-assignments in gadget
-* Fix silently broken binaries produced by distro patchelf 0.14.3 by using locally build patchelf 0.18
+* Fix silently broken binaries produced by distro `patchelf` 0.14.3 by using locally build `patchelf` 0.18
 * Fix mismatch between listed refresh candidates and actual refresh due to outdated validation sets
 * Fix 'snap get' to produce compact listing for tty
 * Fix missing store-url by keeping it as part of auxiliary store info
@@ -116,7 +116,7 @@ Until all kernel snaps are updated, snapd from latest/edge cannot be used for in
 * FDE: use boot mode for FDE hooks
 * FDE: add snap-bootstrap compatibility check to prevent image~19 March 2025 creation with incompatible snapd and kernel snap
 * FDE: add argon2 out-of-process KDF support
-* FDE: have separate mutex for the sections writing a fresh modeenv
+* FDE: have separate mutex for the sections writing a fresh `modeenv`
 * FDE: [LP: #2099709](https://bugs.launchpad.net/snapd/+bug/2099709) update secboot to e07f4ae48e98
 * Confdb: support pruning ephemeral data and process alternative types in order
 * core-initrd: look at env to mount directly to /sysroot
@@ -133,7 +133,7 @@ Until all kernel snaps are updated, snapd from latest/edge cannot be used for in
 
 * [FDE](https://ubuntu.com/core/docs/full-disk-encryption): Add support for a new and more extensible key format and passphrases for encrypted partitions can now be specified during installation.
 * [Components](https://snapcraft.io/docs/components): Support online/offline [remodeling](https://ubuntu.com/core/docs/remodelling) and the creation of new recovery systems for models that contain components, on Ubuntu Core as well as Hybrid systems. Components are useful for distributing optional resources for a snap, such as debug symbols alongside snap binaries, and kernel modules alongside a kernel snap.
-* [Kernel Components](https://canonical-snapcraft.readthedocs-hosted.com/en/stable/reference/components.html): Make kernel components and modules available in early boot.
+* [Kernel Components](https://documentation.ubuntu.com/snapcraft/stable/reference/components/): Make kernel components and modules available in early boot.
 * Interfaces: Added the [auditd-support interface](https://snapcraft.io/docs/auditd-support-interface), which allows a snap to ship auditd as part of a snap, and the `checkbox-support` interface, which allows unrestricted access to devices when testing with checkbox.
 
 ### Notable updates
@@ -168,7 +168,7 @@ However, please do report bugs if you find issues when:
 
 * FDE: [LP: #2101834](https://bugs.launchpad.net/snapd/+bug/2101834) snapd 2.68+ and snap-bootstrap <2.68 fallback to old keyring path
 * Fix Plucky snapd deb build issue related to /var/lib/snapd/void permissions
-* Fix snapd deb build complaint about ifneq with extra bracket
+* Fix snapd deb build complaint about `ifneq` with extra bracket
 
 ## Snapd 2.68.4
 

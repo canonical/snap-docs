@@ -40,7 +40,7 @@ For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progres
 
 * FDE: auto-repair when recovery key is used
 * FDE: revoke keys on shim update
-* FDE: revoke old TPM keys when dbx has been updated
+* FDE: revoke old TPM keys when `dbx` has been updated
 * FDE: do not reseal FDE hook keys every time
 * FDE: store keys in the kernel keyring when installing from initrd
 * FDE: allow disabled DMA on Core
@@ -70,7 +70,7 @@ For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progres
 * SELinux: look for restorecon/matchpathcon at all known locations rather than current PATH
 * SELinux: update policy to allow watching cgroups (for RAA), and talking to user session agents (service mgmt/refresh)
 * Refresh App Awareness: Fix unexpected inotify file descriptor cleanup
-* snap-confine: workaround for glibc fchmodat() fallback and handle ENOSYS
+* snap-confine: workaround for `glibc` fchmodat() fallback and handle ENOSYS
 * snap-confine: add support for host policy for limiting users able to run snaps
 * LP: #2114923 Reject system key mismatch advise when not yet seeded
 * Use separate lanes for essential and non-essential snaps during seeding and allow non-essential installs to retry
@@ -93,8 +93,8 @@ For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progres
 * Interfaces: gpg-keys | allow access to GPG agent sockets
 * Interfaces: usb-gadget | add new interface
 * Interfaces: snap-fde-control, firmware-updater-support | add new interfaces to support FDE
-* Interfaces: timezone-control | extend to support timedatectl varlink
-* Interfaces: cpu-control | fix rules for accessing IRQ sysfs and procfs directories
+* Interfaces: timezone-control | extend to support `timedatectl` `varlink`
+* Interfaces: cpu-control | fix rules for accessing IRQ sysfs and `procfs` directories
 * Interfaces: microstack-support | allow SR-IOV attachments
 * Interfaces: modify AppArmor template to allow snaps to read their own systemd credentials
 * Interfaces: posix-mq | allow stat on /dev/mqueue
@@ -107,10 +107,10 @@ For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE progres
 * Interfaces: modify AppArmor template to allow reading /proc/sys/fs/nr_open
 * Packaging: drop snap.failure service for openSUSE
 * Packaging: add SELinux support for openSUSE
-* Packaging: disable optee when using nooptee build tag
-* Packaging: add support for static PIE builds in snapd.mk, drop pie.patch from openSUSE
+* Packaging: disable `optee` when using `nooptee` build tag
+* Packaging: add support for static PIE builds in `snapd.mk`, drop pie.patch from openSUSE
 * Packaging: add libcap2-bin runtime dependency for ubuntu-16.04
-* Packaging: use snapd.mk for packaging on Fedora
+* Packaging: use `snapd.mk` for packaging on Fedora
 * Packaging: exclude .git directory
 * Packaging: fix DPKG_PARSECHANGELOG assignment
-* Packaging: fix building on Fedora with dpkg installed
+* Packaging: fix building on Fedora with `dpkg` installed

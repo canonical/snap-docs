@@ -72,10 +72,10 @@ Feel free to provide your test feedback here or directly in [Launchpad](https://
 * Confdb: fully support lists and indexed paths (including unset)
 * Prompting: add notice backend for prompting types (unused for now)
 * Prompting: include request cgroup in prompt
-* Prompting: handle unsupported xattrs
+* Prompting: handle unsupported `xattrs`
 * Prompting: add permission mapping for the camera interface
 * Notices: read notices from state without state lock
-* Notices: add methods to get notice fields and create, reoccur, and deepcopy notice
+* Notices: add methods to get notice fields and create, reoccur, and `deepcopy` notice
 * Notices: add notice manager to coordinate separate notice backends
 * Notices: support draining notices from state when notice backend registered as producer of a particular notice type
 * Notices: query notice manager from daemon instead of querying state for notices directly
@@ -83,12 +83,12 @@ Feel free to provide your test feedback here or directly in [Launchpad](https://
 * Packaging: FIPS | bump deb Go FIPS to 1.23
 * Packaging: snap | bump FIPS toolchain to 1.23
 * Packaging: debian | sync most upstream changes
-* Packaging: debian-sid | depends on libcap2-bin for postint
-* Packaging: Fedora | drop fakeroot
-* Packaging: snap | modify snapd.mk to pass build tags when running unit tests
-* Packaging: snap | modify snapd.mk to pass nooptee build tag
-* Packaging: modify Makefile.am to fix snap-confine install profile with 'make hack'
-* Packaging: modify Makefile.am to fix out-of-tree use of 'make hack'
+* Packaging: debian-sid | depends on libcap2-bin for `postint`
+* Packaging: Fedora | drop `fakeroot`
+* Packaging: snap | modify `snapd.mk` to pass build tags when running unit tests
+* Packaging: snap | modify `snapd.mk` to pass `nooptee` build tag
+* Packaging: modify `Makefile.am` to fix snap-confine install profile with 'make hack'
+* Packaging: modify `Makefile.am` to fix out-of-tree use of 'make hack'
 * LP: #2122054 Snap installation: skip snap icon download when running in a cloud or using a proxy store
 * Snap installation: add timeout to http client when downloading snap icon
 * Snap installation: use http(s) proxy for icon downloads
@@ -130,5 +130,5 @@ Feel free to provide your test feedback here or directly in [Launchpad](https://
 * Drop legacy BAMF_DESKTOP_FILE_HINT in desktop files
 * Fix /v2/apps error for root user when user services are present
 * LP: #2114704 Extend output to indicate when snap data snapshot was created during remove
-* Improve how we handle emmc volumes
+* Improve how we handle `emmc` volumes
 * Improve handling of system-user extra assertions

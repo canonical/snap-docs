@@ -61,5 +61,5 @@ We also got closer to finishing our opt-in AppArmor prompting support , with som
 * Fix cups auto-connect on classic with cups snap installed
 * u2f-devices interface support for GoTrust Idem Key with USB-C
 * Fix to restore services after unlink failure
-* Add libcudnn.so to Nvidia libraries
+* Add `libcudnn.so` to Nvidia libraries
 * Fix skipping base snap download due to false snapd downgrade conflict

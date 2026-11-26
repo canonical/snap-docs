@@ -30,7 +30,7 @@ There’s also a new `snap sign` [`--chain`](https://documentation.ubuntu.com/co
 * Allow more than one interface to grant access to the same API endpoint or notice type
 * Allow all snapd service's control group processes to send systemd notifications to prevent warnings flooding the log
 * Enable not preseeded single boot install
-* Update secboot to handle new sbatlevel
+* Update secboot to handle new `sbatlevel`
 * Fix to not use cgroup for non-strict confined snaps (devmode, classic)
 * Fix two race conditions relating to freedesktop notifications
 * Fix missing tunables in snap-update-ns AppArmor template
@@ -38,8 +38,8 @@ There’s also a new `snap sign` [`--chain`](https://documentation.ubuntu.com/co
 * Rework seccomp allow/deny list
 * Clean up files removed by gadgets
 * Remove non-viable boot chains to avoid secboot failure
-* posix_mq interface: add support for missing time64 mqueue syscalls mq_timedreceive_time64 and mq_timedsend_time64
-* password-manager-service interface: allow kwalletd version 6
+* posix_mq interface: add support for missing time64 `mqueue` syscalls mq_timedreceive_time64 and mq_timedsend_time64
+* password-manager-service interface: allow `kwalletd` version 6
 * kubernetes-support interface: allow SOCK_SEQPACKET sockets
 * system-observe interface: allow listing systemd units and their properties
 * opengl interface: enable use of nvidia container toolkit CDI config generation
