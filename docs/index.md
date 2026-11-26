@@ -104,4 +104,5 @@ Explanation <explanation/index>
 :maxdepth: 2
 
 Contributing <contributing/index.md>
+Release notes <release-notes/index.md>
 ```

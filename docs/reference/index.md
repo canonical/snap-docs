@@ -47,7 +47,6 @@ YAML schemas define exactly what a device, kernel and snap is capable of.
 :glob:
 
 Glossary <glossary>
-Release notes <release-notes>
 System architecture <system-architecture>
 Interfaces <interfaces/index>
 Administration <administration/index>

@@ -303,7 +303,7 @@ redirects = {
    "linters-library": "https://documentation.ubuntu.com/snapcraft/stable/reference/linters/",
    "adding-snap-configuration": "https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/add-a-snap-configuration/",
    "parts-environment-variables": "https://documentation.ubuntu.com/snapcraft/stable/reference/parts/part-environment-variables/",
-   "deprecation-notice-10": "https://snapcraft.io/docs/reference/release-notes/",
+    "deprecation-notice-10": "https://snapcraft.io/docs/release-notes/",
    "build-snaps/your-first-snap": "https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/",
    "snapcraft-setup": "https://documentation.ubuntu.com/snapcraft/stable/how-to/set-up-snapcraft/",
    "kbuild-plugin": "https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/",

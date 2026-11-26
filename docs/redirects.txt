@@ -80,7 +80,7 @@ the-prepare-device-hook/ reference/development/yaml-schemas/the-gadget-snap
 the-prepare-serial-request-hook/ reference/development/yaml-schemas/the-gadget-snap
 the-kernel-snap/ reference/development/yaml-schemas/the-kernel-snap
 kernel-snap/ reference/development/yaml-schemas/the-kernel-snap
-release-notes/ reference/release-notes
+reference/release-notes/ release-notes/
 snap-explanation/ explanation
 refresh-awareness/ explanation/how-snaps-work/refresh-awareness
 channels/ explanation/how-snaps-work/channels-and-tracks
