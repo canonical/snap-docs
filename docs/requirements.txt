@@ -28,7 +28,7 @@ sphinx-last-updated-by-git
 sphinx-sitemap
 
 # Vale dependencies
-rst2html
+docutils
 vale
 
 # For snap-docs
