@@ -28,7 +28,6 @@ sphinx-last-updated-by-git
 sphinx-sitemap
 
 # Vale dependencies
-rst2html
 vale
 
 # For snap-docs
