@@ -59,7 +59,7 @@ This is **reserved for truly long-standing Linux projects** with big communities
 
 * Track record of active development and maintenance for at least one year.
 * There is evidence that the application and/or the snap has a regular user base
-* For higher levels of privilege (explicit list of interfaces to be determined), the upstream project and the snap have at least two active maintainers.
+* For super-privilege interfaces, the upstream project and the snap have at least two active maintainers.
 
 Requests for classic confinement are not subject to these exceptions.
 
@@ -110,7 +110,7 @@ The following permissions pose a risk for the users and/or for the ecosystem and
 * Manual connection to personal-files that allow confinement escape
   * `~/.local/share/applications`
   * `~/.local/share/mime`
-  * `*-support interfaces`
+* `*-support interfaces`
 
 #### May be granted
 
