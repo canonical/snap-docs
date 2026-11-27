@@ -19,9 +19,9 @@ Deepen your understanding of how snaps can run on all kinds of devices, in all k
 
 Snaps that require privileged access to resources need to go through a review step.
 
-* {ref}`Process for aliases, auto-connections and tracks <interfaces-process-for-aliases-auto-connections-and-tracks>`: How to ask for permission reviews on your snaps.
+* {ref}`Store-reviews: process and criteria <interfaces-process-for-aliases-auto-connections-and-tracks>`: How to ask for permission reviews on your snaps.
 * {ref}`Public, private and unlisted-snaps <interfaces-public-private-unlisted-snaps>`: The difference between the snaps everyone can see, and those limited to specific users.
-* {ref}`Reviewing classic confinement snaps <interfaces-reviewing-classic-confinement-snaps>`: How classic confinement permissions are granted.
+* {ref}`Classic confinement guidelines <interfaces-reviewing-classic-confinement-snaps>`: When is classic confinement typically required and when it is not.
 
 ```{toctree}
 :hidden:
@@ -34,6 +34,6 @@ Data locations <data-locations>
 Distribution support <distribution-support>
 Network requiremnts <network-requirements>
 Timer string format <timer-string-format>
-Request aliases, tracks and connections <process-for-aliases-auto-connections-and-tracks>
+Store-reviews: process and criteria <process-for-aliases-auto-connections-and-tracks>
 Public, Private and unlisted snaps <public-private-unlisted-snaps>
-Reviewing classic confinement <reviewing-classic-confinement-snaps>
+Classic confinement guidelines <reviewing-classic-confinement-snaps>

@@ -238,7 +238,7 @@ Sometimes it is also required to extend what is allowed by an existing interface
   * {ref}`AppArmor violations <how-to-guides-fix-common-issues-debug-snaps>`
   * {ref}`Seccomp violations <how-to-guides-fix-common-issues-debug-snaps>`
   * {ref}`File permissions and cgroups <explanation-security-security-policies>`
-* {ref}`How to request store approval for snap policy changes <interfaces-reviewing-classic-confinement-snaps>`
+* {ref}`How to request store approval for snap policy changes <interfaces-process-for-aliases-auto-connections-and-tracks>`
 
 To publish a classic snap that operates outside these restrictions, you must submit a classic confinement request that involves a rigorous process for vetting the publisher.
 
