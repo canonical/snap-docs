@@ -44,6 +44,7 @@ Extend snap functionality with API access, internal tools, and customised enviro
 
 * {ref}`Use the REST API <how-to-guides-manage-snaps-use-the-rest-api>`: how to access the SnapD REST API.
 * {ref}`Use snapctl <how-to-guides-manage-snaps-use-snapctl>`: use the snapctl tool within a snap application.
+* {ref}`Support parallel instances <how-to-guides-snap-development-support-parallel-instances>`: how to ensure your snap behaves properly with parallel instances.
 * {ref}`Test snapd fixes <how-to-guides-fix-common-issues-test-snapd-fixes>`: test out the latest release of the snap daemon.
 * {ref}`Debug snaps <how-to-guides-fix-common-issues-debug-snaps>`: solve issues with snapped application.
 * {ref}`snap try <interfaces-snap-try>`: test a snap package on your system.
